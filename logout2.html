@@ -1,0 +1,14 @@
+<ng-include src="'menu.html'"></ng-include>
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h1><i class="fas fa-sign-out-alt"></i> Salida del sistema</h1>
+      <button type="submit" ng-click="logout()" class="btn btn-danger ml-1">
+        Logout
+      </button>
+      <div class="alert alert-danger" role="alert" ng-show="fallo">
+        Ha habido un error al loguearte.
+      </div>
+    </div>
+  </div>
+</div>
