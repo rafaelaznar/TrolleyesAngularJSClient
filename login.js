@@ -4,10 +4,10 @@ miModulo.controller("LoginController", [
   "ajaxService",
   "auth",
   function ($scope, $location, ajaxService, auth) {
-    if (auth.data != null) {
+    if (auth.data.status != 403) {
       $location.path("/home");
     }
-
+    $scope.nombreUsuario = auth.data;
     $scope.controller = "LoginController";
 
     $scope.fallo = false;
@@ -17,7 +17,7 @@ miModulo.controller("LoginController", [
         .ajaxLogin($scope.txtLogin, $scope.txtPassword)
         .then(function (response) {
           $scope.respuesta = response.data;
-          if ($scope.respuesta == "Welcome") {
+          if ($scope.respuesta.status == 200) {
             $scope.fallo = false;
             $location.path("/home");
           } else {

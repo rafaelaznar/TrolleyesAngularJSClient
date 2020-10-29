@@ -3,12 +3,11 @@ miModulo.factory("ajaxService", [
   function ($http) {
     return {
       ajaxLogin: function (username, password) {
-        return $http.get(
-          "http://localhost:8082/session/" +
-            username +
-            "/" +
-            forge_sha256(password)
-        );
+        var parameter = JSON.stringify({
+          login: username,
+          password: forge_sha256(password),
+        });
+        return $http.post("http://localhost:8082/session/", parameter);
       },
       ajaxLogout: function () {
         return $http.delete("http://localhost:8082/session/");
@@ -17,7 +16,7 @@ miModulo.factory("ajaxService", [
         return $http.get("http://localhost:8082/session/");
       },
       ajaxGet: function () {
-        return $http.get("http://localhost:8082/session/privado");
+        return $http.get("http://localhost:8082/session/private");
       },
     };
   },
