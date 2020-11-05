@@ -15,8 +15,12 @@ miModulo.controller("productoViewController", [
 
     ajaxService.ajaxGet("producto", $scope.id).then(function (response) {
       //if (response.data.status == 200) {
-        $scope.entity = response.data;
+      $scope.entity = response.data;
       //}
     });
+
+    $scope.volver = function () {
+      window.history.back();
+    };
   },
 ]);
