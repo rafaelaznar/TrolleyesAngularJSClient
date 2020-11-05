@@ -15,8 +15,8 @@ miModulo.factory("ajaxService", [
       ajaxCheck: function () {
         return $http.get("http://localhost:8082/session/");
       },
-      ajaxGet: function () {
-        return $http.get("http://localhost:8082/session/private");
+      ajaxGet: function (entidad, id) {
+        return $http.get("http://localhost:8082/" + entidad + "/" + id);
       },
     };
   },

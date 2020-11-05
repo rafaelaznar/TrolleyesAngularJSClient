@@ -2,7 +2,7 @@ miModulo.config([
   "$routeProvider",
   function ($routeProvider) {
     $routeProvider.when("/", {
-      templateUrl: "home.html",
+      templateUrl: "common/home.html",
       controller: "HomeController",
       resolve: {
         auth: function (ajaxService) {
@@ -12,7 +12,7 @@ miModulo.config([
     });
 
     $routeProvider.when("/home", {
-      templateUrl: "home.html",
+      templateUrl: "common/home.html",
       controller: "HomeController",
       resolve: {
         auth: function (ajaxService) {
@@ -22,7 +22,7 @@ miModulo.config([
     });
 
     $routeProvider.when("/login", {
-      templateUrl: "login.html",
+      templateUrl: "common/login.html",
       controller: "LoginController",
       resolve: {
         auth: function (ajaxService) {
@@ -32,7 +32,7 @@ miModulo.config([
     });
 
     $routeProvider.when("/logout", {
-      templateUrl: "logout.html",
+      templateUrl: "common/logout.html",
       controller: "LogoutController",
       resolve: {
         auth: function (ajaxService) {
@@ -42,7 +42,7 @@ miModulo.config([
     });
 
     $routeProvider.when("/logout2", {
-      templateUrl: "logout2.html",
+      templateUrl: "common/logout2.html",
       controller: "LogoutController2",
       resolve: {
         auth: function (ajaxService) {
@@ -52,7 +52,7 @@ miModulo.config([
     });
 
     $routeProvider.when("/secret", {
-      templateUrl: "secret.html",
+      templateUrl: "app/secret.html",
       controller: "SecretController",
       resolve: {
         auth: function (ajaxService) {
@@ -61,10 +61,16 @@ miModulo.config([
       },
     });
 
-    $routeProvider.when("/private", {
-      templateUrl: "private.html",
-      controller: "PrivateController",
+    $routeProvider.when("/producto/view/:id", {
+      templateUrl: "app/producto/view.html",
+      controller: "productoViewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService.ajaxCheck();
+        },
+      },
     });
+
 
     $routeProvider.otherwise({ redirectTo: "/" });
   },
