@@ -2,11 +2,18 @@
 <div class="container">
   <div class="row">
     <div class="col text-center">
-      <h1>Ver producto {{entity.codigo}}</h1>      
-      <table class="table">
-        <tr><td>id</td><td>{{entity.id}}</td></tr>
-        <tr><td>codigo</td><td>{{entity.codigo}}</td></tr>
-        <tr><td>nombre</td><td>{{entity.nombre}}</td></tr>
+      <div class="mt-5 mb-3">
+      <h1>Ver producto {{entity.codigo}}</h1>
+    </div>
+      <table class="table table-striped">
+        <tr><th>Id</th><td>{{entity.id}}</td></tr>
+        <tr><th>Código</th><td>{{entity.codigo}}</td></tr>
+        <tr><th>Nombre</th><td>{{entity.nombre}}</td></tr>
+        <tr><th>Existencias</th><td>{{entity.existencias}}</td></tr>
+        <tr><th>Precio</th><td>{{entity.precio}}</td></tr>
+        <tr><th>Imagen</th><td>{{entity.imagen}}</td></tr>
+        <tr><th>Descuento</th><td>{{entity.descuento}}</td></tr>
+        <tr><th>Id_TipoProducto</th><td>{{entity.id_tipoproducto}}</td></tr>
       </table>
       <a type="button" class="btn btn-primary" href="home">Ir a home</a>
       <button type="button" class="btn btn-primary" ng-click="volver()">Volver</button>
