@@ -4,7 +4,9 @@ miModulo.controller("LogoutController2", [
   "auth",
   "$location",
   function ($scope, ajaxService, auth, $location) {
-    if (auth.data.status == 403) {
+    if (auth.data.status==200){
+      $scope.datosDeSesion = auth.data;
+    } else {
       $location.path("/home");
     }
     $scope.fallo = false;
@@ -13,7 +15,7 @@ miModulo.controller("LogoutController2", [
 
     $scope.logout = function () {
       ajaxService.ajaxLogout().then(function (response) {
-        $scope.respuesta = response.data;
+        $scope.respuesta = response;
         if ($scope.respuesta.status == 200) {
           $location.path("/home");
         } else {

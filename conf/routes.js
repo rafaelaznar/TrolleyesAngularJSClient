@@ -6,9 +6,16 @@ miModulo.config([
       controller: "HomeController",
       resolve: {
         auth: function (ajaxService) {
-          return ajaxService.ajaxCheck();
-        },
-      },
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
     });
 
     $routeProvider.when("/home", {
@@ -16,9 +23,16 @@ miModulo.config([
       controller: "HomeController",
       resolve: {
         auth: function (ajaxService) {
-          return ajaxService.ajaxCheck();
-        },
-      },
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
     });
 
     $routeProvider.when("/login", {
@@ -26,9 +40,16 @@ miModulo.config([
       controller: "LoginController",
       resolve: {
         auth: function (ajaxService) {
-          return ajaxService.ajaxCheck();
-        },
-      },
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
     });
 
     $routeProvider.when("/logout", {
@@ -36,9 +57,16 @@ miModulo.config([
       controller: "LogoutController",
       resolve: {
         auth: function (ajaxService) {
-          return ajaxService.ajaxCheck();
-        },
-      },
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
     });
 
     $routeProvider.when("/logout2", {
@@ -46,8 +74,15 @@ miModulo.config([
       controller: "LogoutController2",
       resolve: {
         auth: function (ajaxService) {
-          return ajaxService.ajaxCheck();
-        },
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
       },
     });
 
@@ -56,9 +91,16 @@ miModulo.config([
       controller: "SecretController",
       resolve: {
         auth: function (ajaxService) {
-          return ajaxService.ajaxCheck();
-        },
-      },
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
     });
 
     $routeProvider.when("/producto/view/:id", {
@@ -66,11 +108,34 @@ miModulo.config([
       controller: "productoViewController",
       resolve: {
         auth: function (ajaxService) {
-          return ajaxService.ajaxCheck();
-        },
-      },
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
     });
 
+    $routeProvider.when("/producto/remove/:id", {
+      templateUrl: "app/producto/remove.html",
+      controller: "productoRemoveController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
 
     $routeProvider.otherwise({ redirectTo: "/" });
   },

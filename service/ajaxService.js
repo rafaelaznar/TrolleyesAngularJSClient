@@ -18,6 +18,10 @@ miModulo.factory("ajaxService", [
       ajaxGet: function (entidad, id) {
         return $http.get("http://localhost:8082/" + entidad + "/" + id);
       },
+      ajaxRemove: function (entidad, id) {
+        return $http.delete("http://localhost:8082/" + entidad + "/" + id);
+      },
+
     };
   },
 ]);
