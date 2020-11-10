@@ -29,7 +29,7 @@ miModulo.controller("productoViewController", [
     });
 
 
-    $scope.volver = function () {
+    $scope.back = function () {
       window.history.back();
     };
   },

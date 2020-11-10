@@ -1,0 +1,19 @@
+<ng-include src="'include/menu.html'"></ng-include>
+
+<ng-include src="'include/header.html'"></ng-include>
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+
+      <h3>¿Está seguro de que desea salir del sistema?</h3>
+      <a class="btn btn-danger" ng-click="logout()">Si</a>
+      <a class="btn btn-info" ng-click="back()">No</a>
+      <a type="button" class="btn btn-primary" href="home">Ir a home</a>
+    </div>
+  </div>
+</div>
+
+<ng-include src="'include/status.html'"></ng-include>
+
+<ng-include src="'include/footer.html'"></ng-include>
