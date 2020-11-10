@@ -10,7 +10,7 @@ miModulo.controller("LoginController", [
       $scope.nombreUsuario = auth.data.data.nombre;
     }
 
-    $scope.operationIcon = "fas fa-users";
+    $scope.operationIcon = "fas fa-sign-in";
     $scope.operationName = "Formulario de ";
     $scope.entityName = "entrada al sistema";
     $scope.entityIcon = "fas fa-key";
