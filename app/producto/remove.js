@@ -41,7 +41,7 @@ miModulo.controller("productoRemoveController", [
         });
     };
 
-    $scope.volver = function () {
+    $scope.back = function () {
       window.history.back();
     };
   },

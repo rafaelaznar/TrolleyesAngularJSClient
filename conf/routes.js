@@ -69,9 +69,9 @@ miModulo.config([
       }
     });
 
-    $routeProvider.when("/logout2", {
-      templateUrl: "common/logout2.html",
-      controller: "LogoutController2",
+    $routeProvider.when("/logout", {
+      templateUrl: "common/logout.html",
+      controller: "LogoutController",
       resolve: {
         auth: function (ajaxService) {
           return ajaxService
@@ -84,23 +84,6 @@ miModulo.config([
             });
         }
       },
-    });
-
-    $routeProvider.when("/secret", {
-      templateUrl: "app/secret.html",
-      controller: "SecretController",
-      resolve: {
-        auth: function (ajaxService) {
-          return ajaxService
-            .ajaxCheck()
-            .then(function (result) {
-              return { data: result };
-            })
-            .catch(function (result) {
-              return { data: result };
-            });
-        }
-      }
     });
 
     $routeProvider.when("/producto/view/:id", {
