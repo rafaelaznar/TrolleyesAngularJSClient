@@ -137,6 +137,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/usuario/view/:id", {
+      templateUrl: "app/usuario/view.html",
+      controller: "usuarioViewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);

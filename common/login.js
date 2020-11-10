@@ -8,6 +8,7 @@ miModulo.controller("LoginController", [
       $location.path("/home");
     } else {
       $scope.nombreUsuario = auth.data.data.nombre;
+      
     }
 
     $scope.operationIcon = "fas fa-users";
