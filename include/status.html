@@ -1,0 +1,13 @@
+<div class="container" ng-show="status.success!=''||status.error!=''">
+    <div class="row justify-content-center">
+        <div class="col-6 text-center">
+            <div class="alert alert-success" role="alert" ng-show="status.success!=''">
+                <h3><i class="fas fa-check-circle"></i> {{status.success}}</h3>
+
+            </div>
+            <div class="alert alert-danger" role="alert" ng-show="status.error!=''">
+                <h3><i class="fas fa-bomb"></i> {{status.error}}</h3>
+            </div>
+        </div>
+    </div>
+</div>
