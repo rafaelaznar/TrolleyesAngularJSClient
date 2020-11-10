@@ -28,8 +28,7 @@ miModulo.controller("tipousuarioViewController", [
       $scope.status.error = "ERROR: El " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
     });
 
-
-    $scope.volver = function () {
+    $scope.back = function () {
       window.history.back();
     };
   },
