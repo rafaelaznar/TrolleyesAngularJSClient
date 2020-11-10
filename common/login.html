@@ -1,125 +1,48 @@
 <ng-include src="'include/menu.html'"></ng-include>
+
+<ng-include src="'include/header.html'"></ng-include>
+
 <div class="container">
-  <div class="row">
-    <div class="col text-center">
-      <div class="row justify-content-center">
-        <div class="col-6">
-          <h1>Formulario de entrada al sistema</h1>
-          <form name="loginForm" novalidate>
-            <div class="form-group form-row">
-              <label for="txtLogin">Login</label>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <form name="loginForm" novalidate>
 
-              <!-- 
-              <input
-                name="txtLogin"
-                type="text"
-                class="form-control"
-                ng-class="{ 'is-valid' : loginForm.txtLogin.$valid && loginForm.txtLogin.$dirty , 'is-invalid' : loginForm.txtLogin.$invalid && loginForm.txtLogin.$dirty}"
-                id="txtLogin"
-                ng-pattern="/^[1-9]|[1-9][0-9]$/"
-                ng-model="txtAncho"
-                ng-minlength="1"
-                ng-maxlength="2"
-                required
-              />
-              -->
-              <input
-                name="txtLogin"
-                type="text"
-                class="form-control"
-                ng-class="{ 'is-valid' : loginForm.txtLogin.$valid && loginForm.txtLogin.$dirty , 'is-invalid' : loginForm.txtLogin.$invalid && loginForm.txtLogin.$dirty}"
-                id="txtLogin"
-                ng-model="txtLogin"
-                ng-minlength="1"
-                ng-maxlength="20"
-                required
-              />
-
-              <!-- 
-              <div class="valid-feedback">Número Correcto!</div>
-              -->
-              <!-- <div ng-show="loginForm.txtLogin.$error.required" class="invalid-feedback">Por favor introduce un número mayor que 0</div>
-                      <div ng-show="loginForm.txtLogin.$error.maxlength" class="invalid-feedback">Por favor introduce un número de dos dígitos o menos</div> -->
-              <!-- 
-              <div ng-show="loginForm.txtLogin.$invalid" class="invalid-feedback">
-                Por favor introduce un numero de 1 a 99.
-              </div>
-                    -->
-            </div>
-
-            <div class="form-group form-row">
-              <label for="txtPassword">Password</label>
-              <!--
-              <input
-                name="txtPassword"
-                type="text"
-                class="form-control"
-                ng-class="{ 'is-valid' : loginForm.txtPassword.$valid && loginForm.txtLogin.$dirty , 'is-invalid' : loginForm.txtPassword.$invalid && loginForm.txtPassword.$dirty}"
-                id="txtPassword"
-                ng-pattern="/^[1-9]|[1-9][0-9]$/"
-                ng-model="txtAlto"
-                ng-minlength="1"
-                ng-maxlength="2"
-                required
-              /> 
-              -->
-
-              <input
-                name="txtPassword"
-                type="text"
-                class="form-control"
-                ng-class="{ 'is-valid' : loginForm.txtPassword.$valid && loginForm.txtPassword.$dirty , 'is-invalid' : loginForm.txtPassword.$invalid && loginPassword.txtPassword.$dirty}"
-                id="txtPassword"
-                ng-model="txtPassword"
-                ng-minlength="1"
-                ng-maxlength="100"
-                required
-              />
-              <!-- 
-              <div class="valid-feedback">Número Correcto!</div>
-              -->
-              <!-- <div ng-show="loginForm.txtLogin.$error.required" class="invalid-feedback">Por favor introduce un número mayor que 0</div>
-                      <div ng-show="loginForm.txtLogin.$error.maxlength" class="invalid-feedback">Por favor introduce un número de dos dígitos o menos</div> -->
-              <!--
-              <div ng-show="loginForm.txtPassword.$invalid" class="invalid-feedback">
-                Por favor introduce un numero de 1 a 99.
-              </div>
-              -->
-            </div>
-            <div class="form-group form-row">
-              <!-- 
-              <button
-                type="submit"
-                ng-click="generaTabla()"
-                class="btn btn-primary"
-                ng-disabled="loginForm.$invalid"
-              >
-                Mostrar tabla1
-              </button>
-              <button
-                type="submit"
-                ng-click="borraTabla()"
-                class="btn btn-danger"
-                ng-disabled="objetosRow === undefined || objetosRow.length == 0"
-              >
-                Borrar tabla
-              </button>
-              -->
-              <button
-                type="submit"
-                ng-click="login()"
-                class="btn btn-danger ml-1"
-              >
-                Login
-              </button>
-    
-            </div>
-          </form>
-          <div class="alert alert-danger" role="alert" ng-show="fallo">
-            Ha habido un error al loguearte.
-          </div>
+        <div class="form-group form-row">
+          <label for="txtLogin">Login</label>
+          <input name="txtLogin" type="text" class="form-control"
+            ng-class="{ 'is-valid' : loginForm.txtLogin.$valid && loginForm.txtLogin.$dirty , 'is-invalid' : loginForm.txtLogin.$invalid && loginForm.txtLogin.$dirty}"
+            ng-pattern="/^[A-Za-z0-9-]{6,20}$/" id="txtLogin" ng-model="txtLogin" ng-minlength="6" ng-maxlength="20"
+            placeholder="Introduce tu nombre de usuario" required />
+          <div ng-show="loginForm.txtLogin.$invalid" class="invalid-feedback">
+            Por favor introduce un login de 6 a 20 caracteres. Puedes usar combinaciones de caracteres
+            en mayúsculas y minúsculas sin acentos, dígitos y guiones. </div>
         </div>
+
+        <div class="form-group form-row">
+          <label for="txtPassword">Password</label>
+          <input name="txtPassword" type="password" class="form-control"
+            ng-class="{ 'is-valid' : loginForm.txtPassword.$valid && loginForm.txtPassword.$dirty , 'is-invalid' : loginForm.txtPassword.$invalid && loginForm.txtPassword.$dirty}"
+            ng-pattern="/^[A-Za-z0-9-]{6,20}$/" id="txtPassword" ng-model="txtPassword" ng-minlength="6"
+            ng-maxlength="20" placeholder="Introduce tu password" required />
+          <div ng-show="loginForm.txtPassword.$invalid" class="invalid-feedback">
+            Por favor introduce un password de 6 a 20 caracteres. Puedes usar combinaciones de
+            caracteres en mayúsculas y minúsculas sin acentos, dígitos y guiones. </div>
+        </div>
+      </form>
+      <div class="text-center mb-4">
+        <button type="submit" ng-click="login()" class="btn btn-danger ml-1" ng-disabled="loginForm.$invalid">
+          <i class="fas fa-key"></i> Login
+        </button>
+        <button ng-click="reset()" class="btn btn-info ml-1">
+          <i class="fas fa-brush"></i> Reset
+        </button>
       </div>
+
     </div>
   </div>
+
 </div>
+
+<ng-include src="'include/status.html'"></ng-include>
+
+<ng-include src="'include/footer.html'"></ng-include>
