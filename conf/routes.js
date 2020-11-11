@@ -171,6 +171,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/compra/view/:id", {
+      templateUrl: "app/compra/view.html",
+      controller: "compraViewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
