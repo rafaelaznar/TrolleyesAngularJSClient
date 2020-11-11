@@ -14,7 +14,7 @@ miModulo.controller("usuarioRemoveController", [
         $scope.operationIcon = "fas fa-eraser";
         $scope.operationName = "Borrado de ";
         $scope.entityName = "usuario";
-        $scope.entityIcon = "fas fa-gift";
+        $scope.entityIcon = "fas fa-user";
 
         $scope.status = {};
         $scope.status.success = "";
