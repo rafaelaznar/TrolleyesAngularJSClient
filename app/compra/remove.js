@@ -14,7 +14,7 @@ miModulo.controller("compraRemoveController", [
       $scope.operationIcon = "fas fa-eraser";
       $scope.operationName = "Borrado de ";
       $scope.entityName = "compra";
-      $scope.entityIcon = "fas fa-gift";
+      $scope.entityIcon = "fas fa-shopping-bag";
   
       $scope.status = {};
       $scope.status.success = "";
