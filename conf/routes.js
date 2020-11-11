@@ -120,6 +120,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/usuario/remove/:id", {
+      templateUrl: "app/usuario/remove.html",
+      controller: "usuarioRemoveController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.when("/producto/remove/:id", {
       templateUrl: "app/producto/remove.html",
       controller: "productoRemoveController",
