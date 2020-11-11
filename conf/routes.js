@@ -171,6 +171,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/tipousuario/remove/:id", {
+      templateUrl: "app/tipousuario/remove.html",
+      controller: "tipousuarioRemoveController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
