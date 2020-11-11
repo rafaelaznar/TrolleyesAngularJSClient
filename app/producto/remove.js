@@ -36,7 +36,7 @@ miModulo.controller("productoRemoveController", [
             $scope.status.success = "El " + $scope.entityName + " con id " + $scope.id + " se ha borrado.";
           }
         })
-        .catch(function (error) {
+        .catch(function (error) {          
           $scope.status.error = "ERROR: El " + $scope.entityName + " con id " + $scope.id + " NO se ha podido borrar.";
         });
     };
