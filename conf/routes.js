@@ -154,9 +154,27 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/carrito/view/:id", {
+      templateUrl: "app/carrito/view.html",
+      controller: "carritoViewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.when("/tipoproducto/view/:id", {
       templateUrl: "app/tipoproducto/view.html",
       controller: "tipoproductoViewController",
+
       resolve: {
         auth: function (ajaxService) {
           return ajaxService
