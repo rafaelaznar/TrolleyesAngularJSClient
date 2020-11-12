@@ -291,6 +291,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/tipoproducto/edit/:id", {
+      templateUrl: "app/tipoproducto/edit.html",
+      controller: "tipoproductoEditController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
