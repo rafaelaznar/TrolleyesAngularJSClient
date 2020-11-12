@@ -1,0 +1,59 @@
+<ng-include src="'include/menu.html'"></ng-include>
+
+<ng-include src="'include/header.html'"></ng-include>
+
+<ng-include src="'include/status.html'"></ng-include>
+
+<div class="container" ng-show="status.success==''&&status.error==''">
+    <div class="row">
+        <div class="col text-center">
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <td>{{entity.id}}</td>
+                </tr>
+                <tr>
+                    <th>DNI</th>
+                    <td>{{entity.cantidad}}</td>
+                </tr>
+                <tr>
+                    <th>Nombre</th>
+                    <td>{{entity.precio}}</td>
+                </tr>
+                <tr>
+                    <th>Apellido1</th>
+                    <td>{{entity.fecha}}</td>
+                </tr>
+                <tr>
+                    <th>Apellido2</th>
+                    <td>{{entity.descuento_usuario}}</td>
+                </tr>
+                <tr>
+                    <th>Login</th>
+                    <td>{{entity.descuento_producto}}</td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td>{{entity.id_producto}}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{entity.id_factura}}</td>
+                </tr>
+
+            </table>
+
+            <div class="control-group text-right">
+                <div class="controls">
+                    <a type="button" class="btn btn-primary" href="home">Ir a home</a>
+                    <button type="button" class="btn btn-primary" ng-click="back()">
+            Volver
+          </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<ng-include src="'include/footer.html'"></ng-include>
