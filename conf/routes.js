@@ -223,6 +223,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/factura/remove/:id", {
+      templateUrl: "app/factura/remove.html",
+      controller: "facturaRemoveController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
