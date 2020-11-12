@@ -1,11 +1,11 @@
-miModulo.controller("productoRemoveController", [
+miModulo.controller("tipousuarioRemoveController", [
   "$scope",
   "auth",
   "$location",
   "ajaxService",
   "$routeParams",
   function ($scope, auth, $location, ajaxService, $routeParams) {
-    $scope.controller = "productoRemoveController";
+    $scope.controller = "tipousuarioRemoveController";
     if (auth.data.status == 200) {
       $scope.datosDeSesion = auth.data;
     } else {
@@ -13,8 +13,8 @@ miModulo.controller("productoRemoveController", [
     }
     $scope.operationIcon = "fas fa-eraser";
     $scope.operationName = "Borrado de ";
-    $scope.entityName = "producto";
-    $scope.entityIcon = "fas fa-gift";
+    $scope.entityName = "tipousuario";
+    $scope.entityIcon = "fas fa-users";
 
     $scope.status = {};
     $scope.status.success = "";
@@ -22,7 +22,7 @@ miModulo.controller("productoRemoveController", [
 
     $scope.id = $routeParams.id;
 
-    ajaxService.ajaxGet("producto", $scope.id).then(function (response) {
+    ajaxService.ajaxGet("tipousuario", $scope.id).then(function (response) {
       $scope.entity = response.data;
     }).catch(function (error) {
       $scope.status.error = "ERROR: El " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
@@ -30,13 +30,13 @@ miModulo.controller("productoRemoveController", [
 
     $scope.remove = function () {
       ajaxService
-        .ajaxRemove("producto", $scope.id)
+        .ajaxRemove("tipousuario", $scope.id)
         .then(function (response) {
           if (response.status == 200) {
             $scope.status.success = "El " + $scope.entityName + " con id " + $scope.id + " se ha borrado.";
           }
         })
-        .catch(function (error) {          
+        .catch(function (error) {
           $scope.status.error = "ERROR: El " + $scope.entityName + " con id " + $scope.id + " NO se ha podido borrar.";
         });
     };
