@@ -1,0 +1,34 @@
+<ng-include src="'include/menu.html'"></ng-include>
+
+<ng-include src="'include/header.html'"></ng-include>
+
+<ng-include src="'include/status.html'"></ng-include>
+
+<div class="container" ng-show="status.success==''&&status.error==''">
+  <div class="row">
+    <div class="col text-center">
+      <table class="table table-striped table-sm">
+        <tr>
+          <th>Id</th>
+          <td>{{entity.id}}</td>
+        </tr>
+        <tr>
+          <th>Nombre</th>
+          <td>{{entity.nombre}}</td>
+        </tr>
+      </table>
+
+      <div class="control-group text-right">
+        <div class="controls">
+          <h3>¿Está seguro de que desea borrar el registro?</h3>
+          <a class="btn btn-danger" ng-click="remove()">Si</a>
+          <a class="btn btn-info" ng-click="back()">No</a>
+          <a type="button" class="btn btn-primary" href="home">Ir a home</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<ng-include src="'include/footer.html'"></ng-include>
