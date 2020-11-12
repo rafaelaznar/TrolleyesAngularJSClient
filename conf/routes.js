@@ -274,6 +274,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/factura/view/:id", {
+      templateUrl: "app/factura/view.html",
+      controller: "facturaViewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
