@@ -137,6 +137,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/compra/remove/:id", {
+      templateUrl: "app/compra/remove.html",
+      controller: "compraRemoveController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.when("/tipousuario/view/:id", {
       templateUrl: "app/tipousuario/view.html",
       controller: "tipousuarioViewController",
@@ -154,9 +171,44 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/carrito/view/:id", {
+      templateUrl: "app/carrito/view.html",
+      controller: "carritoViewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.when("/tipoproducto/view/:id", {
       templateUrl: "app/tipoproducto/view.html",
       controller: "tipoproductoViewController",
+
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/compra/view/:id", {
+      templateUrl: "app/compra/view.html",
+      controller: "compraViewController",
       resolve: {
         auth: function (ajaxService) {
           return ajaxService
