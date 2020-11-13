@@ -15,10 +15,19 @@
                     <th>
                         nombre
                     </th>
+                    <th>
+                        herramientas
+                    </th>
                 </tr>
                 <tr ng-repeat="fila in entities.content">
                     <td>{{fila.id}}</td>
                     <td>{{fila.nombre}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Herramientas">
+                            <a class="btn btn-primary" href="tipoproducto/edit/{{fila.id}}">Editar</a>
+                            <a class="btn btn-primary" href="tipoproducto/remove/{{fila.id}}">Borrar</a>
+                        </div>
+                    </td>
                 </tr>
             </table>
         </div>
