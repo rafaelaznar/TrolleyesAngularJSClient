@@ -355,7 +355,25 @@ miModulo.config([
             });
         }
       }
-    });    
+    });
+
+    $routeProvider.when("/usuario/edit/:id", {
+      templateUrl: "app/usuario/edit.html",
+      controller: "usuarioEditController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
