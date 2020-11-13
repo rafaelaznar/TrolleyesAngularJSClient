@@ -323,6 +323,22 @@ miModulo.config([
         }
       }
     });
+    $routeProvider.when("/tipoproducto/plist/", {
+      templateUrl: "app/tipoproducto/plist.html",
+      controller: "tipoproductoPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });    
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
