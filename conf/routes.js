@@ -340,7 +340,7 @@ miModulo.config([
         }
       }
     });
-    $routeProvider.when("/tipoproducto/plist/", {
+    $routeProvider.when("/tipoproducto/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
       templateUrl: "app/tipoproducto/plist.html",
       controller: "tipoproductoPlistController",
       resolve: {
