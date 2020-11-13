@@ -223,6 +223,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/tipoproducto/remove/:id", {
+      templateUrl: "app/tipoproducto/remove.html",
+      controller: "tipoproductoRemoveController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.when("/compra/view/:id", {
       templateUrl: "app/compra/view.html",
       controller: "compraViewController",
@@ -341,6 +358,22 @@ miModulo.config([
         }
       }
     });
+    $routeProvider.when("/tipoproducto/plist/", {
+      templateUrl: "app/tipoproducto/plist.html",
+      controller: "tipoproductoPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });    
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
