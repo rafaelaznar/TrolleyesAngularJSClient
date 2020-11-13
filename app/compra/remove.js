@@ -1,11 +1,11 @@
-miModulo.controller("productoRemoveController", [
+miModulo.controller("compraRemoveController", [
   "$scope",
   "auth",
   "$location",
   "ajaxService",
   "$routeParams",
   function ($scope, auth, $location, ajaxService, $routeParams) {
-    $scope.controller = "productoRemoveController";
+    $scope.controller = "compraRemoveController";
     if (auth.data.status == 200) {
       $scope.datosDeSesion = auth.data;
     } else {
@@ -13,8 +13,8 @@ miModulo.controller("productoRemoveController", [
     }
     $scope.operationIcon = "fas fa-eraser";
     $scope.operationName = "Borrado de ";
-    $scope.entityName = "producto";
-    $scope.entityIcon = "fas fa-gift";
+    $scope.entityName = "compra";
+    $scope.entityIcon = "fas fa-shopping-bag";
 
     $scope.status = {};
     $scope.status.success = "";
@@ -22,7 +22,7 @@ miModulo.controller("productoRemoveController", [
 
     $scope.id = $routeParams.id;
 
-    ajaxService.ajaxGet("producto", $scope.id).then(function (response) {
+    ajaxService.ajaxGet($scope.entityName, $scope.id).then(function (response) {
       $scope.entity = response.data;
     }).catch(function (error) {
       $scope.status.error = "ERROR: El " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";

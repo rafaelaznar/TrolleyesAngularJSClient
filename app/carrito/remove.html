@@ -7,41 +7,30 @@
 <div class="container" ng-show="status.success==''&&status.error==''">
   <div class="row">
     <div class="col text-center">
-      <table class="table table-striped table-sm">
+     
+      <table class="table table-striped">
         <tr>
           <th>Id</th>
           <td>{{entity.id}}</td>
         </tr>
         <tr>
-          <th>Código</th>
-          <td>{{entity.codigo}}</td>
-        </tr>
-        <tr>
-          <th>Nombre</th>
-          <td>{{entity.nombre}}</td>
-        </tr>
-        <tr>
-          <th>Existencias</th>
-          <td>{{entity.existencias}}</td>
+          <th>Cantidad</th>
+          <td>{{entity.cantidad}}</td>
         </tr>
         <tr>
           <th>Precio</th>
           <td>{{entity.precio}}</td>
         </tr>
         <tr>
-          <th>Imagen</th>
-          <td>{{entity.imagen}}</td>
+          <th>Id_Producto</th>
+          <td>{{entity.id_producto}}</td>
         </tr>
         <tr>
-          <th>Descuento</th>
-          <td>{{entity.descuento}}</td>
+          <th>Id_Usuario</th>
+          <td>{{entity.id_usuario}}</td>
         </tr>
-        <tr>
-          <th>Id_TipoProducto</th>
-          <td>{{entity.id_tipoproducto}}</td>
-        </tr>
+       
       </table>
-
       <div class="control-group text-right">
         <div class="controls">
           <h3>¿Está seguro de que desea borrar el registro?</h3>

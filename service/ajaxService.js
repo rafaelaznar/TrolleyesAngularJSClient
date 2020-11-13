@@ -21,7 +21,9 @@ miModulo.factory("ajaxService", [
       ajaxRemove: function (entidad, id) {
         return $http.delete("http://localhost:8082/" + entidad + "/" + id);
       },
-
+      ajaxUpdate: function (entidad, id, data) {
+        return $http.put("http://localhost:8082/" + entidad + "/" + id, data);
+      },
     };
   },
 ]);
