@@ -308,6 +308,22 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/factura/edit/:id", {
+      templateUrl: "app/factura/edit.html",
+      controller: "facturaEditController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
