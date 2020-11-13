@@ -13,7 +13,7 @@ miModulo.controller("tipousuarioViewController", [
     }
     $scope.operationIcon = "fas fa-eye";
     $scope.operationName = "Vista de ";
-    $scope.entityName = "tipo usuario";
+    $scope.entityName = "tipousuario";
     $scope.entityIcon = "fas fa-user";
 
     $scope.status = {};
@@ -22,7 +22,7 @@ miModulo.controller("tipousuarioViewController", [
 
     $scope.id = $routeParams.id;
 
-    ajaxService.ajaxGet("tipousuario", $scope.id).then(function (response) {
+    ajaxService.ajaxGet($scope.entityName, $scope.id).then(function (response) {
       $scope.entity = response.data;
     }).catch(function (error) {
       $scope.status.error = "ERROR: El " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";

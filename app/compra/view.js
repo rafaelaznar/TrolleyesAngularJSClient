@@ -4,7 +4,7 @@ miModulo.controller("compraViewController", [
     "$location",
     "ajaxService",
     "$routeParams",
-    function($scope, auth, $location, ajaxService, $routeParams) {
+    function ($scope, auth, $location, ajaxService, $routeParams) {
         $scope.controller = "compraViewController";
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
@@ -22,14 +22,14 @@ miModulo.controller("compraViewController", [
 
         $scope.id = $routeParams.id;
 
-        ajaxService.ajaxGet("compra", $scope.id).then(function(response) {
+        ajaxService.ajaxGet($scope.entityName, $scope.id).then(function (response) {
             $scope.entity = response.data;
-        }).catch(function(error) {
+        }).catch(function (error) {
             $scope.status.error = "ERROR: El " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
         });
 
 
-        $scope.back = function() {
+        $scope.back = function () {
             window.history.back();
         };
     },

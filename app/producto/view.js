@@ -22,7 +22,7 @@ miModulo.controller("productoViewController", [
 
     $scope.id = $routeParams.id;
 
-    ajaxService.ajaxGet("producto", $scope.id).then(function (response) {
+    ajaxService.ajaxGet($scope.entityName, $scope.id).then(function (response) {
       $scope.entity = response.data;
     }).catch(function (error) {
       $scope.status.error = "ERROR: El " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";

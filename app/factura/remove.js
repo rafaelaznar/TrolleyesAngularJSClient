@@ -22,7 +22,7 @@ miModulo.controller("facturaRemoveController", [
 
     $scope.id = $routeParams.id;
 
-    ajaxService.ajaxGet("factura", $scope.id).then(function (response) {
+    ajaxService.ajaxGet($scope.entityName, $scope.id).then(function (response) {
       $scope.entity = response.data;
     }).catch(function (error) {
       $scope.status.error = "ERROR: El " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
@@ -30,13 +30,13 @@ miModulo.controller("facturaRemoveController", [
 
     $scope.remove = function () {
       ajaxService
-        .ajaxRemove("factura", $scope.id)
+        .ajaxRemove($scope.entityName, $scope.id)
         .then(function (response) {
           if (response.status == 200) {
             $scope.status.success = "El " + $scope.entityName + " con id " + $scope.id + " se ha borrado.";
           }
         })
-        .catch(function (error) {          
+        .catch(function (error) {
           $scope.status.error = "ERROR: El " + $scope.entityName + " con id " + $scope.id + " NO se ha podido borrar.";
         });
     };
