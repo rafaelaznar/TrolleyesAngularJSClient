@@ -24,7 +24,6 @@ miModulo.controller("facturaEditController", [
 
         ajaxService.ajaxGet($scope.entityName, $scope.id).then(function (response) {
             $scope.entity = response.data;
-            $scope.entity.fecha = new Date($scope.entity.fecha);
         }).catch(function (error) {
             $scope.status.error = "ERROR: La " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
         });
