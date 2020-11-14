@@ -22,7 +22,7 @@ miModulo.controller("tipousuarioRemoveController", [
 
     $scope.id = $routeParams.id;
 
-    ajaxService.ajaxGet("tipousuario", $scope.id).then(function (response) {
+    ajaxService.ajaxGet($scope.entityName, $scope.id).then(function (response) {
       $scope.entity = response.data;
     }).catch(function (error) {
       $scope.status.error = "ERROR: El " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
@@ -30,7 +30,7 @@ miModulo.controller("tipousuarioRemoveController", [
 
     $scope.remove = function () {
       ajaxService
-        .ajaxRemove("tipousuario", $scope.id)
+        .ajaxRemove($scope.entityName, $scope.id)
         .then(function (response) {
           if (response.status == 200) {
             $scope.status.success = "El " + $scope.entityName + " con id " + $scope.id + " se ha borrado.";

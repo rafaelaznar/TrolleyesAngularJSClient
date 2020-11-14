@@ -1,11 +1,11 @@
-miModulo.controller("compraRemoveController", [
+miModulo.controller("carritoRemoveController", [
   "$scope",
   "auth",
   "$location",
   "ajaxService",
   "$routeParams",
   function ($scope, auth, $location, ajaxService, $routeParams) {
-    $scope.controller = "compraRemoveController";
+    $scope.controller = "carritoRemoveController";
     if (auth.data.status == 200) {
       $scope.datosDeSesion = auth.data;
     } else {
@@ -13,8 +13,8 @@ miModulo.controller("compraRemoveController", [
     }
     $scope.operationIcon = "fas fa-eraser";
     $scope.operationName = "Borrado de ";
-    $scope.entityName = "compra";
-    $scope.entityIcon = "fas fa-shopping-bag";
+    $scope.entityName = "carrito";
+    $scope.entityIcon = "fas fa-gift";
 
     $scope.status = {};
     $scope.status.success = "";
