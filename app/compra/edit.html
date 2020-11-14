@@ -23,8 +23,7 @@
                         <input name="inputCantidad"
                             ng-class="{ 'is-valid' : editForm.inputCantidad.$valid && editForm.inputCantidad.$dirty , 'is-invalid' : editForm.inputCantidad.$invalid && editForm.inputCantidad.$dirty}"
                             type="text" class="form-control" id="inputCantidad" placeholder="Cantidad"
-                            ng-model="entity.cantidad" ng-pattern="^\d+$" ng-minlength="1"
-                            ng-maxlength="255" required>
+                            ng-model="entity.cantidad" ng-pattern="^\d+$" ng-minlength="1" maxlength="10" required>
                         <div ng-show="editForm.inputCantidad.$invalid" class="invalid-feedback">
                             Por favor introduce un número entero válido. </div>
                     </div>
@@ -46,10 +45,10 @@
                     <label for="inputFecha" class="col-sm-2 col-form-label">Fecha: </label>
                     <div class="col-sm-10">
                         <input type="text" id="inputFecha" ng-model="entity.fecha"
-                            class="form-control" placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00"
-                            max="2030-12-31T00:00" required />
-                        <div ng-show="editForm.inputFecha.$error.datetimelocal" class="invalid-feedback">
-                            Por favor introduzca una fecha con el formato aaaa-MM-ddTHH:mm:ss entre 2001 y 2030.
+                            class="form-control" placeholder="yyyy-MM-ddTHH:mm:ss" ng-pattern="/^[0-9]{4}-(0[0-9]|1[0-2])-(0[0-9]|[1-2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])*$/"
+                            maxlenght="19" required />
+                        <div ng-show="editForm.inputFecha.$invalid" class="invalid-feedback">
+                            Por favor introduzca una fecha con el formato aaaa-MM-ddTHH:mm(:ss).
                         </div>
                     </div>
                 </div>
