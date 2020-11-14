@@ -45,7 +45,7 @@
                 <div class="form-group row">
                     <label for="inputFecha" class="col-sm-2 col-form-label">Fecha: </label>
                     <div class="col-sm-10">
-                        <input type="datetime-local" id="inputFecha" ng-model="entity.fecha"
+                        <input type="text" id="inputFecha" ng-model="entity.fecha"
                             class="form-control" placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00"
                             max="2030-12-31T00:00" required />
                         <div ng-show="editForm.inputFecha.$error.datetimelocal" class="invalid-feedback">
