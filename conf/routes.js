@@ -356,6 +356,23 @@ miModulo.config([
         }
       }
     });    
+    
+    $routeProvider.when("/tipoproducto/new", {
+      templateUrl: "app/tipoproducto/new.html",
+      controller: "tipoproductoNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
