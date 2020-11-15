@@ -324,6 +324,24 @@ miModulo.config([
         }
       }
     });
+
+    $routeProvider.when("/tipousuario/edit/:id", {
+      templateUrl: "app/tipousuario/edit.html",
+      controller: "tipousuarioEditController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.when("/carrito/remove/:id", {
       templateUrl: "app/carrito/remove.html",
       controller: "carritoRemoveController",
@@ -355,7 +373,7 @@ miModulo.config([
             });
         }
       }
-    });    
+    });
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
