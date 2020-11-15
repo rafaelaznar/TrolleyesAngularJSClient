@@ -355,6 +355,74 @@ miModulo.config([
             });
         }
       }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    $routeProvider.when("/usuario/new/", {
+      templateUrl: "app/usuario/new.html",
+      controller: "usuarioNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
     });    
     $routeProvider.otherwise({ redirectTo: "/" });
   },
