@@ -391,7 +391,24 @@ miModulo.config([
             });
         }
       }
-    });
+    });    
+
+    $routeProvider.when("/carrito/new/:id", {
+      templateUrl: "app/carrito/new.html",
+      controller: "carritoNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        },
+      },
+    });      
 
     $routeProvider.when("/usuario/edit/:id", {
       templateUrl: "app/usuario/edit.html",
