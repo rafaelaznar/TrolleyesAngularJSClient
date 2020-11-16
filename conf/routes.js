@@ -390,6 +390,7 @@ miModulo.config([
             });
         }
       }
+
    
     
     $routeProvider.when("/tipoproducto/new", {
@@ -405,9 +406,10 @@ miModulo.config([
             .catch(function (result) {
               return { data: result };
             });
-        }
-      }
+        },
+      },
     });
+
   
       $routeProvider.when("/compra/new/", {
       templateUrl: "app/compra/new.html",
@@ -428,11 +430,28 @@ miModulo.config([
   
   
   
+      $routeProvider.when("/tipousuario/new", {
+      templateUrl: "app/tipousuario/new.html",
+      controller: "tipousuarioNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        },
+      },
+    });
+
   
   
   
   
-  
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
