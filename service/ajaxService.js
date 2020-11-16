@@ -30,16 +30,20 @@ miModulo.factory("ajaxService", [
       ajaxPlist: function (entidad, page, size, sortfield, sortdirection) {
         strRequest = "http://localhost:8082/" + entidad + "/page/?";
         if (page) {
-          strRequest += "page=" + page;
+          strRequest += "page=" + (--page);
+        } else {
+          strRequest += "page=1";
         }
         if (size) {
-          strRequest += "size=" + size;
+          strRequest += "&size=" + size;
+        } else {
+          strRequest += "&size=10";
         }
-        if (sortfield){
-          if (sortdirection){
-            strRequest += "sort=" + sortfield + "," + sortdirection;
+        if (sortfield) {
+          if (sortdirection) {
+            strRequest += "&sort=" + sortfield + "," + sortdirection;
           } else {
-            strRequest += "sort=" + sortfield;
+            strRequest += "&sort=" + sortfield;
           }
         }
         return $http.get(strRequest);
