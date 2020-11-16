@@ -1,0 +1,83 @@
+<ng-include src="'include/menu.html'"></ng-include>
+
+<ng-include src="'include/header.html'"></ng-include>
+
+<ng-include src="'include/status.html'"></ng-include>
+
+<div class="container" ng-show="status.success==''&&status.error==''">
+  <div class="row">
+    <div class="col">
+
+      <form name="editForm" novalidate>
+        <div class="form-group row">
+          <label for="inputId" class="col-sm-2 col-form-label">Id: </label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entity.id" disabled>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputDni" class="col-sm-2 col-form-label">Cantidad: </label>
+          <div class="col-sm-2">
+            <input name="inputCantidad"
+              ng-class="{ 'is-valid' : editForm.inputCantidad.$valid && editForm.inputCantidad.$dirty , 'is-invalid' : editForm.inputCantidad.$invalid && editForm.inputCantidad.$dirty}"
+              type="text" class="form-control" id="inputCantidad" placeholder="Cantidad" ng-model="entity.cantidad"
+              ng-pattern="/^[0-9]+$/" required>
+            <div ng-show="editForm.inputCantidad.$invalid" class="invalid-feedback">
+              Por favor introduce una cantidad correcta. Deben ser numeros enteros y positivos.</div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputPrecio" class="col-sm-2 col-form-label">Precio: </label>
+          <div class="col-sm-2">
+            <input name="inputPrecio"
+              ng-class="{ 'is-valid' : editForm.inputPrecio.$valid && editForm.inputPrecio.$dirty , 'is-invalid' : editForm.inputPrecio.$invalid && editForm.inputPrecio.$dirty}"
+              type="text" class="form-control" id="inputPrecio" placeholder="Precio" ng-model="entity.precio"
+              ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/"  required>
+            <div ng-show="editForm.inputPrecio.$invalid" class="invalid-feedback">
+              Por favor introduce un precio correcto. No admiten numeros negativos. </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputIdProducto" class="col-sm-2 col-form-label">Id producto: </label>
+          <div class="col-sm-2">
+            <input name="inputIdProducto"
+              ng-class="{ 'is-valid' : editForm.inputIdProducto.$valid && editForm.inputIdProducto.$dirty , 'is-invalid' : editForm.inputIdProducto.$invalid && editForm.inputIdProducto.$dirty}"
+              type="text" class="form-control" id="inputIdProducto" placeholder="Id" ng-model="entity.id_producto"
+              ng-pattern="/^[0-9]+$/" required>
+            <div ng-show="editForm.inputIdProducto.$invalid" class="invalid-feedback">
+              Por favor introduce una cantidad correcta. Deben ser numeros enteros y positivos.</div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputIdUsuario" class="col-sm-2 col-form-label">Id usuario: </label>
+          <div class="col-sm-2">
+            <input name="inputIdUsuario"
+              ng-class="{ 'is-valid' : editForm.inputIdUsuario.$valid && editForm.inputIdUsuario.$dirty , 'is-invalid' : editForm.inputIdUsuario.$invalid && editForm.inputIdUsuario.$dirty}"
+              type="text" class="form-control" id="inputIdUsuario" placeholder="id" ng-model="entity.id_usuario"
+              ng-pattern="/^[0-9]+$/"  required>
+            <div ng-show="editForm.inputIdUsuario.$invalid" class="invalid-feedback">
+              Por favor introduce una cantidad correcta. Deben ser numeros enteros y positivos. </div>
+          </div>
+        </div>
+
+        <div class="form-group row text-right">
+          <div class="col-sm-12">
+            <button type="submit" class="btn btn-success" ng-disabled="editForm.$invalid||editForm.$pristine"
+              ng-click="save()">Guardar</button>
+            <a type="button" class="btn btn-primary" href="home">Ir a home</a>
+            <button type="button" class="btn btn-primary" ng-click="back()">
+              Volver
+            </button>
+          </div>
+        </div>
+       
+      </form>
+    </div>
+  </div>
+</div>
+
+<ng-include src="'include/footer.html'"></ng-include>
