@@ -11,7 +11,7 @@
       </li>
 
       <!--- EJEMPLO DE ITEM DE MENÚ -->
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle"
             ng-class="{'active':(controller=='tipoproductoPlistController'||controller=='tipoproductoNewController'||controller=='tipoproductoFillController')}"
@@ -29,7 +29,7 @@
               aleatoria</a>
         </li>
       </ul>
-      
+
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle"
@@ -48,7 +48,7 @@
               aleatoria</a>
         </li>
       </ul>
-      
+
       <li class="nav-item ml-auto" ng-class="{'active' : (controller=='LoginController')}"
         ng-show="datosDeSesion.status!=200">
         <a class="nav-link" href="login"><i class="fas fa-user-friends"></i> Login</a>
