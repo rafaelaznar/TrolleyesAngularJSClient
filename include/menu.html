@@ -10,8 +10,7 @@
         <a class="nav-link" href="home"><i class="fas fa-home"></i> Home</a>
       </li>
 
-      <!--- EJEMPLO DE ITEM DE MENÚ -->
-      <ul class="navbar-nav">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle"
             ng-class="{'active':(controller=='tipoproductoPlistController'||controller=='tipoproductoNewController'||controller=='tipoproductoFillController')}"
@@ -28,9 +27,7 @@
               href="tipoproducto/fill"><i class="fas fa-random"></i> Creación
               aleatoria</a>
         </li>
-      </ul>
 
-      <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle"
             ng-class="{'active':(controller=='productoPlistController'||controller=='productoNewController'||controller=='productoFillController')}"
@@ -45,6 +42,23 @@
               href="producto/new"><i class="far fa-file"></i> Nuevo</a>
             <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='productoFillController')}"
               href="producto/fill"><i class="fas fa-random"></i> Creación
+              aleatoria</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+            ng-class="{'active':(controller=='compraPlistController'||controller=='compraNewController'||controller=='compraFillController')}"
+            ng-if="true" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="true">
+            Compra
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='compraPlistController')}"
+              href="compra/plist/1/10"><i class="fas fa-stream"></i> Listado</a>
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='compraNewController')}"
+              href="compra/new"><i class="far fa-file"></i> Nuevo</a>
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='compraFillController')}"
+              href="compra/fill"><i class="fas fa-random"></i> Creación
               aleatoria</a>
         </li>
       </ul>
