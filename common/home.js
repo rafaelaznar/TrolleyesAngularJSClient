@@ -8,8 +8,8 @@ miModulo.controller("HomeController", [
     $scope.controller = "HomeController";
 
     $scope.operationIcon = "fas fa-home";
-    $scope.operationName = "Bienvenidos a  ";
-    $scope.entityName = "TROLLEYES";
+    $scope.operationName = "Bienvenidos";
+    $scope.entityName = "";
     $scope.entityIcon = "fas fa-shopping-cart";
 
 

@@ -375,6 +375,7 @@ miModulo.config([
         }
       }
     });
+
     $routeProvider.when("/tipoproducto/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
       templateUrl: "app/tipoproducto/plist.html",
       controller: "tipoproductoPlistController",
@@ -390,8 +391,42 @@ miModulo.config([
             });
         }
       }
-   
-    
+    });    
+
+    $routeProvider.when("/carrito/new/:id", {
+      templateUrl: "app/carrito/new.html",
+      controller: "carritoNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        },
+      },
+    });      
+
+    $routeProvider.when("/usuario/edit/:id", {
+      templateUrl: "app/usuario/edit.html",
+      controller: "usuarioEditController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        },
+      },
+    });
+                  
     $routeProvider.when("/tipoproducto/new", {
       templateUrl: "app/tipoproducto/new.html",
       controller: "tipoproductoNewController",
@@ -405,11 +440,11 @@ miModulo.config([
             .catch(function (result) {
               return { data: result };
             });
-        }
-      }
+        },
+      },
     });
-  
-      $routeProvider.when("/compra/new/", {
+
+    $routeProvider.when("/compra/new/", {
       templateUrl: "app/compra/new.html",
       controller: "compraNewController",
       resolve: {
@@ -425,14 +460,58 @@ miModulo.config([
         }
       }
     });
-  
-  
-  
-  
-  
-  
-  
-  
+
+    $routeProvider.when("/tipousuario/new", {
+      templateUrl: "app/tipousuario/new.html",
+      controller: "tipousuarioNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        },
+      },
+    });
+
+    $routeProvider.when("/usuario/new/", {
+      templateUrl: "app/usuario/new.html",
+      controller: "usuarioNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/tipousuario/edit/:id", {
+      templateUrl: "app/tipousuario/edit.html",
+      controller: "tipousuarioEditController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
