@@ -375,6 +375,7 @@ miModulo.config([
         }
       }
     });
+
     $routeProvider.when("/tipoproducto/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
       templateUrl: "app/tipoproducto/plist.html",
       controller: "tipoproductoPlistController",
@@ -392,11 +393,6 @@ miModulo.config([
       }
     });
 
-    
-   
-     
-   
-    
     $routeProvider.when("/tipoproducto/new", {
       templateUrl: "app/tipoproducto/new.html",
       controller: "tipoproductoNewController",
@@ -414,8 +410,7 @@ miModulo.config([
       },
     });
 
-  
-      $routeProvider.when("/compra/new/", {
+    $routeProvider.when("/compra/new/", {
       templateUrl: "app/compra/new.html",
       controller: "compraNewController",
 
@@ -432,10 +427,9 @@ miModulo.config([
         }
       }
 
-    });    
-  
-  
-      $routeProvider.when("/tipousuario/new", {
+    });
+
+    $routeProvider.when("/tipousuario/new", {
       templateUrl: "app/tipousuario/new.html",
       controller: "tipousuarioNewController",
       resolve: {
@@ -452,8 +446,7 @@ miModulo.config([
       },
     });
 
-  
-   $routeProvider.when("/usuario/new/", {
+    $routeProvider.when("/usuario/new/", {
       templateUrl: "app/usuario/new.html",
       controller: "usuarioNewController",
       resolve: {
@@ -468,9 +461,8 @@ miModulo.config([
             });
         }
       }
-      });
-  
-  
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
