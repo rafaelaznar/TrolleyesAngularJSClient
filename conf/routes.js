@@ -511,6 +511,22 @@ miModulo.config([
         }
       }
     });
+    $routeProvider.when("/producto/edit/:id", {
+      templateUrl: "app/producto/edit.html",
+      controller: "productoEditController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
 
     $routeProvider.otherwise({ redirectTo: "/" });
   },
