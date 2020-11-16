@@ -29,7 +29,26 @@
               aleatoria</a>
         </li>
       </ul>
-
+      
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+            ng-class="{'active':(controller=='productoPlistController'||controller=='productoNewController'||controller=='productoFillController')}"
+            ng-if="true" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="true">
+            Producto
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='productoPlistController')}"
+              href="producto/plist/1/10"><i class="fas fa-stream"></i> Listado</a>
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='productoNewController')}"
+              href="producto/new"><i class="far fa-file"></i> Nuevo</a>
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='productoFillController')}"
+              href="producto/fill"><i class="fas fa-random"></i> Creación
+              aleatoria</a>
+        </li>
+      </ul>
+      
       <li class="nav-item ml-auto" ng-class="{'active' : (controller=='LoginController')}"
         ng-show="datosDeSesion.status!=200">
         <a class="nav-link" href="login"><i class="fas fa-user-friends"></i> Login</a>
