@@ -479,7 +479,7 @@ miModulo.config([
         }
       }
     });
-            
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
