@@ -391,8 +391,42 @@ miModulo.config([
             });
         }
       }
-    });
+    });    
 
+    $routeProvider.when("/carrito/new/:id", {
+      templateUrl: "app/carrito/new.html",
+      controller: "carritoNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        },
+      },
+    });      
+
+    $routeProvider.when("/usuario/edit/:id", {
+      templateUrl: "app/usuario/edit.html",
+      controller: "usuarioEditController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        },
+      },
+    });
+                  
     $routeProvider.when("/tipoproducto/new", {
       templateUrl: "app/tipoproducto/new.html",
       controller: "tipoproductoNewController",
@@ -413,7 +447,6 @@ miModulo.config([
     $routeProvider.when("/compra/new/", {
       templateUrl: "app/compra/new.html",
       controller: "compraNewController",
-
       resolve: {
         auth: function (ajaxService) {
           return ajaxService
@@ -426,7 +459,6 @@ miModulo.config([
             });
         }
       }
-
     });
 
     $routeProvider.when("/tipousuario/new", {
