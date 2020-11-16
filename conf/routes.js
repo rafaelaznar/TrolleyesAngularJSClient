@@ -171,6 +171,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/compra/edit/:id", {
+      templateUrl: "app/compra/edit.html",
+      controller: "compraEditController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.when("/tipousuario/view/:id", {
       templateUrl: "app/tipousuario/view.html",
       controller: "tipousuarioViewController",
@@ -325,9 +342,9 @@ miModulo.config([
       }
     });
 
-    $routeProvider.when("/tipousuario/edit/:id", {
-      templateUrl: "app/tipousuario/edit.html",
-      controller: "tipousuarioEditController",
+    $routeProvider.when("/factura/edit/:id", {
+      templateUrl: "app/factura/edit.html",
+      controller: "facturaEditController",
       resolve: {
         auth: function (ajaxService) {
           return ajaxService
@@ -358,6 +375,7 @@ miModulo.config([
         }
       }
     });
+
     $routeProvider.when("/tipoproducto/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
       templateUrl: "app/tipoproducto/plist.html",
       controller: "tipoproductoPlistController",
@@ -374,6 +392,94 @@ miModulo.config([
         }
       }
     });
+
+    $routeProvider.when("/tipoproducto/new", {
+      templateUrl: "app/tipoproducto/new.html",
+      controller: "tipoproductoNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        },
+      },
+    });
+
+    $routeProvider.when("/compra/new/", {
+      templateUrl: "app/compra/new.html",
+      controller: "compraNewController",
+
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+
+    });
+
+    $routeProvider.when("/tipousuario/new", {
+      templateUrl: "app/tipousuario/new.html",
+      controller: "tipousuarioNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        },
+      },
+    });
+
+    $routeProvider.when("/usuario/new/", {
+      templateUrl: "app/usuario/new.html",
+      controller: "usuarioNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/tipousuario/edit/:id", {
+      templateUrl: "app/tipousuario/edit.html",
+      controller: "tipousuarioEditController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+            
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
