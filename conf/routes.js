@@ -578,6 +578,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/tipousuario/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "app/tipousuario/plist.html",
+      controller: "tipousuarioPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
