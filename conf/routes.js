@@ -512,6 +512,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/producto/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "app/producto/plist.html",
+      controller: "productoPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
