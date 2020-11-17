@@ -494,10 +494,59 @@ miModulo.config([
         }
       }
     });
+    $routeProvider.when("/factura/new/", {
+      templateUrl: "app/factura/new.html",
+      controller: "facturaNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
 
     $routeProvider.when("/tipousuario/edit/:id", {
       templateUrl: "app/tipousuario/edit.html",
       controller: "tipousuarioEditController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+    $routeProvider.when("/producto/edit/:id", {
+      templateUrl: "app/producto/edit.html",
+      controller: "productoEditController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/carrito/edit/:id", {
+      templateUrl: "app/carrito/edit.html",
+      controller: "carritoEditController",
       resolve: {
         auth: function (ajaxService) {
           return ajaxService
