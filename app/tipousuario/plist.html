@@ -4,23 +4,22 @@
 
 <ng-include src="'include/status.html'"></ng-include>
 
-
-<div class="container-fluid px-5" ng-show="status.success==''&&status.error==''">
+<div class="container" ng-show="status.success==''&&status.error==''">
     <div class="row">
         <div class="col">
             <div class="d-flex justify-content-between">
                 <nav aria-label="rpp">
                     <ul class="pagination">
                         <li class="page-item" ng-class="{'active':(rpp==10)}">
-                            <a class="page-link" href="tipoproducto/plist/{{page}}/10/" tabindex="-1"
+                            <a class="page-link" href="tipousuario/plist/{{page}}/10/" tabindex="-1"
                                 aria-disabled="true">10</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==50)}">
-                            <a class="page-link" href="tipoproducto/plist/{{page}}/50/" tabindex="-1"
+                            <a class="page-link" href="tipousuario/plist/{{page}}/50/" tabindex="-1"
                                 aria-disabled="true">50</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==100)}">
-                            <a class="page-link" href="tipoproducto/plist/{{page}}/100/" tabindex="-1"
+                            <a class="page-link" href="tipousuario/plist/{{page}}/100/" tabindex="-1"
                                 aria-disabled="true">100</a>
                         </li>
                     </ul>
@@ -38,17 +37,17 @@
             </div>
             <table class="table table-striped table-sm">
                 <tr>
-                    <th class="text-center">
-                        id<br>
-                        <a href="tipoproducto/plist/{{page}}/{{rpp}}/id/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="tipoproducto/plist/{{page}}/{{rpp}}/id/desc"><i class="fas fa-arrow-down"></i></a>
+                    <th>
+                        id
+                        <a href="tipousuario/plist/{{page}}/{{rpp}}/id/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="tipousuario/plist/{{page}}/{{rpp}}/id/desc"><i class="fas fa-arrow-down"></i></a>
                     </th>
-                    <th class="text-center">
-                        nombre<br>
-                        <a href="tipoproducto/plist/{{page}}/{{rpp}}/nombre/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="tipoproducto/plist/{{page}}/{{rpp}}/nombre/desc"><i class="fas fa-arrow-down"></i></a>
+                    <th>
+                        nombre
+                        <a href="tipousuario/plist/{{page}}/{{rpp}}/nombre/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="tipousuario/plist/{{page}}/{{rpp}}/nombre/desc"><i class="fas fa-arrow-down"></i></a>
                     </th>
-                    <th class="text-center">
+                    <th>
                         herramientas
                     </th>
                 </tr>
@@ -56,17 +55,13 @@
                     <td>{{fila.id}}</td>
                     <td>{{fila.nombre}}</td>
                     <td>
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                <div class="btn-group" role="group" aria-label="Herramientas">
-                                    <a class="btn btn-success" href="tipoproducto/view/{{fila.id}}"><i
-                                            class="fas fa-eye"></i></a>
-                                    <a class="btn btn-primary" href="tipoproducto/edit/{{fila.id}}"><i
-                                            class="fas fa-edit"></i></a>
-                                    <a class="btn btn-danger" href="tipoproducto/remove/{{fila.id}}"><i
-                                            class="far fa-times"></i></a>
-                                </div>
-                            </div>
+                        <div class="btn-group" role="group" aria-label="Herramientas">
+                            <a class="btn btn-primary" href="tipousuario/view/{{fila.id}}"><i
+                                    class="fas fa-eye"></i></a>
+                            <a class="btn btn-primary" href="tipousuario/edit/{{fila.id}}"><i
+                                    class="fas fa-edit"></i></a>
+                            <a class="btn btn-primary" href="tipousuario/remove/{{fila.id}}"><i
+                                    class="far fa-times"></i></a>
                         </div>
                     </td>
                 </tr>

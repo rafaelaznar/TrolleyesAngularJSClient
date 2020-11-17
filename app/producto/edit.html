@@ -1,0 +1,125 @@
+<ng-include src="'include/menu.html'"></ng-include>
+
+<ng-include src="'include/header.html'"></ng-include>
+
+<ng-include src="'include/status.html'"></ng-include>
+
+<div class="container" ng-show="status.success==''&&status.error==''">
+    <div class="row">
+        <div class="col">
+
+            <form name="editForm" novalidate>
+                <div class="form-group row">
+                    <label for="inputId" class="col-sm-2 col-form-label">Id: </label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entity.id"
+                            disabled>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputNombre" class="col-sm-2 col-form-label">Nombre: </label>
+                    <div class="col-sm-10">
+                        <input name="inputNombre"
+                            ng-class="{ 'is-valid' : editForm.inputNombre.$valid && editForm.inputNombre.$dirty , 'is-invalid' : editForm.inputNombre.$invalid && editForm.inputNombre.$dirty}"
+                            type="text" class="form-control" id="inputNombre" placeholder="Nombre"
+                            ng-model="entity.nombre" ng-pattern="/[A-Z][0-9a-záéíóúüèòàñA-Z\s]*$/" ng-minlength="5"
+                            ng-maxlength="255" required>
+                        <div ng-show="editForm.inputNombre.$invalid" class="invalid-feedback">
+                            Por favor introduce una frase login de 5 a 255 caracteres. Puedes usar combinaciones de
+                            caracteres
+                            en mayúsculas y minúsculas, con dígitos. </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputCodigo" class="col-sm-2 col-form-label">Codigo: </label>
+                    <div class="col-sm-10">
+                      <input name="inputCodigo"
+                        ng-class="{ 'is-valid' : editForm.inputCodigo.$valid && editForm.inputCodigo.$dirty , 'is-invalid' : editForm.inputCodigo.$invalid && editForm.inputCodigo.$dirty}"
+                        type="text" class="form-control" id="inputCodigo" placeholder="Codigo"
+                        ng-model="entity.codigo" ng-pattern="/^[0-9]{1,3}$/" ng-maxlength="3" required>
+                      <div ng-show="editForm.inputCodigo.$invalid" class="invalid-feedback">
+                        Por favor introduce un codigo correcto </div>
+                    </div>
+                  </div>
+
+                <div class="form-group row">
+                    <label for="inputExistencias" class="col-sm-2 col-form-label">Existencias: </label>
+                    <div class="col-sm-2">
+                        <input name="inputExistencias"
+                            ng-class="{ 'is-valid' : editForm.inputExistencias.$valid && editForm.inputExistencias.$dirty , 'is-invalid' : editForm.inputExistencias.$invalid && editForm.inputExistencias.$dirty}"
+                            type="text" class="form-control" id="inputExistencias" placeholder="existencias"
+                            ng-model="entity.existencias" ng-pattern="d+$" ng-minlength="1" maxlength="10" required>
+                        <div ng-show="editForm.inputExistencias.$invalid" class="invalid-feedback">
+                            Por favor introduce un número entero válido. </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="inputPrecio" class="col-sm-2 col-form-label">Precio: </label>
+                    <div class="col-sm-2">
+                        <input name="inputPrecio"
+                            ng-class="{ 'is-valid' : editForm.inputPrecio.$valid && editForm.inputPrecio.$dirty , 'is-invalid' : editForm.inputPrecio.$invalid && editForm.inputPrecio.$dirty}"
+                            type="text" class="form-control" id="inputPrecio" placeholder="Precio"
+                            ng-model="entity.precio" ng-pattern="/[0-9]{1,4}([0-9][0-9])?$" required>
+                        <div ng-show="editForm.inputPrecio.$invalid" class="invalid-feedback">
+                            Por favor introduce un precio válido. </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputImagen" class="col-sm-2 col-form-label">Imagen: </label>
+                    <div class="col-sm-10">
+                        <input name="inputImagen"
+                            ng-class="{ 'is-valid' : editForm.inputImagen.$valid && editForm.inputImagen.$dirty , 'is-invalid' : editForm.inputImagen.$invalid && editForm.inputImagen.$dirty}"
+                            type="text" class="form-control" id="inputImagen" placeholder="Imagen"
+                            ng-model="entity.imagen" ng-pattern="/[A-Z][0-9a-záéíóúüèòàñA-Z\s]*$/" ng-minlength="5"
+                            ng-maxlength="255" required>
+                        <div ng-show="editForm.inputImagen.$invalid" class="invalid-feedback">
+                            Por favor introduce una frase login de 5 a 255 caracteres. Puedes usar combinaciones de
+                            caracteres
+                            en mayúsculas y minúsculas, con dígitos. </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputDescuento" class="col-sm-2 col-form-label">Descuento: </label>
+                    <div class="col-sm-2">
+                      <input name="inputDescuento"
+                        ng-class="{ 'is-valid' : editForm.inputDescuento.$valid && editForm.inputDescuento.$dirty , 'is-invalid' : editForm.inputDescuento.$invalid && editForm.inputDescuento.$dirty}"
+                        type="text" class="form-control" id="inputDescuento" placeholder="Descuento" ng-model="entity.descuento"
+                        ng-pattern="/^[0-9]{1,3}$/" ng-minlength="1" ng-maxlength="3" required>
+                      <div ng-show="editForm.inputDescuento.$invalid" class="invalid-feedback">
+                        Por favor introduce descuento correcto usando solo números. </div>
+                    </div>
+                  </div>
+          
+                  <div class="form-group row">
+                    <label for="inputTipoproducto" class="col-sm-2 col-form-label">Tipo producto: </label>
+                    <div class="col-sm-2">
+                      <input name="inputTipoproducto"
+                        ng-class="{ 'is-valid' : editForm.inputTipoproducto.$valid && editForm.inputTipoproducto.$dirty , 'is-invalid' : editForm.inputTipoproducto.$invalid && editForm.inputTipoproducto.$dirty}"
+                        type="text" class="form-control" id="inputTipoproducto" placeholder="Tipo producto"
+                        ng-model="entity.id_tipoproducto" ng-pattern="/^[12]$/" ng-maxlength="1" required>
+                      <div ng-show="editForm.inputTipoproducto.$invalid" class="invalid-feedback">
+                        Por favor introduce un id de tipo producto correcto, usando solo 1 o 2. </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group row text-right">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-success"
+                            ng-disabled="editForm.$invalid||editForm.$pristine" ng-click="save()">Guardar</button>
+                        <a type="button" class="btn btn-primary" href="home">Ir a home</a>
+                        <button type="button" class="btn btn-primary" ng-click="back()">
+                            Volver
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<ng-include src="'include/footer.html'"></ng-include>
