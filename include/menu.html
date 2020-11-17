@@ -61,6 +61,23 @@
               href="compra/fill"><i class="fas fa-random"></i> Creación
               aleatoria</a>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+            ng-class="{'active':(controller=='facturaPlistController'||controller=='facturaNewController'||controller=='facturaFillController')}"
+            ng-if="true" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="true">
+            Factura
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='facturaPlistController')}"
+              href="factura/plist/1/10"><i class="fas fa-stream"></i> Listado</a>
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='facturaNewController')}"
+              href="factura/new"><i class="far fa-file"></i> Nuevo</a>
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='facturaFillController')}"
+              href="factura/fill"><i class="fas fa-random"></i> Creación
+              aleatoria</a>
+        </li>
       </ul>
 
       <li class="nav-item ml-auto" ng-class="{'active' : (controller=='LoginController')}"
