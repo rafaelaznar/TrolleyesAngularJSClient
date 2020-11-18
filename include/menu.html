@@ -11,21 +11,28 @@
       </li>
 
       <ul class="navbar-nav mr-auto">
+
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle"
-            ng-class="{'active':(controller=='tipoproductoPlistController'||controller=='tipoproductoNewController'||controller=='tipoproductoFillController')}"
+            ng-class="{'active':(controller=='usuarioPlistController'||controller=='usuarioNewController'||controller=='usuarioFillController')}"
             ng-if="true" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="true">
-            Tipo producto
+            Usuario
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='tipoproductoPlistController')}"
-              href="tipoproducto/plist/1/10"><i class="fas fa-stream"></i> Listado</a>
-            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='tipoproductoNewController')}"
-              href="tipoproducto/new"><i class="far fa-file"></i> Nuevo</a>
-            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='tipoproductoFillController')}"
-              href="tipoproducto/fill"><i class="fas fa-random"></i> Creación
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='usuarioPlistController')}"
+              href="usuario/plist/1/10"><i class="fas fa-stream"></i> Listado</a>
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='usuarioNewController')}"
+              href="usuario/new"><i class="far fa-file"></i> Nuevo</a>
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='usuarioFillController')}"
+              href="usuario/fill"><i class="fas fa-random"></i> Creación
               aleatoria</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" ng-if="true" ng-class="{'active':(controller=='tipousuarioPlistController')}"
+            href="tipousuario/plist/1/10"><i class="fas fa-stream"></i> Tipo de usuarios</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -47,6 +54,25 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle"
+            ng-class="{'active':(controller=='tipoproductoPlistController'||controller=='tipoproductoNewController'||controller=='tipoproductoFillController')}"
+            ng-if="true" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="true">
+            Tipo producto
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='tipoproductoPlistController')}"
+              href="tipoproducto/plist/1/10"><i class="fas fa-stream"></i> Listado</a>
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='tipoproductoNewController')}"
+              href="tipoproducto/new"><i class="far fa-file"></i> Nuevo</a>
+            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='tipoproductoFillController')}"
+              href="tipoproducto/fill"><i class="fas fa-random"></i> Creación
+              aleatoria</a>
+        </li>
+
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
             ng-class="{'active':(controller=='compraPlistController'||controller=='compraNewController'||controller=='compraFillController')}"
             ng-if="true" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="true">
@@ -62,23 +88,9 @@
               aleatoria</a>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle"
-            ng-class="{'active':(controller=='tipousuarioPlistController'||controller=='tipousuarioNewController'||controller=='tipousuarioFillController')}"
-            ng-if="true" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="true">
-            Tipo usuario
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='tipousuarioPlistController')}"
-              href="tipousuario/plist/1/10"><i class="fas fa-stream"></i> Listado</a>
-            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='tipousuarioNewController')}"
-              href="tipousuario/new"><i class="far fa-file"></i> Nuevo</a>
-            <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='tipousuarioFillController')}"
-              href="tipousuario/fill"><i class="fas fa-random"></i> Creación
-              aleatoria</a>
-        </li>
-        
+
+
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle"
             ng-class="{'active':(controller=='facturaPlistController'||controller=='facturaNewController'||controller=='facturaFillController')}"

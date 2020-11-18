@@ -1,0 +1,114 @@
+<ng-include src="'include/menu.html'"></ng-include>
+
+<ng-include src="'include/header.html'"></ng-include>
+
+<ng-include src="'include/status.html'"></ng-include>
+
+<div class="container" ng-show="status.success==''&&status.error==''">
+    <div class="row justify-content-md-center">
+        <div class="col-6">
+
+            <form name="newForm" novalidate>
+               
+
+                <div class="form-group row">
+                    <label for="inputcodigo" class="col-sm-2 col-form-label">Código: </label>
+                    <div class="col-sm-10">
+                        <input name="inputcodigo"
+                            ng-class="{ 'is-valid' : newForm.inputcodigo.$valid && newForm.inputcodigo.$dirty , 'is-invalid' : newForm.inputcodigo.$invalid && newForm.inputcodigo.$dirty}"
+                            type="text" class="form-control" id="inputcodigo" placeholder="codigo"
+                            ng-model="entity.codigo" required>
+                        <div ng-show="newForm.inputcodigo.$invalid" class="invalid-feedback">
+                            Por favor introduce un código </div>
+                    </div>
+                </div>
+                
+                
+                <div class="form-group row">
+                    <label for="inputnombre" class="col-sm-2 col-form-label">Nombre: </label>
+                    <div class="col-sm-10">
+                        <input name="inputnombre"
+                            ng-class="{ 'is-valid' : newForm.inputnombre.$valid && newForm.inputnombre.$dirty , 'is-invalid' : newForm.inputnombre.$invalid && newForm.inputnombre.$dirty}"
+                            type="text" class="form-control" id="inputnombre" placeholder="nombre"
+                            ng-model="entity.nombre" required>
+                        <div ng-show="newForm.inputnombre.$invalid" class="invalid-feedback">
+                            Por favor introduce un nombre  </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputexistencias" class="col-sm-2 col-form-label">Existencias: </label>
+                    <div class="col-sm-4">
+                        <input name="inputexistencias"
+                            ng-class="{ 'is-valid' : newForm.inputexistencias.$valid && newForm.inputexistencias.$dirty , 'is-invalid' : newForm.inputexistencias.$invalid && newForm.inputexistencias.$dirty}"
+                            type="number" class="form-control" id="inputexistencias" placeholder="existencias"
+                            ng-model="entity.existencias" ng-pattern="/^\d+$/"  required>
+                        <div ng-show="newForm.inputexistencias.$invalid" class="invalid-feedback">
+                            Por favor introduce un valor numerico   </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputprecio" class="col-sm-2 col-form-label">Precio: </label>
+                    <div class="col-sm-4">
+                        <input name="inputprecio"
+                            ng-class="{ 'is-valid' : newForm.inputprecio.$valid && newForm.inputprecio.$dirty , 'is-invalid' : newForm.inputprecio.$invalid && newForm.inputprecio.$dirty}"
+                            type="number" class="form-control" id="inputprecio" placeholder="precio"
+                            ng-model="entity.precio" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"  required>
+                        <div ng-show="newForm.inputprecio.$invalid" class="invalid-feedback">
+                            Por favor introduce un decimal con 2 decimales como máximo   </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputimagen" class="col-sm-2 col-form-label">Imagen: </label>
+                    <div class="col-sm-4">
+                        <input name="inputimagen"
+                            ng-class="{ 'is-valid' : newForm.inputimagen.$valid && newForm.inputimagen.$dirty , 'is-invalid' : newForm.inputimagen.$invalid && newForm.inputimagen.$dirty}"
+                            type="text" class="form-control" id="inputimagen" placeholder="imagen"
+                            ng-model="entity.imagen">
+                        <div ng-show="newForm.inputimagen.$invalid" class="invalid-feedback">
+                            Por favor introduce un decimal con 2 decimales como máximo   </div>
+                    </div>
+                </div>
+               
+                <div class="form-group row">
+                    <label for="inputdescuento" class="col-sm-2 col-form-label">Descuento: </label>
+                    <div class="col-sm-4">
+                        <input name="inputdescuento"
+                            ng-class="{ 'is-valid' : newForm.inputdescuento.$valid && newForm.inputdescuento.$dirty , 'is-invalid' : newForm.inputdescuento.$invalid && newForm.inputdescuento.$dirty}"
+                            type="number" class="form-control" id="inputdescuento" placeholder="descuento"
+                            ng-model="entity.descuento" ng-pattern="/^\d+$/"  required>
+                        <div ng-show="newForm.inputdescuento.$invalid" class="invalid-feedback">
+                            Por favor introduce valor numérico entero   </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputidtipoproducto" class="col-sm-2 col-form-label">Id tipo de producto: </label>
+                    <div class="col-sm-4">
+                        <input name="inputidtipoproducto"
+                            ng-class="{ 'is-valid' : newForm.inputidtipoproducto.$valid && newForm.inputidtipoproducto.$dirty , 'is-invalid' : newForm.inputidtipoproducto.$invalid && newForm.inputidtipoproducto.$dirty}"
+                            type="number" class="form-control" id="inputidtipoproducto" placeholder="id tipo producto"
+                            ng-model="entity.idtipoproducto" ng-pattern="/^\d+$/"  required>
+                        <div ng-show="newForm.inputidtipoproducto.$invalid" class="invalid-feedback">
+                            Por favor introduce valor numérico entero   </div>
+                    </div>
+                </div>
+                
+
+                <div class="form-group row text-right">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-success" ng-disabled="newForm.$invalid||newForm.$pristine" ng-click="save()">Guardar</button>
+                        <a type="button" class="btn btn-primary" href="home">Ir a home</a>
+                        <button type="button" class="btn btn-primary" ng-click="back()">
+                            Volver
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<ng-include src="'include/footer.html'"></ng-include>
