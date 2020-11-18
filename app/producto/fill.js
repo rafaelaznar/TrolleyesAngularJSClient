@@ -20,10 +20,10 @@ miModulo.controller("productoFillController", [
         $scope.status.success = "";
         $scope.status.error = "";
 
-        $scope.crear = function (numero) {
+        $scope.save = function (amount) {
 
-        ajaxService.ajaxFill($scope.entityName, numero).then(function (response) {
-            $scope.status.success = "Se han creado " + numero + " " + $scope.entityName + "s correctamente."
+        ajaxService.ajaxFill($scope.entityName, amount).then(function (response) {
+            $scope.status.success = "Se han creado " + amount + " " + $scope.entityName + "s correctamente."
             
         }).catch(function (error) {
             $scope.status.error = "ERROR: No se han podido crear los datos en " + $scope.entityName;

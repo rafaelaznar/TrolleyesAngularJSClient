@@ -9,27 +9,22 @@
 <div class="container-fluid px-5" ng-show="status.success==''&&status.error==''">
 
     <div class="row">
-        <div class="col">
-            <form name="newForm" novalidate>
-                <div class="form-group row text-center">
-                    <div class="col-sm-12">
-                        <button type="submit" class="btn btn-success" ng-click="crear(10)">Generar 
-                            10</button>
-                        <button type="submit" class="btn btn-success" ng-click="crear(100)">Generar 
-                            100</button>
-                        <button type="submit" class="btn btn-success" ng-click="crear(1000)">Generar
-                            1000</button>
-                    </div>
-                </div>
-                <div class="form-group row text-right">
-                    <div class="col-sm-12">
-                        <a type="button" class="btn btn-primary" href="home">Ir a home</a>
-                        <button type="button" class="btn btn-primary" ng-click="back()">
-                            Volver
-                        </button>
-                    </div>
-                </div>
-            </form>
+        <div class="col-md-12 text-center">
+            <div class="btn-group" role="group" aria-label="amount">
+                <button type="submit" class="btn btn-primary" ng-click="save(10)">10</button>
+                <button type="submit" class="btn btn-primary" ng-click="save(100)">100</button>
+                <button type="submit" class="btn btn-primary" ng-click="save(1000)">1000</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group row text-right">
+        <div class="col-sm-12">
+            <a type="button" class="btn btn-primary" href="home">Ir a home</a>
+            <button type="button" class="btn btn-primary" ng-click="back()">
+                Volver
+            </button>
         </div>
     </div>
 
