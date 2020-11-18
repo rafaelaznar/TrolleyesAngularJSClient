@@ -629,7 +629,23 @@ miModulo.config([
       }
     });  
   
-  
+    $routeProvider.when("/tipoproducto/fill", {
+      templateUrl: "app/tipoproducto/fill.html",
+      controller: "tipoproductoFillController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
