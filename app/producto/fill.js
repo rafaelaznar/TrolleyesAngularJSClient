@@ -29,11 +29,12 @@ miModulo.controller("productoFillController", [
             $scope.status.error = "ERROR: No se han podido crear los datos en " + $scope.entityName;
         });
 
+        
+        }   
+
         $scope.back = function () {
             window.history.back();
-          };
-
-    }   
+            };
 
 
     }])
