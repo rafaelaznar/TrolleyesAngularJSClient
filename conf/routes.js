@@ -595,6 +595,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/producto/fill/", {
+      templateUrl: "app/producto/fill.html",
+      controller: "productoFillController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
