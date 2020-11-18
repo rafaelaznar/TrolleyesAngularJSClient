@@ -14,7 +14,7 @@ miModulo.controller("carritoViewController", [
     $scope.operationIcon = "fas fa-eye";
     $scope.operationName = "Vista de ";
     $scope.entityName = "carrito";
-    $scope.entityIcon = "fas fa-gift";
+    $scope.entityIcon = "fas fa-shopping-cart";
 
     $scope.status = {};
     $scope.status.success = "";
