@@ -13,7 +13,7 @@ miModulo.controller("compraFillController", [
 		$scope.operationIcon = "fas fa-plus";
 		$scope.operationName = "Auto relleno de ";
 		$scope.entityName = "compra";
-		$scope.entityIcon = "fas fa-gift";
+		$scope.entityIcon = "fas fa-cash-register";
 
 		$scope.status = {};
 		$scope.status.success = "";
