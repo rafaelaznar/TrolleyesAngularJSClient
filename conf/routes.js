@@ -608,10 +608,28 @@ miModulo.config([
             .catch(function (result) {
               return { data: result };
             });
-        },
-      },
+        }
+      }
     });
 
+    $routeProvider.when("/producto/new/", {
+      templateUrl: "app/producto/new.html",
+      controller: "productoNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });  
+  
+  
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
