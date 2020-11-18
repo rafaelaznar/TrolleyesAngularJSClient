@@ -43,6 +43,7 @@ miModulo.controller("productoRemoveController", [
 
     $scope.back = function () {
       window.history.back();
-    };    
+    };
+    
   },
 ]);

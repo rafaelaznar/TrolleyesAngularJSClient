@@ -27,6 +27,9 @@ miModulo.factory("ajaxService", [
       ajaxNew: function (entidad, data) {
         return $http.post("http://localhost:8082/" + entidad + "/", data);
       },
+      ajaxFill: function (entidad, numero) {
+        return $http.post("http://localhost:8082/" + entidad + "/" + numero);
+      },
       ajaxPlist: function (entidad, page, size, sortfield, sortdirection) {
         strRequest = "http://localhost:8082/" + entidad + "/page/?";
         if (page) {
