@@ -3,7 +3,7 @@ miModulo.controller("carritoNewController", [
     "auth",
     "$location",
     "ajaxService",
-    function($scope, auth, $location, ajaxService) {
+    function ($scope, auth, $location, ajaxService) {
         $scope.controller = "carritoNewController";
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
@@ -13,19 +13,19 @@ miModulo.controller("carritoNewController", [
         $scope.operationIcon = "fas fa-plus";
         $scope.operationName = "Alta de ";
         $scope.entityName = "carrito";
-        $scope.entityIcon = "fas fa-cubes";
+        $scope.entityIcon = "fas fa-shopping-cart";
 
         $scope.status = {};
         $scope.status.success = "";
         $scope.status.error = "";
 
-        $scope.save = function() {
+        $scope.save = function () {
             var datos = JSON.stringify({
                 nombre: $scope.entity.nombre
             });
             ajaxService
                 .ajaxNew($scope.entityName, datos)
-                .then(function(response) {
+                .then(function (response) {
                     $scope.status.success =
                         "El " +
                         $scope.entityName +
@@ -33,7 +33,7 @@ miModulo.controller("carritoNewController", [
                         $scope.entity.nombre +
                         " ha sido guardado.";
                 })
-                .catch(function(error) {
+                .catch(function (error) {
                     $scope.status.error =
                         "ERROR: El " +
                         $scope.entityName +
@@ -43,7 +43,7 @@ miModulo.controller("carritoNewController", [
                 });
         };
 
-        $scope.back = function() {
+        $scope.back = function () {
             window.history.back();
         };
     },

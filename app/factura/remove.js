@@ -14,7 +14,7 @@ miModulo.controller("facturaRemoveController", [
     $scope.operationIcon = "fas fa-eraser";
     $scope.operationName = "Borrado de ";
     $scope.entityName = "factura";
-    $scope.entityIcon = "fas fa-gift";
+    $scope.entityIcon = "fas fa-file-invoice-dollar";
 
     $scope.status = {};
     $scope.status.success = "";

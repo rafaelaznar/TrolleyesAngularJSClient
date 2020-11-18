@@ -14,7 +14,7 @@ miModulo.controller("carritoRemoveController", [
     $scope.operationIcon = "fas fa-eraser";
     $scope.operationName = "Borrado de ";
     $scope.entityName = "carrito";
-    $scope.entityIcon = "fas fa-gift";
+    $scope.entityIcon = "fas fa-shopping-cart";
 
     $scope.status = {};
     $scope.status.success = "";

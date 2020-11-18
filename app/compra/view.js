@@ -14,7 +14,7 @@ miModulo.controller("compraViewController", [
         $scope.operationIcon = "fas fa-eye";
         $scope.operationName = "Vista de ";
         $scope.entityName = "compra";
-        $scope.entityIcon = "fas fa-gift";
+        $scope.entityIcon = "fas fa-cash-register";
 
         $scope.status = {};
         $scope.status.success = "";
