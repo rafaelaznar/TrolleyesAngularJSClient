@@ -577,7 +577,22 @@ miModulo.config([
         }
       }
     });
-
+    $routeProvider.when("/usuario/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "app/usuario/plist.html",
+      controller: "usuarioPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
     $routeProvider.when("/tipousuario/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
       templateUrl: "app/tipousuario/plist.html",
       controller: "tipousuarioPlistController",
@@ -594,7 +609,6 @@ miModulo.config([
         }
       }
     });
-
     $routeProvider.when("/compra/fill", {
       templateUrl: "app/compra/fill.html",
       controller: "compraFillController",
