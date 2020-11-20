@@ -625,6 +625,22 @@ miModulo.config([
         }
       }
     });
+    $routeProvider.when("/factura/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "app/factura/plist.html",
+      controller: "facturaPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
     $routeProvider.when("/compra/fill", {
       templateUrl: "app/compra/fill.html",
       controller: "compraFillController",
