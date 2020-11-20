@@ -44,59 +44,61 @@
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i class="fas fa-arrow-down"></i></a>
                     </th>
                     <th class="text-center">
-                        código<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/codigo/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/codigo/desc"><i class="fas fa-arrow-down"></i></a>
+                        producto<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/producto/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/producto/desc"><i
+                                class="fas fa-arrow-down"></i></a>
                     </th>
                     <th class="text-center">
-                        nombre<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/desc"><i class="fas fa-arrow-down"></i></a>
-                    </th>
-                    <th class="text-center">
-                        tipo<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/tipoproducto/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/tipoproducto/desc"><i class="fas fa-arrow-down"></i></a>
-                    </th>
-                    <th class="text-center">
-                        existencias<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/existencias/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/existencias/desc"><i class="fas fa-arrow-down"></i></a>
+                        cantidad<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/cantidad/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/cantidad/desc"><i
+                                class="fas fa-arrow-down"></i></a>
                     </th>
                     <th class="text-center">
                         precio<br>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/precio/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/precio/desc"><i class="fas fa-arrow-down"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/precio/desc"><i
+                                class="fas fa-arrow-down"></i></a>
                     </th>
                     <th class="text-center">
-                        descuento<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento/desc"><i class="fas fa-arrow-down"></i></a>
+                        fecha<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/fecha/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/fecha/desc"><i class="fas fa-arrow-down"></i></a>
                     </th>
                     <th class="text-center">
-                        compras<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/compras/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/compras/desc"><i class="fas fa-arrow-down"></i></a>
-                    </th>                    
+                        descuento usuario<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento_usuario/asc"><i
+                                class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento_usuario/desc"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
                     <th class="text-center">
-                        carritos<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/carritos/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/carritos/desc"><i class="fas fa-arrow-down"></i></a>
-                    </th>                    
+                        descuento producto<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento_producto/asc"><i
+                                class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento_producto/desc"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        factura<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/factura/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/factura/desc"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
                     <th class="text-center">
                         herramientas
                     </th>
                 </tr>
                 <tr ng-repeat="fila in entities.content">
                     <td>{{fila.id}}</td>
-                    <td class="text-left font-weight-bold">{{fila.codigo}} </td>
-                    <td>{{fila.nombre}}</td>
-                    <td><a href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.tipoproducto.nombre}}</a></td>
-                    <td class="text-right">{{fila.existencias}}</td>
+                    <td class="text-left font-weight-bold">  <a href="producto/view/{{fila.producto.id}}">{{fila.producto.codigo}} </a></td>                    
+                    <td class="text-right">{{fila.cantidad}}</td>
                     <td class="text-right">{{fila.precio}}</td>
-                    <td class="text-center">{{fila.descuento}}%</td>
-                    <td class="text-center"><a href="compra/{{entityName}}////{{fila.id}} " >{{fila.compras}}</a></td>
-                    <td class="text-center">{{fila.carritos}}</td>
+                    <td class="text-right">{{fila.fecha}}</td>
+                    <td class="text-center">{{fila.descuento_usuario}}%</td>
+                    <td class="text-center">{{fila.descuento_producto}}%</td>
+                    <td class="text-center"><a href="factura/view/{{fila.factura.id}}">{{fila.factura.usuario.nombre}} {{fila.factura.usuario.apellido1}} {{fila.factura.usuario.apellido2}} ({{fila.factura.fecha}})</a></td>
                     <td>
                         <div class="row">
                             <div class="col-md-12 text-center">
