@@ -84,19 +84,25 @@
                         <a href="usuario/plist/{{page}}/{{rpp}}/tipousuario/desc"><i class="fas fa-arrow-down"></i></a>
                     </th>
                     <th class="text-center">
+                        Carrito<br>
+                        <a href="usuario/plist/{{page}}/{{rpp}}/carrito/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="usuario/plist/{{page}}/{{rpp}}/carrito/desc"><i class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
                         herramientas
                     </th>
                 </tr>
                 <tr ng-repeat="fila in entities.content">
                     <td class="text-center">{{fila.id}}</td>
                     <td class="text-center font-weight-bold">{{fila.dni}} </td>
-                    <td class="text-center">{{fila.nombre}}</td>
-                    <td class="text-center">{{fila.apellido1}}</td>
-                    <td class="text-center">{{fila.apellido2}}</td>
+                    <td class="text-right">{{fila.nombre}}</td>
+                    <td class="text-right">{{fila.apellido1}}</td>
+                    <td class="text-right">{{fila.apellido2}}</td>
                     <td class="text-center">{{fila.login}}</td>
-                    <td class="text-center">{{fila.email}}</td>
+                    <td class="text-right">{{fila.email}}</td>
                     <td class="text-center">{{fila.descuento}}%</td>
                     <td class="text-center">{{fila.tipousuario.nombre}}</td>
+                    <td class="text-center">{{fila.carritos}}</td>
                     <td>
                         <div class="row">
                             <div class="col-md-12 text-center">
