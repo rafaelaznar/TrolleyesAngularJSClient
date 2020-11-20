@@ -54,6 +54,11 @@
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/desc"><i class="fas fa-arrow-down"></i></a>
                     </th>
                     <th class="text-center">
+                        tipo<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/tipoproducto/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/tipoproducto/desc"><i class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
                         existencias<br>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/existencias/asc"><i class="fas fa-arrow-up"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/existencias/desc"><i class="fas fa-arrow-down"></i></a>
@@ -74,6 +79,11 @@
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/compras/desc"><i class="fas fa-arrow-down"></i></a>
                     </th>                    
                     <th class="text-center">
+                        carritos<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/carritos/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/carritos/desc"><i class="fas fa-arrow-down"></i></a>
+                    </th>                    
+                    <th class="text-center">
                         herramientas
                     </th>
                 </tr>
@@ -81,10 +91,12 @@
                     <td>{{fila.id}}</td>
                     <td class="text-left font-weight-bold">{{fila.codigo}} </td>
                     <td>{{fila.nombre}}</td>
+                    <td><a href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.tipoproducto.nombre}}</a></td>
                     <td class="text-right">{{fila.existencias}}</td>
                     <td class="text-right">{{fila.precio}}</td>
                     <td class="text-center">{{fila.descuento}}%</td>
                     <td class="text-center">{{fila.compras}}</td>
+                    <td class="text-center">{{fila.carritos}}</td>
                     <td>
                         <div class="row">
                             <div class="col-md-12 text-center">

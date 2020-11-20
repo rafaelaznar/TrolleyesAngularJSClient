@@ -98,7 +98,7 @@
                     <td class="text-right">{{fila.fecha}}</td>
                     <td class="text-center">{{fila.descuento_usuario}}%</td>
                     <td class="text-center">{{fila.descuento_producto}}%</td>
-                    <td class="text-center">{{fila.factura.fecha}}</td>
+                    <td class="text-center"><a href="factura/view/{{fila.factura.id}}">{{fila.factura.usuario.nombre}} {{fila.factura.usuario.apellido1}} {{fila.factura.usuario.apellido2}} ({{fila.factura.fecha}})</a></td>
                     <td>
                         <div class="row">
                             <div class="col-md-12 text-center">
