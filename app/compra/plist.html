@@ -92,13 +92,13 @@
                 </tr>
                 <tr ng-repeat="fila in entities.content">
                     <td>{{fila.id}}</td>
-                    <td class="text-right font-weight-bold">{{fila.producto.codigo}} </td>
+                    <td class="text-left font-weight-bold">  <a href="producto/view/{{fila.producto.id}}">{{fila.producto.codigo}} </a></td>                    
                     <td class="text-right">{{fila.cantidad}}</td>
                     <td class="text-right">{{fila.precio}}</td>
                     <td class="text-right">{{fila.fecha}}</td>
                     <td class="text-center">{{fila.descuento_usuario}}%</td>
                     <td class="text-center">{{fila.descuento_producto}}%</td>
-                    <td class="text-center">{{fila.id_factura}}</td>
+                    <td class="text-center">{{fila.factura.fecha}}</td>
                     <td>
                         <div class="row">
                             <div class="col-md-12 text-center">
