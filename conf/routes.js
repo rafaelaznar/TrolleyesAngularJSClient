@@ -762,6 +762,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/carrito/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "app/carrito/plist.html",
+      controller: "carritoPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
