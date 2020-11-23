@@ -22,9 +22,8 @@
                     <div class="col-sm-10">
                         <input name="inputDni"
                             ng-class="{ 'is-valid' : newForm.inputDni.$valid && newForm.inputDni.$dirty , 'is-invalid' : newForm.inputDni.$invalid && newForm.inputDni.$dirty}"
-                            type="text" class="form-control" id="inputDni" placeholder="DNI"
-                            ng-model="entity.dni" ng-pattern="/^[0-9]{8,8}[A-Za-z]$/" ng-minlength="1"
-                            ng-maxlength="9" required>
+                            type="text" class="form-control" id="inputDni" placeholder="DNI" ng-model="entity.dni"
+                            ng-pattern="/^[0-9]{8,8}[A-Za-z]$/" ng-minlength="1" ng-maxlength="9" required>
                         <div ng-show="newForm.inputDni.$invalid" class="invalid-feedback">
                             Por favor introduce el DNI: </div>
                     </div>
@@ -42,7 +41,7 @@
                             Por favor introduce el nombre: </div>
                     </div>
                 </div>
-                
+
                 <div class="form-group row">
                     <label for="inputApellido1" class="col-sm-2 col-form-label">Primer apellido: </label>
                     <div class="col-sm-10">
@@ -54,8 +53,8 @@
                         <div ng-show="newForm.inputApellido1.$invalid" class="invalid-feedback">
                             Por favor introduce el primer apellido: </div>
                     </div>
-                </div>      
-                
+                </div>
+
                 <div class="form-group row">
                     <label for="inputApellido2" class="col-sm-2 col-form-label">Segundo apellido: </label>
                     <div class="col-sm-10">
@@ -67,16 +66,15 @@
                         <div ng-show="newForm.inputApellido2.$invalid" class="invalid-feedback">
                             Por favor introduce el segundo apellido: </div>
                     </div>
-                </div> 
-                
+                </div>
+
                 <div class="form-group row">
                     <label for="inputLogin" class="col-sm-2 col-form-label">Login: </label>
                     <div class="col-sm-10">
                         <input name="inputLogin"
                             ng-class="{ 'is-valid' : newForm.inputLogin.$valid && newForm.inputLogin.$dirty , 'is-invalid' : newForm.inputLogin.$invalid && newForm.inputLogin.$dirty}"
-                            type="text" class="form-control" id="inputLogin" placeholder="login"
-                            ng-model="entity.login" ng-pattern="/^[A-Za-z0-9\s]*$/" ng-minlength="6"
-                            ng-maxlength="20" required>
+                            type="text" class="form-control" id="inputLogin" placeholder="login" ng-model="entity.login"
+                            ng-pattern="/^[A-Za-z0-9\s]*$/" ng-minlength="6" ng-maxlength="20" required>
                         <div ng-show="newForm.inputLogin.$invalid" class="invalid-feedback">
                             Por favor introduce una frase login de 6 a 20 caracteres. Puedes usar combinaciones de
                             caracteres en mayúsculas y minúsculas, con dígitos: </div>
@@ -89,26 +87,28 @@
                         <input name="inputPassword"
                             ng-class="{ 'is-valid' : newForm.inputPassword.$valid && newForm.inputPassword.$dirty , 'is-invalid' : newForm.inputPassword.$invalid && newForm.inputPassword.$dirty}"
                             type="text" class="form-control" id="inputPassword" placeholder="Password"
-                            ng-model="entity.password" ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/" ng-minlength="8"
-                            ng-maxlength="20" required>
+                            ng-model="entity.password"
+                            ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/"
+                            ng-minlength="8" ng-maxlength="20" required>
                         <div ng-show="newForm.inputPassword.$invalid" class="invalid-feedback">
-                            Por favor introduce un Password con mínimo 8 y un máximo de 20 caracteres. Debe tener por lo menos una letra mayúscula,
+                            Por favor introduce un Password con mínimo 8 y un máximo de 20 caracteres. Debe tener por lo
+                            menos una letra mayúscula,
                             una letra minúscula, un número y un caracter especial. </div>
                     </div>
-                </div>                
-                
+                </div>
+
                 <div class="form-group row">
                     <label for="inputEmail" class="col-sm-2 col-form-label">Email: </label>
                     <div class="col-sm-10">
                         <input name="inputEmail"
                             ng-class="{ 'is-valid' : newForm.inputEmail.$valid && newForm.inputEmail.$dirty , 'is-invalid' : newForm.inputEmail.$invalid && newForm.inputEmail.$dirty}"
-                            type="text" class="form-control" id="inputEmail" placeholder="Email"
-                            ng-model="entity.email" ng-pattern="/^\w+([\.\+\-]?\w+)*@([\.-]?\w+)*(\.\w{2,4})+$/" ng-minlength="6"
+                            type="text" class="form-control" id="inputEmail" placeholder="Email" ng-model="entity.email"
+                            ng-pattern="/^\w+([\.\+\-]?\w+)*@([\.-]?\w+)*(\.\w{2,4})+$/" ng-minlength="6"
                             ng-maxlength="20" required>
                         <div ng-show="newForm.inputEmail.$invalid" class="invalid-feedback">
                             Por favor introduce un correo electrónico válido: </div>
                     </div>
-                </div>                  
+                </div>
 
                 <div class="form-group row">
                     <label for="inputDescuento" class="col-sm-2 col-form-label">Descuento: </label>
@@ -116,68 +116,83 @@
                         <input name="inputDescuento"
                             ng-class="{ 'is-valid' : newForm.inputDescuento.$valid && newForm.inputDescuento.$dirty , 'is-invalid' : newForm.inputDescuento.$invalid && newForm.inputDescuento.$dirty}"
                             type="text" class="form-control" id="inputDescuento" placeholder="Descuento"
-                            ng-model="entity.descuento" ng-pattern="/^[0-9][0-9]*$/" ng-minlength="1"
-                            ng-maxlength="2" required>
+                            ng-model="entity.descuento" ng-pattern="/^[0-9][0-9]*$/" ng-minlength="1" ng-maxlength="2"
+                            required>
                         <div ng-show="newForm.inputDescuento.$invalid" class="invalid-feedback">
-                            Por favor introduce un descuento de 1 a 2 digitos. Si no hay descuento introduce un 0: </div>
+                            Por favor introduce un descuento de 1 a 2 digitos. Si no hay descuento introduce un 0:
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputIdTipousuario" class="col-sm-2 col-form-label">Id Tipo Usuario: </label>
-                    <div class="col-sm-10">
-                        <input name="inputIdTipousuario"
-                            ng-class="{ 'is-valid' : newForm.inputIdTipousuario.$valid && newForm.inputIdTipousuario.$dirty , 'is-invalid' : newForm.inputIdTipousuario.$invalid && newForm.inputIdTipousuario.$dirty}"
-                            type="text" class="form-control" id="inputIdTipousuario" placeholder="Id_usuario"
-                            ng-model="entity.id_tipousuario" ng-pattern="/^[A-Za-z0-9\s]*$/" ng-minlength="6"
-                            ng-maxlength="20" required>
-                        <div ng-show="newForm.inputIdTipousuario.$invalid" class="invalid-feedback">
-                            Por favor introduce la identificación del usuario: </div>
+                    <label for="inputIdTipousuario" class="col-sm-2 col-form-label">Tipo de usuario: </label>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="btn-secondary btn" data-toggle="modal" data-target="#modalTipoUsuario">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                            <input name="inputIdTipousuario"
+                                ng-class="{ 'is-valid' : newForm.inputIdTipousuario.$valid && newForm.inputIdTipousuario.$dirty , 'is-invalid' : newForm.inputIdTipousuario.$invalid && newForm.inputIdTipousuario.$dirty}"
+                                type="text" class="form-control" id="inputIdTipousuario" placeholder="Usuario"
+                                ng-change="lookupTipousuario()" ng-minlength="1" ng-maxlength="10" required
+                                ng-model-options="{debounce: 1000}" ng-model="entity.tipousuario.id"
+                                ng-pattern="/^[1-9][0-9]*$/">
+                            <div class="input-group-append">
+                                <div class="btn-secondary btn" role="alert">
+                                    {{entity.tipousuario.nombre}}
+                                </div>
+                            </div>
+                            <div ng-show="newForm.inputIdTipousuario.$invalid" class="invalid-feedback">
+                                Por favor selecciona un tipo de usuario </div>
+                        </diV>
                     </div>
+                    <tipousuarioselection class="modal fade" id="modalTipoUsuario" obj="entity.tipousuario">
+                    </tipousuarioselection>
                 </div>
+
 
                 <div class="form-group row">
                     <label for="inputToken" class="col-sm-2 col-form-label">Token: </label>
                     <div class="col-sm-10">
                         <input name="inputToken"
                             ng-class="{ 'is-valid' : newForm.inputToken.$valid && newForm.inputToken.$dirty , 'is-invalid' : newForm.inputToken.$invalid && newForm.inputToken.$dirty}"
-                            type="text" class="form-control" id="inputToken" placeholder="Token"
-                            ng-model="entity.token" ng-pattern="/^[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*$/" ng-minlength="6"
-                            ng-maxlength="104" required>
+                            type="text" class="form-control" id="inputToken" placeholder="Token" ng-model="entity.token"
+                            ng-minlength="6" ng-maxlength="104" required>
                         <div ng-show="newForm.inputToken.$invalid" class="invalid-feedback">
                             Por favor introduce un Token válido: </div>
                     </div>
-                </div>     
-                
+                </div>
+
                 <div class="form-group row">
                     <label for="inputValidado" class="col-sm-2 col-form-label">Validado: </label>
                     <div class="col-sm-10">
                         <input name="inputValidado"
                             ng-class="{ 'is-valid' : newForm.inputValidado.$valid && newForm.inputValidado.$dirty , 'is-invalid' : newForm.inputValidado.$invalid && newForm.inputValidado.$dirty}"
                             type="text" class="form-control" id="inputValidado" placeholder="Validado"
-                            ng-model="entity.validado" ng-pattern="/^^(?i)(true|false)$/" ng-minlength="1"
-                            ng-maxlength="1" required>
+                            ng-model="entity.validado" ng-minlength="1" ng-maxlength="1" required>
                         <div ng-show="newForm.inputValidado.$invalid" class="invalid-feedback">
                             La información ha sido validada: </div>
                     </div>
                 </div>
-                
+
                 <div class="form-group row">
                     <label for="inputActivo" class="col-sm-2 col-form-label">Activo: </label>
                     <div class="col-sm-10">
                         <input name="inputActivo"
                             ng-class="{ 'is-valid' : newForm.inputActivo.$valid && newForm.inputActivo.$dirty , 'is-invalid' : newForm.inputActivo.$invalid && newForm.inputActivo.$dirty}"
                             type="text" class="form-control" id="inputActivo" placeholder="Activo"
-                            ng-model="entity.activo" ng-pattern="/^^(?i)(true|false)$/" ng-minlength="1"
-                            ng-maxlength="1" required>
+                            ng-model="entity.activo" ng-minlength="1" ng-maxlength="1" required>
                         <div ng-show="newForm.inputActivo.$invalid" class="invalid-feedback">
                             El status es activo: </div>
                     </div>
-                </div>                 
+                </div>
 
                 <div class="form-group row text-right">
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-success" ng-disabled="newForm.$invalid||newForm.$pristine" ng-click="save()">Guardar</button>
+                        <button type="submit" class="btn btn-success" ng-disabled="newForm.$invalid||newForm.$pristine"
+                            ng-click="save()">Guardar</button>
                         <a type="button" class="btn btn-primary" href="home">Ir a home</a>
                         <button type="button" class="btn btn-primary" ng-click="back()">
                             Volver
