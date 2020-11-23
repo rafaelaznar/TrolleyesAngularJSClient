@@ -37,7 +37,7 @@ miModulo.controller("usuarioNewController", [
             ajaxService.ajaxGet("tipousuario", $scope.entity.tipousuario.id).then(function (response) {
                 $scope.entity.tipousuario = response.data;
             }).catch(function (error) {
-                $scope.entity.tipousuario = { id: 0, nombre: "???" };
+                $scope.entity.tipousuario = { id: "", nombre: "???" };
             });
         }
 
