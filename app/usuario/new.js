@@ -20,14 +20,24 @@ miModulo.controller("usuarioNewController", [
         $scope.status.error = "";
 
         $scope.save = function () {
-            var datos = JSON.stringify({ dni: $scope.entity.dni, nombre: $scope.entity.nombre, apellido1: $scope.entity.apellido1, 
-                apellido2: $scope.entity.apellido2, login: $scope.entity.login, password: $scope.entity.password, email: $scope.entity.email, 
-                descuento: $scope.entity.descuento, id_tipo_usuario: $scope.entity.id_tipousuario, token: $scope.entity.token,
-                validado: $scope.entity.validado, activo: $scope.entity.activo});
+            var datos = JSON.stringify({
+                dni: $scope.entity.dni, nombre: $scope.entity.nombre, apellido1: $scope.entity.apellido1,
+                apellido2: $scope.entity.apellido2, login: $scope.entity.login, password: $scope.entity.password, email: $scope.entity.email,
+                descuento: $scope.entity.descuento, tipousuario: $scope.entity.tipousuario, token: $scope.entity.token,
+                validado: $scope.entity.validado, activo: $scope.entity.activo
+            });
             ajaxService.ajaxNew($scope.entityName, datos).then(function (response) {
                 $scope.status.success = "El" + $scope.entityName + " ha sido guardado."
             }).catch(function (error) {
                 $scope.status.error = "ERROR: El " + $scope.entityName + " NO se ha podido leer.";
+            });
+        }
+
+        $scope.lookupTipousuario = function () {
+            ajaxService.ajaxGet("tipousuario", $scope.entity.tipousuario.id).then(function (response) {
+                $scope.entity.tipousuario = response.data;
+            }).catch(function (error) {
+                $scope.entity.tipousuario = { id: 0, nombre: "???" };
             });
         }
 
