@@ -609,9 +609,94 @@ miModulo.config([
         }
       }
     });
+    $routeProvider.when("/compra/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "app/compra/plist.html",
+      controller: "compraPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/compra/producto/:page?/:rpp?/:orderfield?/:orderdirection?/:producto", {
+      templateUrl: "app/compra/plistxproducto.html",
+      controller: "compraxproductoPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/factura/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "app/factura/plist.html",
+      controller: "facturaPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.when("/compra/fill", {
       templateUrl: "app/compra/fill.html",
       controller: "compraFillController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/factura/fill", {
+      templateUrl: "app/factura/fill.html",
+      controller: "facturaFillController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/usuario/fill", {
+      templateUrl: "app/usuario/fill.html",
+      controller: "usuarioFillController",
       resolve: {
         auth: function (ajaxService) {
           return ajaxService
@@ -641,8 +726,8 @@ miModulo.config([
             });
         }
       }
-    });  
-  
+    });
+
     $routeProvider.when("/tipoproducto/fill", {
       templateUrl: "app/tipoproducto/fill.html",
       controller: "tipoproductoFillController",
@@ -663,6 +748,23 @@ miModulo.config([
     $routeProvider.when("/producto/fill/", {
       templateUrl: "app/producto/fill.html",
       controller: "productoFillController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/carrito/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "app/carrito/plist.html",
+      controller: "carritoPlistController",
       resolve: {
         auth: function (ajaxService) {
           return ajaxService
