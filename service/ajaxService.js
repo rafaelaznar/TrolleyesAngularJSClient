@@ -48,6 +48,27 @@ miModulo.factory("ajaxService", [
         }
         return $http.get(strRequest);
       },
+      ajaxPlistx: function (entidad, page, size, sortfield, sortdirection, campox, id) {
+        strRequest = "http://localhost:8082/" + entidad + "/page/" + campox + "/" + id + "/?";
+        if (page) {
+          strRequest += "page=" + (--page);
+        } else {
+          strRequest += "page=1";
+        }
+        if (size) {
+          strRequest += "&size=" + size;
+        } else {
+          strRequest += "&size=10";
+        }
+        if (sortfield) {
+          if (sortdirection) {
+            strRequest += "&sort=" + sortfield + "," + sortdirection;
+          } else {
+            strRequest += "&sort=" + sortfield;
+          }
+        }
+        return $http.get(strRequest);
+      },
       ajaxFill: function (entidad, numero) {
         return $http.post("http://localhost:8082/" + entidad + "/fill/" + numero);
       },
