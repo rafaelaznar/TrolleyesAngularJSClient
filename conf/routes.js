@@ -779,6 +779,24 @@ miModulo.config([
       }
     });
 
+    
+    $routeProvider.when("/compra/factura/:page?/:rpp?/:orderfield?/:orderdirection?/:factura", {
+      templateUrl: "app/compra/plistxfactura.html",
+      controller: "compraxfacturaPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
