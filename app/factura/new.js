@@ -19,14 +19,20 @@ miModulo.controller("facturaNewController", [
         $scope.status.success = "";
         $scope.status.error = "";
 
-       
-
         $scope.save = function () {
-            var datos = JSON.stringify({ fecha: $scope.entity.fecha, iva: $scope.entity.iva, id_usuario: $scope.entity.idusuario, pagado : $scope.entity.pagado });
+            var datos = JSON.stringify({ fecha: $scope.entity.fecha, iva: $scope.entity.iva, id_usuario: $scope.entity.idusuario, pagado: $scope.entity.pagado });
             ajaxService.ajaxNew($scope.entityName, datos).then(function (response) {
                 $scope.status.success = "La " + $scope.entityName + "  ha sido guardado."
             }).catch(function (error) {
                 $scope.status.error = "ERROR: La " + $scope.entityName + "  NO se ha podido crear.";
+            });
+        }
+
+        $scope.lookupUsuario = function () {
+            ajaxService.ajaxGet("usuario", $scope.entity.usuario.id).then(function (response) {
+                $scope.entity.usuario = response.data;
+            }).catch(function (error) {
+                $scope.entity.usuario = { id: "", nombre: "???" };
             });
         }
 
