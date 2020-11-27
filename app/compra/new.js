@@ -20,11 +20,19 @@ miModulo.controller("compraNewController", [
         $scope.status.error = "";
 
         $scope.save = function () {
-            var datos = JSON.stringify({ cantidad: $scope.entity.cantidad, precio: $scope.entity.precio, fecha: $scope.entity.fecha, descuento_usuario: $scope.entity.descuento_usuario, descuento_producto: $scope.entity.descuento_producto, id_producto: $scope.entity.id_producto, id_factura: $scope.entity.id_factura });
+            var datos = JSON.stringify({ cantidad: $scope.entity.cantidad, precio: $scope.entity.precio, fecha: $scope.entity.fecha, descuento_usuario: $scope.entity.descuento_usuario, descuento_producto: $scope.entity.descuento_producto, id_producto: $scope.entity.id_producto, factura: $scope.entity.factura });
             ajaxService.ajaxNew($scope.entityName, datos).then(function (response) {
                 $scope.status.success = "La" + $scope.entityName + " ha sido guardada."
             }).catch(function (error) {
                 $scope.status.error = "ERROR: La " + $scope.entityName + " NO se ha podido leer.";
+            });
+        }
+
+        $scope.lookupFactura = function () {
+            ajaxService.ajaxGet("factura", $scope.entity.factura.id).then(function (response) {
+                $scope.entity.factura = response.data;
+            }).catch(function (error) {
+                $scope.entity.factura = { id: "" };
             });
         }
 
