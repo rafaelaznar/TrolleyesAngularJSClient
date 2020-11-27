@@ -30,6 +30,15 @@ miModulo.controller("productoNewController", [
             });
         }
 
+        $scope.lookupProducto = function () {
+            ajaxService.ajaxGet("producto", $scope.entity.producto.id).then(function (response) {
+                $scope.entity.producto = response.data;
+            }).catch(function (error) {
+                $scope.entity.producto = { id: 0, codigo: "???", nombre: "???", existencias: 0, precio: 0, imagen: "???", 
+                descuento: 0, id_tipoproducto: "???" };
+            });
+        }
+
         $scope.back = function () {
             window.history.back();
         };
