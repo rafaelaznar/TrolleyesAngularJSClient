@@ -20,7 +20,7 @@ miModulo.controller("productoFillController", [
         $scope.status.success = "";
         $scope.status.error = "";
 
-        $scope.save = function (numero) {
+        $scope.crear = function (numero) {
 
         ajaxService.ajaxFill($scope.entityName, numero).then(function (response) {
             $scope.status.success = "Se han creado " + numero + " " + $scope.entityName + "s correctamente."
