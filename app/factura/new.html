@@ -9,65 +9,86 @@
         <div class="col">
 
             <form name="newForm" novalidate>
-               
+
 
                 <div class="form-group row">
                     <label for="inputfecha" class="col-sm-2 col-form-label">Fecha: </label>
                     <div class="col-sm-10">
                         <input name="inputfecha"
                             ng-class="{ 'is-valid' : newForm.inputfecha.$valid && newForm.inputfecha.$dirty , 'is-invalid' : newForm.inputfecha.$invalid && newForm.inputfecha.$dirty}"
-                            type="text" class="form-control" id="inputfecha" placeholder="fecha"
-                            ng-model="entity.fecha" ng-pattern="/^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])([T])([0-1][0-9]|2[0-3])(:)([0-5][0-9])(:)([0-5][0-9])*$/" required>
+                            type="text" class="form-control" id="inputfecha" placeholder="fecha" ng-model="entity.fecha"
+                            ng-pattern="/^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])([T])([0-1][0-9]|2[0-3])(:)([0-5][0-9])(:)([0-5][0-9])*$/"
+                            required>
                         <div ng-show="newForm.inputfecha.$invalid" class="invalid-feedback">
-                            Por favor introduce una fecha (yyyy-mm-dd) una hora (hh:mm:ss) separando la fecha y la hora con una "T".  </div>
+                            Por favor introduce una fecha (yyyy-mm-dd) una hora (hh:mm:ss) separando la fecha y la hora
+                            con una "T". </div>
                     </div>
                 </div>
-                
-                
+
+
                 <div class="form-group row">
                     <label for="inputiva" class="col-sm-2 col-form-label">Iva: </label>
                     <div class="col-sm-10">
                         <input name="inputiva"
                             ng-class="{ 'is-valid' : newForm.inputiva.$valid && newForm.inputiva.$dirty , 'is-invalid' : newForm.inputiva.$invalid && newForm.inputiva.$dirty}"
-                            type="text" class="form-control" id="inputiva" placeholder="iva"
-                            ng-model="entity.iva" ng-pattern="/^\d{1,2}(\.\d{1,2})?$/"  required>
+                            type="text" class="form-control" id="inputiva" placeholder="iva" ng-model="entity.iva"
+                            ng-pattern="/^\d{1,2}(\.\d{1,2})?$/" required>
                         <div ng-show="newForm.inputiva.$invalid" class="invalid-feedback">
-                            Por favor introduce un valor numerico con no más de 2 enteros y no más de 2 decimales  </div>
+                            Por favor introduce un valor numerico con no más de 2 enteros y no más de 2 decimales </div>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputidusuario" class="col-sm-2 col-form-label">id usuario: </label>
-                    <div class="col-sm-10">
-                        <input name="inputidusuario"
-                            ng-class="{ 'is-valid' : newForm.inputidusuario.$valid && newForm.inputidusuario.$dirty , 'is-invalid' : newForm.inputidusuario.$invalid && newForm.inputidusuario.$dirty}"
-                            type="text" class="form-control" id="inputidusuario" placeholder="inputidusuario"
-                            ng-model="entity.idusuario" ng-pattern="/^\d+$/"  required>
-                        <div ng-show="newForm.inputidusuario.$invalid" class="invalid-feedback">
-                            Por favor introduce un valor numerico de no más de 2 enteros   </div>
+                    <label for="inputIdUsuario" class="col-sm-2 col-form-label">Usuario: </label>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="btn-secondary btn" data-toggle="modal" data-target="#modalUsuario">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                            <input name="inputIdUsuario"
+                                ng-class="{ 'is-valid' : newForm.inputIdUsuario.$valid && newForm.inputIdUsuario.$dirty , 'is-invalid' : newForm.inputIdUsuario.$invalid && newForm.inputIdUsuario.$dirty}"
+                                type="text" class="form-control" id="inputIdUsuario" placeholder="Usuario"
+                                ng-change="lookupUsuario()" ng-minlength="1" ng-maxlength="10" required
+                                ng-model-options="{debounce: 1000}" ng-model="entity.usuario.id"
+                                ng-pattern="/^[1-9][0-9]*$/">
+                            <div class="input-group-append">
+                                <div class="btn-secondary btn" role="alert">
+                                    {{entity.usuario.nombre}}{{entity.usuario.apellido1}}{{entity.usuario.apellido2}}
+                                </div>
+                            </div>
+                            <div ng-show="newForm.inputIdUsuario.$invalid" class="invalid-feedback">
+                                Por favor selecciona un usuario </div>
+                        </div>
                     </div>
+                    <usuarioselection class="modal fade" id="modalUsuario" obj="entity.usuario">
+                    </usuarioselection>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputpagado" class="col-sm-2 col-form-label">pagado: </label>
                     <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="inputpagado" id="inputpagado" value="true" ng-model="entity.pagado" checked>
+                        <input class="form-check-input" type="radio" name="inputpagado" id="inputpagado" value="true"
+                            ng-model="entity.pagado" checked>
                         <label class="form-check-label" for="inputpagado">
                             <i class="fas fa-check-square"></i>
                         </label>
-                      </div>
-                      <div class="form-check-inline">
-                        <input class="form-check-input" type="radio" name="inputpagado" id="inputpagado" value="false" ng-model="entity.pagado">
+                    </div>
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="radio" name="inputpagado" id="inputpagado" value="false"
+                            ng-model="entity.pagado">
                         <label class="form-check-label" for="inputpagado">
                             <i class="fas fa-times-circle"></i>
                         </label>
-                      </div>
+                    </div>
                 </div>
-                
+
 
                 <div class="form-group row text-right">
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-success" ng-disabled="newForm.$invalid||newForm.$pristine" ng-click="save()">Guardar</button>
+                        <button type="submit" class="btn btn-success" ng-disabled="newForm.$invalid||newForm.$pristine"
+                            ng-click="save()">Guardar</button>
                         <a type="button" class="btn btn-primary" href="home">Ir a home</a>
                         <button type="button" class="btn btn-primary" ng-click="back()">
                             Volver
