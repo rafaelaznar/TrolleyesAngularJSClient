@@ -33,10 +33,6 @@
           <td>{{entity.login}}</td>
         </tr>
         <tr>
-          <th>Password</th>
-          <td>{{entity.password}}</td>
-        </tr>
-        <tr>
           <th>Email</th>
           <td>{{entity.email}}</td>
         </tr>
@@ -45,20 +41,8 @@
             <td>{{entity.descuento}}</td>
           </tr>
           <tr>
-            <th>Id_TipoUsuario</th>
-            <td>{{entity.id_tipousuario}}</td>
-          </tr>
-          <tr>
-            <th>Token</th>
-            <td>{{entity.token}}</td>
-          </tr>
-          <tr>
-            <th>Validado</th>
-            <td>{{entity.validado}}</td>
-          </tr>
-          <tr>
-            <th>Activo</th>
-            <td>{{entity.activo}}</td>
+            <th>Tipo de usuario</th>
+            <td><a href="tipousuario/view/{{entity.tipousuario.id}}">{{entity.tipousuario.nombre}}</a></td>
           </tr>
       </table>
 
