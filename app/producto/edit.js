@@ -30,14 +30,20 @@ miModulo.controller("productoEditController", [
 
         $scope.save = function () {
             var datos = JSON.stringify({ nombre: $scope.entity.nombre, codigo: $scope.entity.codigo, existencias: $scope.entity.existencias, precio: $scope.entity.precio, imagen: $scope.entity.imagen,
-                descuento: $scope.entity.descuento,id_tipoproducto: $scope.entity.id_tipoproducto });
+                descuento: $scope.entity.descuento,tipoproducto: $scope.entity.tipoproducto });
             ajaxService.ajaxUpdate($scope.entityName, $scope.entity.id, datos).then(function (response) {
                 $scope.status.success = "La " + $scope.entityName + " con id " + $scope.id + " ha sido guardada."
             }).catch(function (error) {
                 $scope.status.error = "ERROR: La " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
             });
         }
-
+        $scope.lookupTipoproducto = function () {
+            ajaxService.ajaxGet("tipoproducto", $scope.entity.tipoproducto.id).then(function (response) {
+                $scope.entity.tipoproducto = response.data;
+            }).catch(function (error) {
+                $scope.entity.tipoproducto = { id: 0, nombre: "???" };
+            });
+        }
         $scope.back = function () {
             window.history.back();
         };
