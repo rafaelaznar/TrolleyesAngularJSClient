@@ -1,0 +1,122 @@
+<ng-include src="'include/menu.html'"></ng-include>
+
+<ng-include src="'include/header.html'"></ng-include>
+
+<ng-include src="'include/status.html'"></ng-include>
+
+
+<div class="container-fluid px-5" ng-show="status.success==''&&status.error==''">
+    <div class="row">
+        <div class="col">
+            <div class="d-flex justify-content-between">
+                <nav aria-label="rpp">
+                    <ul class="pagination">
+                        <li class="page-item" ng-class="{'active':(rpp==10)}">
+                            <a class="page-link" href="{{entityName}}/factura/{{scope.factura}}/{{page}}/10/{{factura}}" tabindex="-1"
+                                aria-disabled="true">10</a>
+                        </li>
+                        <li class="page-item" ng-class="{'active':(rpp==50)}">
+                            <a class="page-link" href="{{entityName}}/factura/{{page}}/50/{{factura}}" tabindex="-1"
+                                aria-disabled="true">50</a>
+                        </li>
+                        <li class="page-item" ng-class="{'active':(rpp==100)}">
+                            <a class="page-link" href="{{entityName}}/factura/{{page}}/100/{{factura}}" tabindex="-1"
+                                aria-disabled="true">100</a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav aria-label="pagination">
+                    <ul class="pagination">
+                        <li class="page-item" ng-class="{'active':(page==p)}" ng-disabled="p == '...'"
+                            ng-repeat="p in botonera track by $index">
+                            <a class="page-link" ng-if="p != '...'"
+                                href="{{entityName}}/factura/{{p}}/{{rpp}}/{{orderfield}}/{{orderdirection}}/{{factura}}">{{p}}</a>
+                            <span class="page-link" ng-if="p == '...'">{{p}}</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <table class="table table-striped table-sm">
+                <tr>
+                    <th class="text-center">
+                        id<br>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/id/asc/{{factura}}"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/id/desc/{{factura}}"><i class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        producto<br>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/producto/asc/{{factura}}"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/producto/desc/{{factura}}"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        cantidad<br>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/cantidad/asc/{{factura}}"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/cantidad/desc/{{factura}}"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        precio<br>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/precio/asc/{{factura}}"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/precio/desc/{{factura}}"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        fecha<br>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/fecha/asc/{{factura}}"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/fecha/desc/{{factura}}"><i class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        descuento usuario<br>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/descuento_usuario/asc/{{factura}}"><i
+                                class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/descuento_usuario/desc/{{factura}}"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        descuento producto<br>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/descuento_producto/asc/{{factura}}"><i
+                                class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/descuento_producto/desc/{{factura}}"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        factura<br>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/factura/asc/{{factura}}"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/factura/desc/{{factura}}"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        herramientas
+                    </th>
+                </tr>
+                <tr ng-repeat="fila in entities.content">
+                    <td>{{fila.id}}</td>
+                    <td class="text-left font-weight-bold">  <a href="producto/view/{{fila.producto.id}}">{{fila.producto.codigo}} </a></td>                    
+                    <td class="text-right">{{fila.cantidad}}</td>
+                    <td class="text-right">{{fila.precio}}</td>
+                    <td class="text-right">{{fila.fecha}}</td>
+                    <td class="text-center">{{fila.descuento_usuario}}%</td>
+                    <td class="text-center">{{fila.descuento_producto}}%</td>
+                    <td class="text-center"><a href="factura/view/{{fila.factura.id}}">{{fila.factura.usuario.nombre}} {{fila.factura.usuario.apellido1}} {{fila.factura.usuario.apellido2}} ({{fila.factura.fecha}})</a></td>
+                    <td>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="btn-group" role="group" aria-label="Herramientas">
+                                    <a class="btn btn-success" href="{{entityName}}/view/{{fila.id}}"><i
+                                            class="fas fa-eye"></i></a>
+                                    <a class="btn btn-primary" href="{{entityName}}/edit/{{fila.id}}"><i
+                                            class="fas fa-edit"></i></a>
+                                    <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}"><i
+                                            class="far fa-times"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ng-include src="'include/footer.html'"></ng-include>

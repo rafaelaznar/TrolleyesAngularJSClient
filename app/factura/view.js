@@ -14,7 +14,7 @@ miModulo.controller("facturaViewController", [
     $scope.operationIcon = "fas fa-eye";
     $scope.operationName = "Vista de ";
     $scope.entityName = "factura";
-    $scope.entityIcon = "fas fa-gift";
+    $scope.entityIcon = "fas fa-file-invoice-dollar";
 
     $scope.status = {};
     $scope.status.success = "";

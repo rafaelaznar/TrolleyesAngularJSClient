@@ -391,7 +391,7 @@ miModulo.config([
             });
         }
       }
-    });    
+    });
 
     $routeProvider.when("/carrito/new/:id", {
       templateUrl: "app/carrito/new.html",
@@ -408,7 +408,7 @@ miModulo.config([
             });
         },
       },
-    });      
+    });
 
     $routeProvider.when("/usuario/edit/:id", {
       templateUrl: "app/usuario/edit.html",
@@ -426,7 +426,7 @@ miModulo.config([
         },
       },
     });
-                  
+
     $routeProvider.when("/tipoproducto/new", {
       templateUrl: "app/tipoproducto/new.html",
       controller: "tipoproductoNewController",
@@ -494,6 +494,22 @@ miModulo.config([
         }
       }
     });
+    $routeProvider.when("/factura/new/", {
+      templateUrl: "app/factura/new.html",
+      controller: "facturaNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
 
     $routeProvider.when("/tipousuario/edit/:id", {
       templateUrl: "app/tipousuario/edit.html",
@@ -511,7 +527,276 @@ miModulo.config([
         }
       }
     });
-            
+    $routeProvider.when("/producto/edit/:id", {
+      templateUrl: "app/producto/edit.html",
+      controller: "productoEditController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/carrito/edit/:id", {
+      templateUrl: "app/carrito/edit.html",
+      controller: "carritoEditController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/producto/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "app/producto/plist.html",
+      controller: "productoPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+    $routeProvider.when("/usuario/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "app/usuario/plist.html",
+      controller: "usuarioPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+    $routeProvider.when("/tipousuario/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "app/tipousuario/plist.html",
+      controller: "tipousuarioPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+    $routeProvider.when("/compra/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "app/compra/plist.html",
+      controller: "compraPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/compra/producto/:page?/:rpp?/:orderfield?/:orderdirection?/:producto", {
+      templateUrl: "app/compra/plistxproducto.html",
+      controller: "compraxproductoPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/factura/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "app/factura/plist.html",
+      controller: "facturaPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/compra/fill", {
+      templateUrl: "app/compra/fill.html",
+      controller: "compraFillController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/factura/fill", {
+      templateUrl: "app/factura/fill.html",
+      controller: "facturaFillController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/usuario/fill", {
+      templateUrl: "app/usuario/fill.html",
+      controller: "usuarioFillController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/producto/new/", {
+      templateUrl: "app/producto/new.html",
+      controller: "productoNewController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/tipoproducto/fill", {
+      templateUrl: "app/tipoproducto/fill.html",
+      controller: "tipoproductoFillController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/producto/fill/", {
+      templateUrl: "app/producto/fill.html",
+      controller: "productoFillController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/carrito/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "app/carrito/plist.html",
+      controller: "carritoPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    
+    $routeProvider.when("/compra/factura/:page?/:rpp?/:orderfield?/:orderdirection?/:factura", {
+      templateUrl: "app/compra/plistxfactura.html",
+      controller: "compraxfacturaPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);

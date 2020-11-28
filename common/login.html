@@ -11,10 +11,10 @@
           <label for="txtLogin">Login</label>
           <input name="txtLogin" type="text" class="form-control"
             ng-class="{ 'is-valid' : loginForm.txtLogin.$valid && loginForm.txtLogin.$dirty , 'is-invalid' : loginForm.txtLogin.$invalid && loginForm.txtLogin.$dirty}"
-            ng-pattern="/^[A-Za-z0-9-]{6,20}$/" id="txtLogin" ng-model="txtLogin" ng-minlength="6" ng-maxlength="20"
+            ng-pattern="/^[A-Za-z0-9-]{5,20}$/" id="txtLogin" ng-model="txtLogin" ng-minlength="5" ng-maxlength="20"
             placeholder="Introduce tu nombre de usuario" required />
           <div ng-show="loginForm.txtLogin.$invalid" class="invalid-feedback">
-            Por favor introduce un login de 6 a 20 caracteres. Puedes usar combinaciones de caracteres
+            Por favor introduce un login de 5 a 20 caracteres. Puedes usar combinaciones de caracteres
             en mayúsculas y minúsculas sin acentos, dígitos y guiones. </div>
         </div>
 
