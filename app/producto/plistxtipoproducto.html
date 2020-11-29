@@ -12,7 +12,7 @@
                 <nav aria-label="rpp">
                     <ul class="pagination">
                         <li class="page-item" ng-class="{'active':(rpp==10)}">
-                            <a class="page-link" href="tipoproducto/plist/{{page}}/10/" tabindex="-1"
+                            <a class="page-link" href="{{entityName}}/plist/{{page}}/10/" tabindex="-1"
                                 aria-disabled="true">10</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==50)}">
@@ -44,23 +44,74 @@
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i class="fas fa-arrow-down"></i></a>
                     </th>
                     <th class="text-center">
-                        nombre<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/desc"><i class="fas fa-arrow-down"></i></a>
+                        código<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/codigo/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/codigo/desc"><i
+                                class="fas fa-arrow-down"></i></a>
                     </th>
                     <th class="text-center">
-                        productos<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/productos/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/productos/desc"><i class="fas fa-arrow-down"></i></a>
-                    </th>                    
+                        nombre<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/desc"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        tipo<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/tipoproducto/asc"><i
+                                class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/tipoproducto/desc"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        existencias<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/existencias/asc"><i
+                                class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/existencias/desc"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        precio<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/precio/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/precio/desc"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        descuento<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento/asc"><i
+                                class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento/desc"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        imagen<br>
+                    </th>
+                    <th class="text-center">
+                        compras<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/compras/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/compras/desc"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
+                    <th class="text-center">
+                        carritos<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/carritos/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/carritos/desc"><i
+                                class="fas fa-arrow-down"></i></a>
+                    </th>
                     <th class="text-center">
                         herramientas
                     </th>
                 </tr>
                 <tr ng-repeat="fila in entities.content">
                     <td>{{fila.id}}</td>
+                    <td class="text-left font-weight-bold">{{fila.codigo}} </td>
                     <td>{{fila.nombre}}</td>
-                    <td class="text-center"><a href="producto/{{entityName}}////{{fila.id}}">{{fila.productos}}</a></td>
+                    <td><a href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.tipoproducto.nombre}}</a></td>
+                    <td class="text-right">{{fila.existencias}}</td>
+                    <td class="text-right">{{fila.precio}}</td>
+                    <td class="text-center">{{fila.descuento}}%</td>
+                    <td class="text-center"><img src="http://localhost:8082/file/{{fila.imagen}}" height="50" /></td>
+                    <td class="text-center"><a href="compra/{{entityName}}////{{fila.id}} ">{{fila.compras}}</a></td>
+                    <td class="text-center">{{fila.carritos}}</td>
                     <td>
                         <div class="row">
                             <div class="col-md-12 text-center">
