@@ -797,6 +797,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/carrito/usuario/:page?/:rpp?/:orderfield?/:orderdirection?/:usuario", {
+      templateUrl: "app/carrito/plistxusuario.html",
+      controller: "carritoxusuarioPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
