@@ -29,8 +29,7 @@ miModulo.controller("productoEditController", [
         });
 
         $scope.save = function () {
-            var datos = JSON.stringify({ nombre: $scope.entity.nombre, codigo: $scope.entity.codigo, existencias: $scope.entity.existencias, precio: $scope.entity.precio, imagen: $scope.entity.imagen,
-                descuento: $scope.entity.descuento,tipoproducto: $scope.entity.tipoproducto });
+            var datos = JSON.stringify({ codigo: $scope.entity.codigo, nombre: $scope.entity.nombre, existencias: $scope.entity.existencias, precio : $scope.entity.precio, imagen : $scope.entity.imagen, descuento : $scope.entity.descuento, tipoproducto : {"id":$scope.entity.tipoproducto.id,"nombre":$scope.entity.tipoproducto.nombre}  });
             ajaxService.ajaxUpdate($scope.entityName, $scope.entity.id, datos).then(function (response) {
                 $scope.status.success = "La " + $scope.entityName + " con id " + $scope.id + " ha sido guardada."
             }).catch(function (error) {
