@@ -19,7 +19,7 @@
 
                 <div class="form-group row">
                     <label for="inputCantidad" class="col-sm-2 col-form-label">Cantidad: </label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-3">
                         <input name="inputCantidad"
                             ng-class="{ 'is-valid' : newForm.inputCantidad.$valid && newForm.inputCantidad.$dirty , 'is-invalid' : newForm.inputCantidad.$invalid && newForm.inputCantidad.$dirty}"
                             type="text" class="form-control" id="inputCantidad" placeholder="Cantidad"
@@ -32,7 +32,7 @@
 
                 <div class="form-group row">
                     <label for="inputPrecio" class="col-sm-2 col-form-label">Precio: </label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-3">
                         <input name="inputPrecio"
                             ng-class="{ 'is-valid' : newForm.inputPrecio.$valid && newForm.inputPrecio.$dirty , 'is-invalid' : newForm.inputPrecio.$invalid && newForm.inputPrecio.$dirty}"
                             type="text" class="form-control" id="inputPrecio" placeholder="Precio"
@@ -44,7 +44,7 @@
 
                 <div class="form-group row">
                     <label for="inputFecha" class="col-sm-2 col-form-label">Fecha: </label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-3">
                         <input name="inputFecha"
                             ng-class="{ 'is-valid' : newForm.inputFecha.$valid && newForm.inputFecha.$dirty , 'is-invalid' : newForm.inputFecha.$invalid && newForm.inputFecha.$dirty}"
                             type="text" class="form-control" id="inputFecha" placeholder="Fecha"
@@ -56,7 +56,7 @@
 
                 <div class="form-group row">
                     <label for="inputDescuentoUsuario" class="col-sm-2 col-form-label">Descuento de usuario: </label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-3">
                         <input name="inputDescuentoUsuario"
                             ng-class="{ 'is-valid' : newForm.inputDescuentoUsuario.$valid && newForm.inputDescuentoUsuario.$dirty , 'is-invalid' : newForm.inputDescuentoUsuario.$invalid && newForm.inputDescuentoUsuario.$dirty}"
                             type="text" class="form-control" id="inputDescuentoUsuario" placeholder="Descuento usuario"
@@ -70,7 +70,7 @@
 
                 <div class="form-group row">
                     <label for="inputDescuentoProducto" class="col-sm-2 col-form-label">Descuento de producto: </label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-3">
                         <input name="inputDescuentoProducto"
                             ng-class="{ 'is-valid' : newForm.inputDescuentoProducto.$valid && newForm.inputDescuentoProducto.$dirty , 'is-invalid' : newForm.inputDescuentoProducto.$invalid && newForm.inputDescuentoProducto.$dirty}"
                             type="text" class="form-control" id="inputDescuentoProducto" placeholder="Descuento Producto"
@@ -83,7 +83,7 @@
 
                 <div class="form-group row">
                     <label for="inputIdProducto" class="col-sm-2 col-form-label">Id_Producto: </label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-3">
                         <input name="inputIdProducto"
                             ng-class="{ 'is-valid' : newForm.inputIdProducto.$valid && newForm.inputIdProducto.$dirty , 'is-invalid' : newForm.inputIdProducto.$invalid && newForm.inputIdProducto.$dirty}"
                             type="text" class="form-control" id="inputIdProducto" placeholder="Id_Producto"
@@ -96,15 +96,29 @@
 
                 <div class="form-group row">
                     <label for="inputIdFactura" class="col-sm-2 col-form-label">Id_Factura: </label>
-                    <div class="col-sm-10">
-                        <input name="inputIdFactura"
-                            ng-class="{ 'is-valid' : newForm.inputIdFactura.$valid && newForm.inputIdFactura.$dirty , 'is-invalid' : newForm.inputIdFactura.$invalid && newForm.inputIdFactura.$dirty}"
-                            type="text" class="form-control" id="inputIdFactura" placeholder="Id_Factura"
-                            ng-model="entity.id_factura" ng-pattern="/^[1-9][0-9]*$/" ng-minlength="1"
-                            ng-maxlength="20" required>
-                        <div ng-show="newForm.inputIdFactura.$invalid" class="invalid-feedback">
-                            Por favor introduce una cantidad de 1 a 20 digitos. </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="btn-secondary btn" data-toggle="modal" data-target="#modalFactura">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                            <input name="inputIdFactura"
+                                ng-class="{ 'is-valid' : newForm.inputIdFactura.$valid && newForm.inputIdFactura.$dirty , 'is-invalid' : newForm.inputIdFactura.$invalid && newForm.inputIdFactura.$dirty}"
+                                type="text" class="form-control" id="inputIdFactura" placeholder="Factura"
+                                ng-change="lookupFactura()" ng-model-options="{debounce: 1000}" ng-model="entity.factura.id" ng-pattern="/^[1-9][0-9]*$/" ng-minlength="1"
+                                ng-maxlength="20" required>
+                            <div class="input-group-append">
+                                <div class="btn-secondary btn" role="alert">
+                                    {{entity.factura.id}}
+                                </div>
+                            </div>
+                            <div ng-show="newForm.inputIdFactura.$invalid" class="invalid-feedback">
+                                Por favor seleccione una factura. </div>
+                        </div>
                     </div>
+                    <facturaselection class="modal fade" id="modalFactura" obj="entity.factura">
+                    </facturaselection>
                 </div>
 
                 <div class="form-group row text-right">
