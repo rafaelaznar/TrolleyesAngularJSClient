@@ -797,6 +797,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/producto/tipoproducto/:page?/:rpp?/:orderfield?/:orderdirection?/:tipoproducto", {
+      templateUrl: "app/producto/plistxtipoproducto.html",
+      controller: "productoxtipoproductoPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
   },
 ]);
