@@ -19,14 +19,12 @@
 
                 <div class="form-group row">
                     <label for="inputFecha" class="col-sm-2 col-form-label">Fecha: </label>
-                    <div class="col-sm-10">
-                        <input name="inputFecha"
-                            ng-class="{ 'is-valid' : editForm.inputFecha.$valid && editForm.inputFecha.$dirty, 'is-invalid' : editForm.inputFecha.$invalid && editForm.inputFecha.$dirty}"
-                            type="text" class="form-control" placeholder="Fecha y Hora" ng-model="entity.fecha"
-                            ng-pattern="/^[0-9]{4}-(0[0-9]|1[0-2])-(0[0-9]|[1-2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])*$/"
-                            maxlenth="19" required/>
-                        <div ng-show="editForm.inputFecha.$invalid" class="invalid-feedback">
-                            Por favor introduzca una fecha con el formato aaaa-MM-ddTHH:mm(:ss).
+                    <div class="col-sm-3">
+                        <md-datepicker id="inputFecha" ng-model="fecha" md-placeholder="Enter date"
+                            ng-class="{ 'is-valid' : editForm.fecha.$valid && editForm.fecha.$dirty,'is-invalid' : editForm.fecha.$invalid && editForm.fecha.$dirty}"
+                            name="fecha" ng-required="true"></md-datepicker>
+                        <div class="invalid-feedback" ng-show="editForm.fecha.$error.pattern">
+                            Error en la fecha
                         </div>
                     </div>
                 </div>
@@ -45,16 +43,31 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputIdUsuario" class="col-sm-2 col-form-label">Id Usuario: </label>
-                    <div class="col-sm-10">
-                        <input name="inputIdUsuario"
-                            ng-class="{ 'is-valid' : editForm.inputIdUsuario.$valid && editForm.inputIdUsuario.$dirty, 'is-invalid' : editForm.inputIdUsuario.$invalid && editForm.inputIdUsuario.$dirty}"
-                            type="text" class="form-control" placeholder="Id Usuario" ng-model="entity.id_usuario"
-                            ng-pattern="/^[0-9]+$/" maxlength="18" required>
-                        <div ng-show="editForm.inputIdUsuario.$invalid" class="invalid-feedback">
-                            Por favor introduzca un número positivo. Límite de 18 caracteres.
+                    <label for="inputIdUsuario" class="col-sm-2 col-form-label">Usuario: </label>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="btn-secondary btn" data-toggle="modal" data-target="#modalUsuario">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                            <input name="inputIdUsuario"
+                                ng-class="{ 'is-valid' : newForm.inputIdUsuario.$valid && newForm.inputIdUsuario.$dirty , 'is-invalid' : newForm.inputIdUsuario.$invalid && newForm.inputIdUsuario.$dirty}"
+                                type="text" class="form-control" id="inputIdUsuario" placeholder="Usuario"
+                                ng-change="lookupUsuario()" ng-minlength="1" ng-maxlength="10" required
+                                ng-model-options="{debounce: 1000}" ng-model="entity.usuario.id"
+                                ng-pattern="/^[1-9][0-9]*$/">
+                            <div class="input-group-append">
+                                <div class="btn-secondary btn" role="alert">
+                                    {{entity.usuario.nombre}}{{entity.usuario.apellido1}}{{entity.usuario.apellido2}}
+                                </div>
+                            </div>
+                            <div ng-show="newForm.inputIdUsuario.$invalid" class="invalid-feedback">
+                                Por favor selecciona un usuario </div>
                         </div>
                     </div>
+                    <usuarioselection class="modal fade" id="modalUsuario" obj="entity.usuario">
+                    </usuarioselection>
                 </div>
 
                 <div class="form-group row">

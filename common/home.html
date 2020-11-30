@@ -1,8 +1,73 @@
 <ng-include src="'include/menu.html'"></ng-include>
 
-<ng-include src="'include/header.html'"></ng-include>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col text-center">
+            <div class="mt-5 mb-5">
+                <h1>
+                    <img src="img/trolleyes100.png" class="rounded mx-auto d-block mt-5" width="10%" alt="trolleyes">
+                    <img src="img/trolleyes2.png" class="rounded mx-auto d-block mt-5" width="50%" alt="trolleyes">
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
 
-<img src="img/trolleyes100.png" class="rounded mx-auto d-block mt-5" width="10%" alt="trolleyes">
-<img src="img/trolleyes2.png" class="rounded mx-auto d-block mt-5" width="50%" alt="trolleyes">
+
+
+<ng-include src="'include/status.html'"></ng-include>
+
+
+
+<div class="container-fluid px-5" ng-show="status.success==''&&status.error==''">
+    <div class="row">
+        <div class="col">
+            <div class="d-flex justify-content-between">
+                <nav aria-label="rpp">
+                    <ul class="pagination">
+                        <li class="page-item" ng-class="{'active':(rpp==10)}">
+                            <a class="page-link" href="{{entityHome}}/{{page}}/10/" tabindex="-1"
+                                aria-disabled="true">10</a>
+                        </li>
+                        <li class="page-item" ng-class="{'active':(rpp==50)}">
+                            <a class="page-link" href="{{entityHome}}/{{page}}/50/" tabindex="-1"
+                                aria-disabled="true">50</a>
+                        </li>
+                        <li class="page-item" ng-class="{'active':(rpp==100)}">
+                            <a class="page-link" href="{{entityHome}}/plist/{{page}}/100/" tabindex="-1"
+                                aria-disabled="true">100</a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav aria-label="pagination">
+                    <ul class="pagination">
+                        <li class="page-item" ng-class="{'active':(page==p)}" ng-disabled="p == '...'"
+                            ng-repeat="p in botonera track by $index">
+                            <a class="page-link" ng-if="p != '...'"
+                                href="{{entityName}}/plist/{{p}}/{{rpp}}/{{orderfield}}/{{orderdirection}}/">{{p}}</a>
+                            <span class="page-link" ng-if="p == '...'">{{p}}</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="container" style="width: 100%;">
+                <div class="card Secondary card title" ng-repeat="fila in entities.content"
+                    style="width:28%;float:left; margin-right: 5.5%; margin:2%;">
+                    <img src="img/ejemploProducto.jpg" class="card-img-top  mx-auto d-block mt-5" width="25%"
+                        alt="trolleyes">
+                    <div class="card-body">
+                        <h5 class="card-title">{{fila.nombre}}</h5>
+                        <p class="card-text"><a
+                                href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.tipoproducto.nombre}}</a></p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                        <p style="float: right; margin-left: 2px;">{{fila.precio}}€</p>
+                        <p style="color: rgb(243, 57, 57);" class="card-text"><small>DESCUENTO DE:
+                                {{fila.descuento}}%</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <ng-include src="'include/footer.html'"></ng-include>

@@ -37,6 +37,24 @@ miModulo.controller("LoginController", [
         });
     };
 
+    $scope.auto = function (user) {
+      $scope.autoLogin = user;
+      ajaxService
+        .ajaxLogin($scope.autoLogin, "trolleyes")
+        .then(function (response) {
+          $scope.respuesta = response;
+          $scope.status.success = "Has entrado al sistema";
+          $location.path("/home");
+          $scope.autoLogin = "";
+        }).catch(function (error) {
+          if (error.status == 401) {
+            $scope.status.error = "ERROR: Login o password incorrectos: No has entrado al sistema.";
+          } else {
+            $scope.status.error = "ERROR: No se ha podido comunicar con el servidor: No has entrado al sistema.";
+          }
+        });
+    };
+    
     $scope.reset = function () {
       $scope.txtLogin = "";
       $scope.txtPassword = "";
