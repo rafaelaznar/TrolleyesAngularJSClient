@@ -23,7 +23,7 @@
                         <input name="inputNombre"
                             ng-class="{ 'is-valid' : editForm.inputNombre.$valid && editForm.inputNombre.$dirty , 'is-invalid' : editForm.inputNombre.$invalid && editForm.inputNombre.$dirty}"
                             type="text" class="form-control" id="inputNombre" placeholder="Nombre"
-                            ng-model="entity.nombre" ng-pattern="/[A-Z][0-9a-záéíóúüèòàñA-Z\s]*$/" ng-minlength="5"
+                            ng-model="entity.nombre" ng-pattern="/^[A-Z][0-9a-záéíóúüèòàñA-Z\s]*$/" ng-minlength="5"
                             ng-maxlength="255" required>
                         <div ng-show="editForm.inputNombre.$invalid" class="invalid-feedback">
                             Por favor introduce una frase login de 5 a 255 caracteres. Puedes usar combinaciones de
@@ -49,7 +49,7 @@
                         <input name="inputExistencias"
                             ng-class="{ 'is-valid' : editForm.inputExistencias.$valid && editForm.inputExistencias.$dirty , 'is-invalid' : editForm.inputExistencias.$invalid && editForm.inputExistencias.$dirty}"
                             type="text" class="form-control" id="inputExistencias" placeholder="existencias"
-                            ng-model="entity.existencias" ng-pattern="d+$" ng-minlength="1" maxlength="10" required>
+                            ng-model="entity.existencias" ng-pattern="/^\d+$/" ng-minlength="1" maxlength="10" required>
                         <div ng-show="editForm.inputExistencias.$invalid" class="invalid-feedback">
                             Por favor introduce un número entero válido. </div>
                     </div>
@@ -62,7 +62,7 @@
                         <input name="inputPrecio"
                             ng-class="{ 'is-valid' : editForm.inputPrecio.$valid && editForm.inputPrecio.$dirty , 'is-invalid' : editForm.inputPrecio.$invalid && editForm.inputPrecio.$dirty}"
                             type="text" class="form-control" id="inputPrecio" placeholder="Precio"
-                            ng-model="entity.precio" ng-pattern="/[0-9]{1,4}([0-9][0-9])?$" required>
+                            ng-model="entity.precio" ng-pattern="/^[0-9]{1,4}([0-9][0-9])?$" required>
                         <div ng-show="editForm.inputPrecio.$invalid" class="invalid-feedback">
                             Por favor introduce un precio válido. </div>
                     </div>
@@ -74,7 +74,7 @@
                         <input name="inputImagen"
                             ng-class="{ 'is-valid' : editForm.inputImagen.$valid && editForm.inputImagen.$dirty , 'is-invalid' : editForm.inputImagen.$invalid && editForm.inputImagen.$dirty}"
                             type="text" class="form-control" id="inputImagen" placeholder="Imagen"
-                            ng-model="entity.imagen" ng-pattern="/[A-Z][0-9a-záéíóúüèòàñA-Z\s]*$/" ng-minlength="5"
+                            ng-model="entity.imagen" ng-pattern="/^[A-Z][0-9a-záéíóúüèòàñA-Z\s]*$/" ng-minlength="5"
                             ng-maxlength="255" required>
                         <div ng-show="editForm.inputImagen.$invalid" class="invalid-feedback">
                             Por favor introduce una frase login de 5 a 255 caracteres. Puedes usar combinaciones de
