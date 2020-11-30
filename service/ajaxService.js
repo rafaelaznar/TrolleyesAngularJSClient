@@ -71,7 +71,7 @@ miModulo.factory("ajaxService", [
       },
       ajaxFill: function (entidad, numero) {
         return $http.post("http://localhost:8082/" + entidad + "/fill/" + numero);
-      },
+      }
     };
   },
 ]);
