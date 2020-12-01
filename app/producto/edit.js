@@ -40,7 +40,7 @@ miModulo.controller("productoEditController", [
             ajaxService.ajaxGet("tipoproducto", $scope.entity.tipoproducto.id).then(function (response) {
                 $scope.entity.tipoproducto = response.data;
             }).catch(function (error) {
-                $scope.entity.tipoproducto = { id: 0, nombre: "???" };
+                $scope.entity.tipoproducto = { id: "", nombre: "???" };
             });
         }
         $scope.back = function () {
