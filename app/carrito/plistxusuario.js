@@ -1,27 +1,27 @@
-miModulo.controller("HomeController", [
+miModulo.controller("carritoxusuarioPlistController", [
     "$scope",
     "auth",
     "$location",
     "ajaxService",
     "$routeParams",
     function ($scope, auth, $location, ajaxService, $routeParams) {
-        $scope.controller = "HomeController";
+        $scope.controller = "carritoxusuarioPlistController";
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
         } else {
             $location.path("/home");
         }
-        $scope.operationIcon = "fas fa-home";
-        $scope.operationName = "Bienvenido";
-        $scope.entityName = "producto";
-        $scope.entityHome = "home";
-        $scope.entityIcon = "fas fa-shopping-cart";
+        $scope.operationIcon = "fas fa-edit";
+        $scope.operationName = "Listado de ";
+        $scope.entityName = "usuario";
+        $scope.entityIcon = "fas fa-user";
 
         $scope.status = {};
         $scope.status.success = "";
         $scope.status.error = "";
 
         $scope.neighbourhood = 2;
+        $scope.usuario = $routeParams.usuario;
 
         if ($routeParams.page == undefined) {
             $scope.page = 1;
@@ -47,12 +47,12 @@ miModulo.controller("HomeController", [
             $scope.orderDirection = $routeParams.orderdirection;
         }
 
-        ajaxService.ajaxPlist($scope.entityName, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection).then(function (response) {
+        ajaxService.ajaxPlistx($scope.entityName, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection, "usuario", $scope.usuario).then(function (response) {
             $scope.entities = response.data;
             $scope.pages = response.data.totalPages;
             paginacion();
         }).catch(function (error) {
-            $scope.status.error = "ERROR: Los " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
+            $scope.status.error = "ERROR: El " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
         });
 
         function paginacion() {
@@ -69,4 +69,8 @@ miModulo.controller("HomeController", [
                 }
             }
         }
+
+
+
+
     }])

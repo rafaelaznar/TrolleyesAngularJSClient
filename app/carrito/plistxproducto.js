@@ -1,27 +1,27 @@
-miModulo.controller("HomeController", [
+miModulo.controller("carritoxproductoPlistController", [
     "$scope",
     "auth",
     "$location",
     "ajaxService",
     "$routeParams",
     function ($scope, auth, $location, ajaxService, $routeParams) {
-        $scope.controller = "HomeController";
+        $scope.controller = "carritoxproductoPlistController";
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
         } else {
             $location.path("/home");
         }
-        $scope.operationIcon = "fas fa-home";
-        $scope.operationName = "Bienvenido";
-        $scope.entityName = "producto";
-        $scope.entityHome = "home";
-        $scope.entityIcon = "fas fa-shopping-cart";
+        $scope.operationIcon = "fas fa-edit";
+        $scope.operationName = "Listado de ";
+        $scope.entityName = "carrito";
+        $scope.entityIcon = "fas fa-cash-register";
 
         $scope.status = {};
         $scope.status.success = "";
         $scope.status.error = "";
 
         $scope.neighbourhood = 2;
+        $scope.producto = $routeParams.producto;
 
         if ($routeParams.page == undefined) {
             $scope.page = 1;
@@ -47,7 +47,7 @@ miModulo.controller("HomeController", [
             $scope.orderDirection = $routeParams.orderdirection;
         }
 
-        ajaxService.ajaxPlist($scope.entityName, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection).then(function (response) {
+        ajaxService.ajaxPlistx($scope.entityName, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection, "producto", $scope.producto).then(function (response) {
             $scope.entities = response.data;
             $scope.pages = response.data.totalPages;
             paginacion();
@@ -69,4 +69,8 @@ miModulo.controller("HomeController", [
                 }
             }
         }
+
+
+
+
     }])
