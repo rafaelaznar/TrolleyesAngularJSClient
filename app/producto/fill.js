@@ -4,17 +4,19 @@ miModulo.controller("productoFillController", [
     "$location",
     "ajaxService",
     "$routeParams",
-    function ($scope, auth, $location, ajaxService, $routeParams) {
+    "iconService",
+    function ($scope, auth, $location, ajaxService, $routeParams, iconService) {
         $scope.controller = "productoFillController";
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
         } else {
             $location.path("/home");
         }
-        $scope.operationIcon = "fas fa-plus";
+        $scope.operationIcon = iconService.getIcon("new");
         $scope.operationName = "Auto relleno de ";
         $scope.entityName = "producto";
-        $scope.entityIcon = "fas fa-gift";
+        $scope.entityIcon = iconService.getIcon($scope.entityName);
+        $scope.iconService = iconService;
 
         $scope.status = {};
         $scope.status.success = "";

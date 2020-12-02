@@ -40,18 +40,18 @@
                 <tr>
                     <th class="text-center">
                         id<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i class="fas fa-arrow-down"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         nombre<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/desc"><i class="fas fa-arrow-down"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         productos<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/productos/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/productos/desc"><i class="fas fa-arrow-down"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/productos/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/productos/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>                    
                     <th class="text-center">
                         herramientas
@@ -66,11 +66,11 @@
                             <div class="col-md-12 text-center">
                                 <div class="btn-group" role="group" aria-label="Herramientas">
                                     <a class="btn btn-success" href="{{entityName}}/view/{{fila.id}}"><i
-                                            class="fas fa-eye"></i></a>
+                                            ng-class="iconService.getIcon('viewHerramientas')"></i></a>
                                     <a class="btn btn-primary" href="{{entityName}}/edit/{{fila.id}}"><i
-                                            class="fas fa-edit"></i></a>
+                                            ng-class="iconService.getIcon('editHerramientas')"></i></a>
                                     <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}"><i
-                                            class="far fa-times"></i></a>
+                                            ng-class="iconService.getIcon('removeHerramientas')"></i></a>
                                 </div>
                             </div>
                         </div>

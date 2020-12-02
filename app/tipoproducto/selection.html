@@ -45,13 +45,13 @@
                                     <tr>
                                         <th class="text-center">
                                             id<br>
-                                            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/asc"><i class="fas fa-arrow-up"></i></a>
-                                            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i class="fas fa-arrow-down"></i></a>
+                                            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                                            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                                         </th>
                                         <th class="text-center">
                                             nombre<br>
-                                            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/asc"><i class="fas fa-arrow-up"></i></a>
-                                            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/desc"><i class="fas fa-arrow-down"></i></a>
+                                            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                                            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                                         </th>
                                         <th class="text-center">
                                             seleccionar
@@ -64,7 +64,7 @@
                                             <div class="col-md-12 text-center">
                                                 <div class="btn-group" role="group" aria-label="Seleccion">
                                                     <a class="btn btn-success" data-dismiss="modal" ng-click="seleccionar(fila.id)"><i
-                                                            class="fas fa-check"></i></a>
+                                                            ng-class="iconService.getIcon('check')"></i></a>
                                                 </div>
                                             </div>
                                         </td>

@@ -5,17 +5,19 @@ miModulo.controller("compraEditController", [
     "ajaxService",
     "$routeParams",
     "dateService",
-    function ($scope, auth, $location, ajaxService, $routeParams, dateService) {
+    "iconService",
+    function ($scope, auth, $location, ajaxService, $routeParams, dateService, iconService) {
         $scope.controller = "compraEditController";
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
         } else {
             $location.path("/home");
         }
-        $scope.operationIcon = "fas fa-edit";
+        $scope.operationIcon = iconService.getIcon("edit");
         $scope.operationName = "Edición de ";
         $scope.entityName = "compra";
-        $scope.entityIcon = "fas fa-cash-register";
+        $scope.entityIcon = iconService.getIcon($scope.entityName);
+        $scope.iconService = iconService;
 
         $scope.status = {};
         $scope.status.success = "";
