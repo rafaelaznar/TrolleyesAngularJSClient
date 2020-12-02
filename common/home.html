@@ -19,7 +19,7 @@
 
 
 
-<div class="container-fluid px-5" ng-show="status.success==''&&status.error==''">
+<div class="container-fluid px-5" style="background-color: rgb(255, 255, 255);" ng-show="status.success==''&&status.error==''">
     <div class="row">
         <div class="col">
             <div class="d-flex justify-content-between">
@@ -34,7 +34,7 @@
                                 aria-disabled="true">50</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==100)}">
-                            <a class="page-link" href="{{entityHome}}/plist/{{page}}/100/" tabindex="-1"
+                            <a class="page-link" href="{{entityHome}}/{{page}}/100/" tabindex="-1"
                                 aria-disabled="true">100</a>
                         </li>
                     </ul>
@@ -50,17 +50,16 @@
                     </ul>
                 </nav>
             </div>
-            <div class="container" style="width: 100%;">
-                <div class="card Secondary card title" ng-repeat="producto in entities.content"
-                    style="width:28%;float:left; margin-right: 5.5%; margin:2%;">
-                    <img src="http://localhost:8082/file/{{producto.imagen}}" class="card-img-top  mx-auto d-block mt-5" width="25%"
+            <div id="divCard" class="d-flex flex-wrap justify-content-between">
+                <div id="card" class="card Secondary card title d-flex flex-column" ng-repeat="fila in entities.content" >             
+                    <img src="http://localhost:8082/file/{{fila.imagen}}" class="card-img-top  mx-auto d-block mt-5"  width="20%"
                         alt="trolleyes">
                     <div class="card-body">
                         <h5 class="card-title">{{producto.nombre}}</h5>
                         <p class="card-text"><a
-                                href="tipoproducto/view/{{producto.tipoproducto.id}}">{{producto.tipoproducto.nombre}}</a></p>
-                        <a href="#" class="btn btn-primary" ng-click="carritoAdd(producto.id)" ng-if="datosDeSesion.data.tipousuario.id==2">Añadir al carrito</a>
-                        <p style="float: right; margin-left: 2px;">{{producto.precio}}€</p>
+                                href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.tipoproducto.nombre}}</a></p>
+                        <a href="#" class="btn btn-primary" ng-click="carritoAdd(producto.id)" ng-if="datosDeSesion.data.tipousuario.id==2">Añadir al carrito <i class="fas fa-cart-plus"></i> </a>
+                        <p style="float: right; margin-left: 2px;">{{fila.precio}}€</p>
                         <p style="color: rgb(243, 57, 57);" class="card-text"><small>DESCUENTO DE:
                                 {{producto.descuento}}%</small></p>
                     </div>
@@ -68,6 +67,6 @@
             </div>
         </div>
     </div>
+    <ng-include src="'include/footer.html'"></ng-include>
 </div>
 
-<ng-include src="'include/footer.html'"></ng-include>
