@@ -55,13 +55,13 @@
                     <img src="http://localhost:8082/file/{{fila.imagen}}" class="card-img-top  mx-auto d-block mt-5"  width="20%"
                         alt="trolleyes">
                     <div class="card-body">
-                        <h5 class="card-title">{{fila.nombre}}</h5>
+                        <h5 class="card-title">{{producto.nombre}}</h5>
                         <p class="card-text"><a
                                 href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.tipoproducto.nombre}}</a></p>
-                        <a href="#" class="btn btn-primary">Añadir <i class="fas fa-cart-plus"></i> </a>
+                        <a href="#" class="btn btn-primary" ng-click="carritoAdd(producto.id)" ng-if="datosDeSesion.data.tipousuario.id==2">Añadir al carrito <i class="fas fa-cart-plus"></i> </a>
                         <p style="float: right; margin-left: 2px;">{{fila.precio}}€</p>
                         <p style="color: rgb(243, 57, 57);" class="card-text"><small>DESCUENTO DE:
-                                {{fila.descuento}}%</small></p>
+                                {{producto.descuento}}%</small></p>
                     </div>
                 </div>
             </div>
