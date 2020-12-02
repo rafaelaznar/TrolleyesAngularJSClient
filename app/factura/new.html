@@ -13,22 +13,20 @@
 
                 <div class="form-group row">
                     <label for="inputfecha" class="col-sm-2 col-form-label">Fecha: </label>
-                    <div class="col-sm-10">
-                        <input name="inputfecha"
-                            ng-class="{ 'is-valid' : newForm.inputfecha.$valid && newForm.inputfecha.$dirty , 'is-invalid' : newForm.inputfecha.$invalid && newForm.inputfecha.$dirty}"
-                            type="text" class="form-control" id="inputfecha" placeholder="fecha" ng-model="entity.fecha"
-                            ng-pattern="/^\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])([T])([0-1][0-9]|2[0-3])(:)([0-5][0-9])(:)([0-5][0-9])*$/"
-                            required>
-                        <div ng-show="newForm.inputfecha.$invalid" class="invalid-feedback">
-                            Por favor introduce una fecha (yyyy-mm-dd) una hora (hh:mm:ss) separando la fecha y la hora
-                            con una "T". </div>
+                    <div class="col-sm-3">
+                        <md-datepicker name="inputfecha"
+                            ng-class="{ 'is-valid' : newForm.fecha.$valid && newForm.fecha.$dirty , 'is-invalid' : newForm.fecha.$invalid && newForm.fecha.$dirty}"
+                            type="text" class="form-control" id="inputfecha" md-placeholder="fecha" maxlength="19"
+                            ng-model="fecha" name="fecha" required></md-datepicker>
+                        <div ng-show="newForm.fecha.$error.pattern" class="invalid-feedback">
+                            Error en la fecha. </div>
                     </div>
                 </div>
 
 
                 <div class="form-group row">
                     <label for="inputiva" class="col-sm-2 col-form-label">Iva: </label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-3">
                         <input name="inputiva"
                             ng-class="{ 'is-valid' : newForm.inputiva.$valid && newForm.inputiva.$dirty , 'is-invalid' : newForm.inputiva.$invalid && newForm.inputiva.$dirty}"
                             type="text" class="form-control" id="inputiva" placeholder="iva" ng-model="entity.iva"
