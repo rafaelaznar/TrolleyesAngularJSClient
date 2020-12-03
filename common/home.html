@@ -19,7 +19,8 @@
 
 
 
-<div class="container-fluid px-5" style="background-color: rgb(255, 255, 255);" ng-show="status.success==''&&status.error==''">
+<div class="container-fluid px-5" style="background-color: rgb(255, 255, 255);"
+    ng-show="status.success==''&&status.error==''">
     <div class="row">
         <div class="col">
             <div class="d-flex justify-content-between">
@@ -51,17 +52,49 @@
                 </nav>
             </div>
             <div id="divCard" class="d-flex flex-wrap justify-content-between">
-                <div id="card" class="card bg-light card title d-flex flex-column" ng-repeat="fila in entities.content" >             
-                    <img src="http://localhost:8082/file/{{fila.imagen}}" class="card-img-top  mx-auto d-block mt-5"  width="20%"
-                        alt="trolleyes">
+                <div id="card" class="card bg-light card title d-flex flex-column my-2"
+                    ng-repeat="fila in entities.content">
+                    <img src="http://localhost:8082/file/{{fila.imagen}}" class="card-img-top  mx-auto d-block mt-5"
+                        width="20%" alt="trolleyes">
                     <div class="card-body">
                         <h5 class="card-title">{{producto.nombre}}</h5>
-                        <p class="card-text"><a
-                                href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.tipoproducto.nombre}}</a></p>
-                        <a href="#" class="btn btn-primary" ng-click="carritoAdd(producto.id)" ng-if="datosDeSesion.data.tipousuario.id==2">Añadir al carrito <i class="fas fa-cart-plus"></i> </a>
-                        <p style="float: right; margin-left: 2px;">{{fila.precio}}€</p>
-                        <p style="color: rgb(243, 57, 57);" class="card-text"><small>DESCUENTO DE:
-                                {{producto.descuento}}%</small></p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-light text-xs-right">
+
+                                <div class="row">
+                                    <div class="col-6" ng-if="fila.descuento>0">
+                                        <p style="color: rgb(243, 57, 57);font-size: smaller;" class="card-text"
+                                            ng-if="fila.descuento>0">
+                                            <small>{{fila.descuento|number:0}}% DESCUENTO</small></p>
+                                    </div>
+                                    <div class="col-6" ng-if="fila.descuento>0">
+                                        <p class="text-right" style="font-size: smaller;" ng-show="fila.descuento>0">
+                                            <del>{{fila.precio|number:2}}€</del></p>
+                                    </div>
+                                    <div class="col">
+                                        <h3 class="text-right lead mb-5" ng-show="fila.descuento==0">
+                                            {{fila.precio|number:2}}€
+                                        </h3>
+                                        <h4 class="text-right lead" ng-show="fila.descuento>0">
+                                            {{fila.precio*((100-fila.descuento)/100)|number:2}}€</h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item bg-light text-xs-right">
+                                <p class="card-text lead">
+                                    <a
+                                        href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.tipoproducto.nombre}}</a>
+                                </p>
+                            </li>
+                            <li class="list-group-item bg-light text-center">
+                                <a href="#" class="btn btn-primary" ng-click="carritoAdd(producto.id)"
+                                    ng-if="datosDeSesion.data.tipousuario.id==2">Añadir al carrito
+                                    <i class="fas fa-cart-plus"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+
                     </div>
                 </div>
             </div>
@@ -69,4 +102,3 @@
     </div>
     <ng-include src="'include/footer.html'"></ng-include>
 </div>
-
