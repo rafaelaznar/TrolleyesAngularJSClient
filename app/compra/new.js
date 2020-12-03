@@ -20,7 +20,7 @@ miModulo.controller("compraNewController", [
         $scope.status.error = "";
 
         $scope.save = function () {
-            var datos = JSON.stringify({ cantidad: $scope.entity.cantidad, precio: $scope.entity.precio, fecha: $scope.entity.fecha, descuento_usuario: $scope.entity.descuento_usuario, descuento_producto: $scope.entity.descuento_producto, id_producto: $scope.entity.id_producto, factura: $scope.entity.factura });
+            var datos = JSON.stringify({ cantidad: $scope.entity.cantidad, precio: $scope.entity.precio, fecha: moment($scope.fecha).format("DD/MM/YYYY hh:mm"), descuento_usuario: $scope.entity.descuento_usuario, descuento_producto: $scope.entity.descuento_producto, producto: {id: parseInt($scope.entity.producto.id)}, factura: {id: parseInt($scope.entity.factura.id)} });
             ajaxService.ajaxNew($scope.entityName, datos).then(function (response) {
                 $scope.status.success = "La" + $scope.entityName + " ha sido guardada."
             }).catch(function (error) {
@@ -33,6 +33,14 @@ miModulo.controller("compraNewController", [
                 $scope.entity.factura = response.data;
             }).catch(function (error) {
                 $scope.entity.factura = { id: "" };
+            });
+        }
+
+        $scope.lookupProducto = function () {
+            ajaxService.ajaxGet("producto", $scope.entity.producto.id).then(function (response) {
+                $scope.entity.producto = response.data;
+            }).catch(function (error) {
+                $scope.entity.producto = { id: "" };
             });
         }
 
