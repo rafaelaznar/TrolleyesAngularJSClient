@@ -46,6 +46,20 @@ miModulo.controller("compraEditController", [
                 $scope.status.error = "ERROR: La " + $scope.entityName + " con id " + $scope.id + " NO se ha podido guardar.";
             });
         }
+        $scope.lookupProducto = function () {
+            ajaxService.ajaxGet("producto", $scope.entity.producto.id).then(function (response) {
+                $scope.entity.producto = response.data;
+            }).catch(function (error) {
+                $scope.entity.producto = { id: 0, nombre: "???" };
+            });
+        }
+        $scope.lookupFactura = function () {
+            ajaxService.ajaxGet("factura", $scope.entity.factura.id).then(function (response) {
+                $scope.entity.factura = response.data;
+            }).catch(function (error) {
+                $scope.entity.factura = { id: 0, nombre: "???" };
+            });
+        }
 
         $scope.back = function () {
             window.history.back();
