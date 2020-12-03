@@ -72,6 +72,9 @@ miModulo.factory("ajaxService", [
       ajaxFill: function (entidad, numero) {
         return $http.post("http://localhost:8082/" + entidad + "/fill/" + numero);
       },
+      ajaxCarritoAdd: function (producto, cantidad) {
+        return $http.post("http://localhost:8082/carrito/" + producto + "/" + cantidad);
+      }
     };
   },
 ]);

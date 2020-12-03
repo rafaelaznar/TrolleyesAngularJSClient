@@ -12,16 +12,13 @@
                 <nav aria-label="rpp">
                     <ul class="pagination">
                         <li class="page-item" ng-class="{'active':(rpp==10)}">
-                            <a class="page-link" href="{{entityName}}/plist/{{page}}/10/" tabindex="-1"
-                                aria-disabled="true">10</a>
+                            <a class="page-link" href="{{entityName}}/plist/{{page}}/10/" tabindex="-1" aria-disabled="true">10</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==50)}">
-                            <a class="page-link" href="{{entityName}}/plist/{{page}}/50/" tabindex="-1"
-                                aria-disabled="true">50</a>
+                            <a class="page-link" href="{{entityName}}/plist/{{page}}/50/" tabindex="-1" aria-disabled="true">50</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==100)}">
-                            <a class="page-link" href="{{entityName}}/plist/{{page}}/100/" tabindex="-1"
-                                aria-disabled="true">100</a>
+                            <a class="page-link" href="{{entityName}}/plist/{{page}}/100/" tabindex="-1" aria-disabled="true">100</a>
                         </li>
                     </ul>
                 </nav>
@@ -54,18 +51,18 @@
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/desc"><i class="fas fa-arrow-down"></i></a>
                     </th>
                     <th class="text-center">
-                        Apellido 1<br>
+                        Primer apellido<br>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/apellido1/asc"><i class="fas fa-arrow-up"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/apellido1/desc"><i class="fas fa-arrow-down"></i></a>
                     </th>
                     <th class="text-center">
-                        Apellido 2<br>
+                        Segundo apellido<br>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/apellido2/asc"><i class="fas fa-arrow-up"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/apellido2/desc"><i class="fas fa-arrow-down"></i></a>
                     </th>
                     <th class="text-center">
                         Login<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/login/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/login/asc"><iclass="fas fa-arrow-up"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/login/desc"><i class="fas fa-arrow-down"></i></a>
                     </th>
                     <th class="text-center">
@@ -79,46 +76,30 @@
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento/desc"><i class="fas fa-arrow-down"></i></a>
                     </th>
                     <th class="text-center">
-                        Tipo Usuario<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/tipousuario/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/tipousuario/desc"><i class="fas fa-arrow-down"></i></a>
+                        Usuario<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/usuario/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/usuario/desc"><i class="fas fa-arrow-down"></i></a>
                     </th>
-                    <th class="text-center">
-                        Prods. en Carrito<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/carrito/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/carrito/desc"><i class="fas fa-arrow-down"></i></a>
-                    </th>
-                    <th class="text-center">
-                        Facturas<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/carrito/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/carrito/desc"><i class="fas fa-arrow-down"></i></a>
-                    </th>                    
                     <th class="text-center">
                         herramientas
                     </th>
                 </tr>
                 <tr ng-repeat="fila in entities.content">
-                    <td class="text-center">{{fila.id}}</td>
-                    <td class="text-center font-weight-bold">{{fila.dni}} </td>
-                    <td class="text-right">{{fila.nombre}}</td>
-                    <td class="text-right">{{fila.apellido1}}</td>
-                    <td class="text-right">{{fila.apellido2}}</td>
+                    <td>{{fila.id}}</td>
+                    <td class="text-center">{{fila.dni}} </td>
+                    <td>{{fila.nombre}}</td>
+                    <td><a href="usuario/view/{{fila.usuario.id}}">{{fila.usuario.nombre}}</a></td>                   
                     <td class="text-center">{{fila.login}}</td>
-                    <td class="text-right">{{fila.email}}</td>
+                    <td class="text-center">{{fila.email}}</td>
                     <td class="text-center">{{fila.descuento}}%</td>
-                    <td class="text-center"><a href="tipousuario/view/{{fila.tipousuario.id}}">{{fila.tipousuario.nombre}}</a></td>
-                    <td class="text-center"><a href="carrito/{{entityName}}////{{fila.id}} " >{{fila.carritos}}</a></td></td>
-                    <td class="text-center">{{fila.facturas}}</td>
+                    <td class="text-center font-weight-bold"><a href="usuario/view/{{fila.usuario.id}}">{{fila.usuario.nombre}} {{fila.usuario.apellido1}} {{fila.usuario.apellido2}} </a></td>
                     <td>
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <div class="btn-group" role="group" aria-label="Herramientas">
-                                    <a class="btn btn-success" href="{{entityName}}/view/{{fila.id}}"><i
-                                            class="fas fa-eye"></i></a>
-                                    <a class="btn btn-primary" href="{{entityName}}/edit/{{fila.id}}"><i
-                                            class="fas fa-edit"></i></a>
-                                    <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}"><i
-                                            class="far fa-times"></i></a>
+                                    <a class="btn btn-success" href="{{entityName}}/view/{{fila.id}}"><i class="fas fa-eye"></i></a>
+                                    <a class="btn btn-primary" href="{{entityName}}/edit/{{fila.id}}"><i class="fas fa-edit"></i></a>
+                                    <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}"><i class="fas fa-times"></i></a>
                                 </div>
                             </div>
                         </div>

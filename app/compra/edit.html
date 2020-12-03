@@ -80,26 +80,56 @@
 
                 <div class="form-group row">
                     <label for="inputIdProducto" class="col-sm-2 col-form-label">Id producto: </label>
-                    <div class="col-sm-2">
-                        <input name="inputIdProducto"
-                            ng-class="{ 'is-valid' : editForm.inputIdProducto.$valid && editForm.inputIdProducto.$dirty , 'is-invalid' : editForm.inputIdProducto.$invalid && editForm.inputIdProducto.$dirty}"
-                            type="text" class="form-control" id="inputIdProducto" placeholder="Id producto"
-                            ng-model="entity.id_producto" ng-minlength="1" ng-maxlength="255" required>
-                        <div ng-show="editForm.inputIdProducto.$invalid" class="invalid-feedback">
-                            Por favor introduce un número entero válido. </div>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="btn-secondary btn" data-toggle="modal" data-target="#modalProducto">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                            <input name="inputIdProducto"
+                                ng-class="{ 'is-valid' : editForm.inputIdProducto.$valid && editForm.inputIdProducto.$dirty , 'is-invalid' : editForm.inputIdProducto.$invalid && editForm.inputIdProducto.$dirty}"
+                                type="text" class="form-control" id="inputIdProducto" ng-change="lookupProducto()"
+                                placeholder="Id producto" ng-model="entity.producto.id" ng-minlength="1"
+                                ng-maxlength="255" ng-model-options="{ debounce: 1000 }" required>
+                            <div class="input-group-append">
+                                <div class="btn-secondary btn" role="alert">
+                                    {{entity.producto.nombre}}
+                                </div>
+                            </div>
+                            <div ng-show="editForm.inputIdProducto.$invalid" class="invalid-feedback">
+                                Por favor introduce un número entero válido. </div>
+                        </div>
                     </div>
+                    <productoselection class="modal fade" id="modalProducto" obj="entity.producto">
+                    </productoselection>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputIdFactura" class="col-sm-2 col-form-label">Id factura: </label>
-                    <div class="col-sm-2">
-                        <input name="inputIdFactura"
-                            ng-class="{ 'is-valid' : editForm.inputIdFactura.$valid && editForm.inputIdFactura.$dirty , 'is-invalid' : editForm.inputIdFactura.$invalid && editForm.inputIdFactura.$dirty}"
-                            type="text" class="form-control" id="inputIdFactura" placeholder="Id factura"
-                            ng-model="entity.id_factura" ng-minlength="1" ng-maxlength="255" required>
-                        <div ng-show="editForm.inputIdFactura.$invalid" class="invalid-feedback">
-                            Por favor introduce un número entero válido. </div>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="btn-secondary btn" data-toggle="modal" data-target="#modalFactura">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                            <input name="inputIdFactura"
+                                ng-class="{ 'is-valid' : editForm.inputIdFactura.$valid && editForm.inputIdFactura.$dirty , 'is-invalid' : editForm.inputIdFactura.$invalid && editForm.inputIdFactura.$dirty}"
+                                type="text" class="form-control" id="inputIdFactura" ng-change="lookupFactura()"
+                                placeholder="Id factura" ng-model="entity.factura.id" ng-minlength="1"
+                                ng-maxlength="255" ng-model-options="{ debounce: 1000 }" required>
+                                <div class="input-group-append">
+                                    <div class="btn-secondary btn" role="alert">
+                                        {{entity.factura.usuario.nombre}} {{entity.factura.usuario.apellido1}} {{entity.factura.usuario.apellido2}} ({{entity.factura.fecha}})
+                                    </div>
+                                </div>
+                            <div ng-show="editForm.inputIdFactura.$invalid" class="invalid-feedback">
+                                Por favor introduce un número entero válido. </div>
+                        </div>
                     </div>
+                    <facturaselection class="modal fade" id="modalFactura" obj="entity.factura">
+                    </facturaselection>
                 </div>
 
                 <div class="form-group row text-right">

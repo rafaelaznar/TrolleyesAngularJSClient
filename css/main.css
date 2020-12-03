@@ -1,0 +1,45 @@
+/* Por defecto*/
+
+#card {
+    width: 100%;
+}
+
+/* Dispositivos moviles (smartphones)*/
+
+@media (min-width: 620px) {
+    #card {
+        width: 45%;
+    }
+}
+
+/* Dispositivo moviles (tablets)*/
+
+@media (min-width: 900px) {
+    #card {
+        width: 30%;
+    }
+}
+
+/* Pantallas medianas*/
+
+/*
+@media (min-width: 992px) {
+    #card {
+        width: 30%;
+    }
+}
+*/
+
+/* Pantallas grandes*/
+
+@media (min-width: 1200px) {
+    #card {
+        width: 23%;
+    }
+}
+
+@media (min-width: 1900px) {
+    #card {
+        width: 15%;
+    }
+}

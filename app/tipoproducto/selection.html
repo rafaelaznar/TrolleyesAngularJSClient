@@ -1,0 +1,82 @@
+<div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title" id="exampleModalLabel"> Seleccionar tipo de producto</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <div class="container-fluid px-5" ng-show="status.success==''&&status.error==''">
+                        <div class="row">
+                            <div class="col">
+                                <div class="d-flex justify-content-between">
+                                    <nav aria-label="rpp">
+                                        <ul class="pagination">
+                                            <li class="page-item" ng-class="{'active':(rpp==10)}">
+                                                <a class="page-link" ng-click="recarga(page, 10, orderField, orderDirection)" href="#"  tabindex="-1"
+                                                    aria-disabled="true">10</a>
+                                            </li>
+                                            <li class="page-item" ng-class="{'active':(rpp==50)}">
+                                                <a class="page-link" ng-click="recarga(page, 50, orderField, orderDirection)" href="#" tabindex="-1"
+                                                    aria-disabled="true">50</a>
+                                            </li>
+                                            <li class="page-item" ng-class="{'active':(rpp==100)}">
+                                                <a class="page-link" ng-click="recarga(page, 100, orderField, orderDirection)" href="#" tabindex="-1"
+                                                    aria-disabled="true">100</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    <nav aria-label="pagination">
+                                        <ul class="pagination">
+                                            <li class="page-item" ng-class="{'active':(page==p)}" ng-disabled="p == '...'"
+                                                ng-repeat="p in botonera track by $index">
+                                                <a class="page-link" ng-if="p != '...'" ng-click="recarga(p, rpp, orderField, orderDirection)" href="#">{{p}}</a>
+                                                <span class="page-link" ng-if="p == '...'">{{p}}</span>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <table class="table table-striped table-sm">
+                                    <tr>
+                                        <th class="text-center">
+                                            id<br>
+                                            <a ng-click="recarga(page, rpp, 'id', 'asc')" href="#"><i class="fas fa-arrow-up"></i></a>
+                                            <a ng-click="recarga(page, rpp, 'id', 'desc')" href="#"><i class="fas fa-arrow-down"></i></a>
+                                        </th>
+                                        <th class="text-center">
+                                            nombre<br>
+                                            <a ng-click="recarga(page, rpp, 'nombre', 'asc')" href="#"><i class="fas fa-arrow-up"></i></a>
+                                            <a ng-click="recarga(page, rpp, 'nombre', 'desc')" href="#"><i class="fas fa-arrow-down"></i></a>
+                                        </th>
+                                        <th class="text-center">
+                                            seleccionar
+                                          </th>
+                                    </tr>
+                                    <tr ng-repeat="fila in entities.content">
+                                        <td>{{fila.id}}</td>
+                                        <td>{{fila.nombre}}</td>
+                                        <td>
+                                            <div class="col-md-12 text-center">
+                                                <div class="btn-group" role="group" aria-label="Seleccion">
+                                                    <a class="btn btn-success" data-dismiss="modal" ng-click="seleccionar(fila.id)"><i
+                                                            class="fas fa-check"></i></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+        <ng-include src="'include/footer.html'"></ng-include>
+    </div>
+</div>
