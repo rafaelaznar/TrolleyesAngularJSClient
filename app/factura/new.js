@@ -3,9 +3,8 @@ miModulo.controller("facturaNewController", [
     "auth",
     "$location",
     "ajaxService",
-    "dateService",
     "iconService",
-    function ($scope, auth, $location, ajaxService, dateService, iconService) {
+    function ($scope, auth, $location, ajaxService, iconService) {
         $scope.controller = "facturaNewController";
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
