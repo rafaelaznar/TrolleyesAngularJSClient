@@ -70,18 +70,20 @@
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/compras/asc"><i class="fas fa-arrow-up"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/compras/desc"><i
                                 class="fas fa-arrow-down"></i></a>
-                    </th>                    
+                    </th>
                     <th class="text-center">
                         herramientas
                     </th>
                 </tr>
                 <tr ng-repeat="fila in entities.content">
                     <td>{{fila.id}}</td>
-                    <td class="text-left font-weight-bold"><a href="usuario/view/{{fila.usuario.id}}">{{fila.usuario.nombre}} {{fila.usuario.apellido1}} {{fila.usuario.apellido2}} </a></td>
+                    <td class="text-left font-weight-bold"><a
+                            href="usuario/view/{{fila.usuario.id}}">{{fila.usuario.nombre}} {{fila.usuario.apellido1}}
+                            {{fila.usuario.apellido2}} </a></td>
                     <td class="text-right">{{fila.fecha}}</td>
                     <td class="text-right">{{fila.iva}}</td>
                     <td class="text-right">{{fila.pagado}}</td>
-                    <td class="text-right"><a href="compra/{{entityName}}////{{fila.id}} " >{{fila.compras}}</a></td>
+                    <td class="text-right"><a href="compra/{{entityName}}////{{fila.id}} ">{{fila.compras}}</a></td>
                     <td>
                         <div class="row">
                             <div class="col-md-12 text-center">
@@ -92,6 +94,8 @@
                                             class="fas fa-edit"></i></a>
                                     <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}"><i
                                             class="far fa-times"></i></a>
+                                    <button class="btn btn-warning" ng-click="printFactura(fila.id)"><i
+                                            class="far fa-print"></i></button>
                                 </div>
                             </div>
                         </div>

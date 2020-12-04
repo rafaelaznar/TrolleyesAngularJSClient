@@ -74,7 +74,11 @@ miModulo.factory("ajaxService", [
       },
       ajaxCarritoAdd: function (producto, cantidad) {
         return $http.post("http://localhost:8082/carrito/" + producto + "/" + cantidad);
-      }
+      },
+      ajaxAllx: function (entidad, subentidad, id) {
+        strRequest = "http://localhost:8082/" + entidad + "/all/" + subentidad + "/" + id;
+        return $http.get(strRequest);
+      },
     };
   },
 ]);
