@@ -17,15 +17,15 @@
                                     <nav aria-label="rpp">
                                         <ul class="pagination">
                                             <li class="page-item" ng-class="{'active':(rpp==10)}">
-                                                <a class="page-link" href="recarga(page, 10, orderField, orderDirection)" tabindex="-1"
+                                                <a class="page-link" ng-click="recarga(page, 10, orderField, orderDirection)" href="#"  tabindex="-1"
                                                     aria-disabled="true">10</a>
                                             </li>
                                             <li class="page-item" ng-class="{'active':(rpp==50)}">
-                                                <a class="page-link" href="recarga(page, 50, orderField, orderDirection)" tabindex="-1"
+                                                <a class="page-link" ng-click="recarga(page, 50, orderField, orderDirection)" href="#" tabindex="-1"
                                                     aria-disabled="true">50</a>
                                             </li>
                                             <li class="page-item" ng-class="{'active':(rpp==100)}">
-                                                <a class="page-link" href="recarga(page, 100, orderField, orderDirection)" tabindex="-1"
+                                                <a class="page-link" ng-click="recarga(page, 100, orderField, orderDirection)" href="#" tabindex="-1"
                                                     aria-disabled="true">100</a>
                                             </li>
                                         </ul>
@@ -34,8 +34,7 @@
                                         <ul class="pagination">
                                             <li class="page-item" ng-class="{'active':(page==p)}" ng-disabled="p == '...'"
                                                 ng-repeat="p in botonera track by $index">
-                                                <a class="page-link" ng-if="p != '...'"
-                                                    href="{{entityName}}/plist/{{p}}/{{rpp}}/{{orderfield}}/{{orderdirection}}/">{{p}}</a>
+                                                <a class="page-link" ng-if="p != '...'" ng-click="recarga(p, rpp, orderField, orderDirection)" href="#">{{p}}</a>
                                                 <span class="page-link" ng-if="p == '...'">{{p}}</span>
                                             </li>
                                         </ul>
@@ -45,13 +44,13 @@
                                     <tr>
                                         <th class="text-center">
                                             id<br>
-                                            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
-                                            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
+                                            <a ng-click="recarga(page, rpp, 'id', 'asc')" href="#"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                                            <a ng-click="recarga(page, rpp, 'id', 'desc')" href="#"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                                         </th>
                                         <th class="text-center">
                                             nombre<br>
-                                            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
-                                            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
+                                            <a ng-click="recarga(page, rpp, 'nombre', 'asc')" href="#"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                                            <a ng-click="recarga(page, rpp, 'nombre', 'desc')" href="#"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                                         </th>
                                         <th class="text-center">
                                             seleccionar

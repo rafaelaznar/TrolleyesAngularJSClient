@@ -107,13 +107,9 @@
 
         <div class="form-group row">
           <label for="inputTipousuario" class="col-sm-2 col-form-label">Tipo usuario: </label>
-          <div class="col-sm-10">
-            <input name="inputTipousuario"
-              ng-class="{ 'is-valid' : editForm.inputTipousuario.$valid && editForm.inputTipousuario.$dirty , 'is-invalid' : editForm.inputTipousuario.$invalid && editForm.inputTipousuario.$dirty}"
-              type="text" class="form-control" id="inputTipousuario" placeholder="Tipo usuario"
-              ng-model="entity.id_tipousuario" ng-pattern="/^[12]$/" ng-maxlength="1" required>
-            <div ng-show="editForm.inputTipousuario.$invalid" class="invalid-feedback">
-              Por favor introduce un id de tipo usuario correcto, usando solo 1 o 2. </div>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="inputTipousuario" placeholder="id_tipousuario" 
+            ng-model="entity.tipousuario.nombre" disabled>
           </div>
         </div>
 

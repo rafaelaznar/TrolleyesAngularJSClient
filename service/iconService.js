@@ -77,7 +77,9 @@ miModulo.factory("iconService", [
                     case "resetLogin":
                         return "fas fa-brush";
                         break;
-
+                    case "carroImagenes":
+                        return "fas fa-cart-plus";
+                        break;
 
                     //Iconos del apartado de herramientas
                     case "viewHerramientas":
