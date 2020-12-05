@@ -21,12 +21,12 @@
           <td>{{entity.iva}}</td>
         </tr>
         <tr>
-          <th>Id_Usuario</th>
-          <td>{{entity.id_usuario}}</td>
+          <th>Usuario</th>
+          <td>{{entity.usuario.nombre}} {{entity.usuario.apellido1}} {{entity.usuario.apellido2}}</td>
         </tr>
         <tr>
           <th>Pagado</th>
-          <td>{{entity.pagado}}</td>
+          <td>{{entity.pagado ? 'si' : 'no'}}</td>
         </tr>
       </table>
 

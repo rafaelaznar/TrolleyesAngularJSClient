@@ -82,7 +82,7 @@
                             {{fila.usuario.apellido2}} </a></td>
                     <td class="text-right">{{fila.fecha}}</td>
                     <td class="text-right">{{fila.iva}}</td>
-                    <td class="text-right">{{fila.pagado}}</td>
+                    <td class="text-right">{{fila.pagado ? 'si' : 'no'}}</td>
                     <td class="text-right"><a href="compra/{{entityName}}////{{fila.id}} ">{{fila.compras}}</a></td>
                     <td>
                         <div class="row">
@@ -92,7 +92,7 @@
                                             class="fas fa-eye"></i></a>
                                     <a class="btn btn-primary" href="{{entityName}}/edit/{{fila.id}}"><i
                                             class="fas fa-edit"></i></a>
-                                    <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}"><i
+                                    <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}" ng-if="datosDeSesion.data.tipousuario.id==1"><i
                                             class="far fa-times"></i></a>
                                     <button class="btn btn-warning" ng-click="printFactura(fila.id)"><i
                                             class="far fa-print"></i></button>
