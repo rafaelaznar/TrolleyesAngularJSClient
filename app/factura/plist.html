@@ -77,11 +77,13 @@
                 </tr>
                 <tr ng-repeat="fila in entities.content">
                     <td>{{fila.id}}</td>
-                    <td class="text-left font-weight-bold"><a href="usuario/view/{{fila.usuario.id}}">{{fila.usuario.nombre}} {{fila.usuario.apellido1}} {{fila.usuario.apellido2}} </a></td>
+                    <td class="text-left font-weight-bold"><a
+                            href="usuario/view/{{fila.usuario.id}}">{{fila.usuario.nombre}} {{fila.usuario.apellido1}}
+                            {{fila.usuario.apellido2}} </a></td>
                     <td class="text-right">{{fila.fecha}}</td>
                     <td class="text-right">{{fila.iva}}</td>
                     <td class="text-right">{{fila.pagado}}</td>
-                    <td class="text-right"><a href="compra/{{entityName}}////{{fila.id}} " >{{fila.compras}}</a></td>
+                    <td class="text-right"><a href="compra/{{entityName}}////{{fila.id}} ">{{fila.compras}}</a></td>
                     <td>
                         <div class="row">
                             <div class="col-md-12 text-center">
@@ -92,6 +94,9 @@
                                             ng-class="iconService.getIcon('editHerramientas')"></i></a>
                                     <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}"><i
                                             ng-class="iconService.getIcon('removeHerramientas')"></i></a>
+                                            class="far fa-times"></i></a>
+                                    <button class="btn btn-warning" ng-click="printFactura(fila.id)"><i
+                                            class="far fa-print"></i></button>
                                 </div>
                             </div>
                         </div>
