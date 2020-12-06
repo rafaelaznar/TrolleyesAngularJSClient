@@ -91,6 +91,9 @@ miModulo.factory("iconService", [
                     case "removeHerramientas":
                         return "far fa-times";
                         break;
+                    case "printHerramientas":
+                        return "fas fa-print";
+                        break;
 
                     //Operación de búsqueda dentro de formulario
                     case "buscar":

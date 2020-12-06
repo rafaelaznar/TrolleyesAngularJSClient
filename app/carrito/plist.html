@@ -37,30 +37,40 @@
         <tr>
           <th class="text-center">
             Id<br>
-            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
-            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
+            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/asc"><i
+                ng-class="iconService.getIcon('flechaUp')"></i></a>
+            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i
+                ng-class="iconService.getIcon('flechaDown')"></i></a>
           </th>
           <th class="text-center">
             Cantidad<br>
-            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/cantidad/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
-            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/cantidad/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
+            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/cantidad/asc"><i
+                ng-class="iconService.getIcon('flechaUp')"></i></a>
+            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/cantidad/desc"><i
+                ng-class="iconService.getIcon('flechaDown')"></i></a>
           </th>
           <th class="text-center">
             Precio<br>
-            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/precio/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
-            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/precio/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
+            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/precio/asc"><i
+                ng-class="iconService.getIcon('flechaUp')"></i></a>
+            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/precio/desc"><i
+                ng-class="iconService.getIcon('flechaDown')"></i></a>
           </th>
           <th class="text-center">
             Producto<br>
-            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/producto/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
-            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/producto/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
+            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/producto/asc"><i
+                ng-class="iconService.getIcon('flechaUp')"></i></a>
+            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/producto/desc"><i
+                ng-class="iconService.getIcon('flechaDown')"></i></a>
           </th>
           <th class="text-center">
             Usuario<br>
-            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/usuario/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
-            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/usuario/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
+            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/usuario/asc"><i
+                ng-class="iconService.getIcon('flechaUp')"></i></a>
+            <a href="{{entityName}}/plist/{{page}}/{{rpp}}/usuario/desc"><i
+                ng-class="iconService.getIcon('flechaDown')"></i></a>
           </th>
-          <th class="text-center">
+          <th style="width: 5%" class="text-center">
             herramientas
           </th>
         </tr>
@@ -72,11 +82,14 @@
           <td class="text-center">{{fila.usuario.nombre}}</td>
           <td>
             <div class="row">
-              <div class="col-md-12 text-center">
+              <div class="col-md-12 text-left">
                 <div class="btn-group" role="group" aria-label="Herramientas">
-                  <a class="btn btn-success" href="{{entityName}}/view/{{fila.id}}"><i ng-class="iconService.getIcon('viewHerramientas')"></i></a>
-                  <a class="btn btn-primary" href="{{entityName}}/edit/{{fila.id}}"><i ng-class="iconService.getIcon('editHerramientas')"></i></a>
-                  <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}"><i ng-class="iconService.getIcon('removeHerramientas')"></i></a>
+                  <a class="btn btn-success" href="{{entityName}}/view/{{fila.id}}"><i
+                      ng-class="iconService.getIcon('viewHerramientas')"></i></a>
+                  <a class="btn btn-primary" href="{{entityName}}/edit/{{fila.id}}"><i
+                      ng-class="iconService.getIcon('editHerramientas')"></i></a>
+                  <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}"><i
+                      ng-class="iconService.getIcon('removeHerramientas')"></i></a>
                 </div>
               </div>
             </div>
