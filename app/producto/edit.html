@@ -62,7 +62,7 @@
                         <input name="inputPrecio"
                             ng-class="{ 'is-valid' : editForm.inputPrecio.$valid && editForm.inputPrecio.$dirty , 'is-invalid' : editForm.inputPrecio.$invalid && editForm.inputPrecio.$dirty}"
                             type="text" class="form-control" id="inputPrecio" placeholder="Precio"
-                            ng-model="entity.precio" ng-pattern="^[0-9]{1,4}([0-9][0-9])?$" required>
+                            ng-model="entity.precio" ng-pattern="/^[0-9]{1,4}([0-9][0-9])?$/" required>
                         <div ng-show="editForm.inputPrecio.$invalid" class="invalid-feedback">
                             Por favor introduce un precio válido. </div>
                     </div>
@@ -101,7 +101,7 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="btn-secondary btn" data-toggle="modal" data-target="#modalTipoProducto">
-                                    <i class="fas fa-search"></i>
+                                    <i ng-class="iconService.getIcon('buscar')"></i>
                                 </div>
                             </div>
                             <input name="inputidtipoproducto"

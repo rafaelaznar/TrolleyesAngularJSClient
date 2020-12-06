@@ -40,37 +40,37 @@
                 <tr>
                     <th class="text-center">
                         id<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i class="fas fa-arrow-down"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         usuario<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/usuario/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/usuario/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/usuario/desc"><i
-                                class="fas fa-arrow-down"></i></a>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         fecha<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/fecha/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/fecha/desc"><i class="fas fa-arrow-down"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/fecha/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/fecha/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         iva<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/iva/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/iva/desc"><i class="fas fa-arrow-down"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/iva/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/iva/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         pagado<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/pagado/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/pagado/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/pagado/desc"><i
-                                class="fas fa-arrow-down"></i></a>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         compras<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/compras/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/compras/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/compras/desc"><i
-                                class="fas fa-arrow-down"></i></a>
-                    </th>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
+                    </th>                    
                     <th class="text-center">
                         herramientas
                     </th>
@@ -89,10 +89,11 @@
                             <div class="col-md-12 text-center">
                                 <div class="btn-group" role="group" aria-label="Herramientas">
                                     <a class="btn btn-success" href="{{entityName}}/view/{{fila.id}}"><i
-                                            class="fas fa-eye"></i></a>
+                                            ng-class="iconService.getIcon('viewHerramientas')"></i></a>
                                     <a class="btn btn-primary" href="{{entityName}}/edit/{{fila.id}}"><i
-                                            class="fas fa-edit"></i></a>
+                                            ng-class="iconService.getIcon('editHerramientas')"></i></a>
                                     <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}"><i
+                                            ng-class="iconService.getIcon('removeHerramientas')"></i></a>
                                             class="far fa-times"></i></a>
                                     <button class="btn btn-warning" ng-click="printFactura(fila.id)"><i
                                             class="far fa-print"></i></button>

@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav w-100">
       <li class="nav-item" ng-class="{'active' : (controller=='HomeController')}">
-        <a class="nav-link" href="home"><i class="fas fa-home"></i> Home</a>
+        <a class="nav-link" href="home"><i ng-class="iconService.getIcon('home')"></i> Home</a>
       </li>
 
       <ul class="navbar-nav mr-auto" ng-if="datosDeSesion.status==200">
@@ -17,38 +17,38 @@
           <a class="nav-link dropdown-toggle"
             ng-class="{'active':(controller=='usuarioPlistController'||controller=='usuarioNewController'||controller=='usuarioFillController')}"
             ng-if="true" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="true"><i class="fas fa-user"></i>
+            aria-expanded="true"><i ng-class="iconService.getIcon('usuario')"></i>
             Usuario
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='usuarioPlistController')}"
-              href="usuario/plist/1/10"><i class="fas fa-stream"></i> Listado</a>
+              href="usuario/plist/1/10"><i ng-class="iconService.getIcon('listadoMenu')"></i> Listado</a>
             <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='usuarioNewController')}"
-              href="usuario/new"><i class="far fa-file"></i> Nuevo</a>
+              href="usuario/new"><i ng-class="iconService.getIcon('newMenu')"></i> Nuevo</a>
             <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='usuarioFillController')}"
-              href="usuario/fill"><i class="fas fa-random"></i> Creación
+              href="usuario/fill"><i ng-class="iconService.getIcon('aleatorioMenu')"></i> Creación
               aleatoria</a>
         </li>
 
         <li class="nav-item" ng-if="datosDeSesion.data.tipousuario.id==1">
           <a class="nav-link" ng-if="true" ng-class="{'active':(controller=='tipousuarioPlistController')}"
-            href="tipousuario/plist/1/10"><i class="fas fa-user-friends"></i> Tipo de usuarios</a>
+            href="tipousuario/plist/1/10"><i ng-class="iconService.getIcon('tipousuario')"></i> Tipo de usuarios</a>
         </li>
 
         <li class="nav-item dropdown" ng-if="datosDeSesion.data.tipousuario.id==1">
           <a class="nav-link dropdown-toggle"
             ng-class="{'active':(controller=='productoPlistController'||controller=='productoNewController'||controller=='productoFillController')}"
             ng-if="true" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="true"><i class="fas fa-gift"></i>
+            aria-expanded="true"><i ng-class="iconService.getIcon('producto')"></i>
             Producto
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='productoPlistController')}"
-              href="producto/plist/1/10"><i class="fas fa-stream"></i> Listado</a>
+              href="producto/plist/1/10"><i ng-class="iconService.getIcon('listadoMenu')"></i> Listado</a>
             <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='productoNewController')}"
-              href="producto/new"><i class="far fa-file"></i> Nuevo</a>
+              href="producto/new"><i ng-class="iconService.getIcon('newMenu')"></i> Nuevo</a>
             <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='productoFillController')}"
-              href="producto/fill"><i class="fas fa-random"></i> Creación
+              href="producto/fill"><i ng-class="iconService.getIcon('aleatorioMenu')"></i> Creación
               aleatoria</a>
         </li>
 
@@ -56,16 +56,16 @@
           <a class="nav-link dropdown-toggle"
             ng-class="{'active':(controller=='tipoproductoPlistController'||controller=='tipoproductoNewController'||controller=='tipoproductoFillController')}"
             ng-if="true" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="true"><i class="fas fa-cubes"></i>
+            aria-expanded="true"><i ng-class="iconService.getIcon('tipoproducto')"></i>
             Tipo producto
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='tipoproductoPlistController')}"
-              href="tipoproducto/plist/1/10"><i class="fas fa-stream"></i> Listado</a>
+              href="tipoproducto/plist/1/10"><i ng-class="iconService.getIcon('listadoMenu')"></i> Listado</a>
             <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='tipoproductoNewController')}"
-              href="tipoproducto/new"><i class="far fa-file"></i> Nuevo</a>
+              href="tipoproducto/new"><i ng-class="iconService.getIcon('newMenu')"></i> Nuevo</a>
             <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='tipoproductoFillController')}"
-              href="tipoproducto/fill"><i class="fas fa-random"></i> Creación
+              href="tipoproducto/fill"><i ng-class="iconService.getIcon('aleatorioMenu')"></i> Creación
               aleatoria</a>
         </li>
 
@@ -75,18 +75,18 @@
           <a class="nav-link dropdown-toggle"
             ng-class="{'active':(controller=='compraPlistController'||controller=='compraNewController'||controller=='compraFillController')}"
             ng-if="true" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="true"><i class="fas fa-cash-register"></i>
+            aria-expanded="true"><i ng-class="iconService.getIcon('compra')"></i>
             Compra
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='compraPlistController')}"
-              href="compra/plist/1/10"><i class="fas fa-stream"></i> Listado</a>
+              href="compra/plist/1/10"><i ng-class="iconService.getIcon('listadoMenu')"></i> Listado</a>
             <a class="dropdown-item" ng-if="datosDeSesion.data.tipousuario.id==1"
-              ng-class="{'active':(controller=='compraNewController')}" href="compra/new"><i class="far fa-file"></i>
+              ng-class="{'active':(controller=='compraNewController')}" href="compra/new"><i ng-class="iconService.getIcon('newMenu')"></i>
               Nuevo</a>
             <a class="dropdown-item" ng-if="datosDeSesion.data.tipousuario.id==1"
               ng-class="{'active':(controller=='compraFillController')}" href="compra/fill"><i
-                class="fas fa-random"></i> Creación
+                ng-class="iconService.getIcon('aleatorioMenu')"></i> Creación
               aleatoria</a>
         </li>
 
@@ -97,39 +97,39 @@
           <a class="nav-link dropdown-toggle"
             ng-class="{'active':(controller=='facturaPlistController'||controller=='facturaNewController'||controller=='facturaFillController')}"
             ng-if="true" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="true"><i class="fas fa-file-invoice-dollar"></i>
+            aria-expanded="true"><i ng-class="iconService.getIcon('factura')"></i>
             Factura
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" ng-if="true" ng-class="{'active':(controller=='facturaPlistController')}"
-              href="factura/plist/1/10"><i class="fas fa-stream"></i> Listado</a>
+              href="factura/plist/1/10"><i ng-class="iconService.getIcon('listadoMenu')"></i> Listado</a>
             <a class="dropdown-item" ng-if="datosDeSesion.data.tipousuario.id==1"
-              ng-class="{'active':(controller=='facturaNewController')}" href="factura/new"><i class="far fa-file"></i>
+              ng-class="{'active':(controller=='facturaNewController')}" href="factura/new"><i ng-class="iconService.getIcon('newMenu')"></i>
               Nuevo</a>
             <a class="dropdown-item" ng-if="datosDeSesion.data.tipousuario.id==1"
               ng-class="{'active':(controller=='facturaFillController')}" href="factura/fill"><i
-                class="fas fa-random"></i> Creación
+                ng-class="iconService.getIcon('aleatorioMenu')"></i> Creación
               aleatoria</a>
         </li>
       </ul>
 
       <li class="nav-item ml-auto" ng-class="{'active' : (controller=='LoginController')}"
         ng-if="datosDeSesion.status!=200">
-        <a class="nav-link" href="login"><i class="fas fa-user-friends"></i> Login</a>
+        <a class="nav-link" href="login"><i ng-class="iconService.getIcon('login')"></i> Login</a>
       </li>
 
       <li class="nav-item" ng-class="{'active' : (controller=='ProfileController')}"
         ng-if="datosDeSesion.status==200">
-        <a class="nav-link" href="usuario/view/{{datosDeSesion.data.id}}"><i class="fas fa-user"></i> Usuario: {{datosDeSesion.data.login}}</a>
+        <a class="nav-link" href="usuario/view/{{datosDeSesion.data.id}}"><i ng-class="iconService.getIcon('usuario')"></i> Usuario: {{datosDeSesion.data.login}}</a>
       </li>
 
       <li class="nav-item" ng-class="{'active' : (controller=='LogoutController')}" ng-if="datosDeSesion.status==200">
-        <a class="nav-link" href="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a class="nav-link" href="logout"><i ng-class="iconService.getIcon('logout')"></i> Logout</a>
       </li>
 
       <li class="nav-item" ng-class="{'active' : (controller=='CarritoController')}"
         ng-if="datosDeSesion.data.tipousuario.id==2">
-        <a class="nav-link" href="carrito/plist/1/10"><i class="fas fa-shopping-cart"></i></a>
+        <a class="nav-link" href="carrito/plist/1/10"><i ng-class="iconService.getIcon('carrito')"></i></a>
       </li>
 
     </ul>

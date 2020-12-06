@@ -40,51 +40,51 @@
                 <tr>
                     <th class="text-center">
                         id<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/id/asc/{{factura}}"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/id/desc/{{factura}}"><i class="fas fa-arrow-down"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/id/asc/{{factura}}"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/id/desc/{{factura}}"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         producto<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/producto/asc/{{factura}}"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/producto/asc/{{factura}}"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/factura/{{page}}/{{rpp}}/producto/desc/{{factura}}"><i
-                                class="fas fa-arrow-down"></i></a>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         cantidad<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/cantidad/asc/{{factura}}"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/cantidad/asc/{{factura}}"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/factura/{{page}}/{{rpp}}/cantidad/desc/{{factura}}"><i
-                                class="fas fa-arrow-down"></i></a>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         precio<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/precio/asc/{{factura}}"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/precio/asc/{{factura}}"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/factura/{{page}}/{{rpp}}/precio/desc/{{factura}}"><i
-                                class="fas fa-arrow-down"></i></a>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         fecha<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/fecha/asc/{{factura}}"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/fecha/desc/{{factura}}"><i class="fas fa-arrow-down"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/fecha/asc/{{factura}}"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/fecha/desc/{{factura}}"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         descuento usuario<br>
                         <a href="{{entityName}}/factura/{{page}}/{{rpp}}/descuento_usuario/asc/{{factura}}"><i
-                                class="fas fa-arrow-up"></i></a>
+                                ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/factura/{{page}}/{{rpp}}/descuento_usuario/desc/{{factura}}"><i
-                                class="fas fa-arrow-down"></i></a>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         descuento producto<br>
                         <a href="{{entityName}}/factura/{{page}}/{{rpp}}/descuento_producto/asc/{{factura}}"><i
-                                class="fas fa-arrow-up"></i></a>
+                                ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/factura/{{page}}/{{rpp}}/descuento_producto/desc/{{factura}}"><i
-                                class="fas fa-arrow-down"></i></a>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         factura<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/factura/asc/{{factura}}"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/factura/asc/{{factura}}"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/factura/{{page}}/{{rpp}}/factura/desc/{{factura}}"><i
-                                class="fas fa-arrow-down"></i></a>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         herramientas
@@ -104,11 +104,11 @@
                             <div class="col-md-12 text-center">
                                 <div class="btn-group" role="group" aria-label="Herramientas">
                                     <a class="btn btn-success" href="{{entityName}}/view/{{fila.id}}"><i
-                                            class="fas fa-eye"></i></a>
+                                            ng-class="iconService.getIcon('viewHerramientas')"></i></a>
                                     <a class="btn btn-primary" href="{{entityName}}/edit/{{fila.id}}"><i
-                                            class="fas fa-edit"></i></a>
+                                            ng-class="iconService.getIcon('editHerramientas')"></i></a>
                                     <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}"><i
-                                            class="far fa-times"></i></a>
+                                            ng-class="iconService.getIcon('removeHerramientas')"></i></a>
                                 </div>
                             </div>
                         </div>

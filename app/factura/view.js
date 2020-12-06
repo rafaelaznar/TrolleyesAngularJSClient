@@ -4,17 +4,19 @@ miModulo.controller("facturaViewController", [
   "$location",
   "ajaxService",
   "$routeParams",
-  function ($scope, auth, $location, ajaxService, $routeParams) {
+  "iconService",
+  function ($scope, auth, $location, ajaxService, $routeParams, iconService) {
     $scope.controller = "facturaViewController";
     if (auth.data.status == 200) {
       $scope.datosDeSesion = auth.data;
     } else {
       $location.path("/home");
     }
-    $scope.operationIcon = "fas fa-eye";
+    $scope.operationIcon = iconService.getIcon("view");
     $scope.operationName = "Vista de ";
     $scope.entityName = "factura";
-    $scope.entityIcon = "fas fa-file-invoice-dollar";
+    $scope.entityIcon = iconService.getIcon($scope.entityName);
+    $scope.iconService = iconService;
 
     $scope.status = {};
     $scope.status.success = "";

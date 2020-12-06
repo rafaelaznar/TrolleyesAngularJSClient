@@ -89,7 +89,7 @@
                             <li class="list-group-item bg-light text-center">
                                 <a href="#" class="btn btn-primary" ng-click="carritoAdd(producto.id)"
                                     ng-if="datosDeSesion.data.tipousuario.id==2">Añadir al carrito
-                                    <i class="fas fa-cart-plus"></i>
+                                    <i ng-class="iconService.getIcon('carroImagenes')"></i>
                                 </a>
                             </li>
                         </ul>
