@@ -3,17 +3,19 @@ miModulo.controller("usuarioNewController", [
     "auth",
     "$location",
     "ajaxService",
-    function ($scope, auth, $location, ajaxService) {
+    "iconService",
+    function ($scope, auth, $location, ajaxService, iconService) {
         $scope.controller = "usuarioNewController";
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
         } else {
             $location.path("/home");
         }
-        $scope.operationIcon = "fas fa-plus";
+        $scope.operationIcon = iconService.getIcon("new");
         $scope.operationName = "Alta de ";
         $scope.entityName = "usuario";
-        $scope.entityIcon = "fas fa-user";
+        $scope.entityIcon = iconService.getIcon($scope.entityName);
+        $scope.iconService = iconService;
 
         $scope.status = {};
         $scope.status.success = "";

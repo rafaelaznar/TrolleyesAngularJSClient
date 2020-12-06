@@ -31,23 +31,23 @@
       </form>
       <div class="text-center mb-4">
         <button type="submit" ng-click="login()" class="btn btn-danger ml-1" ng-disabled="loginForm.$invalid">
-          <i class="fas fa-key"></i> Login
+          <i ng-class="iconService.getIcon('accesoSistema')"></i> Login
         </button>
         <button ng-click="reset()" class="btn btn-info ml-1">
-          <i class="fas fa-brush"></i> Reset
+          <i ng-class="iconService.getIcon('resetLogin')"></i> Reset
         </button>
       </div>
 
       <div class="text-center mb-4">
         <button type="submit" ng-click="auto('admin')" class="btn btn-danger ml-1" >
-          <i class="fas fa-key"></i> Admin
+          <i ng-class="iconService.getIcon('accesoSistema')"></i> Admin
         </button>
 
         <button type="submit" ng-click ="auto('carla')" class="btn btn-danger ml-1">
-          <i class="fas fa-key"></i> Carla
+          <i ng-class="iconService.getIcon('accesoSistema')"></i> Carla
         </button>
         <button type="submit" ng-click="auto('fernando')" class="btn btn-danger ml-1">
-          <i class="fas fa-key"></i> Fernando
+          <i ng-class="iconService.getIcon('accesoSistema')"></i> Fernando
         </button>
 
       </div>

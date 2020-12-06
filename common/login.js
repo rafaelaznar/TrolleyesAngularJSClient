@@ -3,17 +3,19 @@ miModulo.controller("LoginController", [
   "$location",
   "ajaxService",
   "auth",
-  function ($scope, $location, ajaxService, auth) {
+  "iconService",
+  function ($scope, $location, ajaxService, auth, iconService) {
     if (auth.data.status == 200) {
       $location.path("/home");
     } else {
       $scope.nombreUsuario = auth.data.data.nombre;
     }
 
-    $scope.operationIcon = "fas fa-sign-in";
+    $scope.operationIcon = iconService.getIcon("entradaSistema");
     $scope.operationName = "Formulario de ";
     $scope.entityName = "entrada al sistema";
-    $scope.entityIcon = "fas fa-key";
+    $scope.entityIcon = iconService.getIcon("accesoSistema");
+    $scope.iconService = iconService;
 
     $scope.controller = "LoginController";
 

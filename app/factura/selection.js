@@ -7,10 +7,11 @@ miModulo.component('facturaselection', {
     controller: addModalVarController
   });
   
-  function addModalVarController($scope, ajaxService) {
+  function addModalVarController($scope, ajaxService, iconService) {
     var self = this;
   
     $scope.entityName = "factura";
+    $scope.iconService = iconService;
   
     $scope.status = {};
     $scope.status.success = "";

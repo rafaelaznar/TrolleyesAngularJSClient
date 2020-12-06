@@ -45,14 +45,14 @@
                     <tr>
                       <th class="text-center">
                         id<br>
-                        <a ng-click="recarga(page, rpp, 'id', 'asc')" href="#"><i class="fas fa-arrow-up"></i></a>
-                        <a ng-click="recarga(page, rpp, 'id', 'desc')" href="#"><i class="fas fa-arrow-down"></i></a>
+                        <a ng-click="recarga(page, rpp, 'id', 'asc')" href="#"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                        <a ng-click="recarga(page, rpp, 'id', 'desc')" href="#"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                       </th>
                       <th class="text-center">
                         nombre<br>
-                        <a ng-click="recarga(page, rpp, 'nombre', 'asc')" href="#"><i class="fas fa-arrow-up"></i></a>
+                        <a ng-click="recarga(page, rpp, 'nombre', 'asc')" href="#"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a ng-click="recarga(page, rpp, 'nombre', 'desc')" href="#"><i
-                            class="fas fa-arrow-down"></i></a>
+                            ng-class="iconService.getIcon('flechaDown')"></i></a>
                       </th>
                       <th class="text-center">
                         seleccionar
@@ -65,7 +65,7 @@
                         <div class="col-md-12 text-center">
                           <div class="btn-group" role="group" aria-label="Seleccion">
                             <a class="btn btn-success" data-dismiss="modal" ng-click="seleccionar(fila.id)"><i
-                                class="fas fa-eye"></i></a>
+                                ng-class="iconService.getIcon('vista')"></i></a>
                           </div>
                         </div>
                       </td>
