@@ -42,7 +42,7 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="btn-secondary btn" data-toggle="modal" data-target="#modalUsuario">
-                                    <i class="fas fa-search"></i>
+                                    <i ng-class="iconService.getIcon('buscar')"></i>
                                 </div>
                             </div>
                             <input name="inputIdUsuario"
@@ -70,14 +70,14 @@
                         <input class="form-check-input" type="radio" name="inputpagado" id="inputpagado" value="true"
                             ng-model="entity.pagado" checked>
                         <label class="form-check-label" for="inputpagado">
-                            <i class="fas fa-check-square"></i>
+                            <i ng-class="iconService.getIcon('ok')"></i>
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <input class="form-check-input" type="radio" name="inputpagado" id="inputpagado" value="false"
                             ng-model="entity.pagado">
                         <label class="form-check-label" for="inputpagado">
-                            <i class="fas fa-times-circle"></i>
+                            <i ng-class="iconService.getIcon('reject')"></i>
                         </label>
                     </div>
                 </div>

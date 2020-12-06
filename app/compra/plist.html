@@ -40,51 +40,51 @@
                 <tr>
                     <th class="text-center">
                         id<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i class="fas fa-arrow-down"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         producto<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/producto/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/producto/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/producto/desc"><i
-                                class="fas fa-arrow-down"></i></a>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         cantidad<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/cantidad/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/cantidad/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/cantidad/desc"><i
-                                class="fas fa-arrow-down"></i></a>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         precio<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/precio/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/precio/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/precio/desc"><i
-                                class="fas fa-arrow-down"></i></a>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         fecha<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/fecha/asc"><i class="fas fa-arrow-up"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/fecha/desc"><i class="fas fa-arrow-down"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/fecha/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/fecha/desc"><i ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         descuento usuario<br>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento_usuario/asc"><i
-                                class="fas fa-arrow-up"></i></a>
+                                ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento_usuario/desc"><i
-                                class="fas fa-arrow-down"></i></a>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         descuento producto<br>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento_producto/asc"><i
-                                class="fas fa-arrow-up"></i></a>
+                                ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento_producto/desc"><i
-                                class="fas fa-arrow-down"></i></a>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         factura<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/factura/asc"><i class="fas fa-arrow-up"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/factura/asc"><i ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/factura/desc"><i
-                                class="fas fa-arrow-down"></i></a>
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         herramientas
@@ -104,11 +104,11 @@
                             <div class="col-md-12 text-center">
                                 <div class="btn-group" role="group" aria-label="Herramientas">
                                     <a class="btn btn-success" href="{{entityName}}/view/{{fila.id}}"><i
-                                            class="fas fa-eye"></i></a>
+                                            ng-class="iconService.getIcon('viewHerramientas')"></i></a>
                                     <a class="btn btn-primary" href="{{entityName}}/edit/{{fila.id}}"><i
-                                            class="fas fa-edit"></i></a>
+                                            ng-class="iconService.getIcon('editHerramientas')"></i></a>
                                     <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}"><i
-                                            class="far fa-times"></i></a>
+                                            ng-class="iconService.getIcon('removeHerramientas')"></i></a>
                                 </div>
                             </div>
                         </div>

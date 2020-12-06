@@ -3,17 +3,19 @@ miModulo.controller("LogoutController", [
   "ajaxService",
   "auth",
   "$location",
-  function ($scope, ajaxService, auth, $location) {
+  "iconService",
+  function ($scope, ajaxService, auth, $location, iconService) {
     if (auth.data.status == 200) {
       $scope.datosDeSesion = auth.data;
     } else {
       $location.path("/home");
     }
 
-    $scope.operationIcon = "fas fa-sign-in";
+    $scope.operationIcon = iconService.getIcon("salidaSistema");
     $scope.operationName = "Salida del ";
     $scope.entityName = "sistema";
-    $scope.entityIcon = "fas fa-key";
+    $scope.entityIcon = iconService.getIcon("accesoSistema");
+    $scope.iconService = iconService;
 
     $scope.controller = "LogoutController";
 

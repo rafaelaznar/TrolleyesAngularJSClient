@@ -7,10 +7,11 @@ miModulo.component('usuarioselection', {
   controller: addModalVarController
 });
 
-function addModalVarController($scope, ajaxService) {
+function addModalVarController($scope, ajaxService, iconService) {
   var self = this;
 
   $scope.entityName = "usuario";
+  $scope.iconService = iconService;
 
   $scope.status = {};
   $scope.status.success = "";
