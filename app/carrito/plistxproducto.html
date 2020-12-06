@@ -12,13 +12,13 @@
         <nav aria-label="rpp">
           <ul class="pagination">
             <li class="page-item" ng-class="{'active':(rpp==10)}">
-              <a class="page-link" href="{{entityName}}/plist/{{page}}/10/" tabindex="-1" aria-disabled="true">10</a>
+              <a class="page-link" href="{{entityName}}/producto/{{page}}/10/{{orderField}}/{{orderDirection}}/{{producto}}" tabindex="-1" aria-disabled="true">10</a>
             </li>
             <li class="page-item" ng-class="{'active':(rpp==50)}">
-              <a class="page-link" href="{{entityName}}/plist/{{page}}/50/" tabindex="-1" aria-disabled="true">50</a>
+              <a class="page-link" href="{{entityName}}/producto/{{page}}/50/{{orderField}}/{{orderDirection}}/{{producto}}" tabindex="-1" aria-disabled="true">50</a>
             </li>
             <li class="page-item" ng-class="{'active':(rpp==100)}">
-              <a class="page-link" href="{{entityName}}/plist/{{page}}/100/" tabindex="-1" aria-disabled="true">100</a>
+              <a class="page-link" href="{{entityName}}/producto/{{page}}/100/{{orderField}}/{{orderDirection}}/{{producto}}" tabindex="-1" aria-disabled="true">100</a>
             </li>
           </ul>
         </nav>
@@ -27,7 +27,7 @@
             <li class="page-item" ng-class="{'active':(page==p)}" ng-disabled="p == '...'"
               ng-repeat="p in botonera track by $index">
               <a class="page-link" ng-if="p != '...'"
-                href="{{entityName}}/plist/{{p}}/{{rpp}}/{{orderfield}}/{{orderdirection}}/">{{p}}</a>
+                href="{{entityName}}/producto/{{p}}/{{rpp}}/{{orderField}}/{{orderDirection}}/{{producto}}">{{p}}</a>
               <span class="page-link" ng-if="p == '...'">{{p}}</span>
             </li>
           </ul>
