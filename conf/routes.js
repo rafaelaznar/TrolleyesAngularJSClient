@@ -35,6 +35,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/producto/:page?/:rpp?/:orderfield?/:orderdirection?", {
+      templateUrl: "common/home.html",
+      controller: "HomeController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.when("/login", {
       templateUrl: "common/login.html",
       controller: "LoginController",
