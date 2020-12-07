@@ -39,8 +39,8 @@ miModulo.controller("compraEditController", [
                 fecha: moment($scope.fecha).format("DD/MM/YYYY hh:mm"),
                 descuento_usuario: $scope.entity.descuento_usuario,
                 descuento_producto: $scope.entity.descuento_producto,
-                producto: { id: parseInt($scope.entity.id_producto) },
-                factura: { id: parseInt($scope.entity.id_factura) }
+                producto: { id: parseInt($scope.entity.producto.id) },
+                factura: { id: parseInt($scope.entity.factura.id) }
             });
             ajaxService.ajaxUpdate($scope.entityName, $scope.entity.id, datos).then(function (response) {
                 $scope.status.success = "La" + $scope.entityName + " con id " + $scope.id + " ha sido guardado."

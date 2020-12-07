@@ -23,9 +23,9 @@
                         <input name="inputCantidad"
                             ng-class="{ 'is-valid' : editForm.inputCantidad.$valid && editForm.inputCantidad.$dirty , 'is-invalid' : editForm.inputCantidad.$invalid && editForm.inputCantidad.$dirty}"
                             type="text" class="form-control" id="inputCantidad" placeholder="Cantidad"
-                            ng-model="entity.cantidad" ng-minlength="1" maxlength="10" required>
+                            ng-model="entity.cantidad" ng-minlength="1" maxlength="4" ng-pattern="/^[1-9][0-9]*$/" required>
                         <div ng-show="editForm.inputCantidad.$invalid" class="invalid-feedback">
-                            Por favor introduce un número entero válido. </div>
+                            Por favor introduce un valor entero de 1 a 4 digitos. </div>
                     </div>
                 </div>
 
@@ -35,9 +35,9 @@
                         <input name="inputPrecio"
                             ng-class="{ 'is-valid' : editForm.inputPrecio.$valid && editForm.inputPrecio.$dirty , 'is-invalid' : editForm.inputPrecio.$invalid && editForm.inputPrecio.$dirty}"
                             type="text" class="form-control" id="inputPrecio" placeholder="Precio"
-                            ng-model="entity.precio" required>
+                            ng-model="entity.precio" ng-pattern="/^([1-9][0-9]{0,4})?(0?\.[0-9]{1,2})?$/" required>
                         <div ng-show="editForm.inputPrecio.$invalid" class="invalid-feedback">
-                            Por favor introduce un precio válido. </div>
+                            Introduce un precio hasta 10000€. Máximo 2 decimales  . </div>
                     </div>
                 </div>
 
@@ -111,7 +111,7 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="btn-secondary btn" data-toggle="modal" data-target="#modalFactura">
-                                    <i class="iconService.getIcon('buscar')"></i>
+                                    <i ng-class="iconService.getIcon('buscar')"></i>
                                 </div>
                             </div>
                             <input name="inputIdFactura"

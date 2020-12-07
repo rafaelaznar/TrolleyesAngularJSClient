@@ -9,13 +9,13 @@
         <div class="col">
 
             <form name="newForm" novalidate>
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">Id: </label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entity.id"
                             disabled>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-group row">
                     <label for="inputCantidad" class="col-sm-2 col-form-label">Cantidad: </label>
@@ -24,9 +24,9 @@
                             ng-class="{ 'is-valid' : newForm.inputCantidad.$valid && newForm.inputCantidad.$dirty , 'is-invalid' : newForm.inputCantidad.$invalid && newForm.inputCantidad.$dirty}"
                             type="text" class="form-control" id="inputCantidad" placeholder="Cantidad"
                             ng-model="entity.cantidad" ng-pattern="/^[1-9][0-9]*$/" ng-minlength="1"
-                            ng-maxlength="11" required>
+                            ng-maxlength="4" required>
                         <div ng-show="newForm.inputCantidad.$invalid" class="invalid-feedback">
-                            Por favor introduce una cantidad de 1 a 11 digitos. </div>
+                            Por favor introduce un valor entero de 1 a 4 digitos. </div>
                     </div>
                 </div>
 
@@ -36,9 +36,9 @@
                         <input name="inputPrecio"
                             ng-class="{ 'is-valid' : newForm.inputPrecio.$valid && newForm.inputPrecio.$dirty , 'is-invalid' : newForm.inputPrecio.$invalid && newForm.inputPrecio.$dirty}"
                             type="text" class="form-control" id="inputPrecio" placeholder="Precio"
-                            ng-model="entity.precio" ng-pattern="/^([1-9][0-9]{1,10})([.])([0-9]{2})*$/" required>
+                            ng-model="entity.precio" ng-pattern="/^([1-9][0-9]{0,4})?(0?\.[0-9]{1,2})?$/" required>
                         <div ng-show="newForm.inputPrecio.$invalid" class="invalid-feedback">
-                            Por favor introduce un precio de 1 a 10 digitos. Puedes introducir hasta 2 decimales. Separa los decimales con un "." . </div>
+                            Introduce un precio hasta 10000€. Máximo 2 decimales. </div>
                     </div>
                 </div>
 
@@ -61,10 +61,10 @@
                         <input name="inputDescuentoUsuario"
                             ng-class="{ 'is-valid' : newForm.inputDescuentoUsuario.$valid && newForm.inputDescuentoUsuario.$dirty , 'is-invalid' : newForm.inputDescuentoUsuario.$invalid && newForm.inputDescuentoUsuario.$dirty}"
                             type="text" class="form-control" id="inputDescuentoUsuario" placeholder="Descuento usuario"
-                            ng-model="entity.descuento_usuario" ng-pattern="/^[0-9][0-9]*$/" ng-minlength="1"
-                            ng-maxlength="2" required>
+                            ng-model="entity.descuento_usuario" ng-pattern="/^[0-9][0-9]*$|^(100)$/" ng-minlength="1"
+                            ng-maxlength="3" required>
                         <div ng-show="newForm.inputDescuentoUsuario.$invalid" class="invalid-feedback">
-                            Por favor introduce un descuento de 1 a 2 digitos. Si no hay descuento introduce un 0.</div>
+                            Por favor introduce un número entero válido. Puede ser entre 0 y 100.</div>
                     </div>
                 </div>
 
@@ -75,10 +75,10 @@
                         <input name="inputDescuentoProducto"
                             ng-class="{ 'is-valid' : newForm.inputDescuentoProducto.$valid && newForm.inputDescuentoProducto.$dirty , 'is-invalid' : newForm.inputDescuentoProducto.$invalid && newForm.inputDescuentoProducto.$dirty}"
                             type="text" class="form-control" id="inputDescuentoProducto" placeholder="Descuento Producto"
-                            ng-model="entity.descuento_producto" ng-pattern="/^[0-9][0-9]*$/" ng-minlength="1"
-                            ng-maxlength="2" required>
+                            ng-model="entity.descuento_producto" ng-pattern="/^[0-9][0-9]*$|^(100)$/" ng-minlength="1"
+                            ng-maxlength="3" required>
                         <div ng-show="newForm.inputDescuentoProducto.$invalid" class="invalid-feedback">
-                            Por favor introduce un descuento de 1 a 2 digitos. Si no hay descuento introduce un 0.</div>
+                            Por favor introduce un número entero válido. Puede ser entre 0 y 100.</div>
                     </div>
                 </div>
 
