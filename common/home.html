@@ -83,11 +83,17 @@
                             <li class="list-group-item bg-light text-xs-right">
                                 <p class="card-text lead">
                                     <a
+                                        href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.nombre}}</a>
+                                </p>
+                            </li>                            
+                            <li class="list-group-item bg-light text-xs-right">
+                                <p class="card-text" style="font-size:small;">SECCIÓN: 
+                                    <a
                                         href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.tipoproducto.nombre}}</a>
                                 </p>
                             </li>
                             <li class="list-group-item bg-light text-center">
-                                <a href="#" class="btn btn-primary" ng-click="carritoAdd(producto.id)"
+                                <a href="#" class="btn btn-primary" ng-click="carritoAdd(fila.id)"
                                     ng-if="datosDeSesion.data.tipousuario.id==2">Añadir al carrito
                                     <i ng-class="iconService.getIcon('carroImagenes')"></i>
                                 </a>

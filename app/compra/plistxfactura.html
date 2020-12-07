@@ -102,12 +102,12 @@
                     <td>{{fila.id}}</td>
                     <td class="text-left font-weight-bold"> <a
                             href="producto/view/{{fila.producto.id}}">{{fila.producto.codigo}} </a></td>
-                    <td class="text-right">{{fila.cantidad}}</td>
+                    <td class="text-center">{{fila.cantidad}}</td>
                     <td class="text-right">{{fila.precio}}</td>
                     <td class="text-right">{{fila.fecha}}</td>
                     <td class="text-center">{{fila.descuento_usuario}}%</td>
                     <td class="text-center">{{fila.descuento_producto}}%</td>
-                    <td class="text-center"><a href="factura/view/{{fila.factura.id}}">{{fila.factura.usuario.nombre}}
+                    <td class="text-left"><a href="factura/view/{{fila.factura.id}}">{{fila.factura.usuario.nombre}}
                             {{fila.factura.usuario.apellido1}} {{fila.factura.usuario.apellido2}}
                             ({{fila.factura.fecha}})</a></td>
                     <td>
