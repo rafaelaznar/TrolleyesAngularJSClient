@@ -22,7 +22,7 @@ miModulo.controller("facturaNewController", [
         $scope.status.error = "";
 
         $scope.save = function () {
-            var datos = JSON.stringify({ fecha: moment($scope.fecha).format("DD/MM/YYYY hh:mm"), iva: $scope.entity.iva, id_usuario: $scope.entity.usuario.id, pagado: $scope.entity.pagado });
+            var datos = JSON.stringify({ fecha: moment($scope.fecha).format("DD/MM/YYYY hh:mm"), iva: $scope.entity.iva, usuario: { id: parseInt($scope.entity.usuario.id) }, pagado: $scope.entity.pagado  });
             ajaxService.ajaxNew($scope.entityName, datos).then(function (response) {
                 $scope.status.success = "La " + $scope.entityName + "  ha sido guardado."
             }).catch(function (error) {

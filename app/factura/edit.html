@@ -11,7 +11,7 @@
             <form name="editForm" novalidate>
                 <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">Id: </label>
-                    <div class="col-sm-2">
+                    <div class="col-sm-1">
                         <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entity.id"
                             disabled>
                     </div>
@@ -19,13 +19,11 @@
 
                 <div class="form-group row">
                     <label for="inputFecha" class="col-sm-2 col-form-label">Fecha: </label>
-                    <div class="col-sm-3">
-                        <md-datepicker name="inputFecha"
-                            ng-class="{ 'is-valid' : editForm.inputFecha.$valid && editForm.inputFecha.$dirty, 'is-invalid' : editForm.inputFecha.$invalid && editForm.inputFecha.$dirty}"
-                            type="text" class="form-control" md-placeholder="Enter date" ng-model="fecha"
-                            
-                            maxlenth="19" required/></md-datepicker>
-                        <div ng-show="editForm.inputFecha.$error.pattern" class="invalid-feedback">
+                    <div class="col-sm-4">
+                        <md-datepicker id="inputFecha" ng-model="fecha" md-placeholder="Enter date"
+                            ng-class="{ 'is-valid' : editForm.fecha.$valid && editForm.fecha.$dirty,'is-invalid' : editForm.fecha.$invalid && editForm.fecha.$dirty}"
+                            name="fecha" ng-required="true"></md-datepicker>
+                        <div class="invalid-feedback" ng-show="editForm.fecha.$error.pattern">
                             Error en la fecha
                         </div>
                     </div>
@@ -33,7 +31,7 @@
 
                 <div class="form-group row">
                     <label for="inputIva" class="col-sm-2 col-form-label">Iva: </label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-4">
                         <input name="inputIva"
                             ng-class="{ 'is-valid' : editForm.inputIva.$valid && editForm.inputIva.$dirty, 'is-invalid' : editForm.inputIva.$invalid && editForm.inputIva.$dirty}"
                             type="text" class="form-control" placeholder="Iva" ng-model="entity.iva"
@@ -46,7 +44,7 @@
 
                 <div class="form-group row">
                     <label for="inputIdUsuario" class="col-sm-2 col-form-label">Usuario: </label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="btn-secondary btn" data-toggle="modal" data-target="#modalUsuario">
@@ -74,7 +72,7 @@
 
                 <div class="form-group row">
                     <label for="checkboxPagado" class="col-sm-2 col-form-label">Pagado: </label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-4">
                         <input name="checkboxPagado" type="checkbox" class="form-control" ng-model="entity.pagado">
                     </div>
                 </div>
