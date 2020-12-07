@@ -59,21 +59,21 @@
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/fecha/desc"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
-                    <th class="text-center">
+                    <th class="text-center" style="width: 5%">
                         iva<br>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/iva/asc"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/iva/desc"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
-                    <th class="text-center">
+                    <th class="text-center" style="width: 5%">
                         pagado<br>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/pagado/asc"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/pagado/desc"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
-                    <th class="text-center">
+                    <th class="text-center" style="width: 5%">
                         compras<br>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/compras/asc"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
@@ -85,14 +85,16 @@
                     </th>
                 </tr>
                 <tr ng-repeat="fila in entities.content">
-                    <td>{{fila.id}}</td>
+                    <td class="text-center">{{fila.id}}</td>
                     <td class="text-left font-weight-bold"><a
                             href="usuario/view/{{fila.usuario.id}}">{{fila.usuario.nombre}} {{fila.usuario.apellido1}}
                             {{fila.usuario.apellido2}} </a></td>
-                    <td class="text-right">{{fila.fecha}}</td>
-                    <td class="text-right">{{fila.iva}}%</td>
-                    <td class="text-right">{{fila.pagado ? 'si' : 'no'}}</td>
-                    <td class="text-right"><a href="compra/{{entityName}}////{{fila.id}} ">{{fila.compras > 0 ? fila.compras : '' }}</a></td>
+                    <td class="text-center">{{fila.fecha}}</td>
+                    <td class="text-center">{{fila.iva}}%</td>
+                    <td class="text-center">{{fila.pagado ? 'si' : 'no'}}</td>
+                    <td class="text-center"><a
+                            href="compra/{{entityName}}////{{fila.id}} ">{{fila.compras > 0 ? fila.compras : '' }}</a>
+                    </td>
                     <td>
                         <div class="row">
                             <div class="col-md-12 text-left">
