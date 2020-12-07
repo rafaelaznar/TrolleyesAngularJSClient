@@ -9,6 +9,19 @@
     <div class="col text-center">
      
       <table class="table table-striped">
+      
+        <tr>
+          <th>Usuario</th>
+          <td>{{entity.usuario.nombre}} {{entity.usuario.apellido1}} {{entity.usuario.apellido2}}</td>
+        </tr>
+        <tr>
+          <th>Producto</th>
+          <td>{{entity.producto.nombre}}</td>
+        </tr>
+        <tr>
+          <th style="vertical-align:middle">Imagen</th>
+          <td class="text-center"><img src="http://localhost:8082/file/{{entity.producto.imagen}}" height="50" /></td>
+        </tr>
         <tr>
           <th>Id</th>
           <td>{{entity.id}}</td>
@@ -21,14 +34,7 @@
           <th>Precio</th>
           <td>{{entity.precio}}</td>
         </tr>
-        <tr>
-          <th>Id_Producto</th>
-          <td>{{entity.id_producto}}</td>
-        </tr>
-        <tr>
-          <th>Id_Usuario</th>
-          <td>{{entity.id_usuario}}</td>
-        </tr>
+        
        
       </table>
       <div class="control-group text-right">
