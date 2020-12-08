@@ -779,7 +779,7 @@ miModulo.config([
       }
     });
 
-    
+
     $routeProvider.when("/compra/factura/:page?/:rpp?/:orderfield?/:orderdirection?/:factura", {
       templateUrl: "app/compra/plistxfactura.html",
       controller: "compraxfacturaPlistController",
@@ -833,6 +833,23 @@ miModulo.config([
     $routeProvider.when("/carrito/usuario/:page?/:rpp?/:orderfield?/:orderdirection?/:usuario", {
       templateUrl: "app/carrito/plistxusuario.html",
       controller: "carritoxusuarioPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/factura/usuario/:page?/:rpp?/:orderfield?/:orderdirection?/:usuario", {
+      templateUrl: "app/factura/plistxusuario.html",
+      controller: "facturaxusuarioPlistController",
       resolve: {
         auth: function (ajaxService) {
           return ajaxService
