@@ -11,11 +11,12 @@ miModulo.controller("usuarioPlistController", [
             $scope.datosDeSesion = auth.data;
         } else {
             $location.path("/home");
-        }
-        $scope.operationIcon = iconService.getIcon("edit");
+        }        
+        //los clientes no deben entrar a esta URL 
+        $scope.operationIcon = iconService.getIcon("print");
         $scope.operationName = "Listado de ";
-        $scope.entityName = "usuario";
-        $scope.entityIcon = iconService.getIcon($scope.entityName);
+        $scope.entityName = "listados";
+        $scope.entityIcon = iconService.getIcon("print");
         $scope.iconService = iconService;
 
         $scope.status = {};
