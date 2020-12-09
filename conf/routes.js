@@ -18,7 +18,7 @@ miModulo.config([
       }
     });
 
-    $routeProvider.when("/home", {
+    $routeProvider.when("/home/:page?/:rpp?/:orderfield?/:orderdirection?", {
       templateUrl: "common/home.html",
       controller: "HomeController",
       resolve: {
