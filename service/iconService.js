@@ -136,6 +136,11 @@ miModulo.factory("iconService", [
                     case "footer":
                         return "fab fa-github";
                         break;
+
+                    //Impresión
+                    case "printFiles":
+                        return "fas fa-copy";
+                        break;
                 }
             }
         };

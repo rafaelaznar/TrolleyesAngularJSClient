@@ -848,7 +848,7 @@ miModulo.config([
     });
 
     $routeProvider.when("/reports", {
-      templateUrl: "app/common/reports.html",
+      templateUrl: "common/reports.html",
       controller: "reportsListController",
       resolve: {
         auth: function (ajaxService) {

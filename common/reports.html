@@ -18,25 +18,32 @@
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
+                        codigo<br>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/asc"><i
+                                ng-class="iconService.getIcon('flechaUp')"></i></a>
+                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i
+                                ng-class="iconService.getIcon('flechaDown')"></i></a>
+                    </th>
+                    <th class="text-center">
                         nombre<br>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/usuario/asc"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
                         <a href="{{entityName}}/plist/{{page}}/{{rpp}}/usuario/desc"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
-                    </th>                  
+                    </th>
                     <th style="width: 5%" class="text-center">
                         herramientas
                     </th>
                 </tr>
-                <tr ng-repeat="fila in entities.content">
-                    <td class="text-center">{{fila.id}}</td>
-                    <td class="text-center">{{fila.nombre}}</td>
+                <tr ng-repeat="fila in informes">
+                    <td class="text-center">{{$index+1}}</td>
+                    <td class="text-center">{{fila.codigo}}</td>
+                    <td class="text-left">{{fila.nombre}}</td>
                     <td>
                         <div class="row">
                             <div class="col-md-12 text-left">
                                 <div class="btn-group" role="group" aria-label="Herramientas">
-                                    <button ng-if="fila.compras>0" class="btn btn-warning"
-                                        ng-click="printFactura(fila.id)"><i
+                                    <button class="btn btn-warning" ng-click="printInforme(fila.id)"><i
                                             ng-class="iconService.getIcon('printHerramientas')"></i></button>
                                 </div>
                             </div>
