@@ -76,7 +76,7 @@ miModulo.controller("facturaPlistController", [
             ajaxService.ajaxGet($scope.entityName, id).then(function (response) {
                 $scope.facturaEntity = response.data;
                 // pedir las compras de la factura ->rafa
-                ajaxService.ajaxPlist("compra", "factura", id).then(function (response) {
+                ajaxService.ajaxAllx("compra", "factura", id).then(function (response) {
                     $scope.compraEntities = response.data;
                     // crear el pdf ->rafa
                     var doc = new jsPDF();
@@ -102,8 +102,8 @@ miModulo.controller("facturaPlistController", [
                     doc.text( "Subtotal", 150, 70);
                     let subtotal = 0;
                     let y;
-                    for (let i = 0; i < $scope.compraEntities.content.length; i++) {
-                        const element = $scope.compraEntities.content[i];
+                    for (let i = 0; i < $scope.compraEntities.length; i++) {
+                        const element = $scope.compraEntities[i];
                         y = i * 10;
                         subtotal += element.cantidad * element.producto.precio;
                         doc.line(10, 75 + y, 200, 75 + y)
@@ -124,10 +124,10 @@ miModulo.controller("facturaPlistController", [
                     // mostrar el pdf ->rafa
                     doc.save('Factura' + Math.floor(Math.random() * 100000))
                 }).catch(function (error) {
-                    $scope.status.error = "ERROR: Las compras de la " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
+                    $scope.status.error = "ERROR: Las compras de la " + $scope.entityName + " con id " + id + " NO se ha podido leer.";
                 });
             }).catch(function (error) {
-                $scope.status.error = "ERROR: La " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
+                $scope.status.error = "ERROR: La " + $scope.entityName + " con id " + id + " NO se ha podido leer.";
             });
         }
 
