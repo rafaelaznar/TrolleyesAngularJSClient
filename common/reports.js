@@ -23,28 +23,28 @@ miModulo.controller("reportsListController", [
         $scope.status.error = "";
 
         $scope.informes = [
-            { nombre: "Productos más vendidos entre dos fechas", codigo: "i01" },
-            { nombre: "Productos más vendidos entre dos fechas", codigo: "i02" },
-            { nombre: "Productos menos vendidos entre dos fechas", codigo: "i03" },
-            { nombre: "Productos menos vendidos entre dos fechas", codigo: "i04" },
-            { nombre: "Tipos de producto más vendidos entre dos fechas", codigo: "i05" },
-            { nombre: "Tipos de producto más vendidos entre dos fechas", codigo: "i06" },
-            { nombre: "Clientes que más compran entre dos fechas", codigo: "i07" },
-            { nombre: "Clientes que más compran entre dos fechas", codigo: "i08" },
-            { nombre: "Clientes que menos compran entre dos fechas", codigo: "i09" },
-            { nombre: "Clientes que menos compran entre dos fechas", codigo: "i10" },
-            { nombre: "Productos con más descuento", codigo: "i11" },
-            { nombre: "Productos con más existencias", codigo: "i12" },
-            { nombre: "Productos con menos existencias", codigo: "i13" },
-            { nombre: "Facturas de más importe", codigo: "i14" },
-            { nombre: "Facturas de menos importe", codigo: "i15" },
-            { nombre: "Clientes con mas descuento", codigo: "i16" },
-            { nombre: "Facturas de un cliente", codigo: "i17" },
-            { nombre: "Facturas de un producto", codigo: "i18" },
-            { nombre: "Productos que más compra un cliente", codigo: "i19" },
-            { nombre: "Clientes que más compran un producto", codigo: "i20" },
-            { nombre: "Productos que más compra un cliente", codigo: "i21" },
-            { nombre: "Clientes que más compran un producto", codigo: "i22" }
+            { nombre: "N Productos más o menos vendidos entre dos fechas", codigo: "i01" }, //raul
+            { nombre: "N Tipos de producto más o menos vendidos entre dos fechas", codigo: "i02" }, //bea
+            { nombre: "N Clientes que más o menos compran entre dos fechas", codigo: "i03" }, //carlos
+            { nombre: "N Productos con más o menos descuento", codigo: "i04" }, //eugenio
+            { nombre: "N Clientes con más o menos descuento", codigo: "i05" }, //jhonatan
+            { nombre: "N Productos con más o menos existencias", codigo: "i06" }, //guillermo gomez
+            { nombre: "N Facturas de más o menos importe entre dos fechas", codigo: "i07" },
+            { nombre: "N Facturas de un producto entre dos fechas", codigo: "i08" }, //oscar
+            { nombre: "N Productos que más compra un cliente entre dos fechas", codigo: "i09" },
+            { nombre: "N Clientes que más compran un producto entre dos fechas", codigo: "i10" },
+            { nombre: "N Productos que más compra un cliente entre dos fechas", codigo: "i11" },
+            { nombre: "N Clientes que más compran un producto entre dos fechas", codigo: "i12" },
+            { nombre: "", codigo: "i13" },
+            { nombre: "", codigo: "i14" },
+            { nombre: "", codigo: "i15" },
+            { nombre: "", codigo: "i16" },
+            { nombre: "N Facturas de un cliente entre dos fechas", codigo: "i17" },
+            { nombre: "", codigo: "i18" },
+            { nombre: "", codigo: "i19" },
+            { nombre: "", codigo: "i20" },
+            { nombre: "", codigo: "i21" },
+            { nombre: "", codigo: "i22" }
         ];
 
         $scope.printInforme = function (id) {
