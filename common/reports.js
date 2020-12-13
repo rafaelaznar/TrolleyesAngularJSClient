@@ -31,7 +31,7 @@ miModulo.controller("reportsListController", [
             { nombre: "N Productos con más o menos existencias", codigo: "i06" }, //guillermo gomez
             { nombre: "N Facturas de más o menos importe entre dos fechas", codigo: "i07" },
             { nombre: "N Facturas de un producto entre dos fechas", codigo: "i08" }, //oscar
-            { nombre: "N Productos que más compra un cliente entre dos fechas", codigo: "i09" },
+            { nombre: "N Productos que más compra un cliente entre dos fechas", codigo: "i09" }, //steven
             { nombre: "N Clientes que más compran un producto entre dos fechas", codigo: "i10" },
             { nombre: "N Productos que más compra un cliente entre dos fechas", codigo: "i11" },
             { nombre: "N Clientes que más compran un producto entre dos fechas", codigo: "i12" },
