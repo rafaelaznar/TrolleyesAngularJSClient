@@ -23,8 +23,11 @@ miModulo.controller("i17ReportController", [
         $scope.status.success = "";
         $scope.status.error = "";
 
-        $scope.fecha1 = Date.now();
-        $scope.fecha2 = Date.now();
+        //$scope.fecha1 = Date.now();
+        //$scope.fecha2 = Date.now();
+
+        $scope.fecha1 = moment(new Date(), 'DD/MM/YYYY HH:mm');
+        $scope.fecha2 = moment(new Date(), 'DD/MM/YYYY HH:mm');
 
         function search() {
             strRequest = "http://localhost:8082/factura/allxusuario/10/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";

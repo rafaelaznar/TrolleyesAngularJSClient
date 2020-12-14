@@ -29,17 +29,17 @@ miModulo.controller("reportsListController", [
             { nombre: "N Productos con más o menos descuento", codigo: "i04" }, //eugenio
             { nombre: "N Clientes con más o menos descuento", codigo: "i05" }, //jhonatan
             { nombre: "N Productos con más o menos existencias", codigo: "i06" }, //guillermo gomez
-            { nombre: "N Facturas de más o menos importe entre dos fechas", codigo: "i07" },
+            { nombre: "N Facturas de más o menos importe entre dos fechas", codigo: "i07" }, //ig. gadea
             { nombre: "N Facturas de un producto entre dos fechas", codigo: "i08" }, //oscar
             { nombre: "N Productos que más compra un cliente entre dos fechas", codigo: "i09" }, //steven
-            { nombre: "N Clientes que más compran un producto entre dos fechas", codigo: "i10" },
-            { nombre: "N Productos que más compra un cliente entre dos fechas", codigo: "i11" },
-            { nombre: "N Clientes que más compran un producto entre dos fechas", codigo: "i12" },
+            { nombre: "N Clientes que más compran un producto entre dos fechas", codigo: "i10" }, //rafa montesinos
+            { nombre: "N Productos que más compra un cliente entre dos fechas", codigo: "i11" }, //guillermo salazar
+            { nombre: "N Clientes que más compran un producto entre dos fechas", codigo: "i12" }, //alonso
             { nombre: "", codigo: "i13" },
             { nombre: "", codigo: "i14" },
             { nombre: "", codigo: "i15" },
             { nombre: "", codigo: "i16" },
-            { nombre: "N Facturas de un cliente entre dos fechas", codigo: "i17" },
+            { nombre: "N Facturas de un cliente entre dos fechas", codigo: "i17" }, 
             { nombre: "", codigo: "i18" },
             { nombre: "", codigo: "i19" },
             { nombre: "", codigo: "i20" },
