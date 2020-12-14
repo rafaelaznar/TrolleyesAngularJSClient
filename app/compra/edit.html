@@ -23,7 +23,8 @@
                         <input name="inputCantidad"
                             ng-class="{ 'is-valid' : editForm.inputCantidad.$valid && editForm.inputCantidad.$dirty , 'is-invalid' : editForm.inputCantidad.$invalid && editForm.inputCantidad.$dirty}"
                             type="text" class="form-control" id="inputCantidad" placeholder="Cantidad"
-                            ng-model="entity.cantidad" ng-minlength="1" maxlength="4" ng-pattern="/^[1-9][0-9]*$/" required>
+                            ng-model="entity.cantidad" ng-minlength="1" maxlength="4" ng-pattern="/^[1-9][0-9]*$/"
+                            required>
                         <div ng-show="editForm.inputCantidad.$invalid" class="invalid-feedback">
                             Por favor introduce un valor entero de 1 a 4 digitos. </div>
                     </div>
@@ -37,19 +38,15 @@
                             type="text" class="form-control" id="inputPrecio" placeholder="Precio"
                             ng-model="entity.precio" ng-pattern="/^([1-9][0-9]{0,4})?(0?\.[0-9]{1,2})?$/" required>
                         <div ng-show="editForm.inputPrecio.$invalid" class="invalid-feedback">
-                            Introduce un precio hasta 10000€. Máximo 2 decimales  . </div>
+                            Introduce un precio hasta 10000€. Máximo 2 decimales . </div>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputFecha" class="col-sm-2 col-form-label">Fecha: </label>
                     <div class="col-sm-3">
-                        <md-datepicker id="inputFecha" ng-model="fecha" md-placeholder="Enter date"
-                            ng-class="{ 'is-valid' : editForm.fecha.$valid && editForm.fecha.$dirty,'is-invalid' : editForm.fecha.$invalid && editForm.fecha.$dirty}"
-                            name="fecha" ng-required="true"></md-datepicker>
-                        <div class="invalid-feedback" ng-show="editForm.fecha.$error.pattern">
-                            Error en la fecha
-                        </div>
+                        <md-datepicker id="inputFecha" ng-model="fecha" md-placeholder="Enter date" name="fecha">
+                        </md-datepicker>
                     </div>
                 </div>
 
@@ -119,11 +116,12 @@
                                 type="text" class="form-control" id="inputIdFactura" ng-change="lookupFactura()"
                                 placeholder="Id factura" ng-model="entity.factura.id" ng-minlength="1"
                                 ng-maxlength="255" ng-model-options="{ debounce: 1000 }" required>
-                                <div class="input-group-append">
-                                    <div class="btn-secondary btn" role="alert">
-                                        {{entity.factura.usuario.nombre}} {{entity.factura.usuario.apellido1}} {{entity.factura.usuario.apellido2}} ({{entity.factura.fecha}})
-                                    </div>
+                            <div class="input-group-append">
+                                <div class="btn-secondary btn" role="alert">
+                                    {{entity.factura.usuario.nombre}} {{entity.factura.usuario.apellido1}}
+                                    {{entity.factura.usuario.apellido2}} ({{entity.factura.fecha}})
                                 </div>
+                            </div>
                             <div ng-show="editForm.inputIdFactura.$invalid" class="invalid-feedback">
                                 Por favor introduce un número entero válido. </div>
                         </div>

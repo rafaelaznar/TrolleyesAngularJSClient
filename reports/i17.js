@@ -23,8 +23,11 @@ miModulo.controller("i17ReportController", [
         $scope.status.success = "";
         $scope.status.error = "";
 
+        $scope.fecha1 = Date.now();
+        $scope.fecha2 = Date.now();
+
         function search() {
-            strRequest = "http://localhost:8082/factura/allxusuario/" + $scope.usuario.id;
+            strRequest = "http://localhost:8082/factura/allxusuario/10/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
             $http.get(strRequest).then(function (response) {
                 $scope.entities = response.data;
             }).catch(function (error) {
@@ -44,8 +47,8 @@ miModulo.controller("i17ReportController", [
             search();
         }
 
-        $scope.$watch("usuario.id", function(){
-            if ($scope.usuario.id){
+        $scope.$watch("usuario.id", function () {
+            if ($scope.usuario.id) {
                 search();
             }
         });

@@ -27,7 +27,8 @@ miModulo.controller("compraEditController", [
 
         ajaxService.ajaxGet($scope.entityName, $scope.id).then(function (response) {
             $scope.entity = response.data;
-            $scope.fecha = dateService.getDate(response.data.fecha);
+            //$scope.fecha = dateService.getDate(response.data.fecha);
+            $scope.fecha = moment(response.data.fecha, 'DD/MM/YYYY HH:mm').toDate();
         }).catch(function (error) {
             $scope.status.error = "ERROR: La " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
         });
