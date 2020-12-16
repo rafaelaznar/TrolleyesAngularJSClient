@@ -23,14 +23,29 @@ miModulo.controller("i17ReportController", [
         $scope.status.success = "";
         $scope.status.error = "";
 
-        //$scope.fecha1 = Date.now();
-        //$scope.fecha2 = Date.now();
-
-        $scope.fecha1 = moment(new Date(), 'DD/MM/YYYY HH:mm');
+        var fini = new Date();
+        //fini.setYear(fini.getYear() - 1);
+        $scope.fecha1 = moment(fini, 'DD/MM/YYYY HH:mm');
         $scope.fecha2 = moment(new Date(), 'DD/MM/YYYY HH:mm');
 
+        $scope.registers = [
+            { value: 10, label: "10" },
+            { value: 100, label: "100" },
+            { value: 1000, label: "1000" }
+        ];
+
+        $scope.max = 10;
+
         function search() {
-            strRequest = "http://localhost:8082/factura/allxusuario/10/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
+            if ($scope.max == 10) {
+                strRequest = "http://localhost:8082/factura/allxusuario/10/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
+            } else {
+                if ($scope.max == 100) {
+                    strRequest = "http://localhost:8082/factura/allxusuario/100/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
+                } else {
+                    strRequest = "http://localhost:8082/factura/allxusuario/1000/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
+                }
+            }
             $http.get(strRequest).then(function (response) {
                 $scope.entities = response.data;
             }).catch(function (error) {
@@ -51,10 +66,26 @@ miModulo.controller("i17ReportController", [
         }
 
         $scope.$watch("usuario.id", function () {
-            if ($scope.usuario.id) {
+            preSearch();
+        });
+
+        $scope.$watch("max", function () {
+            preSearch();
+        });
+
+        $scope.$watch("fecha1", function () {
+            preSearch();
+        })
+
+        $scope.$watch("fecha2", function () {
+            preSearch();
+        })
+
+        function preSearch() {
+            if ($scope.usuario.id && $scope.max && $scope.fecha1 && $scope.fecha2) {
                 search();
             }
-        });
+        };
 
         $scope.print = function () {
             // crear el pdf ->rafa

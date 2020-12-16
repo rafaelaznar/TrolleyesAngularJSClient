@@ -41,19 +41,13 @@
                     <datesselection date1="fecha1" date2="fecha2"></datesselection>
                 </div>
             </div>
-            {{fecha1|date:'dd/MM/yyyy'}} <br>
-            {{fecha2|date:'dd/MM/yyyy'}}
-
-
             <div class="row mt-4">
                 <label for="inputIdUsuario" class="col-sm-2 col-form-label">Máximo: </label>
                 <div class="col-sm-4">
-                    <select name="max" id="max" ng-model="max" class="custom-select">
-                        <option value="">---Selecciona num. de registros---</option>
-                        <option value="10">10</option>
-                        <option value="100">100</option>
-                        <option value="1000">1000</option>
-                    </select><br>
+
+                    <select name="max2" ng-model="max" ng-options="obj.value as obj.label for obj in registers"
+                        class="custom-select">
+                    </select>
                 </div>
             </div>
 
