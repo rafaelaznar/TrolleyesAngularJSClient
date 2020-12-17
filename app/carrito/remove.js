@@ -32,13 +32,14 @@ miModulo.controller("carritoRemoveController", [
 
     $scope.remove = function () {
       ajaxService
-        .ajaxRemove($scope.entityName, $scope.id)
-        .then(function (response) {
+        .ajaxRemove($scope.entityName, $scope.id).then(function (response) {
           if (response.status == 200) {
             $scope.status.success = "El " + $scope.entityName + " con id " + $scope.id + " se ha borrado.";
+            return ajaxService.ajaxCheck();
           }
-        })
-        .catch(function (error) {
+        }).then(function (result) {
+          $scope.datosDeSesion = result;
+        }).catch(function (error) {
           $scope.status.error = "ERROR: El " + $scope.entityName + " con id " + $scope.id + " NO se ha podido borrar.";
         });
     };

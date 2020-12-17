@@ -75,6 +75,9 @@ miModulo.controller("HomeController", [
         $scope.carritoAdd = function (id_producto) {
             ajaxService.ajaxCarritoAdd(id_producto, 1).then(function (response) {
                 $scope.repuesta = response.data;
+                return ajaxService.ajaxCheck();
+            }).then(function (result) {
+                $scope.datosDeSesion = result;
             }).catch(function (error) {
                 $scope.status.error = "ERROR: No se ha podido añadir el producto " + producto + " al carrito.";
             });
