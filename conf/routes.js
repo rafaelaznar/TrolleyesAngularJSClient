@@ -882,6 +882,22 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/report/i04", {
+      templateUrl: "reports/i04.html",
+      controller: "i04ReportController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
 
     $routeProvider.otherwise({ redirectTo: "/" });
   },
