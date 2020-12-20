@@ -561,7 +561,7 @@ miModulo.config([
       }
     });
 
-    $routeProvider.when("/producto/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+    $routeProvider.when("/producto/plist/:page?/:rpp?/:orderfield?/:orderdirection?/:filter?", {
       templateUrl: "app/producto/plist.html",
       controller: "productoPlistController",
       resolve: {

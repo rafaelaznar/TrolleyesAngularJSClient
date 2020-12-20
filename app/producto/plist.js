@@ -48,7 +48,13 @@ miModulo.controller("productoPlistController", [
             $scope.orderDirection = $routeParams.orderdirection;
         }
 
-        ajaxService.ajaxPlist($scope.entityName, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection).then(function (response) {
+        if ($routeParams.filter == undefined) {
+            $scope.filter = "";
+        } else {
+            $scope.filter = $routeParams.filter;
+        }
+
+        ajaxService.ajaxPlist($scope.entityName, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection, $scope.filter).then(function (response) {
             $scope.entities = response.data;
             $scope.pages = response.data.totalPages;
             paginacion();
@@ -71,7 +77,9 @@ miModulo.controller("productoPlistController", [
             }
         }
 
-
+        $scope.doFilter = function () {
+            $location.path("/" + $scope.entityName + "/plist/" + $scope.page + "/" + $scope.rpp + "/" + $scope.orderField + "/" + $scope.orderDirection + "/" + $scope.filter);
+        };
 
 
     }])
