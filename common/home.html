@@ -45,7 +45,7 @@
                         <li class="page-item" ng-class="{'active':(page==p)}" ng-disabled="p == '...'"
                             ng-repeat="p in botonera track by $index">
                             <a class="page-link" ng-if="p != '...'"
-                                href="{{entityName}}/plist/{{p}}/{{rpp}}/{{orderfield}}/{{orderdirection}}/">{{p}}</a>
+                                href="{{entityHome}}/{{p}}/{{rpp}}/{{orderfield}}/{{orderdirection}}/">{{p}}</a>
                             <span class="page-link" ng-if="p == '...'">{{p}}</span>
                         </li>
                     </ul>
