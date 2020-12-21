@@ -847,6 +847,23 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/factura/usuario/:page?/:rpp?/:orderfield?/:orderdirection?/:usuario", {
+      templateUrl: "app/factura/plistxusuario.html",
+      controller: "facturaxusuarioPlistController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+            
     $routeProvider.when("/informes", {
       templateUrl: "common/reports.html",
       controller: "reportsListController",
@@ -863,7 +880,6 @@ miModulo.config([
         }
       }
     });
-
 
     $routeProvider.when("/report/i17", {
       templateUrl: "reports/i17.html",
@@ -882,7 +898,7 @@ miModulo.config([
       }
     });
 
-
     $routeProvider.otherwise({ redirectTo: "/" });
+    
   },
 ]);
