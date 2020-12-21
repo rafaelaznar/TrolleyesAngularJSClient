@@ -15,7 +15,7 @@
                     ng-keydown="$event.keyCode === 13 && doFilter()">
                 <div class="input-group-append">
                     <a class="btn-primary btn"
-                        href="{{entityName}}/plist/{{page}}/{{rpp}}/{{orderfield}}/{{orderdirection}}/">Quitar
+                        href="{{entityName}}/plist/{{page}}/{{rpp}}/{{orderField}}/{{orderDirection}}/">Quitar
                         filtro</a>
                 </div>
 
@@ -30,17 +30,17 @@
                     <ul class="pagination">
                         <li class="page-item" ng-class="{'active':(rpp==10)}">
                             <a class="page-link"
-                                href="{{entityName}}/plist/{{page}}/10/{{orderfield}}/{{orderdirection}}/{{filter}}"
+                                href="{{entityName}}/plist/{{page}}/10/{{orderField}}/{{orderDirection}}/{{filter}}"
                                 tabindex="-1" aria-disabled="true">10</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==50)}">
                             <a class="page-link"
-                                href="{{entityName}}/plist/{{page}}/50/{{orderfield}}/{{orderdirection}}/{{filter}}"
+                                href="{{entityName}}/plist/{{page}}/50/{{orderField}}/{{orderDirection}}/{{filter}}"
                                 tabindex="-1" aria-disabled="true">50</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==100)}">
                             <a class="page-link"
-                                href="{{entityName}}/plist/{{page}}/100/{{orderfield}}/{{orderdirection}}/{{filter}}"
+                                href="{{entityName}}/plist/{{page}}/100/{{orderField}}/{{orderDirection}}/{{filter}}"
                                 tabindex="-1" aria-disabled="true">100</a>
                         </li>
                     </ul>
@@ -50,7 +50,7 @@
                         <li class="page-item" ng-class="{'active':(page==p)}" ng-disabled="p == '...'"
                             ng-repeat="p in botonera track by $index">
                             <a class="page-link" ng-if="p != '...'"
-                                href="{{entityName}}/plist/{{p}}/{{rpp}}/{{orderfield}}/{{orderdirection}}/{{filter}}">{{p}}</a>
+                                href="{{entityName}}/plist/{{p}}/{{rpp}}/{{orderField}}/{{orderDirection}}/{{filter}}">{{p}}</a>
                             <span class="page-link" ng-if="p == '...'">{{p}}</span>
                         </li>
                     </ul>
