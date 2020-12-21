@@ -55,7 +55,7 @@
                 <div id="card" class="card bg-light card title d-flex flex-column my-2"
                     ng-repeat="fila in entities.content">
                     <img src="http://localhost:8082/file/{{fila.imagen}}" class="card-img-top  mx-auto d-block mt-5"
-                        width="20%" alt="trolleyes">
+                        height="200" alt="trolleyes">
                     <div class="card-body">
                         <h5 class="card-title">{{producto.nombre}}</h5>
                         <ul class="list-group list-group-flush">
@@ -82,12 +82,11 @@
                             </li>
                             <li class="list-group-item bg-light text-xs-right">
                                 <p class="card-text lead">
-                                    <a
-                                        href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.nombre}}</a>
+                                    <a href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.nombre}}</a>
                                 </p>
-                            </li>                            
+                            </li>
                             <li class="list-group-item bg-light text-xs-right">
-                                <p class="card-text" style="font-size:small;">SECCIÓN: 
+                                <p class="card-text" style="font-size:small;">SECCIÓN:
                                     <a
                                         href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.tipoproducto.nombre}}</a>
                                 </p>

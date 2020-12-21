@@ -33,14 +33,15 @@
                 <div class="form-group row">
                     <label for="inputCodigo" class="col-sm-2 col-form-label">Código: </label>
                     <div class="col-sm-10">
-                      <input name="inputCodigo"
-                        ng-class="{ 'is-valid' : editForm.inputCodigo.$valid && editForm.inputCodigo.$dirty , 'is-invalid' : editForm.inputCodigo.$invalid && editForm.inputCodigo.$dirty}"
-                        type="text" class="form-control" id="inputCodigo" placeholder="Codigo"
-                        ng-model="entity.codigo" ng-pattern="/^[A-Z0-9][A-Z0-9\-]{3,15}$/" required>
-                      <div ng-show="editForm.inputCodigo.$invalid" class="invalid-feedback">
-                        Por favor, introduce un codigo correcto. Puede utilizar mayúsculas, números y guiones. </div>
+                        <input name="inputCodigo"
+                            ng-class="{ 'is-valid' : editForm.inputCodigo.$valid && editForm.inputCodigo.$dirty , 'is-invalid' : editForm.inputCodigo.$invalid && editForm.inputCodigo.$dirty}"
+                            type="text" class="form-control" id="inputCodigo" placeholder="Codigo"
+                            ng-model="entity.codigo" ng-pattern="/^[A-Z0-9][A-Z0-9\-]{3,15}$/" required>
+                        <div ng-show="editForm.inputCodigo.$invalid" class="invalid-feedback">
+                            Por favor, introduce un codigo correcto. Puede utilizar mayúsculas, números y guiones.
+                        </div>
                     </div>
-                  </div>
+                </div>
 
                 <div class="form-group row">
                     <label for="inputExistencias" class="col-sm-2 col-form-label">Existencias: </label>
@@ -68,33 +69,34 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputImagen" class="col-sm-2 col-form-label">Imagen: </label>
+                    <label for="file" class="col-sm-2 col-form-label">Imagen:</label>
                     <div class="col-sm-10">
-                        <input name="inputImagen"
-                            ng-class="{ 'is-valid' : editForm.inputImagen.$valid && editForm.inputImagen.$dirty , 'is-invalid' : editForm.inputImagen.$invalid && editForm.inputImagen.$dirty}"
-                            type="text" class="form-control" id="inputImagen" placeholder="Imagen"
-                            ng-model="entity.imagen" ng-pattern="/^[0-9][0-9]*$/"
-                            required>
-                        <div ng-show="editForm.inputImagen.$invalid" class="invalid-feedback">
-                            Por favor introduce una imagen de 5 a 255 caracteres. Puedes usar combinaciones de
-                            caracteres
-                            en mayúsculas y minúsculas, con dígitos. </div>
+                        <div><img src="http://localhost:8082/file/{{entity.imagen}}" height="100" /></div>
+                    </div>
+                    <label for="file" class="col-sm-2 col-form-label mt-4">Nueva Imagen:</label>
+                    <div class="col-sm-10 mt-4">
+                        <img ng-src="{{previewImage}}" ng-show="previewImage != null" alt="" style="height:200px" />
+                        <div class="custom-file">
+                            <input type="file" ng-model="file" class="form-control-file mt-4" lang="es"
+                                ng-class="{ 'is-valid' : editForm.file.$valid && editForm.file.$dirty ,'is-invalid' : !editForm.file.$valid && !editForm.file.$pristine}"
+                                name="file" onchange="angular.element(this).scope().SelectFile(event)" />
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputDescuento" class="col-sm-2 col-form-label">Descuento: </label>
                     <div class="col-sm-2">
-                      <input name="inputDescuento"
-                        ng-class="{ 'is-valid' : editForm.inputDescuento.$valid && editForm.inputDescuento.$dirty , 'is-invalid' : editForm.inputDescuento.$invalid && editForm.inputDescuento.$dirty}"
-                        type="text" class="form-control" id="inputDescuento" placeholder="Descuento" ng-model="entity.descuento"
-                        ng-pattern="/^[0-9][0-9]{0,1}$/" required>
-                      <div ng-show="editForm.inputDescuento.$invalid" class="invalid-feedback">
-                        Por favor, introduce descuento correcto usando solo números. </div>
+                        <input name="inputDescuento"
+                            ng-class="{ 'is-valid' : editForm.inputDescuento.$valid && editForm.inputDescuento.$dirty , 'is-invalid' : editForm.inputDescuento.$invalid && editForm.inputDescuento.$dirty}"
+                            type="text" class="form-control" id="inputDescuento" placeholder="Descuento"
+                            ng-model="entity.descuento" ng-pattern="/^[0-9][0-9]{0,1}$/" required>
+                        <div ng-show="editForm.inputDescuento.$invalid" class="invalid-feedback">
+                            Por favor, introduce descuento correcto usando solo números. </div>
                     </div>
-                  </div>
-          
-                  <div class="form-group row">
+                </div>
+
+                <div class="form-group row">
                     <label for="inputidtipoproducto" class="col-sm-2 col-form-label">Tipo de producto: </label>
                     <div class="col-sm-6">
                         <div class="input-group">
@@ -122,7 +124,7 @@
                     </tipoproductoselection>
                 </div>
 
-                  <div class="form-group row text-right">
+                <div class="form-group row text-right">
                     <div class="col-sm-12">
                         <button type="submit" class="btn btn-success"
                             ng-disabled="editForm.$invalid||editForm.$pristine" ng-click="save()">Guardar</button>

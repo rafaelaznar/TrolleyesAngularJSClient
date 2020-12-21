@@ -12,6 +12,7 @@ miModulo.controller("usuarioPlistController", [
         } else {
             $location.path("/home");
         }
+        //los clientes no deben entrar a esta URL 
         $scope.operationIcon = iconService.getIcon("edit");
         $scope.operationName = "Listado de ";
         $scope.entityName = "usuario";

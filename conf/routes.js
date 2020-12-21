@@ -561,7 +561,7 @@ miModulo.config([
       }
     });
 
-    $routeProvider.when("/producto/plist/:page?/:rpp?/:orderfield?/:orderdirection?", {
+    $routeProvider.when("/producto/plist/:page?/:rpp?/:orderfield?/:orderdirection?/:filter?", {
       templateUrl: "app/producto/plist.html",
       controller: "productoPlistController",
       resolve: {
@@ -863,7 +863,42 @@ miModulo.config([
         }
       }
     });
+            
+    $routeProvider.when("/informes", {
+      templateUrl: "common/reports.html",
+      controller: "reportsListController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
+    $routeProvider.when("/report/i17", {
+      templateUrl: "reports/i17.html",
+      controller: "i17ReportController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
 
     $routeProvider.otherwise({ redirectTo: "/" });
+    
   },
 ]);
