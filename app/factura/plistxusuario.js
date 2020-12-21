@@ -1,4 +1,4 @@
-miModulo.controller("productoPlistController", [
+miModulo.controller("facturaxusuarioPlistController", [
     "$scope",
     "auth",
     "$location",
@@ -6,7 +6,7 @@ miModulo.controller("productoPlistController", [
     "$routeParams",
     "iconService",
     function ($scope, auth, $location, ajaxService, $routeParams, iconService) {
-        $scope.controller = "productoPlistController";
+        $scope.controller = "facturaxusuarioPlistController";
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
         } else {
@@ -14,7 +14,7 @@ miModulo.controller("productoPlistController", [
         }
         $scope.operationIcon = iconService.getIcon("edit");
         $scope.operationName = "Listado de ";
-        $scope.entityName = "producto";
+        $scope.entityName = "factura";
         $scope.entityIcon = iconService.getIcon($scope.entityName);
         $scope.iconService = iconService;
 
@@ -23,6 +23,7 @@ miModulo.controller("productoPlistController", [
         $scope.status.error = "";
 
         $scope.neighbourhood = 2;
+        $scope.usuario = $routeParams.usuario;
 
         if ($routeParams.page == undefined) {
             $scope.page = 1;
@@ -48,18 +49,12 @@ miModulo.controller("productoPlistController", [
             $scope.orderDirection = $routeParams.orderdirection;
         }
 
-        if ($routeParams.filter == undefined) {
-            $scope.filter = "";
-        } else {
-            $scope.filter = $routeParams.filter;
-        }
-
-        ajaxService.ajaxPlist($scope.entityName, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection, $scope.filter).then(function (response) {
+        ajaxService.ajaxPlistx($scope.entityName, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection, "usuario", $scope.usuario).then(function (response) {
             $scope.entities = response.data;
             $scope.pages = response.data.totalPages;
             paginacion();
         }).catch(function (error) {
-            $scope.status.error = "ERROR: Los " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
+            $scope.status.error = "ERROR: El " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
         });
 
         function paginacion() {
@@ -77,9 +72,7 @@ miModulo.controller("productoPlistController", [
             }
         }
 
-        $scope.doFilter = function () {
-            $location.path("/" + $scope.entityName + "/plist/" + $scope.page + "/" + $scope.rpp + "/" + $scope.orderField + "/" + $scope.orderDirection + "/" + $scope.filter);
-        };
+
 
 
     }])

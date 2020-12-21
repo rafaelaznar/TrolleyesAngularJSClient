@@ -92,7 +92,7 @@ miModulo.controller("i17ReportController", [
             var doc = new jsPDF();
             //var doc = new jsPDF('p','pt','a4');
             // rellenar el pdf ->alumno/a 
-            doc.setFontSize(30);
+            doc.setFontSize(15);
             doc.text("Facturas del usuario " + $scope.usuario.nombre + " " + $scope.usuario.apellido1 + " " + $scope.usuario.apellido2, 80, 15);
             doc.setFontSize(11);
             for (let i = 0; i < $scope.entities.length; i++) {
