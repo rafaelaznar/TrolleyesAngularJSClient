@@ -863,7 +863,7 @@ miModulo.config([
         }
       }
     });
-            
+
     $routeProvider.when("/informes", {
       templateUrl: "common/reports.html",
       controller: "reportsListController",
@@ -916,7 +916,24 @@ miModulo.config([
       }
     });
 
+    $routeProvider.when("/report/i05", {
+      templateUrl: "reports/i05.html",
+      controller: "i05ReportController",
+      resolve: {
+        auth: function (ajaxService) {
+          return ajaxService
+            .ajaxCheck()
+            .then(function (result) {
+              return { data: result };
+            })
+            .catch(function (result) {
+              return { data: result };
+            });
+        }
+      }
+    });
+
     $routeProvider.otherwise({ redirectTo: "/" });
-    
+
   },
 ]);
