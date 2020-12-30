@@ -12,7 +12,7 @@
                 <!-- <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">Id: </label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entity.id"
+                        <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entityData.id"
                             disabled>
                     </div>
                 </div> -->
@@ -23,7 +23,7 @@
                         <input name="inputCantidad"
                             ng-class="{ 'is-valid' : newForm.inputCantidad.$valid && newForm.inputCantidad.$dirty , 'is-invalid' : newForm.inputCantidad.$invalid && newForm.inputCantidad.$dirty}"
                             type="text" class="form-control" id="inputCantidad" placeholder="Cantidad"
-                            ng-model="entity.cantidad" ng-pattern="/^[1-9][0-9]*$/" ng-minlength="1"
+                            ng-model="entityData.cantidad" ng-pattern="/^[1-9][0-9]*$/" ng-minlength="1"
                             ng-maxlength="4" required>
                         <div ng-show="newForm.inputCantidad.$invalid" class="invalid-feedback">
                             Por favor introduce un valor entero de 1 a 4 digitos. </div>
@@ -36,7 +36,7 @@
                         <input name="inputPrecio"
                             ng-class="{ 'is-valid' : newForm.inputPrecio.$valid && newForm.inputPrecio.$dirty , 'is-invalid' : newForm.inputPrecio.$invalid && newForm.inputPrecio.$dirty}"
                             type="text" class="form-control" id="inputPrecio" placeholder="Precio"
-                            ng-model="entity.precio" ng-pattern="/^([1-9][0-9]{0,4})?(0?\.[0-9]{1,2})?$/" required>
+                            ng-model="entityData.precio" ng-pattern="/^([1-9][0-9]{0,4})?(0?\.[0-9]{1,2})?$/" required>
                         <div ng-show="newForm.inputPrecio.$invalid" class="invalid-feedback">
                             Introduce un precio hasta 10000€. Máximo 2 decimales. </div>
                     </div>
@@ -61,8 +61,8 @@
                         <input name="inputDescuentoUsuario"
                             ng-class="{ 'is-valid' : newForm.inputDescuentoUsuario.$valid && newForm.inputDescuentoUsuario.$dirty , 'is-invalid' : newForm.inputDescuentoUsuario.$invalid && newForm.inputDescuentoUsuario.$dirty}"
                             type="text" class="form-control" id="inputDescuentoUsuario" placeholder="Descuento usuario"
-                            ng-model="entity.descuento_usuario" ng-pattern="/^[0-9][0-9]*$|^(100)$/" ng-minlength="1"
-                            ng-maxlength="3" required>
+                            ng-model="entityData.descuento_usuario" ng-pattern="/^[0-9][0-9]*$|^(100)$/"
+                            ng-minlength="1" ng-maxlength="3" required>
                         <div ng-show="newForm.inputDescuentoUsuario.$invalid" class="invalid-feedback">
                             Por favor introduce un número entero válido. Puede ser entre 0 y 100.</div>
                     </div>
@@ -74,9 +74,9 @@
                     <div class="col-sm-3">
                         <input name="inputDescuentoProducto"
                             ng-class="{ 'is-valid' : newForm.inputDescuentoProducto.$valid && newForm.inputDescuentoProducto.$dirty , 'is-invalid' : newForm.inputDescuentoProducto.$invalid && newForm.inputDescuentoProducto.$dirty}"
-                            type="text" class="form-control" id="inputDescuentoProducto" placeholder="Descuento Producto"
-                            ng-model="entity.descuento_producto" ng-pattern="/^[0-9][0-9]*$|^(100)$/" ng-minlength="1"
-                            ng-maxlength="3" required>
+                            type="text" class="form-control" id="inputDescuentoProducto"
+                            placeholder="Descuento Producto" ng-model="entityData.descuento_producto"
+                            ng-pattern="/^[0-9][0-9]*$|^(100)$/" ng-minlength="1" ng-maxlength="3" required>
                         <div ng-show="newForm.inputDescuentoProducto.$invalid" class="invalid-feedback">
                             Por favor introduce un número entero válido. Puede ser entre 0 y 100.</div>
                     </div>
@@ -88,7 +88,7 @@
                         <input name="inputIdProducto"
                             ng-class="{ 'is-valid' : newForm.inputIdProducto.$valid && newForm.inputIdProducto.$dirty , 'is-invalid' : newForm.inputIdProducto.$invalid && newForm.inputIdProducto.$dirty}"
                             type="text" class="form-control" id="inputIdProducto" placeholder="Id_Producto"
-                            ng-model="entity.id_producto" ng-pattern="/^[1-9][0-9]*$/" ng-minlength="1"
+                            ng-model="entityData.id_producto" ng-pattern="/^[1-9][0-9]*$/" ng-minlength="1"
                             ng-maxlength="20" required>
                         <div ng-show="newForm.inputIdProducto.$invalid" class="invalid-feedback">
                             Por favor introduce una cantidad de 1 a 20 digitos. </div>
@@ -107,18 +107,19 @@
                             <input name="inputIdProducto"
                                 ng-class="{ 'is-valid' : newForm.inputIdProducto.$valid && newForm.inputIdProducto.$dirty , 'is-invalid' : newForm.inputIdProducto.$invalid && newForm.inputIdProducto.$dirty}"
                                 type="text" class="form-control" id="inputIdProducto" placeholder="Producto"
-                                ng-change="lookupProducto()" ng-model-options="{debounce: 1000}" ng-model="entity.producto.id" ng-pattern="/^[1-9][0-9]*$/" ng-minlength="1"
+                                ng-change="lookupProducto()" ng-model-options="{debounce: 1000}"
+                                ng-model="entityData.producto.id" ng-pattern="/^[1-9][0-9]*$/" ng-minlength="1"
                                 ng-maxlength="20" required>
                             <div class="input-group-append">
                                 <div class="btn-secondary btn" role="alert">
-                                    {{entity.producto.id}}
+                                    {{entityData.producto.id}}
                                 </div>
                             </div>
                             <div ng-show="newForm.inputIdProducto.$invalid" class="invalid-feedback">
                                 Por favor seleccione un producto. </div>
                         </div>
                     </div>
-                    <productoselection class="modal fade" id="modalProducto" obj="entity.producto">
+                    <productoselection class="modal fade" id="modalProducto" obj="entityData.producto">
                     </productoselection>
                 </div>
 
@@ -134,24 +135,26 @@
                             <input name="inputIdFactura"
                                 ng-class="{ 'is-valid' : newForm.inputIdFactura.$valid && newForm.inputIdFactura.$dirty , 'is-invalid' : newForm.inputIdFactura.$invalid && newForm.inputIdFactura.$dirty}"
                                 type="text" class="form-control" id="inputIdFactura" placeholder="Factura"
-                                ng-change="lookupFactura()" ng-model-options="{debounce: 1000}" ng-model="entity.factura.id" ng-pattern="/^[1-9][0-9]*$/" ng-minlength="1"
+                                ng-change="lookupFactura()" ng-model-options="{debounce: 1000}"
+                                ng-model="entityData.factura.id" ng-pattern="/^[1-9][0-9]*$/" ng-minlength="1"
                                 ng-maxlength="20" required>
                             <div class="input-group-append">
                                 <div class="btn-secondary btn" role="alert">
-                                    {{entity.factura.id}}
+                                    {{entityData.factura.id}}
                                 </div>
                             </div>
                             <div ng-show="newForm.inputIdFactura.$invalid" class="invalid-feedback">
                                 Por favor seleccione una factura. </div>
                         </div>
                     </div>
-                    <facturaselection class="modal fade" id="modalFactura" obj="entity.factura">
+                    <facturaselection class="modal fade" id="modalFactura" obj="entityData.factura">
                     </facturaselection>
                 </div>
 
                 <div class="form-group row text-right">
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-success" ng-disabled="newForm.$invalid||newForm.$pristine" ng-click="save()">Guardar</button>
+                        <button type="submit" class="btn btn-success" ng-disabled="newForm.$invalid||newForm.$pristine"
+                            ng-click="save()">Guardar</button>
                         <a type="button" class="btn btn-primary" href="home">Ir a home</a>
                         <button type="button" class="btn btn-primary" ng-click="back()">
                             Volver

@@ -38,12 +38,12 @@ miModulo.controller("i17ReportController", [
 
         function search() {
             if ($scope.max == 10) {
-                strRequest = "http://localhost:8082/factura/allxusuario/10/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
+                strRequest = configService.getServerURL + "factura/allxusuario/10/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
             } else {
                 if ($scope.max == 100) {
-                    strRequest = "http://localhost:8082/factura/allxusuario/100/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
+                    strRequest = configService.getServerURL + "factura/allxusuario/100/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
                 } else {
-                    strRequest = "http://localhost:8082/factura/allxusuario/1000/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
+                    strRequest = configService.getServerURL + "factura/allxusuario/1000/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
                 }
             }
             $http.get(strRequest).then(function (response) {

@@ -4,20 +4,16 @@
     <div class="row">
         <div class="col text-center">
             <div class="mt-5 mb-5">
-                <h1>
-                    <img src="img/trolleyes100.png" class="rounded mx-auto d-block mt-5" width="10%" alt="trolleyes">
-                    <img src="img/trolleyes2.png" class="rounded mx-auto d-block mt-5" width="50%" alt="trolleyes">
-                </h1>
+                <img src="img/trolleyes100.png" class="rounded mx-auto d-block mt-5" width="5%" alt="trolleyes">
+                <h1>Bienvenido a Trolleyes: tu tienda online de aprendizaje</h1>
+                <h5 ng-if="registers"><span class="badge badge-secondary">{{registers}}
+                        productos a tu disposición</span></h5>
             </div>
         </div>
     </div>
 </div>
 
-
-
 <ng-include src="'include/status.html'"></ng-include>
-
-
 
 <div class="container-fluid px-5" style="background-color: rgb(255, 255, 255);"
     ng-show="status.success==''&&status.error==''">
@@ -27,16 +23,13 @@
                 <nav aria-label="rpp">
                     <ul class="pagination">
                         <li class="page-item" ng-class="{'active':(rpp==10)}">
-                            <a class="page-link" href="{{entityHome}}/{{page}}/10/" tabindex="-1"
-                                aria-disabled="true">10</a>
+                            <a class="page-link" href="home/{{page}}/10/" tabindex="-1" aria-disabled="true">10</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==50)}">
-                            <a class="page-link" href="{{entityHome}}/{{page}}/50/" tabindex="-1"
-                                aria-disabled="true">50</a>
+                            <a class="page-link" href="home/{{page}}/50/" tabindex="-1" aria-disabled="true">50</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==100)}">
-                            <a class="page-link" href="{{entityHome}}/{{page}}/100/" tabindex="-1"
-                                aria-disabled="true">100</a>
+                            <a class="page-link" href="home/{{page}}/100/" tabindex="-1" aria-disabled="true">100</a>
                         </li>
                     </ul>
                 </nav>
@@ -45,7 +38,7 @@
                         <li class="page-item" ng-class="{'active':(page==p)}" ng-disabled="p == '...'"
                             ng-repeat="p in botonera track by $index">
                             <a class="page-link" ng-if="p != '...'"
-                                href="{{entityHome}}/{{p}}/{{rpp}}/{{orderfield}}/{{orderdirection}}/">{{p}}</a>
+                                href="home/{{p}}/{{rpp}}/{{orderfield}}/{{orderdirection}}/">{{p}}</a>
                             <span class="page-link" ng-if="p == '...'">{{p}}</span>
                         </li>
                     </ul>
@@ -54,8 +47,8 @@
             <div id="divCard" class="d-flex flex-wrap justify-content-between">
                 <div id="card" class="card bg-light card title d-flex flex-column my-2"
                     ng-repeat="fila in entities.content">
-                    <img src="http://localhost:8082/file/{{fila.imagen}}" class="card-img-top  mx-auto d-block mt-5"
-                        height="200" alt="trolleyes">
+                    <img ng-src="{{configService.getServerURL()}}/file/{{fila.imagen}}"
+                        class="card-img-top  mx-auto d-block mt-5" height="200" alt="trolleyes">
                     <div class="card-body">
                         <h5 class="card-title">{{producto.nombre}}</h5>
                         <ul class="list-group list-group-flush">
@@ -65,11 +58,13 @@
                                     <div class="col-6" ng-if="fila.descuento>0">
                                         <p style="color: rgb(243, 57, 57);font-size: smaller;" class="card-text"
                                             ng-if="fila.descuento>0">
-                                            <small>{{fila.descuento|number:0}}% DESCUENTO</small></p>
+                                            <small>{{fila.descuento|number:0}}% DESCUENTO</small>
+                                        </p>
                                     </div>
                                     <div class="col-6" ng-if="fila.descuento>0">
                                         <p class="text-right" style="font-size: smaller;" ng-show="fila.descuento>0">
-                                            <del>{{fila.precio|number:2}}€</del></p>
+                                            <del>{{fila.precio|number:2}}€</del>
+                                        </p>
                                     </div>
                                     <div class="col">
                                         <h3 class="text-right lead mb-5" ng-show="fila.descuento==0">

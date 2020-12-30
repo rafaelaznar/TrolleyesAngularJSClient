@@ -5,18 +5,19 @@ miModulo.controller("facturaViewController", [
   "ajaxService",
   "$routeParams",
   "iconService",
-  function ($scope, auth, $location, ajaxService, $routeParams, iconService) {
-    $scope.controller = "facturaViewController";
+  "titleService",
+  function ($scope, auth, $location, ajaxService, $routeParams, iconService, titleService) {
+
     if (auth.data.status == 200) {
       $scope.datosDeSesion = auth.data;
     } else {
       $location.path("/home");
     }
-    $scope.operationIcon = iconService.getIcon("view");
-    $scope.operationName = "Vista de ";
-    $scope.entityName = "factura";
-    $scope.entityIcon = iconService.getIcon($scope.entityName);
+
+    $scope.operation = "view";
+    $scope.entity = "factura";
     $scope.iconService = iconService;
+    $scope.titleService = titleService;
 
     $scope.status = {};
     $scope.status.success = "";
@@ -24,12 +25,11 @@ miModulo.controller("facturaViewController", [
 
     $scope.id = $routeParams.id;
 
-    ajaxService.ajaxGet($scope.entityName, $scope.id).then(function (response) {
-      $scope.entity = response.data;
+    ajaxService.ajaxGet($scope.entity, $scope.id).then(function (response) {
+      $scope.entityData = response.data;
     }).catch(function (error) {
-      $scope.status.error = "ERROR: La " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
+      $scope.status.error = "ERROR: La " + $scope.entity + " con id " + $scope.id + " NO se ha podido leer.";
     });
-
 
     $scope.back = function () {
       window.history.back();

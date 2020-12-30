@@ -1,23 +1,17 @@
 miModulo.controller("productoEditController", [
-    "$scope",
-    "auth",
-    "$location",
-    "ajaxService",
-    "$routeParams",
-    "iconService",
-    "$http",
-    function ($scope, auth, $location, ajaxService, $routeParams, iconService, $http) {
-        $scope.controller = "productoEditController";
+    "$scope", "auth", "$location", "ajaxService", "$routeParams", "iconService", "$http", "titleService",
+    function ($scope, auth, $location, ajaxService, $routeParams, iconService, $http, titleService) {
+
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
         } else {
             $location.path("/home");
         }
-        $scope.operationIcon = iconService.getIcon("edit");
-        $scope.operationName = "Edición de ";
-        $scope.entityName = "producto";
-        $scope.entityIcon = iconService.getIcon($scope.entityName);
+
+        $scope.operation = "edit";
+        $scope.entity = "producto";
         $scope.iconService = iconService;
+        $scope.titleService = titleService;
 
         $scope.status = {};
         $scope.status.success = "";
@@ -25,10 +19,10 @@ miModulo.controller("productoEditController", [
 
         $scope.id = $routeParams.id;
 
-        ajaxService.ajaxGet($scope.entityName, $scope.id).then(function (response) {
-            $scope.entity = response.data;
+        ajaxService.ajaxGet($scope.entity, $scope.id).then(function (response) {
+            $scope.entityData = response.data;
         }).catch(function (error) {
-            $scope.status.error = "ERROR: La " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
+            $scope.status.error = "ERROR: La " + $scope.entity + " con id " + $scope.id + " NO se ha podido leer.";
         });
 
         $scope.save = function () {
@@ -63,11 +57,11 @@ miModulo.controller("productoEditController", [
                 data: oFormData,
                 url: "http://localhost:8082/file/upload"
             }).then(function (response) {
-                var datos = JSON.stringify({ codigo: $scope.entity.codigo, nombre: $scope.entity.nombre, existencias: $scope.entity.existencias, precio: $scope.entity.precio, imagen: response.data, descuento: $scope.entity.descuento, tipoproducto: { "id": $scope.entity.tipoproducto.id, "nombre": $scope.entity.tipoproducto.nombre } });
-                ajaxService.ajaxUpdate($scope.entityName, $scope.entity.id, datos).then(function (response) {
-                    $scope.status.success = "La " + $scope.entityName + " con id " + $scope.id + " ha sido guardada."
+                var datos = JSON.stringify({ codigo: $scope.entityData.codigo, nombre: $scope.entityData.nombre, existencias: $scope.entityData.existencias, precio: $scope.entityData.precio, imagen: response.data, descuento: $scope.entityData.descuento, tipoproducto: { "id": $scope.entityData.tipoproducto.id, "nombre": $scope.entityData.tipoproducto.nombre } });
+                ajaxService.ajaxUpdate($scope.entity, $scope.entityData.id, datos).then(function (response) {
+                    $scope.status.success = "La " + $scope.entity + " con id " + $scope.id + " ha sido guardada."
                 }).catch(function (error) {
-                    $scope.status.error = "ERROR: La " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
+                    $scope.status.error = "ERROR: La " + $scope.entity + " con id " + $scope.id + " NO se ha podido leer.";
                 });
             })
         }
@@ -88,10 +82,10 @@ miModulo.controller("productoEditController", [
         };
 
         $scope.lookupTipoproducto = function () {
-            ajaxService.ajaxGet("tipoproducto", $scope.entity.tipoproducto.id).then(function (response) {
-                $scope.entity.tipoproducto = response.data;
+            ajaxService.ajaxGet("tipoproducto", $scope.entityData.tipoproducto.id).then(function (response) {
+                $scope.entityData.tipoproducto = response.data;
             }).catch(function (error) {
-                $scope.entity.tipoproducto = { id: "", nombre: "???" };
+                $scope.entityData.tipoproducto = { id: "", nombre: "???" };
             });
         }
         $scope.back = function () {

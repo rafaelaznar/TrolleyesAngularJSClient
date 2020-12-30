@@ -12,7 +12,7 @@
                 <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">Id: </label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entity.id"
+                        <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entityData.id"
                             disabled>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                         <input name="inputNombre"
                             ng-class="{ 'is-valid' : editForm.inputNombre.$valid && editForm.inputNombre.$dirty , 'is-invalid' : editForm.inputNombre.$invalid && editForm.inputNombre.$dirty}"
                             type="text" class="form-control" id="inputNombre" placeholder="Nombre"
-                            ng-model="entity.nombre" ng-pattern="/^[A-Z][0-9a-záéíóúüèòàñA-Z\s]*$/" ng-minlength="5"
+                            ng-model="entityData.nombre" ng-pattern="/^[A-Z][0-9a-záéíóúüèòàñA-Z\s]*$/" ng-minlength="5"
                             ng-maxlength="255" required>
                         <div ng-show="editForm.inputNombre.$invalid" class="invalid-feedback">
                             Por favor introduce una frase login de 5 a 255 caracteres. Puedes usar combinaciones de
@@ -34,7 +34,8 @@
 
                 <div class="form-group row text-right">
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-success" ng-disabled="editForm.$invalid||editForm.$pristine" ng-click="save()">Guardar</button>
+                        <button type="submit" class="btn btn-success"
+                            ng-disabled="editForm.$invalid||editForm.$pristine" ng-click="save()">Guardar</button>
                         <a type="button" class="btn btn-primary" href="home">Ir a home</a>
                         <button type="button" class="btn btn-primary" ng-click="back()">
                             Volver

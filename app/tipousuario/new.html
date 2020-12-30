@@ -12,17 +12,22 @@
                     <label for="inputNombre" class="col-sm-2 col-form-label">Nombre:
                     </label>
                     <div class="col-sm-10">
-                        <input name="inputNombre" ng-class="{ 'is-valid' : newForm.inputNombre.$valid && newForm.inputNombre.$dirty , 'is-invalid' : newForm.inputNombre.$invalid && newForm.inputNombre.$dirty}" type="text" class="form-control" id="inputNombre" placeholder="Nombre"
-                            ng-model="entity.nombre" ng-pattern="/^[A-Z][0-9a-záéíóúüèòàñA-Z\s]*$/" ng-minlength="5" ng-maxlength="255" required />
+                        <input name="inputNombre"
+                            ng-class="{ 'is-valid' : newForm.inputNombre.$valid && newForm.inputNombre.$dirty , 'is-invalid' : newForm.inputNombre.$invalid && newForm.inputNombre.$dirty}"
+                            type="text" class="form-control" id="inputNombre" placeholder="Nombre"
+                            ng-model="entityData.nombre" ng-pattern="/^[A-Z][0-9a-záéíóúüèòàñA-Z\s]*$/" ng-minlength="5"
+                            ng-maxlength="255" required />
                         <div ng-show="newForm.inputNombre.$invalid" class="invalid-feedback">
-                            Por favor introduce un Nombre de 5 a 255 caracteres. El primer carácter en Mayúsculas. Puedes usar combinaciones de caracteres en mayúsculas y minúsculas, con dígitos.
+                            Por favor introduce un Nombre de 5 a 255 caracteres. El primer carácter en Mayúsculas.
+                            Puedes usar combinaciones de caracteres en mayúsculas y minúsculas, con dígitos.
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group row text-right">
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-success" ng-disabled="newForm.$invalid||newForm.$pristine" ng-click="save()">
+                        <button type="submit" class="btn btn-success" ng-disabled="newForm.$invalid||newForm.$pristine"
+                            ng-click="save()">
                             Guardar
                         </button>
                         <a type="button" class="btn btn-primary" href="home">Ir a home</a>

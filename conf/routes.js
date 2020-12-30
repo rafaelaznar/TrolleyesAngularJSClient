@@ -411,7 +411,7 @@ miModulo.config([
     });
 
     $routeProvider.when("/usuario/edit/:id", {
-      templateUrl: "app/usuario/edit.html",
+      templateUrl: "app/usuario/form.html",
       controller: "usuarioEditController",
       resolve: {
         auth: function (ajaxService) {
@@ -479,7 +479,7 @@ miModulo.config([
     });
 
     $routeProvider.when("/usuario/new/", {
-      templateUrl: "app/usuario/new.html",
+      templateUrl: "app/usuario/form.html",
       controller: "usuarioNewController",
       resolve: {
         auth: function (ajaxService) {
@@ -863,8 +863,8 @@ miModulo.config([
         }
       }
     });
-            
-    $routeProvider.when("/informes", {
+
+    $routeProvider.when("/reports", {
       templateUrl: "common/reports.html",
       controller: "reportsListController",
       resolve: {
@@ -917,6 +917,6 @@ miModulo.config([
     });
 
     $routeProvider.otherwise({ redirectTo: "/" });
-    
+
   },
 ]);

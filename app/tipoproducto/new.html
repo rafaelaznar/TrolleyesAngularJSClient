@@ -15,7 +15,7 @@
                         <input name="inputNombre"
                             ng-class="{ 'is-valid' : newForm.inputNombre.$valid && newForm.inputNombre.$dirty , 'is-invalid' : newForm.inputNombre.$invalid && newForm.inputNombre.$dirty}"
                             type="text" class="form-control" id="inputNombre" placeholder="Nombre"
-                            ng-model="entity.nombre" ng-pattern="/^[A-Z][0-9a-záéíóúüèòàñA-Z\s]*$/" ng-minlength="5"
+                            ng-model="entityData.nombre" ng-pattern="/^[A-Z][0-9a-záéíóúüèòàñA-Z\s]*$/" ng-minlength="5"
                             ng-maxlength="255" required>
                         <div ng-show="newForm.inputNombre.$invalid" class="invalid-feedback">
                             Por favor introduce una frase login de 5 a 255 caracteres. Puedes usar combinaciones de

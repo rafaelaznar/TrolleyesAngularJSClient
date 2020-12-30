@@ -3,9 +3,12 @@
     <div class="col text-center">
       <div class="mt-5 mb-5">
         <h1>
-          <i ng-class="operationIcon"></i> {{operationName}} {{entityName}}
-          <i ng-class="entityIcon"></i>
+          <i ng-class="iconService.getIcon(operation)"></i>
+          {{titleService.getTitle(operation,entity)}}
+          <i ng-class="iconService.getIcon(entity)"></i>
         </h1>
+        <h5 ng-if="registers&&operation=='plist'"><span class="badge badge-secondary">{{registers}}
+            registros</span></h5>
       </div>
     </div>
   </div>

@@ -1,23 +1,16 @@
 miModulo.controller("HomeController", [
-    "$scope",
-    "auth",
-    "$location",
-    "ajaxService",
-    "$routeParams",
-    "iconService",
-    function ($scope, auth, $location, ajaxService, $routeParams, iconService) {
-        $scope.controller = "HomeController";
+    "$scope", "auth", "ajaxService", "$routeParams", "iconService", "titleService", "configService",
+    function ($scope, auth, ajaxService, $routeParams, iconService, titleService, configService) {
+
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
-        } else {
-            $location.path("/home");
         }
-        $scope.operationIcon = iconService.getIcon("home");
-        $scope.operationName = "Bienvenido";
-        $scope.entityName = "producto";
-        $scope.entityHome = "home";
-        $scope.entityIcon = iconService.getIcon("carrito");
+
+        $scope.operation = "home";
+        $scope.entity = "system";
         $scope.iconService = iconService;
+        $scope.titleService = titleService;
+        $scope.configService = configService;
 
         $scope.status = {};
         $scope.status.success = "";
@@ -49,12 +42,13 @@ miModulo.controller("HomeController", [
             $scope.orderDirection = $routeParams.orderdirection;
         }
 
-        ajaxService.ajaxPlist($scope.entityName, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection).then(function (response) {
+        ajaxService.ajaxPlist("producto", $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection).then(function (response) {
             $scope.entities = response.data;
             $scope.pages = response.data.totalPages;
+            $scope.registers = response.data.totalElements;
             paginacion();
         }).catch(function (error) {
-            $scope.status.error = "ERROR: Los " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
+            $scope.status.error = "Error de comunicación con el servidor.";
         });
 
         function paginacion() {

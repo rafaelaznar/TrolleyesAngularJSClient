@@ -6,28 +6,28 @@
 
 <div class="container" ng-show="status.success==''&&status.error==''">
     <div class="row">
-        <div class="col">            
+        <div class="col">
             <table class="table table-striped table-sm">
                 <tr>
                     <th class="text-center">
                         id<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/asc"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/id/asc"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/id/desc"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         nombre<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/asc"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/nombre/asc"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/desc"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/nombre/desc"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         usuarios<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/usuarios/asc"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/usuarios/asc"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/usuarios/desc"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/usuarios/desc"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th style="width: 5%" class="text-center">
@@ -35,13 +35,13 @@
                     </th>
                 </tr>
                 <tr ng-repeat="fila in entities.content">
-                    <td>{{fila.id}}</td>
-                    <td>{{fila.nombre}}</td>
-                    <td>{{fila.usuarios}}</td>
+                    <td class="text-center">{{fila.id}}</td>
+                    <td class="font-weight-bold">{{fila.nombre}}</td>
+                    <td class="text-center">{{fila.usuarios}}</td>
                     <td>
                         <div class="col-md-12 text-left">
                             <div class="btn-group" role="group" aria-label="Herramientas">
-                                <a class="btn btn-success" href="{{entityName}}/view/{{fila.id}}"><i
+                                <a class="btn btn-success" href="{{entity}}/view/{{fila.id}}"><i
                                         ng-class="iconService.getIcon('viewHerramientas')"></i></a>
 
                             </div>

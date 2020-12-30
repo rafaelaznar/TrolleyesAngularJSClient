@@ -12,7 +12,7 @@
                 <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">Id: </label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entity.id"
+                        <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entityData.id"
                             disabled>
                     </div>
                 </div>
@@ -22,9 +22,9 @@
                     <div class="col-sm-3">
                         <md-datepicker name="inputFecha"
                             ng-class="{ 'is-valid' : editForm.inputFecha.$valid && editForm.inputFecha.$dirty, 'is-invalid' : editForm.inputFecha.$invalid && editForm.inputFecha.$dirty}"
-                            type="text" class="form-control" md-placeholder="Enter date" ng-model="fecha"
-                            
-                            maxlenth="19" required/></md-datepicker>
+                            type="text" class="form-control" md-placeholder="Enter date" ng-model="fecha" maxlenth="19"
+                            required />
+                        </md-datepicker>
                         <div ng-show="editForm.inputFecha.$error.pattern" class="invalid-feedback">
                             Error en la fecha
                         </div>
@@ -36,7 +36,7 @@
                     <div class="col-sm-10">
                         <input name="inputIva"
                             ng-class="{ 'is-valid' : editForm.inputIva.$valid && editForm.inputIva.$dirty, 'is-invalid' : editForm.inputIva.$invalid && editForm.inputIva.$dirty}"
-                            type="text" class="form-control" placeholder="Iva" ng-model="entity.iva"
+                            type="text" class="form-control" placeholder="Iva" ng-model="entityData.iva"
                             ng-pattern="/^[0-9]$|^[1-9][0-9]$|^(100)$/" required>
                         <div ng-show="editForm.inputIva.$invalid" class="invalid-feedback">
                             Por favor introduzca un valor de Iva correcto. Puedes usar un número entre 0 y 100.
@@ -57,25 +57,25 @@
                                 ng-class="{ 'is-valid' : newForm.inputIdUsuario.$valid && newForm.inputIdUsuario.$dirty , 'is-invalid' : newForm.inputIdUsuario.$invalid && newForm.inputIdUsuario.$dirty}"
                                 type="text" class="form-control" id="inputIdUsuario" placeholder="Usuario"
                                 ng-change="lookupUsuario()" ng-minlength="1" ng-maxlength="10" required
-                                ng-model-options="{debounce: 1000}" ng-model="entity.usuario.id"
+                                ng-model-options="{debounce: 1000}" ng-model="entityData.usuario.id"
                                 ng-pattern="/^[1-9][0-9]*$/">
                             <div class="input-group-append">
                                 <div class="btn-secondary btn" role="alert">
-                                    {{entity.usuario.nombre}}{{entity.usuario.apellido1}}{{entity.usuario.apellido2}}
+                                    {{entityData.usuario.nombre}}{{entityData.usuario.apellido1}}{{entityData.usuario.apellido2}}
                                 </div>
                             </div>
                             <div ng-show="newForm.inputIdUsuario.$invalid" class="invalid-feedback">
                                 Por favor selecciona un usuario </div>
                         </div>
                     </div>
-                    <usuarioselection class="modal fade" id="modalUsuario" obj="entity.usuario">
+                    <usuarioselection class="modal fade" id="modalUsuario" obj="entityData.usuario">
                     </usuarioselection>
                 </div>
 
                 <div class="form-group row">
                     <label for="checkboxPagado" class="col-sm-2 col-form-label">Pagado: </label>
                     <div class="col-sm-10">
-                        <input name="checkboxPagado" type="checkbox" class="form-control" ng-model="entity.pagado">
+                        <input name="checkboxPagado" type="checkbox" class="form-control" ng-model="entityData.pagado">
                     </div>
                 </div>
 

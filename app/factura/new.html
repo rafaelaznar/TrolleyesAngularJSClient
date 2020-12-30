@@ -29,7 +29,7 @@
                     <div class="col-sm-3">
                         <input name="inputiva"
                             ng-class="{ 'is-valid' : newForm.inputiva.$valid && newForm.inputiva.$dirty , 'is-invalid' : newForm.inputiva.$invalid && newForm.inputiva.$dirty}"
-                            type="text" class="form-control" id="inputiva" placeholder="iva" ng-model="entity.iva"
+                            type="text" class="form-control" id="inputiva" placeholder="iva" ng-model="entityData.iva"
                             ng-pattern="/^\d{1,2}(\.\d{1,2})?$/" required>
                         <div ng-show="newForm.inputiva.$invalid" class="invalid-feedback">
                             Por favor introduce un valor numerico con no más de 2 enteros y no más de 2 decimales </div>
@@ -49,18 +49,18 @@
                                 ng-class="{ 'is-valid' : newForm.inputIdUsuario.$valid && newForm.inputIdUsuario.$dirty , 'is-invalid' : newForm.inputIdUsuario.$invalid && newForm.inputIdUsuario.$dirty}"
                                 type="text" class="form-control" id="inputIdUsuario" placeholder="Usuario"
                                 ng-change="lookupUsuario()" ng-minlength="1" ng-maxlength="10" required
-                                ng-model-options="{debounce: 1000}" ng-model="entity.usuario.id"
+                                ng-model-options="{debounce: 1000}" ng-model="entityData.usuario.id"
                                 ng-pattern="/^[1-9][0-9]*$/">
                             <div class="input-group-append">
                                 <div class="btn-secondary btn" role="alert">
-                                    {{entity.usuario.nombre}}{{entity.usuario.apellido1}}{{entity.usuario.apellido2}}
+                                    {{entityData.usuario.nombre}}{{entityData.usuario.apellido1}}{{entityData.usuario.apellido2}}
                                 </div>
                             </div>
                             <div ng-show="newForm.inputIdUsuario.$invalid" class="invalid-feedback">
                                 Por favor selecciona un usuario </div>
                         </div>
                     </div>
-                    <usuarioselection class="modal fade" id="modalUsuario" obj="entity.usuario">
+                    <usuarioselection class="modal fade" id="modalUsuario" obj="entityData.usuario">
                     </usuarioselection>
                 </div>
 
@@ -68,14 +68,14 @@
                     <label for="inputpagado" class="col-sm-2 col-form-label">pagado: </label>
                     <div class="form-check-inline">
                         <input class="form-check-input" type="radio" name="inputpagado" id="inputpagado" value="true"
-                            ng-model="entity.pagado" checked>
+                            ng-model="entityData.pagado" checked>
                         <label class="form-check-label" for="inputpagado">
                             <i ng-class="iconService.getIcon('ok')"></i>
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <input class="form-check-input" type="radio" name="inputpagado" id="inputpagado" value="false"
-                            ng-model="entity.pagado">
+                            ng-model="entityData.pagado">
                         <label class="form-check-label" for="inputpagado">
                             <i ng-class="iconService.getIcon('reject')"></i>
                         </label>

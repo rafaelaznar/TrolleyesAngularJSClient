@@ -15,7 +15,7 @@
                     ng-keydown="$event.keyCode === 13 && doFilter()">
                 <div class="input-group-append">
                     <a class="btn-primary btn"
-                        href="{{entityName}}/plist/{{page}}/{{rpp}}/{{orderField}}/{{orderDirection}}/">Quitar
+                        href="{{entity}}/plist/{{page}}/{{rpp}}/{{orderField}}/{{orderDirection}}/">Quitar
                         filtro</a>
                 </div>
 
@@ -30,17 +30,17 @@
                     <ul class="pagination">
                         <li class="page-item" ng-class="{'active':(rpp==10)}">
                             <a class="page-link"
-                                href="{{entityName}}/plist/{{page}}/10/{{orderField}}/{{orderDirection}}/{{filter}}"
+                                href="{{entity}}/plist/{{page}}/10/{{orderField}}/{{orderDirection}}/{{filter}}"
                                 tabindex="-1" aria-disabled="true">10</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==50)}">
                             <a class="page-link"
-                                href="{{entityName}}/plist/{{page}}/50/{{orderField}}/{{orderDirection}}/{{filter}}"
+                                href="{{entity}}/plist/{{page}}/50/{{orderField}}/{{orderDirection}}/{{filter}}"
                                 tabindex="-1" aria-disabled="true">50</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==100)}">
                             <a class="page-link"
-                                href="{{entityName}}/plist/{{page}}/100/{{orderField}}/{{orderDirection}}/{{filter}}"
+                                href="{{entity}}/plist/{{page}}/100/{{orderField}}/{{orderDirection}}/{{filter}}"
                                 tabindex="-1" aria-disabled="true">100</a>
                         </li>
                     </ul>
@@ -50,7 +50,7 @@
                         <li class="page-item" ng-class="{'active':(page==p)}" ng-disabled="p == '...'"
                             ng-repeat="p in botonera track by $index">
                             <a class="page-link" ng-if="p != '...'"
-                                href="{{entityName}}/plist/{{p}}/{{rpp}}/{{orderField}}/{{orderDirection}}/{{filter}}">{{p}}</a>
+                                href="{{entity}}/plist/{{p}}/{{rpp}}/{{orderField}}/{{orderDirection}}/{{filter}}">{{p}}</a>
                             <span class="page-link" ng-if="p == '...'">{{p}}</span>
                         </li>
                     </ul>
@@ -60,51 +60,51 @@
                 <tr>
                     <th class="text-center">
                         id<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/asc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/id/asc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/id/desc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/id/desc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         código<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/codigo/asc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/codigo/asc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/codigo/desc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/codigo/desc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         nombre<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/asc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/nombre/asc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/nombre/desc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/nombre/desc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         tipo<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/tipoproducto/asc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/tipoproducto/asc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/tipoproducto/desc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/tipoproducto/desc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         existencias<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/existencias/asc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/existencias/asc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/existencias/desc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/existencias/desc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         precio<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/precio/asc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/precio/asc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/precio/desc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/precio/desc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         descuento<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento/asc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/descuento/asc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/descuento/desc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/descuento/desc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
@@ -112,16 +112,16 @@
                     </th>
                     <th class="text-center">
                         compras<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/compras/asc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/compras/asc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/compras/desc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/compras/desc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         carritos<br>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/carritos/asc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/carritos/asc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/plist/{{page}}/{{rpp}}/carritos/desc/{{filter}}"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/carritos/desc/{{filter}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th style="width: 5%" class="text-center">
@@ -129,26 +129,32 @@
                     </th>
                 </tr>
                 <tr ng-repeat="fila in entities.content">
-                    <td>{{fila.id}}</td>
+                    <td class="text-center">{{fila.id}}</td>
                     <td class="text-left font-weight-bold">{{fila.codigo}} </td>
                     <td>{{fila.nombre}}</td>
-                    <td><a href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.tipoproducto.nombre}}</a></td>
-                    <td class="text-right">{{fila.existencias}}</td>
-                    <td class="text-right">{{fila.precio}}</td>
-                    <td class="text-center">{{fila.descuento}}%</td>
+                    <td><a
+                            href="tipoproducto/view/{{fila.tipoproducto.id}}">{{fila.tipoproducto.nombre|clipString}}</a>&nbsp;
+                        <a href="producto/tipoproducto////{{fila.id}}">({{fila.tipoproducto.productos}} productos)</a>
+
+                    </td>
+                    <td class="text-center">{{fila.existencias|number}}</td>
+                    <td class="text-right">{{fila.precio|number:2}} €</td>
+                    <td class="text-center">{{fila.descuento}} %</td>
                     <td class="text-center"><img src="http://localhost:8082/file/{{fila.imagen}}" height="50" /></td>
-                    <td class="text-center"><a href="compra/{{entityName}}////{{fila.id}} ">{{fila.compras}}</a></td>
-                    <td class="text-center"><a href="carrito/{{entityName}}////{{fila.id}} ">{{fila.carritos}}</a></td>
+                    <td class="text-center"><a href="compra/{{entity}}////{{fila.id}}"
+                            ng-if="fila.compras>0">{{fila.compras}}</a></td>
+                    <td class="text-center"><a href="carrito/{{entity}}////{{fila.id}}"
+                            ng-if="fila.carritos>0">{{fila.carritos}}</a></td>
                     </td>
                     <td>
                         <div class="row">
                             <div class="col-md-12 text-left">
                                 <div class="btn-group" role="group" aria-label="Herramientas">
-                                    <a class="btn btn-success" href="{{entityName}}/view/{{fila.id}}"><i
+                                    <a class="btn btn-success" href="{{entity}}/view/{{fila.id}}"><i
                                             ng-class="iconService.getIcon('viewHerramientas')"></i></a>
-                                    <a class="btn btn-primary" href="{{entityName}}/edit/{{fila.id}}"><i
+                                    <a class="btn btn-primary" href="{{entity}}/edit/{{fila.id}}"><i
                                             ng-class="iconService.getIcon('editHerramientas')"></i></a>
-                                    <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}"><i
+                                    <a class="btn btn-danger" href="{{entity}}/remove/{{fila.id}}"><i
                                             ng-class="iconService.getIcon('removeHerramientas')"></i></a>
                                 </div>
                             </div>

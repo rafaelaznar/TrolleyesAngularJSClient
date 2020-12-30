@@ -1,22 +1,17 @@
 miModulo.controller("reportsListController", [
-    "$scope",
-    "auth",
-    "$location",
-    "ajaxService",
-    "iconService",
-    function ($scope, auth, $location, ajaxService, iconService) {
+    "$scope", "auth", "$location", "ajaxService", "iconService", "titleService",
+    function ($scope, auth, $location, ajaxService, iconService, titleService) {
 
-        $scope.controller = "reportsListController";
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
         } else {
             $location.path("/home");
         }
-        $scope.operationIcon = iconService.getIcon("printFiles");
-        $scope.operationName = "Listado de ";
-        $scope.entityName = "informes";
-        $scope.entityIcon = iconService.getIcon("printHerramientas");
+
+        $scope.operation = "reports";
+        $scope.entity = "system";
         $scope.iconService = iconService;
+        $scope.titleService = titleService;
 
         $scope.status = {};
         $scope.status.success = "";
@@ -39,7 +34,7 @@ miModulo.controller("reportsListController", [
             { nombre: "", codigo: "i14" },
             { nombre: "", codigo: "i15" },
             { nombre: "", codigo: "i16" },
-            { nombre: "N Facturas de un cliente entre dos fechas", codigo: "i17" }, 
+            { nombre: "N Facturas de un cliente entre dos fechas", codigo: "i17" },
             { nombre: "", codigo: "i18" },
             { nombre: "", codigo: "i19" },
             { nombre: "", codigo: "i20" },

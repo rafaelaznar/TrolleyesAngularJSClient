@@ -1,21 +1,18 @@
 miModulo.controller("usuarioNewController", [
-    "$scope",
-    "auth",
-    "$location",
-    "ajaxService",
-    "iconService",
-    function ($scope, auth, $location, ajaxService, iconService) {
-        $scope.controller = "usuarioNewController";
+    "$scope", "auth", "$location", "ajaxService", "iconService", "titleService", "regexService",
+    function ($scope, auth, $location, ajaxService, iconService, titleService, regexService) {
+
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
         } else {
             $location.path("/home");
         }
-        $scope.operationIcon = iconService.getIcon("new");
-        $scope.operationName = "Alta de ";
-        $scope.entityName = "usuario";
-        $scope.entityIcon = iconService.getIcon($scope.entityName);
+
+        $scope.operation = "new";
+        $scope.entity = "usuario";
         $scope.iconService = iconService;
+        $scope.titleService = titleService;
+        $scope.regexService = regexService;
 
         $scope.status = {};
         $scope.status.success = "";
@@ -23,23 +20,29 @@ miModulo.controller("usuarioNewController", [
 
         $scope.save = function () {
             var datos = JSON.stringify({
-                dni: $scope.entity.dni, nombre: $scope.entity.nombre, apellido1: $scope.entity.apellido1,
-                apellido2: $scope.entity.apellido2, login: $scope.entity.login, password: $scope.entity.password, email: $scope.entity.email,
-                descuento: $scope.entity.descuento, tipousuario: $scope.entity.tipousuario, token: $scope.entity.token,
-                validado: $scope.entity.validado, activo: $scope.entity.activo
+                dni: $scope.entityData.dni,
+                nombre: $scope.entityData.nombre,
+                apellido1: $scope.entityData.apellido1,
+                apellido2: $scope.entityData.apellido2,
+                login: $scope.entityData.login,
+                password: $scope.entityData.password,
+                email: $scope.entityData.email,
+                descuento: parseFloat($scope.entityData.descuento),
+                tipousuario: { "id": $scope.entityData.tipousuario.id }
             });
-            ajaxService.ajaxNew($scope.entityName, datos).then(function (response) {
-                $scope.status.success = "El" + $scope.entityName + " ha sido guardado."
+            ajaxService.ajaxNew($scope.entity, datos).then(function (response) {
+                $scope.entityData = response.data;
+                $scope.status.success = "El " + $scope.entity + " ha sido guardado."
             }).catch(function (error) {
-                $scope.status.error = "ERROR: El " + $scope.entityName + " NO se ha podido leer.";
+                $scope.status.error = "ERROR: El " + $scope.entity + " NO se ha podido leer.";
             });
         }
 
         $scope.lookupTipousuario = function () {
-            ajaxService.ajaxGet("tipousuario", $scope.entity.tipousuario.id).then(function (response) {
-                $scope.entity.tipousuario = response.data;
+            ajaxService.ajaxGet("tipousuario", $scope.entityData.tipousuario.id).then(function (response) {
+                $scope.entityData.tipousuario = response.data;
             }).catch(function (error) {
-                $scope.entity.tipousuario = { id: "", nombre: "???" };
+                $scope.entityData.tipousuario = { id: "", nombre: "???" };
             });
         }
 

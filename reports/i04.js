@@ -40,17 +40,17 @@ miModulo.controller("i04ReportController", [
         $scope.search = function () {
             $scope.spinner = true;
             if ($scope.max == 10) {
-                strRequest = "http://localhost:8082/producto/orderdescuento/10/" + $scope.direction.name;
+                strRequest = configService.getServerURL + "producto/orderdescuento/10/" + $scope.direction.name;
             } else {
                 if ($scope.max == 50) {
-                    strRequest = "http://localhost:8082/producto/orderdescuento/50/" + $scope.direction.name;
+                    strRequest = configService.getServerURL + "producto/orderdescuento/50/" + $scope.direction.name;
                 } else {
-                    strRequest = "http://localhost:8082/producto/orderdescuento/100/" + $scope.direction.name;
+                    strRequest = configService.getServerURL + "producto/orderdescuento/100/" + $scope.direction.name;
                 }
             }
             $http.get(strRequest).then(function (response) {
-                $scope.spinner = false;
                 $scope.entities = response.data;
+                $scope.spinner = false;
             }).catch(function (error) {
                 $scope.spinner = false;
                 $scope.status.error = "ERROR: EL informe " + $scope.entityName + " NO se ha podido leer.";

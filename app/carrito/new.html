@@ -12,7 +12,7 @@
                 <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">Id: </label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entity.id"
+                        <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entityData.id"
                             disabled>
                     </div>
                 </div>
@@ -23,12 +23,12 @@
                         <input name="inputCantidad"
                             ng-class="{ 'is-valid' : newForm.inputCantidad.$valid && newForm.inputCantidad.$dirty , 'is-invalid' : newForm.inputCantidad.$invalid && newForm.inputCantidad.$dirty}"
                             type="text" class="form-control" id="inputCantidad" placeholder="Cantidad"
-                            ng-model="entity.cantidad" ng-pattern="/^[0-9]{1,10}*$/" ng-minlength="1"
+                            ng-model="entityData.cantidad" ng-pattern="/^[0-9]{1,10}*$/" ng-minlength="1"
                             ng-maxlength="10" required>
                         <div ng-show="newForm.inputCantidad.$invalid" class="invalid-feedback">
-                            Por favor introduce la cantidad de artículos que desea comprar en número hasta un 
+                            Por favor introduce la cantidad de artículos que desea comprar en número hasta un
                             máximo de 10 cifras.
-                         </div>
+                        </div>
                     </div>
                 </div>
 
@@ -38,30 +38,30 @@
                         <input name="inputPrecio"
                             ng-class="{ 'is-valid' : newForm.inputCantidad.$valid && newForm.inputCantidad.$dirty , 'is-invalid' : newForm.inputCantidad.$invalid && newForm.inputCantidad.$dirty}"
                             type="text" class="form-control" id="inputPrecio" placeholder="Precio"
-                            ng-model="entity.precio" ng-pattern="/^[0-9]{1,10}[.][0-9]{1,2}*$/" ng-minlength="1"
+                            ng-model="entityData.precio" ng-pattern="/^[0-9]{1,10}[.][0-9]{1,2}*$/" ng-minlength="1"
                             ng-maxlength="10" disabled>
                         <div ng-show="newForm.inputPrecio.$invalid" class="invalid-feedback">
-                           
-                         </div>
+
+                        </div>
                     </div>
                 </div>
 
 
-                    <div class="form-group row">
-                        <label for="inputId_producto" class="col-sm-2 col-form-label">Id Producto: </label>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control" id="inputId_producto" placeholder="Id Producto" ng-model="entity.id"
-                            required>
-                        </div>
+                <div class="form-group row">
+                    <label for="inputId_producto" class="col-sm-2 col-form-label">Id Producto: </label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="inputId_producto" placeholder="Id Producto"
+                            ng-model="entityData.id" required>
                     </div>
+                </div>
 
-                    <div class="form-group row">
-                        <label for="inputId_usuario" class="col-sm-2 col-form-label">Id Usuario: </label>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control" id="inputId_usuario" placeholder="Id Usuario" ng-model="entity.id"
-                                required>
-                        </div>
+                <div class="form-group row">
+                    <label for="inputId_usuario" class="col-sm-2 col-form-label">Id Usuario: </label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="inputId_usuario" placeholder="Id Usuario"
+                            ng-model="entityData.id" required>
                     </div>
+                </div>
 
                 <div class="form-group row text-right">
                     <div class="col-sm-12">

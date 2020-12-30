@@ -7,35 +7,36 @@
 <div class="container" ng-show="status.success==''&&status.error==''">
   <div class="row">
     <div class="col text-center">
-     
+
       <table class="table table-striped">
-      
+
         <tr>
           <th>Usuario</th>
-          <td>{{entity.usuario.nombre}} {{entity.usuario.apellido1}} {{entity.usuario.apellido2}}</td>
+          <td>{{entityData.usuario.nombre}} {{entityData.usuario.apellido1}} {{entityData.usuario.apellido2}}</td>
         </tr>
         <tr>
           <th>Producto</th>
-          <td>{{entity.producto.nombre}}</td>
+          <td>{{entityData.producto.nombre}}</td>
         </tr>
         <tr>
           <th style="vertical-align:middle">Imagen</th>
-          <td class="text-center"><img src="http://localhost:8082/file/{{entity.producto.imagen}}" height="50" /></td>
+          <td class="text-center"><img src="http://localhost:8082/file/{{entityData.producto.imagen}}" height="50" />
+          </td>
         </tr>
         <tr>
           <th>Id</th>
-          <td>{{entity.id}}</td>
+          <td>{{entityData.id}}</td>
         </tr>
         <tr>
           <th>Cantidad</th>
-          <td>{{entity.cantidad}}</td>
+          <td>{{entityData.cantidad}}</td>
         </tr>
         <tr>
           <th>Precio</th>
-          <td>{{entity.precio}}</td>
+          <td>{{entityData.precio}}</td>
         </tr>
-        
-       
+
+
       </table>
       <div class="control-group text-right">
         <div class="controls">

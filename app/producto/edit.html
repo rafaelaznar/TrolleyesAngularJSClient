@@ -12,7 +12,7 @@
                 <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">Id: </label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entity.id"
+                        <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entityData.id"
                             disabled>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                         <input name="inputNombre"
                             ng-class="{ 'is-valid' : editForm.inputNombre.$valid && editForm.inputNombre.$dirty , 'is-invalid' : editForm.inputNombre.$invalid && editForm.inputNombre.$dirty}"
                             type="text" class="form-control" id="inputNombre" placeholder="Nombre"
-                            ng-model="entity.nombre" ng-pattern="/^[A-Z][A-Za-záéíóúüñÁÉÍÓÚÜÑ\s]{5,60}$/" required>
+                            ng-model="entityData.nombre" ng-pattern="/^[A-Z][A-Za-záéíóúüñÁÉÍÓÚÜÑ\s]{5,60}$/" required>
                         <div ng-show="editForm.inputNombre.$invalid" class="invalid-feedback">
                             Por favor, introduce un nombre de 5 a 60 caracteres. Puedes usar combinaciones de
                             caracteres
@@ -36,7 +36,7 @@
                         <input name="inputCodigo"
                             ng-class="{ 'is-valid' : editForm.inputCodigo.$valid && editForm.inputCodigo.$dirty , 'is-invalid' : editForm.inputCodigo.$invalid && editForm.inputCodigo.$dirty}"
                             type="text" class="form-control" id="inputCodigo" placeholder="Codigo"
-                            ng-model="entity.codigo" ng-pattern="/^[A-Z0-9][A-Z0-9\-]{3,15}$/" required>
+                            ng-model="entityData.codigo" ng-pattern="/^[A-Z0-9][A-Z0-9\-]{3,15}$/" required>
                         <div ng-show="editForm.inputCodigo.$invalid" class="invalid-feedback">
                             Por favor, introduce un codigo correcto. Puede utilizar mayúsculas, números y guiones.
                         </div>
@@ -49,7 +49,7 @@
                         <input name="inputExistencias"
                             ng-class="{ 'is-valid' : editForm.inputExistencias.$valid && editForm.inputExistencias.$dirty , 'is-invalid' : editForm.inputExistencias.$invalid && editForm.inputExistencias.$dirty}"
                             type="number" class="form-control" id="inputExistencias" placeholder="existencias"
-                            ng-model="entity.existencias" ng-pattern="/^[0-9][0-9]{0,3}$/" required>
+                            ng-model="entityData.existencias" ng-pattern="/^[0-9][0-9]{0,3}$/" required>
                         <div ng-show="editForm.inputExistencias.$invalid" class="invalid-feedback">
                             Por favor, introduce un número entero válido. </div>
                     </div>
@@ -62,7 +62,7 @@
                         <input name="inputPrecio"
                             ng-class="{ 'is-valid' : editForm.inputPrecio.$valid && editForm.inputPrecio.$dirty , 'is-invalid' : editForm.inputPrecio.$invalid && editForm.inputPrecio.$dirty}"
                             type="text" class="form-control" id="inputPrecio" placeholder="Precio"
-                            ng-model="entity.precio" ng-pattern="/^([0-9][0-9]{0,3})[.]([0-9]{2})*$/" required>
+                            ng-model="entityData.precio" ng-pattern="/^([0-9][0-9]{0,3})[.]([0-9]{2})*$/" required>
                         <div ng-show="editForm.inputPrecio.$invalid" class="invalid-feedback">
                             Por favor, introduce un precio válido. </div>
                     </div>
@@ -71,7 +71,7 @@
                 <div class="form-group row">
                     <label for="file" class="col-sm-2 col-form-label">Imagen:</label>
                     <div class="col-sm-10">
-                        <div><img src="http://localhost:8082/file/{{entity.imagen}}" height="100" /></div>
+                        <div><img src="http://localhost:8082/file/{{entityData.imagen}}" height="100" /></div>
                     </div>
                     <label for="file" class="col-sm-2 col-form-label mt-4">Nueva Imagen:</label>
                     <div class="col-sm-10 mt-4">
@@ -90,7 +90,7 @@
                         <input name="inputDescuento"
                             ng-class="{ 'is-valid' : editForm.inputDescuento.$valid && editForm.inputDescuento.$dirty , 'is-invalid' : editForm.inputDescuento.$invalid && editForm.inputDescuento.$dirty}"
                             type="text" class="form-control" id="inputDescuento" placeholder="Descuento"
-                            ng-model="entity.descuento" ng-pattern="/^[0-9][0-9]{0,1}$/" required>
+                            ng-model="entityData.descuento" ng-pattern="/^[0-9][0-9]{0,1}$/" required>
                         <div ng-show="editForm.inputDescuento.$invalid" class="invalid-feedback">
                             Por favor, introduce descuento correcto usando solo números. </div>
                     </div>
@@ -109,18 +109,18 @@
                                 ng-class="{ 'is-valid' : newForm.inputidtipoproducto.$valid && newForm.inputidtipoproducto.$dirty , 'is-invalid' : newForm.inputidtipoproducto.$invalid && newForm.inputidtipoproducto.$dirty}"
                                 type="text" class="form-control" id="inputidtipoproducto"
                                 ng-change="lookupTipoproducto()" ng-minlength="1" ng-maxlength="10"
-                                placeholder="Tipo producto" ng-model="entity.tipoproducto.id" ng-pattern="/^\d+$/"
+                                placeholder="Tipo producto" ng-model="entityData.tipoproducto.id" ng-pattern="/^\d+$/"
                                 ng-model-options="{debounce: 1000}" required>
                             <div class="input-group-append">
                                 <div class="btn-secondary btn" role="alert">
-                                    {{entity.tipoproducto.nombre}}
+                                    {{entityData.tipoproducto.nombre}}
                                 </div>
                             </div>
                             <div ng-show="newForm.inputidtipoproducto.$invalid" class="invalid-feedback">
                                 Por favor introduce valor numérico entero </div>
                         </div>
                     </div>
-                    <tipoproductoselection class="modal fade" id="modalTipoProducto" obj="entity.tipoproducto">
+                    <tipoproductoselection class="modal fade" id="modalTipoProducto" obj="entityData.tipoproducto">
                     </tipoproductoselection>
                 </div>
 

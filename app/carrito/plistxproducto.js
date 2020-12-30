@@ -1,22 +1,18 @@
 miModulo.controller("carritoxproductoPlistController", [
-    "$scope",
-    "auth",
-    "$location",
-    "ajaxService",
-    "$routeParams",
-    "iconService",
-    function ($scope, auth, $location, ajaxService, $routeParams, iconService) {
+    "$scope", "auth", "$location", "ajaxService", "$routeParams", "iconService", "titleService",
+    function ($scope, auth, $location, ajaxService, $routeParams, iconService, titleService) {
         $scope.controller = "carritoxproductoPlistController";
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
         } else {
             $location.path("/home");
         }
-        $scope.operationIcon = iconService.getIcon("edit");
-        $scope.operationName = "Listado de ";
-        $scope.entityName = "carrito";
-        $scope.entityIcon = iconService.getIcon($scope.entityName);
+
+        $scope.operation = "plist";
+        $scope.entity = "compra";
+        $scope.subEntity = "producto";
         $scope.iconService = iconService;
+        $scope.titleService = titleService;
 
         $scope.status = {};
         $scope.status.success = "";
@@ -52,6 +48,7 @@ miModulo.controller("carritoxproductoPlistController", [
         ajaxService.ajaxPlistx($scope.entityName, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection, "producto", $scope.producto).then(function (response) {
             $scope.entities = response.data;
             $scope.pages = response.data.totalPages;
+            $scope.registers = response.data.totalElements;
             paginacion();
         }).catch(function (error) {
             $scope.status.error = "ERROR: Los " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";

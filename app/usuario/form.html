@@ -1,0 +1,181 @@
+<ng-include src="'include/menu.html'"></ng-include>
+
+<ng-include src="'include/header.html'"></ng-include>
+
+<ng-include src="'include/status.html'"></ng-include>
+
+<div class="container" ng-show="status.success!=''">
+    <div class="row">
+        <div class="col">
+            <div class="control-group text-center">
+                <div class="controls">
+                    <a type="button" class="btn btn-primary" href="home">Ir a home</a>
+                    <a type="button" class="btn btn-primary" href="{{entity}}/view/{{entityData.id}}">Ver el
+                        registro</a>
+                    <button type="button" class="btn btn-primary" ng-click="back()">
+                        Volver
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" ng-show="status.success==''&&status.error==''">
+    <div class="row">
+        <div class="col">
+
+            <form name="oForm" novalidate>
+                <div class="form-group row">
+                    <label for="inputId" class="col-sm-2 col-form-label">Id: </label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="inputId" placeholder="Id" ng-model="entityData.id"
+                            disabled>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputDni" class="col-sm-2 col-form-label">DNI: </label>
+                    <div class="col-sm-3">
+                        <input name="inputDni"
+                            ng-class="{ 'is-valid' : oForm.inputDni.$valid && oForm.inputDni.$dirty , 'is-invalid' : oForm.inputDni.$invalid && oForm.inputDni.$dirty}"
+                            type="text" class="form-control" id="inputDni" placeholder="DNI" ng-model="entityData.dni"
+                            ng-pattern="regexService.spanishDni" ng-minlength="9" ng-maxlength="9" required>
+                        <div ng-show="oForm.inputDni.$invalid" class="invalid-feedback">
+                            Por favor introduce un DNI correcto. Usando 8 o 9 dígitos y la letra al final en mayúscula.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputNombre" class="col-sm-2 col-form-label">Nombre: </label>
+                    <div class="col-sm-6">
+                        <input name="inputNombre"
+                            ng-class="{ 'is-valid' : oForm.inputNombre.$valid && oForm.inputNombre.$dirty , 'is-invalid' : oForm.inputNombre.$invalid && oForm.inputNombre.$dirty}"
+                            type="text" class="form-control" id="inputNombre" placeholder="Nombre"
+                            ng-model="entityData.nombre" ng-pattern="regexService.spanishNombrePropio" ng-minlength="2"
+                            ng-maxlength="20" required>
+                        <div ng-show="oForm.inputNombre.$invalid" class="invalid-feedback">
+                            Por favor introduce el nombre: de 2 a 20 caracteres con iniciales en mayúscula
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputApellido1" class="col-sm-2 col-form-label">Primer apellido: </label>
+                    <div class="col-sm-6">
+                        <input name="inputApellido1"
+                            ng-class="{ 'is-valid' : oForm.inputApellido1.$valid && oForm.inputApellido1.$dirty , 'is-invalid' : oForm.inputApellido1.$invalid && oForm.inputApellido1.$dirty}"
+                            type="text" class="form-control" id="inputApellido1" placeholder="Primer apellido"
+                            ng-model="entityData.apellido1" ng-pattern="regexService.spanishNombrePropio"
+                            ng-minlength="3" ng-maxlength="20" required>
+                        <div ng-show="oForm.inputApellido1.$invalid" class="invalid-feedback">
+                            Por favor introduce el primer apellido: de 2 a 20 caracteres con iniciales en mayúscula
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputApellido2" class="col-sm-2 col-form-label">Segundo apellido: </label>
+                    <div class="col-sm-6">
+                        <input name="inputApellido2"
+                            ng-class="{ 'is-valid' : oForm.inputApellido2.$valid && oForm.inputApellido2.$dirty , 'is-invalid' : oForm.inputApellido2.$invalid && oForm.inputApellido2.$dirty}"
+                            type="text" class="form-control" id="inputApellido2" placeholder="Segundo apellido"
+                            ng-model="entityData.apellido2" ng-pattern="regexService.spanishNombrePropio"
+                            ng-minlength="3" ng-maxlength="20" required>
+                        <div ng-show="oForm.inputApellido2.$invalid" class="invalid-feedback">
+                            Por favor introduce el segundo apellido: de 2 a 20 caracteres con iniciales en mayúscula
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputLogin" class="col-sm-2 col-form-label">Login: </label>
+                    <div class="col-sm-2">
+                        <input name="inputLogin"
+                            ng-class="{ 'is-valid' : oForm.inputLogin.$valid && oForm.inputLogin.$dirty , 'is-invalid' : oForm.inputLogin.$invalid && oForm.inputLogin.$dirty}"
+                            type="text" class="form-control" id="inputLogin" placeholder="Login"
+                            ng-model="entityData.login" ng-pattern="regexService.login" ng-minlength="6"
+                            ng-maxlength="20" required>
+                        <div ng-show="oForm.inputLogin.$invalid" class="invalid-feedback">
+                            Por favor introduce un login de 6 a 20 caracteres. Puedes usar combinaciones de
+                            caracteres en mayúsculas y minúsculas, con dígitos y guiones pero sin acentos </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">Email: </label>
+                    <div class="col-sm-3">
+                        <input name="inputEmail"
+                            ng-class="{ 'is-valid' : oForm.inputEmail.$valid && oForm.inputEmail.$dirty , 'is-invalid' : oForm.inputEmail.$invalid && oForm.inputEmail.$dirty}"
+                            type="text" class="form-control" id="inputEmail" placeholder="Email"
+                            ng-model="entityData.email" ng-pattern="regexService.email" ng-minlength="5"
+                            ng-maxlength="50" required>
+                        <div ng-show="oForm.inputEmail.$invalid" class="invalid-feedback">
+                            Por favor introduce un correo electrónico válido de longitud mínima 5 caracteres</div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputDescuento" class="col-sm-2 col-form-label">Descuento: </label>
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <input name="inputDescuento"
+                                ng-class="{ 'is-valid' : oForm.inputDescuento.$valid && oForm.inputDescuento.$dirty , 'is-invalid' : oForm.inputDescuento.$invalid && oForm.inputDescuento.$dirty}"
+                                type="number" class="form-control" id="inputDescuento" placeholder="Descuento"
+                                ng-model="entityData.descuento" ng-pattern="regexService.integerZeroTo99"
+                                ng-minlength="1" ng-maxlength="2" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text">%</span>
+                            </div>
+                            <div ng-show="oForm.inputDescuento.$invalid" class="invalid-feedback">
+                                Por favor introduce un descuento de 0 a 99%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputIdTipousuario" class="col-sm-2 col-form-label">Tipo de usuario: </label>
+                    <div class="col-sm-5">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="btn-secondary btn" data-toggle="modal" data-target="#modalTipoUsuario">
+                                    <i ng-class="iconService.getIcon('buscar')"></i>
+                                </div>
+                            </div>
+                            <input name="inputIdTipousuario"
+                                ng-class="{ 'is-valid' : oForm.inputIdTipousuario.$valid && oForm.inputIdTipousuario.$dirty , 'is-invalid' : oForm.inputIdTipousuario.$invalid && oForm.inputIdTipousuario.$dirty}"
+                                type="text" class="form-control" id="inputIdTipousuario" placeholder="Usuario"
+                                ng-change="lookupTipousuario()" ng-minlength="1" ng-maxlength="10" required
+                                ng-model-options="{debounce: 1000}" ng-model="entityData.tipousuario.id"
+                                ng-pattern="regexService.integer">
+                            <div class="input-group-append">
+                                <div class="btn-secondary btn" role="alert">
+                                    {{entityData.tipousuario.nombre}}
+                                </div>
+                            </div>
+                            <div ng-show="oForm.inputIdTipousuario.$invalid" class="invalid-feedback">
+                                Por favor selecciona un tipo de usuario o introduce su número</div>
+                        </div>
+                    </div>
+                    <tipousuarioselection class="modal fade" id="modalTipoUsuario" obj="entityData.tipousuario">
+                    </tipousuarioselection>
+                </div>
+
+                <div class="form-group row text-right">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-success" ng-disabled="oForm.$invalid||oForm.$pristine"
+                            ng-click="save()">Guardar</button>
+                        <a type="button" class="btn btn-primary" href="home">Ir a home</a>
+                        <button type="button" class="btn btn-primary" ng-click="back()">
+                            Volver
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<ng-include src="'include/footer.html'"></ng-include>

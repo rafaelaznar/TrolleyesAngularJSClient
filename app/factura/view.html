@@ -10,23 +10,23 @@
       <table class="table table-striped table-sm">
         <tr>
           <th>Id</th>
-          <td>{{entity.id}}</td>
+          <td>{{entityData.id}}</td>
         </tr>
         <tr>
           <th>Fecha</th>
-          <td>{{entity.fecha}}</td>
+          <td>{{entityData.fecha}}</td>
         </tr>
         <tr>
           <th>IVA</th>
-          <td>{{entity.iva}}</td>
+          <td>{{entityData.iva}}</td>
         </tr>
         <tr>
           <th>Usuario</th>
-          <td>{{entity.usuario.nombre}} {{entity.usuario.apellido1}} {{entity.usuario.apellido2}}</td>
+          <td>{{entityData.usuario.nombre}} {{entityData.usuario.apellido1}} {{entityData.usuario.apellido2}}</td>
         </tr>
         <tr>
           <th>Pagado</th>
-          <td>{{entity.pagado ? 'si' : 'no'}}</td>
+          <td>{{entityData.pagado ? 'si' : 'no'}}</td>
         </tr>
       </table>
 

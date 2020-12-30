@@ -1,23 +1,19 @@
 miModulo.controller("compraxfacturaPlistController", [
-    "$scope",
-    "auth",
-    "$location",
-    "ajaxService",
-    "$routeParams",
-    "iconService",
-    function ($scope, auth, $location, ajaxService, $routeParams, iconService) {
-        $scope.controller = "compraxfacturaPlistController";
+    "$scope", "auth", "$location", "ajaxService", "$routeParams", "iconService", "titleService",
+    function ($scope, auth, $location, ajaxService, $routeParams, iconService, titleService) {
+
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
         } else {
             $location.path("/home");
         }
-        $scope.operationIcon = iconService.getIcon("edit");
-        $scope.operationName = "Listado de ";
-        $scope.entityName = "compra";
-        $scope.entityIcon = iconService.getIcon($scope.entityName);
+
+        $scope.operation = "plist";
+        $scope.entity = "compra";
+        $scope.subEntity = "factura";
         $scope.iconService = iconService;
-        
+        $scope.titleService = titleService;
+
         $scope.status = {};
         $scope.status.success = "";
         $scope.status.error = "";
@@ -49,12 +45,13 @@ miModulo.controller("compraxfacturaPlistController", [
             $scope.orderDirection = $routeParams.orderdirection;
         }
 
-        ajaxService.ajaxPlistx($scope.entityName, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection, "factura", $scope.factura).then(function (response) {
+        ajaxService.ajaxPlistx($scope.entity, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection, "factura", $scope.factura).then(function (response) {
             $scope.entities = response.data;
             $scope.pages = response.data.totalPages;
+            $scope.registers = response.data.totalElements;
             paginacion();
         }).catch(function (error) {
-            $scope.status.error = "ERROR: Las " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
+            $scope.status.error = "ERROR: Las " + $scope.entity + " con id " + $scope.id + " NO se ha podido leer.";
         });
 
         function paginacion() {

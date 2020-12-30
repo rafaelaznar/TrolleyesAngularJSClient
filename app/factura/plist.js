@@ -1,22 +1,17 @@
 miModulo.controller("facturaPlistController", [
-    "$scope",
-    "auth",
-    "$location",
-    "ajaxService",
-    "$routeParams",
-    "iconService",
-    function ($scope, auth, $location, ajaxService, $routeParams, iconService) {
-        $scope.controller = "facturaPlistController";
+    "$scope", "auth", "$location", "ajaxService", "$routeParams", "iconService", "titleService",
+    function ($scope, auth, $location, ajaxService, $routeParams, iconService, titleService) {
+
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
         } else {
             $location.path("/home");
         }
-        $scope.operationIcon = iconService.getIcon("edit");
-        $scope.operationName = "Listado de ";
-        $scope.entityName = "factura";
-        $scope.entityIcon = iconService.getIcon($scope.entityName);
+
+        $scope.operation = "plist";
+        $scope.entity = "factura";
         $scope.iconService = iconService;
+        $scope.titleService = titleService;
 
         $scope.status = {};
         $scope.status.success = "";
@@ -48,12 +43,13 @@ miModulo.controller("facturaPlistController", [
             $scope.orderDirection = $routeParams.orderdirection;
         }
 
-        ajaxService.ajaxPlist($scope.entityName, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection).then(function (response) {
+        ajaxService.ajaxPlist($scope.entity, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection).then(function (response) {
             $scope.entities = response.data;
             $scope.pages = response.data.totalPages;
+            $scope.registers = response.data.totalElements;
             paginacion();
         }).catch(function (error) {
-            $scope.status.error = "ERROR: Los " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
+            $scope.status.error = "ERROR: Los " + $scope.entity + " con id " + $scope.id + " NO se ha podido leer.";
         });
 
         function paginacion() {
@@ -73,7 +69,7 @@ miModulo.controller("facturaPlistController", [
 
         $scope.printFactura = function (id) {
             // pedir los datos de la factura -> rafa
-            ajaxService.ajaxGet($scope.entityName, id).then(function (response) {
+            ajaxService.ajaxGet($scope.entity, id).then(function (response) {
                 $scope.facturaEntity = response.data;
                 // pedir las compras de la factura ->rafa
                 ajaxService.ajaxAllx("compra", "factura", id).then(function (response) {
@@ -82,10 +78,10 @@ miModulo.controller("facturaPlistController", [
                     var doc = new jsPDF();
                     //var doc = new jsPDF('p','pt','a4');
                     // rellenar el pdf ->alumno/a 
-                    doc.setFontSize(30); 
+                    doc.setFontSize(30);
                     doc.text("Factura", 80, 15);
                     doc.setFontSize(11);
-                    doc.text("Fecha: ", 10, 25);     
+                    doc.text("Fecha: ", 10, 25);
                     doc.text($scope.facturaEntity.fecha, 25, 25);
                     doc.text("Cliente: ", 10, 35);
                     doc.text($scope.facturaEntity.usuario.apellido1, 25, 35);
@@ -99,7 +95,7 @@ miModulo.controller("facturaPlistController", [
                     doc.text("Nombre", 10, 70);
                     doc.text("Precio", 110, 70);
                     doc.text("Cantidad", 130, 70);
-                    doc.text( "Subtotal", 150, 70);
+                    doc.text("Subtotal", 150, 70);
                     let subtotal = 0;
                     let y;
                     for (let i = 0; i < $scope.compraEntities.length; i++) {
@@ -117,17 +113,17 @@ miModulo.controller("facturaPlistController", [
                         doc.line(10, 75 + y, 200, 75 + y)
 
                     }
-                    doc.line(90, 65+y, 180, 65+y)
-                    doc.text("Total a pagar", 110, 90+y);
-                    doc.text(subtotal.toFixed(2).toString(), 150, 90+y);
+                    doc.line(90, 65 + y, 180, 65 + y)
+                    doc.text("Total a pagar", 110, 90 + y);
+                    doc.text(subtotal.toFixed(2).toString(), 150, 90 + y);
 
                     // mostrar el pdf ->rafa
                     doc.save('Factura' + Math.floor(Math.random() * 100000))
                 }).catch(function (error) {
-                    $scope.status.error = "ERROR: Las compras de la " + $scope.entityName + " con id " + id + " NO se ha podido leer.";
+                    $scope.status.error = "ERROR: Las compras de la " + $scope.entity + " con id " + id + " NO se ha podido leer.";
                 });
             }).catch(function (error) {
-                $scope.status.error = "ERROR: La " + $scope.entityName + " con id " + id + " NO se ha podido leer.";
+                $scope.status.error = "ERROR: La " + $scope.entity + " con id " + id + " NO se ha podido leer.";
             });
         }
 

@@ -1,23 +1,17 @@
 miModulo.controller("usuarioPlistController", [
-    "$scope",
-    "auth",
-    "$location",
-    "ajaxService",
-    "$routeParams",
-    "iconService",
-    function ($scope, auth, $location, ajaxService, $routeParams, iconService) {
-        $scope.controller = "usuarioPlistController";
+    "$scope", "auth", "$location", "ajaxService", "$routeParams", "iconService", "titleService",
+    function ($scope, auth, $location, ajaxService, $routeParams, iconService, titleService) {
+
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
         } else {
             $location.path("/home");
         }
-        //los clientes no deben entrar a esta URL 
-        $scope.operationIcon = iconService.getIcon("edit");
-        $scope.operationName = "Listado de ";
-        $scope.entityName = "usuario";
-        $scope.entityIcon = iconService.getIcon($scope.entityName);
+
+        $scope.operation = "plist";
+        $scope.entity = "usuario";
         $scope.iconService = iconService;
+        $scope.titleService = titleService;
 
         $scope.status = {};
         $scope.status.success = "";
@@ -49,12 +43,13 @@ miModulo.controller("usuarioPlistController", [
             $scope.orderDirection = $routeParams.orderdirection;
         }
 
-        ajaxService.ajaxPlist($scope.entityName, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection).then(function (response) {
-            $scope.entities = response.data;
+        ajaxService.ajaxPlist($scope.entity, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection).then(function (response) {
+            $scope.entitiesData = response.data;
             $scope.pages = response.data.totalPages;
+            $scope.registers = response.data.totalElements;
             paginacion();
         }).catch(function (error) {
-            $scope.status.error = "ERROR: Los " + $scope.entityName + " con id " + $scope.id + " NO se ha podido leer.";
+            $scope.status.error = "ERROR: Los " + $scope.entity + " con id " + $scope.id + " NO se ha podido leer.";
         });
 
         function paginacion() {
@@ -71,8 +66,5 @@ miModulo.controller("usuarioPlistController", [
                 }
             }
         }
-
-
-
 
     }])

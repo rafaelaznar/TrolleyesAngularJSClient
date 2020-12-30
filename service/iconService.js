@@ -5,6 +5,9 @@ miModulo.factory("iconService", [
                 switch (icon) {
 
                     //Iconos de las entidades
+                    case "system":
+                        return "fas fa-shopping-basket";
+                        break;
                     case "producto":
                         return "fas fa-gift";
                         break;
@@ -32,7 +35,7 @@ miModulo.factory("iconService", [
                         return "fas fa-eye";
                         break;
                     case "plist":
-                        return "fas fa-edit";
+                        return "fas fa-list";
                         break;
                     case "remove":
                         return "fas fa-eraser";
@@ -42,6 +45,9 @@ miModulo.factory("iconService", [
                         break;
                     case "edit":
                         return "fas fa-edit";
+                        break;
+                    case "fill":
+                        return "fas fa-random";
                         break;
 
                     //Iconos de los desplegables del menú

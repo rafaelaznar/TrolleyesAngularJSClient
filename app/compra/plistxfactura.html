@@ -12,15 +12,15 @@
                 <nav aria-label="rpp">
                     <ul class="pagination">
                         <li class="page-item" ng-class="{'active':(rpp==10)}">
-                            <a class="page-link" href="{{entityName}}/factura/{{page}}/10/{{factura}}" tabindex="-1"
+                            <a class="page-link" href="{{entity}}/{{subEntity}}/{{page}}/10/{{factura}}" tabindex="-1"
                                 aria-disabled="true">10</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==50)}">
-                            <a class="page-link" href="{{entityName}}/factura/{{page}}/50/{{factura}}" tabindex="-1"
+                            <a class="page-link" href="{{entity}}/{{subEntity}}/{{page}}/50/{{factura}}" tabindex="-1"
                                 aria-disabled="true">50</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==100)}">
-                            <a class="page-link" href="{{entityName}}/factura/{{page}}/100/{{factura}}" tabindex="-1"
+                            <a class="page-link" href="{{entity}}/{{subEntity}}/{{page}}/100/{{factura}}" tabindex="-1"
                                 aria-disabled="true">100</a>
                         </li>
                     </ul>
@@ -30,7 +30,7 @@
                         <li class="page-item" ng-class="{'active':(page==p)}" ng-disabled="p == '...'"
                             ng-repeat="p in botonera track by $index">
                             <a class="page-link" ng-if="p != '...'"
-                                href="{{entityName}}/factura/{{p}}/{{rpp}}/{{orderfield}}/{{orderdirection}}/{{factura}}">{{p}}</a>
+                                href="{{entity}}/{{subEntity}}/{{p}}/{{rpp}}/{{orderfield}}/{{orderdirection}}/{{factura}}">{{p}}</a>
                             <span class="page-link" ng-if="p == '...'">{{p}}</span>
                         </li>
                     </ul>
@@ -40,66 +40,66 @@
                 <tr>
                     <th class="text-center">
                         id<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/id/asc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/id/asc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/id/desc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/id/desc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         cod.producto<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/producto/asc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/producto/asc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/producto/desc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/producto/desc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         producto<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/producto/asc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/producto/asc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/producto/desc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/producto/desc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
 
                     <th class="text-center">
                         cantidad<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/cantidad/asc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/cantidad/asc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/cantidad/desc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/cantidad/desc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         precio<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/precio/asc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/precio/asc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/precio/desc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/precio/desc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         fecha<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/fecha/asc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/fecha/asc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/fecha/desc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/fecha/desc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         descuento usuario<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/descuento_usuario/asc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/descuento_usuario/asc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/descuento_usuario/desc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/descuento_usuario/desc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         descuento producto<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/descuento_producto/asc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/descuento_producto/asc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/descuento_producto/desc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/descuento_producto/desc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         factura<br>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/factura/asc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/factura/asc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entityName}}/factura/{{page}}/{{rpp}}/factura/desc/{{factura}}"><i
+                        <a href="{{entity}}/{{subEntity}}/{{page}}/{{rpp}}/factura/desc/{{factura}}"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
@@ -124,11 +124,11 @@
                         <div class="row">
                             <div class="col-md-12 text-left">
                                 <div class="btn-group" role="group" aria-label="Herramientas">
-                                    <a class="btn btn-success" href="{{entityName}}/view/{{fila.id}}"><i
+                                    <a class="btn btn-success" href="{{entity}}/view/{{fila.id}}"><i
                                             ng-class="iconService.getIcon('viewHerramientas')"></i></a>
-                                    <a class="btn btn-primary" href="{{entityName}}/edit/{{fila.id}}"><i
+                                    <a class="btn btn-primary" href="{{entity}}/edit/{{fila.id}}"><i
                                             ng-class="iconService.getIcon('editHerramientas')"></i></a>
-                                    <a class="btn btn-danger" href="{{entityName}}/remove/{{fila.id}}"><i
+                                    <a class="btn btn-danger" href="{{entity}}/remove/{{fila.id}}"><i
                                             ng-class="iconService.getIcon('removeHerramientas')"></i></a>
                                 </div>
                             </div>
