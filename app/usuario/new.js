@@ -38,14 +38,6 @@ miModulo.controller("usuarioNewController", [
             });
         }
 
-        $scope.lookupTipousuario = function () {
-            ajaxService.ajaxGet("tipousuario", $scope.entityData.tipousuario.id).then(function (response) {
-                $scope.entityData.tipousuario = response.data;
-            }).catch(function (error) {
-                $scope.entityData.tipousuario = { id: "", nombre: "???" };
-            });
-        }
-
         $scope.back = function () {
             window.history.back();
         };

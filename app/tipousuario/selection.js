@@ -1,65 +1,71 @@
 miModulo.component('tipousuarioselection', {
   templateUrl: 'app/tipousuario/selection.html',
   bindings: {
-    obj: '='
+    obj: '=',
+    form: '='
   },
+  controllerAs: 'c',
   controller: addModalVarController
 });
 
-function addModalVarController($scope, ajaxService, iconService, titleService) {
+function addModalVarController(ajaxService, iconService, titleService, regexService) {
   var self = this;
 
-  $scope.entity = "tipousuario";
-  $scope.iconService = iconService;
-  $scope.titleService = titleService;
+  self.entity = "tipousuario";
+  self.iconService = iconService;
+  self.titleService = titleService;
+  self.regexService = regexService;
 
-  $scope.status = {};
-  $scope.status.success = "";
-  $scope.status.error = "";
+  self.status = {};
+  self.status.success = "";
+  self.status.error = "";
 
-  $scope.neighbourhood = 2;
+  self.neighbourhood = 2;
 
-  $scope.page = 1;
-  $scope.rpp = 10;
-  $scope.orderField = "id";
-  $scope.orderDirection = "asc";
+  self.page = 1;
+  self.rpp = 10;
+  self.orderField = "id";
+  self.orderDirection = "asc";
 
-  $scope.recarga = function (page, rpp, orderField, orderDirection) {
-    ajaxService.ajaxPlist($scope.entity, page, rpp, orderField, orderDirection).then(function (response) {
-      $scope.entities = response.data;
-      $scope.pages = response.data.totalPages;
-      $scope.page = page;
-      $scope.rpp = rpp;
-      $scope.orderField = orderField;
-      $scope.orderDirection = orderDirection;
+  self.recarga = function (page, rpp, orderField, orderDirection) {
+    ajaxService.ajaxPlist(self.entity, page, rpp, orderField, orderDirection).then(function (response) {
+      self.entities = response.data.content;
+      self.pages = response.data.totalPages;
+      self.page = page;
+      self.rpp = rpp;
+      self.orderField = orderField;
+      self.orderDirection = orderDirection;
       paginacion();
     }).catch(function (error) {
-      $scope.status.error = "ERROR: Los " + $scope.entity + " con id " + $scope.id + " NO se ha podido leer.";
+      self.status.error = "ERROR: Los " + self.entity + " con id " + self.id + " NO se ha podido leer.";
     });
   }
 
   function paginacion() {
-    $scope.botonera = [];
-    for (i = 1; i <= $scope.pages; i++) {
+    self.botonera = [];
+    for (i = 1; i <= self.pages; i++) {
       if (i == 1) {
-        $scope.botonera.push(i);
-      } else if (i > ($scope.page - $scope.neighbourhood) && i < ($scope.page + $scope.neighbourhood)) {
-        $scope.botonera.push(i);
-      } else if (i == $scope.pages) {
-        $scope.botonera.push(i);
-      } else if (i == ($scope.page - $scope.neighbourhood) || i == ($scope.page + $scope.neighbourhood)) {
-        $scope.botonera.push('...');
+        self.botonera.push(i);
+      } else if (i > (self.page - self.neighbourhood) && i < (self.page + self.neighbourhood)) {
+        self.botonera.push(i);
+      } else if (i == self.pages) {
+        self.botonera.push(i);
+      } else if (i == (self.page - self.neighbourhood) || i == (self.page + self.neighbourhood)) {
+        self.botonera.push('...');
       }
     }
   }
 
-  $scope.seleccionar = function (identificator) {
-    ajaxService.ajaxGet($scope.entity, identificator).then(function (response) {
+  self.seleccionar = function (identificator) {
+    ajaxService.ajaxGet(self.entity, identificator).then(function (response) {
       self.obj = response.data;
+      self.form.inputIdTipousuario.$setDirty();
     }).catch(function (error) {
-      $scope.status.error = "ERROR: El " + $scope.entity + " con id " + $scope.id + " NO se ha podido leer.";
+      self.obj = { id: "", nombre: "???" };
+      self.form.inputIdTipousuario.$setInvalid();
     });
   }
 
-  $scope.recarga($scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection);
+  self.recarga(self.page, self.rpp, self.orderField, self.orderDirection);
+
 }

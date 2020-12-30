@@ -138,29 +138,10 @@
                 <div class="form-group row">
                     <label for="inputIdTipousuario" class="col-sm-2 col-form-label">Tipo de usuario: </label>
                     <div class="col-sm-5">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="btn-secondary btn" data-toggle="modal" data-target="#modalTipoUsuario">
-                                    <i ng-class="iconService.getIcon('buscar')"></i>
-                                </div>
-                            </div>
-                            <input name="inputIdTipousuario"
-                                ng-class="{ 'is-valid' : oForm.inputIdTipousuario.$valid && oForm.inputIdTipousuario.$dirty , 'is-invalid' : oForm.inputIdTipousuario.$invalid && oForm.inputIdTipousuario.$dirty}"
-                                type="text" class="form-control" id="inputIdTipousuario" placeholder="Usuario"
-                                ng-change="lookupTipousuario()" ng-minlength="1" ng-maxlength="10" required
-                                ng-model-options="{debounce: 1000}" ng-model="entityData.tipousuario.id"
-                                ng-pattern="regexService.integer">
-                            <div class="input-group-append">
-                                <div class="btn-secondary btn" role="alert">
-                                    {{entityData.tipousuario.nombre}}
-                                </div>
-                            </div>
-                            <div ng-show="oForm.inputIdTipousuario.$invalid" class="invalid-feedback">
-                                Por favor selecciona un tipo de usuario o introduce su número</div>
-                        </div>
+                        <tipousuarioselection obj="entityData.tipousuario" form="oForm">
+                        </tipousuarioselection>
                     </div>
-                    <tipousuarioselection class="modal fade" id="modalTipoUsuario" obj="entityData.tipousuario">
-                    </tipousuarioselection>
+
                 </div>
 
                 <div class="form-group row text-right">

@@ -21,14 +21,11 @@ miModulo.controller("tipousuarioNewController", [
             var datos = JSON.stringify({
                 nombre: $scope.entity.nombre
             });
-            ajaxService
-                .ajaxNew($scope.entity, datos)
-                .then(function (response) {
-                    $scope.status.success = "El " + $scope.entity + " " + $scope.entity.nombre + " ha sido guardado.";
-                })
-                .catch(function (error) {
-                    $scope.status.error = "ERROR: El " + $scope.entity + " con id " + $scope.id + " NO se ha podido leer.";
-                });
+            ajaxService.ajaxNew($scope.entity, datos).then(function (response) {
+                $scope.status.success = "El " + $scope.entity + " " + $scope.entity.nombre + " ha sido guardado.";
+            }).catch(function (error) {
+                $scope.status.error = "ERROR: El " + $scope.entity + " con id " + $scope.id + " NO se ha podido leer.";
+            });
         };
 
         $scope.back = function () {

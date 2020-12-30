@@ -1,6 +1,6 @@
 miModulo.controller("usuarioEditController", [
-  "$scope", "auth", "$location", "ajaxService", "$routeParams", "iconService", "titleService",
-  function ($scope, auth, $location, ajaxService, $routeParams, iconService, titleService) {
+  "$scope", "auth", "$location", "ajaxService", "$routeParams", "iconService", "titleService", "regexService",
+  function ($scope, auth, $location, ajaxService, $routeParams, iconService, titleService, regexService) {
 
     if (auth.data.status == 200) {
       $scope.datosDeSesion = auth.data;
@@ -12,6 +12,7 @@ miModulo.controller("usuarioEditController", [
     $scope.entity = "usuario";
     $scope.iconService = iconService;
     $scope.titleService = titleService;
+    $scope.regexService = regexService;
 
     $scope.status = {};
     $scope.status.success = "";
