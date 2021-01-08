@@ -12,15 +12,15 @@
                 <nav aria-label="rpp">
                     <ul class="pagination">
                         <li class="page-item" ng-class="{'active':(rpp==10)}">
-                            <a class="page-link" href="{{entity}}/plist/{{page}}/10/" tabindex="-1"
+                            <a class="page-link" href="{{entity}}/plist/{{page}}/10/{{orderField}}/{{orderDirection}}/" tabindex="-1"
                                 aria-disabled="true">10</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==50)}">
-                            <a class="page-link" href="{{entity}}/plist/{{page}}/50/" tabindex="-1"
+                            <a class="page-link" href="{{entity}}/plist/{{page}}/50/{{orderField}}/{{orderDirection}}/" tabindex="-1"
                                 aria-disabled="true">50</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==100)}">
-                            <a class="page-link" href="{{entity}}/plist/{{page}}/100/" tabindex="-1"
+                            <a class="page-link" href="{{entity}}/plist/{{page}}/100/{{orderField}}/{{orderDirection}}/" tabindex="-1"
                                 aria-disabled="true">100</a>
                         </li>
                     </ul>
@@ -30,7 +30,7 @@
                         <li class="page-item" ng-class="{'active':(page==p)}" ng-disabled="p == '...'"
                             ng-repeat="p in botonera track by $index">
                             <a class="page-link" ng-if="p != '...'"
-                                href="{{entity}}/plist/{{p}}/{{rpp}}/{{orderfield}}/{{orderdirection}}/">{{p}}</a>
+                                href="{{entity}}/plist/{{p}}/{{rpp}}/{{orderField}}/{{orderDirection}}/">{{p}}</a>
                             <span class="page-link" ng-if="p == '...'">{{p}}</span>
                         </li>
                     </ul>
@@ -103,16 +103,16 @@
                     </th>
                     <th class="text-center">
                         Prods. en Carrito<br>
-                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/carrito/asc"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/carritos/asc"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/carrito/desc"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/carritos/desc"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         Facturas<br>
-                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/carrito/asc"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/facturas/asc"><i
                                 ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/carrito/desc"><i
+                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/facturas/desc"><i
                                 ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th style="width: 5%" class="text-center">
