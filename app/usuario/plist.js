@@ -13,12 +13,10 @@ miModulo.controller("usuarioPlistController", [
         $scope.iconService = iconService;
         $scope.titleService = titleService;
 
-        $scope.status = {};
-        $scope.status.success = "";
-        $scope.status.error = "";
+        $scope.status = { success: "", error: "" };
 
         $scope.page = commonService.getPage($routeParams.page);
-        $scope.rpp = commonService.getRpp($routeParams.rpp);        
+        $scope.rpp = commonService.getRpp($routeParams.rpp);
         $scope.orderField = commonService.getOrderfield($routeParams.orderfield);
         $scope.orderDirection = commonService.getOrderdirection($routeParams.orderdirection);
 
