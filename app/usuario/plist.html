@@ -142,9 +142,11 @@
                                 <div class="btn-group" role="group" aria-label="Herramientas">
                                     <a class="btn btn-success" href="{{entity}}/view/{{fila.id}}"><i
                                             ng-class="iconService.getIcon('viewHerramientas')"></i></a>
-                                    <a class="btn btn-primary" href="{{entity}}/edit/{{fila.id}}"><i
+                                    <a class="btn btn-primary" href="{{entity}}/edit/{{fila.id}}"
+                                        ng-if="fila.carritos==0&&fila.facturas==0"><i
                                             ng-class="iconService.getIcon('editHerramientas')"></i></a>
-                                    <a class="btn btn-danger" href="{{entity}}/remove/{{fila.id}}"><i
+                                    <a class="btn btn-danger" href="{{entity}}/remove/{{fila.id}}"
+                                        ng-if="fila.carritos==0&&fila.facturas==0"><i
                                             ng-class="iconService.getIcon('removeHerramientas')"></i></a>
                                 </div>
                             </div>
