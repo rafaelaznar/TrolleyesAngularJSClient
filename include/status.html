@@ -9,6 +9,16 @@
                 <h1><i ng-class="iconService.getIcon('fail')"></i></h1>
                 <h3>{{status.error}}</h3>
             </div>
+            <div class="control-group text-center">
+                <div class="controls">                  
+                  <a type="button" class="btn btn-primary" href="{{entity}}/plist">Ver listado</a>
+                  <a type="button" class="btn btn-primary" href="home">Ir a home</a>
+                  <button type="button" class="btn btn-primary" ng-click="back()">
+                    Volver
+                  </button>
+                </div>
+              </div>
+
         </div>
     </div>
 </div>
