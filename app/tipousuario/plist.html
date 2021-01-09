@@ -25,16 +25,12 @@
                     </th>
                     <th class="text-center">
                         usuarios<br>
-                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/usuarios/asc"><i
-                                ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/usuarios/desc"><i
-                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th style="width: 5%" class="text-center">
                         herramientas
                     </th>
                 </tr>
-                <tr ng-repeat="fila in entities.content">
+                <tr ng-repeat="fila in entitiesData.content">
                     <td class="text-center">{{fila.id}}</td>
                     <td class="font-weight-bold">{{fila.nombre}}</td>
                     <td class="text-center">{{fila.usuarios}}</td>
