@@ -11,7 +11,8 @@ miModulo.factory("configService", [
             defaultPage: 1,
             defaultRpp: 10,
             defaultOrderfield: "id",
-            defaultOrderdirection: "asc"
+            defaultOrderdirection: "asc",
+            defaultFilter: ""
         };
     },
 ]);

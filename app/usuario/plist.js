@@ -21,21 +21,24 @@ miModulo.controller("usuarioPlistController", [
         $scope.orderDirection = commonService.getOrderdirection($routeParams.orderdirection);
 
         ajaxService.ajaxPlist($scope.entity, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection).then(function (response) {
-            $scope.entitiesData = response.data;
-            $scope.pages = response.data.totalPages;
-            if ($scope.page > $scope.pages) {
-                $scope.page = $scope.pages;
+            if ($scope.page > response.data.totalPages) {
+                $scope.page = response.data.totalPages;
                 ajaxService.ajaxPlist($scope.entity, $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection).then(function (response) {
                     $scope.entitiesData = response.data;
                     $scope.pages = response.data.totalPages;
+                    $scope.registers = response.data.totalElements;
+                    $scope.botonera = commonService.pagination($scope.pages, $scope.page);
                 }).catch(function (error) {
-                    $scope.status.error = "ERROR: Los " + $scope.entity + " con id " + $scope.id + " NO se ha podido leer.";
+                    $scope.status.error = "Error de comunicación con el servidor.";
                 });
+            } else {
+                $scope.entitiesData = response.data;
+                $scope.pages = response.data.totalPages;
+                $scope.registers = response.data.totalElements;
+                $scope.botonera = commonService.pagination($scope.pages, $scope.page);
             }
-            $scope.registers = response.data.totalElements;
-            $scope.botonera = commonService.pagination($scope.pages, $scope.page);
         }).catch(function (error) {
-            $scope.status.error = "ERROR: Los " + $scope.entity + " con id " + $scope.id + " NO se ha podido leer.";
+            $scope.status.error = "Error de comunicación con el servidor.";
         });
 
     }])

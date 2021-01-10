@@ -112,23 +112,15 @@
                     </th>
                     <th class="text-center">
                         compras<br>
-                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/compras/asc/{{filter}}"><i
-                                ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/compras/desc/{{filter}}"><i
-                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th class="text-center">
                         carritos<br>
-                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/carritos/asc/{{filter}}"><i
-                                ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/carritos/desc/{{filter}}"><i
-                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th style="width: 5%" class="text-center">
                         herramientas
                     </th>
                 </tr>
-                <tr ng-repeat="fila in entities.content">
+                <tr ng-repeat="fila in entitiesData.content">
                     <td class="text-center">{{fila.id}}</td>
                     <td class="text-left font-weight-bold">{{fila.codigo}} </td>
                     <td>{{fila.nombre}}</td>

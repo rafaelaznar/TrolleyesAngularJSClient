@@ -44,8 +44,14 @@ miModulo.factory("commonService", [
         } else {
           return orderdirection;
         }
+      },
+      getFilter: function (filter) {
+        if (filter == undefined) {
+          return configService.defaultFilter;
+        } else {
+          return filter;
+        }
       }
-
     }
   }
 ])
