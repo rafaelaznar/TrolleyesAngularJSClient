@@ -12,16 +12,16 @@
                 <nav aria-label="rpp">
                     <ul class="pagination">
                         <li class="page-item" ng-class="{'active':(rpp==10)}">
-                            <a class="page-link" href="{{entity}}/plist/{{page}}/10/" tabindex="-1"
-                                aria-disabled="true">10</a>
+                            <a class="page-link" href="{{entity}}/plist/{{page}}/10/{{orderField}}/{{orderDirection}}/"
+                                tabindex="-1" aria-disabled="true">10</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==50)}">
-                            <a class="page-link" href="{{entity}}/plist/{{page}}/50/" tabindex="-1"
-                                aria-disabled="true">50</a>
+                            <a class="page-link" href="{{entity}}/plist/{{page}}/50/{{orderField}}/{{orderDirection}}/"
+                                tabindex="-1" aria-disabled="true">50</a>
                         </li>
                         <li class="page-item" ng-class="{'active':(rpp==100)}">
-                            <a class="page-link" href="{{entity}}/plist/{{page}}/100/" tabindex="-1"
-                                aria-disabled="true">100</a>
+                            <a class="page-link" href="{{entity}}/plist/{{page}}/100/{{orderField}}/{{orderDirection}}/"
+                                tabindex="-1" aria-disabled="true">100</a>
                         </li>
                     </ul>
                 </nav>
@@ -54,16 +54,12 @@
                     </th>
                     <th class="text-center">
                         productos<br>
-                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/productos/asc"><i
-                                ng-class="iconService.getIcon('flechaUp')"></i></a>
-                        <a href="{{entity}}/plist/{{page}}/{{rpp}}/productos/desc"><i
-                                ng-class="iconService.getIcon('flechaDown')"></i></a>
                     </th>
                     <th style="width: 5%" class="text-center">
                         herramientas
                     </th>
                 </tr>
-                <tr ng-repeat="fila in entities.content">
+                <tr ng-repeat="fila in entitiesData.content">
                     <td class="text-center">{{fila.id}}</td>
                     <td class="font-weight-bold">{{fila.nombre}}</td>
                     <td class="text-center"><a href="producto/{{entity}}////{{fila.id}}">{{fila.productos > 0 ?
