@@ -8,7 +8,7 @@ miModulo.component('tipousuarioselection', {
   controller: addModalVarController
 });
 
-function addModalVarController(ajaxService, iconService, titleService, regexService) {
+function addModalVarController(ajaxService, iconService, titleService, regexService, commonService) {
   var self = this;
 
   self.entity = "tipousuario";
@@ -16,9 +16,7 @@ function addModalVarController(ajaxService, iconService, titleService, regexServ
   self.titleService = titleService;
   self.regexService = regexService;
 
-  self.status = {};
-  self.status.success = "";
-  self.status.error = "";
+  self.status = { success: "", error: "" };
 
   self.neighbourhood = 2;
 
@@ -29,31 +27,29 @@ function addModalVarController(ajaxService, iconService, titleService, regexServ
 
   self.recarga = function (page, rpp, orderField, orderDirection) {
     ajaxService.ajaxPlist(self.entity, page, rpp, orderField, orderDirection).then(function (response) {
-      self.entities = response.data.content;
-      self.pages = response.data.totalPages;
       self.page = page;
       self.rpp = rpp;
       self.orderField = orderField;
       self.orderDirection = orderDirection;
-      paginacion();
-    }).catch(function (error) {
-      self.status.error = "ERROR: Los " + self.entity + " con id " + self.id + " NO se ha podido leer.";
-    });
-  }
-
-  function paginacion() {
-    self.botonera = [];
-    for (i = 1; i <= self.pages; i++) {
-      if (i == 1) {
-        self.botonera.push(i);
-      } else if (i > (self.page - self.neighbourhood) && i < (self.page + self.neighbourhood)) {
-        self.botonera.push(i);
-      } else if (i == self.pages) {
-        self.botonera.push(i);
-      } else if (i == (self.page - self.neighbourhood) || i == (self.page + self.neighbourhood)) {
-        self.botonera.push('...');
+      if (self.page > response.data.totalPages) {
+        self.page = response.data.totalPages;
+        ajaxService.ajaxPlist(self.entity, self.page, rpp, orderField, orderDirection).then(function (response) {
+          self.entitiesData = response.data.content;
+          self.pages = response.data.totalPages;
+          self.registers = response.data.totalElements;
+          self.botonera = commonService.pagination(self.pages, self.page);
+        }).catch(function (error) {
+          self.status.error = "Error de comunicación con el servidor.";
+        });
+      } else {
+        self.entitiesData = response.data.content;
+        self.pages = response.data.totalPages;
+        self.registers = response.data.totalElements;
+        self.botonera = commonService.pagination(self.pages, self.page);
       }
-    }
+    }).catch(function (error) {
+      self.status.error = "Error de comunicación con el servidor.";
+    });
   }
 
   self.seleccionar = function (identificator) {
