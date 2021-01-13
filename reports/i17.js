@@ -5,23 +5,31 @@ miModulo.controller("i17ReportController", [
     "iconService",
     "$http",
     "ajaxService",
-    function ($scope, auth, $location, iconService, $http, ajaxService) {
+    "configService",
+    "titleService",
+    function ($scope, auth, $location, iconService, $http, ajaxService, configService, titleService) {
         $scope.controller = "i17ReportController";
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
         } else {
             $location.path("/home");
         }
+
+        $scope.operation = "report_facturas_x_usuario";
+        $scope.entity = "usuario";
+        $scope.iconService = iconService;
+        $scope.titleService = titleService;
+
+        /*
         $scope.operationIcon = iconService.getIcon("edit");
         $scope.operationName = "Informe de ";
         $scope.entityName = "i17";
         $scope.beautyName = "facturas por usuario";
         $scope.entityIcon = iconService.getIcon($scope.entityName);
         $scope.iconService = iconService;
+        */
 
-        $scope.status = {};
-        $scope.status.success = "";
-        $scope.status.error = "";
+        $scope.status = { success: "", error: "" };
 
         var fini = new Date();
         //fini.setYear(fini.getYear() - 1);
@@ -38,12 +46,12 @@ miModulo.controller("i17ReportController", [
 
         function search() {
             if ($scope.max == 10) {
-                strRequest = configService.getServerURL + "factura/allxusuario/10/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
+                strRequest = configService.getServerURL() + "factura/allxusuario/10/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
             } else {
                 if ($scope.max == 100) {
-                    strRequest = configService.getServerURL + "factura/allxusuario/100/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
+                    strRequest = configService.getServerURL() + "factura/allxusuario/100/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
                 } else {
-                    strRequest = configService.getServerURL + "factura/allxusuario/1000/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
+                    strRequest = configService.getServerURL() + "factura/allxusuario/1000/" + $scope.usuario.id + "/" + moment($scope.fecha1).format("DD-MM-YYYY") + "/" + moment($scope.fecha2).format("DD-MM-YYYY") + "";
                 }
             }
             $http.get(strRequest).then(function (response) {
@@ -53,17 +61,8 @@ miModulo.controller("i17ReportController", [
             });
         }
 
-        $scope.usuario = { id: "", nombre: "???", apellido1: "???", apellido2: "???" };
+        //$scope.usuario = { id: "", nombre: "???", apellido1: "???", apellido2: "???" };
         $scope.entities = [];
-
-        $scope.lookupUsuario = function () {
-            ajaxService.ajaxGet("usuario", $scope.usuario.id).then(function (response) {
-                $scope.usuario = response.data;
-            }).catch(function (error) {
-                $scope.usuario = { id: "", nombre: "???", apellido1: "???", apellido2: "???" };
-            });
-            search();
-        }
 
         $scope.$watch("usuario.id", function () {
             preSearch();
@@ -82,7 +81,8 @@ miModulo.controller("i17ReportController", [
         })
 
         function preSearch() {
-            if ($scope.usuario.id && $scope.max && $scope.fecha1 && $scope.fecha2) {
+            $scope.entities = [];
+            if ($scope.usuario && $scope.usuario.id && $scope.max && $scope.fecha1 && $scope.fecha2) {
                 search();
             }
         };

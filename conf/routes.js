@@ -343,7 +343,7 @@ miModulo.config([
     });
 
     $routeProvider.when("/factura/edit/:id", {
-      templateUrl: "app/factura/edit.html",
+      templateUrl: "app/factura/form.html",
       controller: "facturaEditController",
       resolve: {
         auth: function (ajaxService) {
@@ -495,7 +495,7 @@ miModulo.config([
       }
     });
     $routeProvider.when("/factura/new/", {
-      templateUrl: "app/factura/new.html",
+      templateUrl: "app/factura/form.html",
       controller: "facturaNewController",
       resolve: {
         auth: function (ajaxService) {

@@ -234,6 +234,23 @@ miModulo.factory("titleService", [
 
                     case "usuario":
                         switch (operation) {
+
+
+                            case "report_facturas_x_usuario":
+                                switch (language) {
+                                    case "es":
+                                        return "Informe de facturas por usuario";
+                                        break;
+                                    case "en":
+                                        return "Report of the invoices by user";
+                                        break;
+                                    case "va":
+                                        return "Informe de factures per usuari";
+                                        break;
+                                }
+                                break;
+
+
                             case "view":
                                 switch (language) {
                                     case "es":

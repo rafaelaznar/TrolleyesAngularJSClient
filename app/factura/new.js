@@ -31,14 +31,6 @@ miModulo.controller("facturaNewController", [
             });
         }
 
-        $scope.lookupUsuario = function () {
-            ajaxService.ajaxGet("usuario", $scope.entityData.usuario.id).then(function (response) {
-                $scope.entity.usuario = response.data;
-            }).catch(function (error) {
-                $scope.entity.usuario = { id: "", nombre: "???" };
-            });
-        }
-
         $scope.back = function () {
             window.history.back();
         };

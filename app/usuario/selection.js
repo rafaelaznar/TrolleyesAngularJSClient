@@ -1,62 +1,67 @@
 miModulo.component('usuarioselection', {
   templateUrl: 'app/usuario/selection.html',
   bindings: {
-    obj: '='
+    obj: '=',
+    form: '='
   },
+  controllerAs: 'c',
   controller: addModalVarController
 });
 
-function addModalVarController($scope, ajaxService, iconService, titleService, commonService) {
+function addModalVarController(ajaxService, iconService, titleService, regexService, commonService) {
   var self = this;
 
-  $scope.operation = "selection";
-  $scope.entity = "usuario";
-  $scope.iconService = iconService;
-  $scope.titleService = titleService;
+  self.entity = "usuario";
+  self.iconService = iconService;
+  self.titleService = titleService;
+  self.regexService = regexService;
 
-  $scope.status = { success: "", error: "" };
+  self.status = { success: "", error: "" };
 
-  $scope.neighbourhood = 2;
+  self.neighbourhood = 2;
 
-  $scope.page = 1;
-  $scope.rpp = 10;
-  $scope.orderField = "id";
-  $scope.orderDirection = "asc";
+  self.page = 1;
+  self.rpp = 10;
+  self.orderField = "id";
+  self.orderDirection = "asc";
 
-  $scope.recarga = function (page, rpp, orderField, orderDirection) {
-    ajaxService.ajaxPlist($scope.entity, page, rpp, orderField, orderDirection).then(function (response) {
-      $scope.page = page;
-      $scope.rpp = rpp;
-      $scope.orderField = orderField;
-      $scope.orderDirection = orderDirection;
-      if ($scope.page > response.data.totalPages) {
-        $scope.page = response.data.totalPages;
-        ajaxService.ajaxPlist($scope.entity, $scope.page, rpp, orderField, orderDirection).then(function (response) {
-          $scope.entitiesData = response.data;
-          $scope.pages = response.data.totalPages;
-          $scope.registers = response.data.totalElements;
-          $scope.botonera = commonService.pagination($scope.pages, $scope.page);
+  self.recarga = function (page, rpp, orderField, orderDirection) {
+    ajaxService.ajaxPlist(self.entity, page, rpp, orderField, orderDirection).then(function (response) {
+      self.page = page;
+      self.rpp = rpp;
+      self.orderField = orderField;
+      self.orderDirection = orderDirection;
+      if (self.page > response.data.totalPages) {
+        self.page = response.data.totalPages;
+        ajaxService.ajaxPlist(self.entity, self.page, rpp, orderField, orderDirection).then(function (response) {
+          self.entitiesData = response.data.content;
+          self.pages = response.data.totalPages;
+          self.registers = response.data.totalElements;
+          self.botonera = commonService.pagination(self.pages, self.page);
         }).catch(function (error) {
-          $scope.status.error = "Error de comunicación con el servidor.";
+          self.status.error = "Error de comunicación con el servidor.";
         });
       } else {
-        $scope.entitiesData = response.data;
-        $scope.pages = response.data.totalPages;
-        $scope.registers = response.data.totalElements;
-        $scope.botonera = commonService.pagination($scope.pages, $scope.page);
+        self.entitiesData = response.data.content;
+        self.pages = response.data.totalPages;
+        self.registers = response.data.totalElements;
+        self.botonera = commonService.pagination(self.pages, self.page);
       }
     }).catch(function (error) {
-      $scope.status.error = "Error de comunicación con el servidor.";
+      self.status.error = "Error de comunicación con el servidor.";
     });
   }
 
-  $scope.seleccionar = function (identificator) {
-    ajaxService.ajaxGet($scope.entity, identificator).then(function (response) {
+  self.seleccionar = function (identificator) {
+    ajaxService.ajaxGet(self.entity, identificator).then(function (response) {
       self.obj = response.data;
+      self.form.inputId.$setDirty();
     }).catch(function (error) {
-      $scope.status.error = "Error de comunicación con el servidor.";
+      self.obj = { id: "", nombre: "???" };
+      self.form.inputId.$setInvalid();
     });
   }
 
-  $scope.recarga($scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection);
+  self.recarga(self.page, self.rpp, self.orderField, self.orderDirection);
+
 }

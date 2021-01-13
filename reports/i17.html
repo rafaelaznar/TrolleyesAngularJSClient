@@ -8,32 +8,15 @@
     <div class="row">
         <div class="col">
 
-            <div class="row">
-                <label for="inputIdUsuario" class="col-sm-2 col-form-label">Usuario: </label>
-                <div class="col-sm-6">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="btn-secondary btn" data-toggle="modal" data-target="#modalUsuario">
-                                <i ng-class="iconService.getIcon('buscar')"></i>
-                            </div>
-                        </div>
-                        <input name="inputIdUsuario"
-                            ng-class="{ 'is-valid' : newForm.inputIdUsuario.$valid && newForm.inputIdUsuario.$dirty , 'is-invalid' : newForm.inputIdUsuario.$invalid && newForm.inputIdUsuario.$dirty}"
-                            type="text" class="form-control" id="inputIdUsuario" placeholder="Usuario"
-                            ng-change="lookupUsuario()" ng-minlength="1" ng-maxlength="10" required
-                            ng-model-options="{debounce: 1000}" ng-model="usuario.id" ng-pattern="/^[1-9][0-9]*$/">
-                        <div class="input-group-append">
-                            <div class="btn-secondary btn" role="alert">
-                                {{usuario.nombre}} {{usuario.apellido1}} {{usuario.apellido2}}
-                            </div>
-                        </div>
-                        <div ng-show="newForm.inputIdUsuario.$invalid" class="invalid-feedback">
-                            Por favor selecciona un usuario </div>
+            <form name="oForm" novalidate>
+                <div class="form-group row">
+                    <label for="inputId" class="col-sm-2 col-form-label">Usuario: </label>
+                    <div class="col-sm-5">
+                        <usuarioselection obj="usuario" form="oForm">
+                        </usuarioselection>
                     </div>
                 </div>
-                <usuarioselection class="modal fade" id="modalUsuario" obj="usuario">
-                </usuarioselection>
-            </div>
+            </form>
 
             <div class="row mt-4">
                 <label for="inputIdUsuario" class="col-sm-2 col-form-label">Entre las fechas: </label>

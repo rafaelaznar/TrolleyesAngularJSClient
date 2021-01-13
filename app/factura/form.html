@@ -8,7 +8,8 @@
     <div class="row">
         <div class="col">
 
-            <form name="editForm" novalidate>
+            <form name="oForm" novalidate>
+
                 <div class="form-group row">
                     <label for="inputId" class="col-sm-2 col-form-label">Id: </label>
                     <div class="col-sm-2">
@@ -21,11 +22,11 @@
                     <label for="inputFecha" class="col-sm-2 col-form-label">Fecha: </label>
                     <div class="col-sm-3">
                         <md-datepicker name="inputFecha"
-                            ng-class="{ 'is-valid' : editForm.inputFecha.$valid && editForm.inputFecha.$dirty, 'is-invalid' : editForm.inputFecha.$invalid && editForm.inputFecha.$dirty}"
+                            ng-class="{ 'is-valid' : oForm.inputFecha.$valid && oForm.inputFecha.$dirty, 'is-invalid' : oForm.inputFecha.$invalid && oForm.inputFecha.$dirty}"
                             type="text" class="form-control" md-placeholder="Enter date" ng-model="fecha" maxlenth="19"
                             required />
                         </md-datepicker>
-                        <div ng-show="editForm.inputFecha.$error.pattern" class="invalid-feedback">
+                        <div ng-show="oForm.inputFecha.$error.pattern" class="invalid-feedback">
                             Error en la fecha
                         </div>
                     </div>
@@ -35,41 +36,21 @@
                     <label for="inputIva" class="col-sm-2 col-form-label">Iva: </label>
                     <div class="col-sm-10">
                         <input name="inputIva"
-                            ng-class="{ 'is-valid' : editForm.inputIva.$valid && editForm.inputIva.$dirty, 'is-invalid' : editForm.inputIva.$invalid && editForm.inputIva.$dirty}"
+                            ng-class="{ 'is-valid' : oForm.inputIva.$valid && oForm.inputIva.$dirty, 'is-invalid' : oForm.inputIva.$invalid && oForm.inputIva.$dirty}"
                             type="text" class="form-control" placeholder="Iva" ng-model="entityData.iva"
                             ng-pattern="/^[0-9]$|^[1-9][0-9]$|^(100)$/" required>
-                        <div ng-show="editForm.inputIva.$invalid" class="invalid-feedback">
+                        <div ng-show="oForm.inputIva.$invalid" class="invalid-feedback">
                             Por favor introduzca un valor de Iva correcto. Puedes usar un número entre 0 y 100.
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputIdUsuario" class="col-sm-2 col-form-label">Usuario: </label>
-                    <div class="col-sm-6">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="btn-secondary btn" data-toggle="modal" data-target="#modalUsuario">
-                                    <i ng-class="iconService.getIcon('buscar')"></i>
-                                </div>
-                            </div>
-                            <input name="inputIdUsuario"
-                                ng-class="{ 'is-valid' : newForm.inputIdUsuario.$valid && newForm.inputIdUsuario.$dirty , 'is-invalid' : newForm.inputIdUsuario.$invalid && newForm.inputIdUsuario.$dirty}"
-                                type="text" class="form-control" id="inputIdUsuario" placeholder="Usuario"
-                                ng-change="lookupUsuario()" ng-minlength="1" ng-maxlength="10" required
-                                ng-model-options="{debounce: 1000}" ng-model="entityData.usuario.id"
-                                ng-pattern="/^[1-9][0-9]*$/">
-                            <div class="input-group-append">
-                                <div class="btn-secondary btn" role="alert">
-                                    {{entityData.usuario.nombre}}{{entityData.usuario.apellido1}}{{entityData.usuario.apellido2}}
-                                </div>
-                            </div>
-                            <div ng-show="newForm.inputIdUsuario.$invalid" class="invalid-feedback">
-                                Por favor selecciona un usuario </div>
-                        </div>
+                    <label for="inputId" class="col-sm-2 col-form-label">Usuario: </label>
+                    <div class="col-sm-5">
+                        <usuarioselection obj="entityData.usuario" form="oForm">
+                        </usuarioselection>
                     </div>
-                    <usuarioselection class="modal fade" id="modalUsuario" obj="entityData.usuario">
-                    </usuarioselection>
                 </div>
 
                 <div class="form-group row">
@@ -81,8 +62,8 @@
 
                 <div class="form-group row text-right">
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-success"
-                            ng-disabled="editForm.$invalid||editForm.$pristine" ng-click="save()">Guardar</button>
+                        <button type="submit" class="btn btn-success" ng-disabled="oForm.$invalid||oForm.$pristine"
+                            ng-click="save()">Guardar</button>
                         <a type="button" class="btn btn-primary" href="home">Ir a home</a>
                         <button type="button" class="btn btn-primary" ng-click="back()">
                             Volver

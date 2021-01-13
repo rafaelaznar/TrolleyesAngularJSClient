@@ -40,12 +40,12 @@ miModulo.controller("i04ReportController", [
         $scope.search = function () {
             $scope.spinner = true;
             if ($scope.max == 10) {
-                strRequest = configService.getServerURL + "producto/orderdescuento/10/" + $scope.direction.name;
+                strRequest = configService.getServerURL() + "producto/orderdescuento/10/" + $scope.direction.name;
             } else {
                 if ($scope.max == 50) {
-                    strRequest = configService.getServerURL + "producto/orderdescuento/50/" + $scope.direction.name;
+                    strRequest = configService.getServerURL() + "producto/orderdescuento/50/" + $scope.direction.name;
                 } else {
-                    strRequest = configService.getServerURL + "producto/orderdescuento/100/" + $scope.direction.name;
+                    strRequest = configService.getServerURL() + "producto/orderdescuento/100/" + $scope.direction.name;
                 }
             }
             $http.get(strRequest).then(function (response) {

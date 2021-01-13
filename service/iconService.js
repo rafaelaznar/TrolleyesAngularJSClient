@@ -2,151 +2,152 @@ miModulo.factory("iconService", [
     function () {
         return {
             getIcon: function (icon) {
-                switch (icon) {
+                switch (true) {
 
                     //Iconos de las entidades
-                    case "system":
+                    case icon == "system":
                         return "fas fa-shopping-basket";
                         break;
-                    case "producto":
+                    case icon == "producto":
                         return "fas fa-gift";
                         break;
-                    case "tipoproducto":
+                    case icon == "tipoproducto":
                         return "fas fa-cubes";
                         break;
-                    case "usuario":
+                    case icon == "usuario":
                         return "fas fa-user";
                         break;
-                    case "tipousuario":
+                    case icon == "tipousuario":
                         return "fas fa-user-friends";
                         break;
-                    case "compra":
+                    case icon == "compra":
                         return "fas fa-cash-register";
                         break;
-                    case "factura":
+                    case icon == "factura":
                         return "fas fa-file-invoice-dollar";
                         break;
-                    case "carrito":
+                    case icon == "carrito":
                         return "fas fa-shopping-cart";
                         break;
 
                     //Iconos de las operaciones
-                    case "view":
+                    case icon == "view":
                         return "fas fa-eye";
                         break;
-                    case "plist":
+                    case icon == "plist":
                         return "fas fa-list";
                         break;
-                    case "remove":
+                    case icon == "remove":
                         return "fas fa-eraser";
                         break;
-                    case "new":
+                    case icon == "new":
                         return "fas fa-plus";
                         break;
-                    case "edit":
+                    case icon == "edit":
                         return "fas fa-edit";
                         break;
-                    case "fill":
+                    case icon == "fill":
                         return "fas fa-random";
                         break;
 
                     //Iconos de los desplegables del menú
-                    case "aleatorioMenu":
+                    case icon == "aleatorioMenu":
                         return "fas fa-random";
                         break;
-                    case "listadoMenu":
+                    case icon == "listadoMenu":
                         return "fas fa-stream";
                         break;
-                    case "newMenu":
+                    case icon == "newMenu":
                         return "far fa-file";
                         break;
 
                     //Iconos de login/logout
-                    case "home":
+                    case icon == "home":
                         return "fas fa-home";
                         break;
-                    case "login":
+                    case icon == "login":
                         return "fas fa-user-friends";
                         break;
-                    case "logout":
+                    case icon == "logout":
                         return "fas fa-sign-out-alt";
                         break;
-                    case "accesoSistema":
+                    case icon == "accesoSistema":
                         return "fas fa-key";
                         break;
-                    case "entradaSistema":
+                    case icon == "entradaSistema":
                         return "fas fa-sign-in";
                         break;
-                    case "salidaSistema":
+                    case icon == "salidaSistema":
                         return "fas fa-sign-in";
                         break;
-                    case "resetLogin":
+                    case icon == "resetLogin":
                         return "fas fa-brush";
                         break;
-                    case "carroImagenes":
+                    case icon == "carroImagenes":
                         return "fas fa-cart-plus";
                         break;
 
                     //Iconos del apartado de herramientas
-                    case "viewHerramientas":
+                    case icon == "viewHerramientas":
                         return "fas fa-eye";
                         break;
-                    case "editHerramientas":
+                    case icon == "editHerramientas":
                         return "fas fa-edit";
                         break;
-                    case "removeHerramientas":
+                    case icon == "removeHerramientas":
                         return "far fa-times";
                         break;
-                    case "printHerramientas":
+                    case icon == "printHerramientas":
                         return "fas fa-print";
                         break;
 
                     //Operación de búsqueda dentro de formulario
-                    case "buscar":
+                    case icon == "buscar":
                         return "fas fa-search";
                         break;
 
                     //Flechas
-                    case "flechaUp":
+                    case icon == "flechaUp":
                         return "fas fa-arrow-up";
                         break;
-                    case "flechaDown":
+                    case icon == "flechaDown":
                         return "fas fa-arrow-down";
                         break;
 
                     //Checks en formulario (pagado/noPagado)
-                    case "ok":
+                    case icon == "ok":
                         return "fas fa-check-square";
                         break;
-                    case "reject":
+                    case icon == "reject":
                         return "fas fa-times-circle";
                         break;
 
                     //Selections
-                    case "check":
+                    case icon == "check":
                         return "fas fa-check";
                         break;
-                    case "vista":
+                    case icon == "vista":
                         return "fas fa-eye";
                         break;
 
                     //Status
-                    case "success":
+                    case icon == "success":
                         return "fas fa-check-circle";
                         break;
-                    case "fail":
+                    case icon == "fail":
                         return "fas fa-bomb";
                         break;
 
                     //GitHub footer
-                    case "footer":
+                    case icon == "footer":
                         return "fab fa-github";
                         break;
 
                     //Impresión
-                    case "printFiles":
+                    case icon.startsWith("report"):
                         return "fas fa-copy";
                         break;
+
                 }
             }
         };
