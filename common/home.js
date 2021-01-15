@@ -1,6 +1,6 @@
 miModulo.controller("HomeController", [
-    "$scope", "auth", "ajaxService", "$routeParams", "iconService", "titleService", "configService", "commonService",
-    function ($scope, auth, ajaxService, $routeParams, iconService, titleService, configService, commonService) {
+    "$scope", "auth", "$location", "ajaxService", "$routeParams", "iconService", "titleService", "configService", "commonService",
+    function ($scope, auth, $location, ajaxService, $routeParams, iconService, titleService, configService, commonService) {
 
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
@@ -21,7 +21,7 @@ miModulo.controller("HomeController", [
         $scope.filter = commonService.getFilter($routeParams.filter);
 
         $scope.doFilter = function () {
-            $location.path("/" + $scope.entity + "/plist/" + $scope.page + "/" + $scope.rpp + "/" + $scope.orderField + "/" + $scope.orderDirection + "/" + $scope.filter);
+            $location.path("/home/" + $scope.page + "/" + $scope.rpp + "/" + $scope.orderField + "/" + $scope.orderDirection + "/" + $scope.filter);
         }
 
         ajaxService.ajaxPlist("producto", $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection, $scope.filter).then(function (response) {
