@@ -1,6 +1,6 @@
 miModulo.controller("HomeController", [
-    "$scope", "auth", "ajaxService", "$routeParams", "iconService", "titleService", "configService",
-    function ($scope, auth, ajaxService, $routeParams, iconService, titleService, configService) {
+    "$scope", "auth", "ajaxService", "$routeParams", "iconService", "titleService", "configService", "commonService",
+    function ($scope, auth, ajaxService, $routeParams, iconService, titleService, configService, commonService) {
 
         if (auth.data.status == 200) {
             $scope.datosDeSesion = auth.data;
@@ -12,59 +12,40 @@ miModulo.controller("HomeController", [
         $scope.titleService = titleService;
         $scope.configService = configService;
 
-        $scope.status = {};
-        $scope.status.success = "";
-        $scope.status.error = "";
+        $scope.status = { success: "", error: "" };
 
-        $scope.neighbourhood = 2;
+        $scope.page = commonService.getPage($routeParams.page);
+        $scope.rpp = commonService.getRpp($routeParams.rpp);
+        $scope.orderField = commonService.getOrderfield($routeParams.orderfield);
+        $scope.orderDirection = commonService.getOrderdirection($routeParams.orderdirection);
+        $scope.filter = commonService.getFilter($routeParams.filter);
 
-        if ($routeParams.page == undefined) {
-            $scope.page = 1;
-        } else {
-            $scope.page = parseInt($routeParams.page);
+        $scope.doFilter = function () {
+            $location.path("/" + $scope.entity + "/plist/" + $scope.page + "/" + $scope.rpp + "/" + $scope.orderField + "/" + $scope.orderDirection + "/" + $scope.filter);
         }
 
-        if ($routeParams.rpp == undefined) {
-            $scope.rpp = 10;
-        } else {
-            $scope.rpp = parseInt($routeParams.rpp);
-        }
-
-        if ($routeParams.orderfield == undefined) {
-            $scope.orderField = "id";
-        } else {
-            $scope.orderField = $routeParams.orderfield;
-        }
-
-        if ($routeParams.orderdirection == undefined) {
-            $scope.orderDirection = "asc";
-        } else {
-            $scope.orderDirection = $routeParams.orderdirection;
-        }
-
-        ajaxService.ajaxPlist("producto", $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection).then(function (response) {
-            $scope.entities = response.data;
-            $scope.pages = response.data.totalPages;
-            $scope.registers = response.data.totalElements;
-            paginacion();
+        ajaxService.ajaxPlist("producto", $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection, $scope.filter).then(function (response) {
+            if ($scope.page > response.data.totalPages) {
+                $scope.page = response.data.totalPages;
+                ajaxService.ajaxPlist("producto", $scope.page, $scope.rpp, $scope.orderField, $scope.orderDirection, $scope.filter).then(function (response) {
+                    $scope.entitiesData = response.data;
+                    $scope.pages = response.data.totalPages;
+                    $scope.registers = response.data.totalElements;
+                    $scope.botonera = commonService.pagination($scope.pages, $scope.page);
+                }).catch(function (error) {
+                    $scope.status.error = "Error de comunicación con el servidor";
+                });
+            } else {
+                $scope.entitiesData = response.data;
+                $scope.pages = response.data.totalPages;
+                $scope.registers = response.data.totalElements;
+                $scope.botonera = commonService.pagination($scope.pages, $scope.page);
+            }
         }).catch(function (error) {
             $scope.status.error = "Error de comunicación con el servidor.";
         });
 
-        function paginacion() {
-            $scope.botonera = [];
-            for (i = 1; i <= $scope.pages; i++) {
-                if (i == 1) {
-                    $scope.botonera.push(i);
-                } else if (i > ($scope.page - $scope.neighbourhood) && i < ($scope.page + $scope.neighbourhood)) {
-                    $scope.botonera.push(i);
-                } else if (i == $scope.pages) {
-                    $scope.botonera.push(i);
-                } else if (i == ($scope.page - $scope.neighbourhood) || i == ($scope.page + $scope.neighbourhood)) {
-                    $scope.botonera.push('...');
-                }
-            }
-        }
+
 
         $scope.carritoAdd = function (id_producto) {
             ajaxService.ajaxCarritoAdd(id_producto, 1).then(function (response) {
